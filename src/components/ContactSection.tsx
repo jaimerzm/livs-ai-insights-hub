@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -8,20 +9,80 @@ import {
   Phone, 
   MapPin 
 } from 'lucide-react';
+import emailjs from 'emailjs-com';
 
 const ContactSection = () => {
   const { toast } = useToast();
   const contactEmail = 'livs.shipping@gmail.com';
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
-    // Por ahora solo mostramos un toast - la integración real requeriría un backend
-    toast({
-      title: "Formulario enviado",
-      description: `Su consulta será enviada a ${contactEmail}. Nos pondremos en contacto con usted lo antes posible.`,
-      duration: 5000,
-    });
+    try {
+      // Para usar EmailJS, necesitas configurar:
+      // 1. Crear una cuenta en emailjs.com
+      // 2. Configurar un servicio de correo electrónico (como Gmail)
+      // 3. Crear una plantilla de correo electrónico
+      // 4. Obtener tu User ID y Service ID
+
+      const templateParams = {
+        from_name: formData.name,
+        to_name: "Equipo LIVS",
+        from_email: formData.email,
+        to_email: contactEmail,
+        company: formData.company,
+        phone: formData.phone,
+        message: formData.message
+      };
+
+      // Reemplazar 'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', y 'YOUR_USER_ID' con tus credenciales de EmailJS
+      await emailjs.send(
+        'YOUR_SERVICE_ID', 
+        'YOUR_TEMPLATE_ID', 
+        templateParams, 
+        'YOUR_USER_ID'
+      );
+
+      toast({
+        title: "Formulario enviado",
+        description: "Su mensaje ha sido enviado correctamente. Nos pondremos en contacto pronto.",
+        duration: 5000,
+      });
+
+      // Limpiar formulario después del envío exitoso
+      setFormData({
+        name: '',
+        company: '',
+        email: '',
+        phone: '',
+        message: ''
+      });
+
+    } catch (error) {
+      console.error("Error al enviar el formulario:", error);
+      toast({
+        title: "Error",
+        description: "Hubo un problema al enviar su mensaje. Por favor, intente nuevamente.",
+        variant: "destructive",
+        duration: 5000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -49,6 +110,8 @@ const ContactSection = () => {
                     placeholder="Su nombre" 
                     required 
                     className="border-livs-gray"
+                    value={formData.name}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="space-y-2">
@@ -59,6 +122,8 @@ const ContactSection = () => {
                     id="company" 
                     placeholder="Nombre de su empresa" 
                     className="border-livs-gray"
+                    value={formData.company}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -74,6 +139,8 @@ const ContactSection = () => {
                     placeholder="Su correo electrónico" 
                     required 
                     className="border-livs-gray"
+                    value={formData.email}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="space-y-2">
@@ -85,6 +152,8 @@ const ContactSection = () => {
                     type="tel" 
                     placeholder="Su número de teléfono" 
                     className="border-livs-gray"
+                    value={formData.phone}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -98,6 +167,8 @@ const ContactSection = () => {
                   placeholder="Describa brevemente su proyecto o consulta" 
                   required 
                   className="border-livs-gray resize-none min-h-[120px]"
+                  value={formData.message}
+                  onChange={handleChange}
                 />
               </div>
               
@@ -116,8 +187,9 @@ const ContactSection = () => {
               <Button 
                 type="submit" 
                 className="w-full bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90 transition-opacity"
+                disabled={isSubmitting}
               >
-                Enviar consulta
+                {isSubmitting ? 'Enviando...' : 'Enviar consulta'}
               </Button>
             </form>
           </div>
