@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -12,15 +11,15 @@ import {
 
 const ContactSection = () => {
   const { toast } = useToast();
+  const contactEmail = 'livs.shipping@gmail.com';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Aquí iría la lógica de envío del formulario
-    
+    // Por ahora solo mostramos un toast - la integración real requeriría un backend
     toast({
       title: "Formulario enviado",
-      description: "Nos pondremos en contacto con usted lo antes posible.",
+      description: `Su consulta será enviada a ${contactEmail}. Nos pondremos en contacto con usted lo antes posible.`,
       duration: 5000,
     });
   };
@@ -131,8 +130,8 @@ const ContactSection = () => {
                   <Mail className="h-6 w-6 text-livs-purple" />
                   <div>
                     <div className="font-medium text-livs-blue">Email</div>
-                    <a href="mailto:info@livs-ai.com" className="text-livs-gray-dark hover:text-livs-purple">
-                      info@livs-ai.com
+                    <a href={`mailto:${contactEmail}`} className="text-livs-gray-dark hover:text-livs-purple">
+                      {contactEmail}
                     </a>
                   </div>
                 </div>
