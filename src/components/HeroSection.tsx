@@ -1,22 +1,28 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { MagnetLinesDemo } from '@/components/ui/magnet-lines-demo';
+
 const HeroSection = () => {
-  return <section className="relative bg-gradient-to-br from-livs-blue via-livs-blue-light to-livs-purple min-h-[90vh] flex items-center">
+  return (
+    <section className="relative bg-gradient-to-br from-livs-blue via-livs-blue-light to-livs-purple min-h-[90vh] flex items-center overflow-hidden">
+      {/* MagnetLines Background */}
+      <MagnetLinesDemo />
+
       {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute top-[10%] left-[5%] w-32 h-32 rounded-full bg-livs-cyan opacity-10 blur-3xl"></div>
         <div className="absolute top-[40%] right-[15%] w-64 h-64 rounded-full bg-livs-purple opacity-10 blur-3xl"></div>
         <div className="absolute bottom-[20%] left-[20%] w-48 h-48 rounded-full bg-livs-cyan opacity-10 blur-3xl"></div>
         
         {/* Grid pattern */}
         <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
-        backgroundSize: '30px 30px'
-      }}></div>
+          backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
+          backgroundSize: '30px 30px'
+        }}></div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 z-10">
+      <div className="container mx-auto px-4 md:px-6 z-10 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-white animate-fade-in">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
@@ -69,6 +75,8 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default HeroSection;
