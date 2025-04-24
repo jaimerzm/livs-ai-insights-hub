@@ -1,5 +1,10 @@
 
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
+
+// Define a custom interface that extends CSSProperties
+interface CustomCSSProperties extends React.CSSProperties {
+  '--rotate'?: string;
+}
 
 function MagnetLines({
   rows = 9,
@@ -58,10 +63,10 @@ function MagnetLines({
         backgroundColor: lineColor,
         width: lineWidth,
         height: lineHeight,
-        "--rotate": `${baseAngle}deg` as any,
+        "--rotate": `${baseAngle}deg`,
         transform: "rotate(var(--rotate))",
         willChange: "transform"
-      }}
+      } as CustomCSSProperties}
     />
   ));
 
@@ -75,7 +80,7 @@ function MagnetLines({
         width: containerSize,
         height: containerSize,
         ...style
-      }}
+      } as CustomCSSProperties}
     >
       {spans}
     </div>
