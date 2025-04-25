@@ -68,7 +68,11 @@ const HeroSection = () => {
               <div className="absolute -bottom-4 -right-4 w-full h-full bg-livs-purple rounded-xl"></div>
               <div className="relative bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl overflow-hidden border border-white/20 shadow-lg p-6">
                 <div className="aspect-video bg-livs-gray-dark rounded-lg overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="Inteligencia Artificial" className="w-full h-full object-cover" />
+                  <img 
+                    src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e" 
+                    alt="Robot representando Inteligencia Artificial" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>
