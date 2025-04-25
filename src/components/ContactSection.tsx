@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -33,12 +32,6 @@ const ContactSection = () => {
     setIsSubmitting(true);
     
     try {
-      // Para usar EmailJS, necesitas configurar:
-      // 1. Crear una cuenta en emailjs.com
-      // 2. Configurar un servicio de correo electrónico (como Gmail)
-      // 3. Crear una plantilla de correo electrónico
-      // 4. Obtener tu User ID y Service ID
-
       const templateParams = {
         from_name: formData.name,
         to_name: "Equipo LIVS",
@@ -49,12 +42,11 @@ const ContactSection = () => {
         message: formData.message
       };
 
-      // Reemplazar 'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', y 'YOUR_USER_ID' con tus credenciales de EmailJS
       await emailjs.send(
-        'YOUR_SERVICE_ID', 
-        'YOUR_TEMPLATE_ID', 
+        'service_livs', 
+        'template_livs', 
         templateParams, 
-        'YOUR_USER_ID'
+        'YOUR_PUBLIC_KEY'
       );
 
       toast({
@@ -63,7 +55,6 @@ const ContactSection = () => {
         duration: 5000,
       });
 
-      // Limpiar formulario después del envío exitoso
       setFormData({
         name: '',
         company: '',
