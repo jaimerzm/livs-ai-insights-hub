@@ -1,14 +1,15 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { SplashCursor } from '@/components/ui/splash-cursor';
-
 const HeroSection = () => {
-  return (
-    <section className="relative bg-black min-h-[90vh] flex items-center overflow-hidden">
+  return <section className="relative bg-black min-h-[90vh] flex items-center overflow-hidden">
       {/* Fluid Background Animation */}
-      <SplashCursor BACK_COLOR={{ r: 0.0, g: 0.0, b: 0.0 }} />
+      <SplashCursor BACK_COLOR={{
+      r: 0.0,
+      g: 0.0,
+      b: 0.0
+    }} />
 
       {/* Content */}
       <div className="container mx-auto px-4 md:px-6 z-10 relative">
@@ -25,7 +26,7 @@ const HeroSection = () => {
               <Button size="lg" className="bg-white hover:bg-white/90 text-black font-medium">
                 Solicitar consulta gratuita
               </Button>
-              <Button size="lg" variant="outline" className="border-white hover:bg-white/10 text-white">
+              <Button size="lg" variant="outline" className="border-white text-blue-50 bg-blue-700 hover:bg-blue-600">
                 Conocer servicios <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
@@ -54,18 +55,12 @@ const HeroSection = () => {
           <div className="hidden lg:block">
             <div className="relative">
               <div className="relative bg-white/5 backdrop-blur-lg rounded-xl overflow-hidden border border-white/10 p-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1677442136019-21780ecad995" 
-                  alt="Inteligencia Artificial" 
-                  className="w-full h-full object-cover rounded-lg"
-                />
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995" alt="Inteligencia Artificial" className="w-full h-full object-cover rounded-lg" />
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
