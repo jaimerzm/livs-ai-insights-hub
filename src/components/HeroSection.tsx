@@ -1,82 +1,63 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 import { MagnetLinesDemo } from '@/components/ui/magnet-lines-demo';
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-gradient-to-br from-livs-blue via-livs-blue-light to-livs-purple min-h-[90vh] flex items-center overflow-hidden">
-      {/* MagnetLines Background */}
-      <MagnetLinesDemo />
+    <section className="relative min-h-screen bg-gradient-to-br from-zinc-100 via-white to-zinc-100 overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden z-0">
-        <div className="absolute top-[10%] left-[5%] w-32 h-32 rounded-full bg-livs-cyan opacity-10 blur-3xl"></div>
-        <div className="absolute top-[40%] right-[15%] w-64 h-64 rounded-full bg-livs-purple opacity-10 blur-3xl"></div>
-        <div className="absolute bottom-[20%] left-[20%] w-48 h-48 rounded-full bg-livs-cyan opacity-10 blur-3xl"></div>
-        
-        {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
-          backgroundSize: '30px 30px'
-        }}></div>
-      </div>
+      <div className="container mx-auto px-4 pt-24 pb-12">
+        <nav className="flex justify-between items-center mb-20">
+          <div className="text-2xl font-bold tracking-tight">LIVS</div>
+          <div className="flex items-center gap-8">
+            <a href="#inicio" className="text-sm hover:text-gray-600">HOME</a>
+            <a href="#servicios" className="text-sm hover:text-gray-600">SERVICIOS</a>
+            <a href="#productos" className="text-sm hover:text-gray-600">PRODUCTOS</a>
+            <a href="#contacto" className="text-sm hover:text-gray-600">CONTACTO</a>
+            <div className="flex items-center gap-4">
+              <button className="text-sm hover:text-gray-600">BUSCAR</button>
+              <span>|</span>
+              <button className="text-sm">CART (0)</button>
+            </div>
+          </div>
+        </nav>
 
-      <div className="container mx-auto px-4 md:px-6 z-10 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="text-white animate-fade-in">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-              Transformamos su empresa con inteligencia artificial
+          <div className="space-y-6">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
+              INTELIGENCIA ARTIFICIAL ES EL FUTURO
             </h1>
-            <p className="text-lg md:text-xl mb-8 text-livs-gray-light opacity-90 max-w-xl">
-              En Livs, combinamos experiencia en IA con conocimiento empresarial para optimizar sus operaciones, 
-              reducir costes y aumentar la rentabilidad con soluciones inteligentes adaptadas a su negocio.
+            <p className="text-lg text-gray-600 max-w-xl">
+              Creamos soluciones digitales que combinan las posibilidades de la IA
+              con las necesidades de tu negocio
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-livs-cyan hover:bg-livs-cyan/90 text-livs-blue font-medium">
-                Solicitar consulta gratuita
+            <div className="pt-4 flex items-center gap-4">
+              <span className="text-sm">¿Qué es</span>
+              <Button variant="outline" size="sm" className="rounded-full">
+                <Play className="w-4 h-4" />
               </Button>
-              <Button size="lg" variant="outline" className="border-white hover:bg-white/10 text-zinc-950">
-                Conocer servicios <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
-            <div className="mt-12 flex flex-col sm:flex-row gap-6 sm:gap-12 text-sm">
-              <div className="flex items-center gap-2">
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                  <span className="font-bold text-xl">+85%</span>
-                </div>
-                <span>Aumento de eficiencia<br />promedio</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                  <span className="font-bold text-xl">+50</span>
-                </div>
-                <span>Proyectos de IA<br />implementados</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                  <span className="font-bold text-xl">-30%</span>
-                </div>
-                <span>Reducción de costes<br />operativos</span>
-              </div>
+              <span className="text-sm">Livs AI?</span>
             </div>
           </div>
 
-          <div className="hidden lg:block">
-            <div className="relative">
-              <div className="absolute -top-4 -left-4 w-full h-full bg-livs-cyan rounded-xl"></div>
-              <div className="absolute -bottom-4 -right-4 w-full h-full bg-livs-purple rounded-xl"></div>
-              <div className="relative bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl overflow-hidden border border-white/20 shadow-lg p-6">
-                <div className="aspect-video bg-livs-gray-dark rounded-lg overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e" 
-                    alt="Robot representando Inteligencia Artificial" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
+          <div className="relative">
+            <img
+              src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e"
+              alt="Robot representando Inteligencia Artificial"
+              className="w-full h-auto object-cover rounded-lg"
+            />
+            <div className="absolute -z-10 -bottom-4 -right-4 w-full h-full bg-gradient-to-r from-livs-blue to-livs-purple rounded-lg"></div>
           </div>
+        </div>
+
+        <div className="absolute bottom-12 right-12 max-w-xs text-right">
+          <p className="text-sm text-gray-600">
+            FUSIONAMOS LAS POSIBILIDADES DIGITALES CON LAS NECESIDADES DE TU NEGOCIO
+          </p>
         </div>
       </div>
     </section>
