@@ -1,42 +1,31 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import { MagnetLinesDemo } from '@/components/ui/magnet-lines-demo';
+import { SplashCursor } from '@/components/ui/splash-cursor';
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-gradient-to-br from-livs-blue via-livs-blue-light to-livs-purple min-h-[90vh] flex items-center overflow-hidden">
-      {/* MagnetLines Background */}
-      <MagnetLinesDemo />
+    <section className="relative bg-black min-h-[90vh] flex items-center overflow-hidden">
+      {/* Fluid Background Animation */}
+      <SplashCursor BACK_COLOR={{ r: 0.0, g: 0.0, b: 0.0 }} />
 
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden z-0">
-        <div className="absolute top-[10%] left-[5%] w-32 h-32 rounded-full bg-livs-cyan opacity-10 blur-3xl"></div>
-        <div className="absolute top-[40%] right-[15%] w-64 h-64 rounded-full bg-livs-purple opacity-10 blur-3xl"></div>
-        <div className="absolute bottom-[20%] left-[20%] w-48 h-48 rounded-full bg-livs-cyan opacity-10 blur-3xl"></div>
-        
-        {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
-          backgroundSize: '30px 30px'
-        }}></div>
-      </div>
-
+      {/* Content */}
       <div className="container mx-auto px-4 md:px-6 z-10 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-white animate-fade-in">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
               Transformamos su empresa con inteligencia artificial
             </h1>
-            <p className="text-lg md:text-xl mb-8 text-livs-gray-light opacity-90 max-w-xl">
+            <p className="text-lg md:text-xl mb-8 text-gray-300 opacity-90 max-w-xl">
               En Livs, combinamos experiencia en IA con conocimiento empresarial para optimizar sus operaciones, 
               reducir costes y aumentar la rentabilidad con soluciones inteligentes adaptadas a su negocio.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-livs-cyan hover:bg-livs-cyan/90 text-livs-blue font-medium">
+              <Button size="lg" className="bg-white hover:bg-white/90 text-black font-medium">
                 Solicitar consulta gratuita
               </Button>
-              <Button size="lg" variant="outline" className="border-white hover:bg-white/10 text-zinc-950">
+              <Button size="lg" variant="outline" className="border-white hover:bg-white/10 text-white">
                 Conocer servicios <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
@@ -64,12 +53,12 @@ const HeroSection = () => {
 
           <div className="hidden lg:block">
             <div className="relative">
-              <div className="absolute -top-4 -left-4 w-full h-full bg-livs-cyan rounded-xl"></div>
-              <div className="absolute -bottom-4 -right-4 w-full h-full bg-livs-purple rounded-xl"></div>
-              <div className="relative bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl overflow-hidden border border-white/20 shadow-lg p-6">
-                <div className="aspect-video bg-livs-gray-dark rounded-lg overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="Inteligencia Artificial" className="w-full h-full object-cover" />
-                </div>
+              <div className="relative bg-white/5 backdrop-blur-lg rounded-xl overflow-hidden border border-white/10 p-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1677442136019-21780ecad995" 
+                  alt="Inteligencia Artificial" 
+                  className="w-full h-full object-cover rounded-lg"
+                />
               </div>
             </div>
           </div>
