@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { SplashCursor } from '@/components/ui/splash-cursor';
+import { RobotScene } from '@/components/ui/robot-scene';
 
 const HeroSection = () => {
   return <section className="relative bg-black min-h-[90vh] flex items-center overflow-hidden">
@@ -54,12 +54,8 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <div className="hidden lg:block">
-            <div className="relative">
-              <div className="relative bg-white/5 backdrop-blur-lg rounded-xl overflow-hidden border border-white/10 p-4">
-                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995" alt="Inteligencia Artificial" className="w-full h-full object-cover rounded-lg" />
-              </div>
-            </div>
+          <div className="lg:block">
+            <RobotScene />
           </div>
         </div>
       </div>
