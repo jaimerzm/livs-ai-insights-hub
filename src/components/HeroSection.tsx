@@ -1,15 +1,17 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { SplashCursor } from '@/components/ui/splash-cursor';
+
 const HeroSection = () => {
   return <section className="relative bg-black min-h-[90vh] flex items-center overflow-hidden">
       {/* Fluid Background Animation */}
       <SplashCursor BACK_COLOR={{
-      r: 0.0,
-      g: 0.0,
-      b: 0.0
-    }} />
+        r: 0.0,
+        g: 0.0,
+        b: 0.0
+      }} />
 
       {/* Content */}
       <div className="container mx-auto px-4 md:px-6 z-10 relative">
@@ -63,4 +65,5 @@ const HeroSection = () => {
       </div>
     </section>;
 };
+
 export default HeroSection;
