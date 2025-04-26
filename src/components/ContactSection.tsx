@@ -42,11 +42,12 @@ const ContactSection = () => {
         message: formData.message
       };
 
+      emailjs.init("YOUR_PUBLIC_KEY");
+
       await emailjs.send(
-        'service_livs', 
-        'template_livs', 
-        templateParams, 
-        'YOUR_PUBLIC_KEY'
+        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        templateParams
       );
 
       toast({
