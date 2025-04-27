@@ -2,17 +2,16 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from '@/hooks/use-toast';
 import { 
   Mail, 
   Phone, 
   MapPin 
 } from 'lucide-react';
-import emailjs from 'emailjs-com';
 
 const ContactSection = () => {
   const { toast } = useToast();
-  const contactEmail = 'livs.shipping@gmail.com';
+  const contactEmail = 'soporte.livs.business@gmail.com';
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -32,37 +31,41 @@ const ContactSection = () => {
     setIsSubmitting(true);
     
     try {
-      const templateParams = {
-        from_name: formData.name,
-        to_name: "Equipo LIVS",
-        from_email: formData.email,
-        to_email: contactEmail,
-        company: formData.company,
-        phone: formData.phone,
-        message: formData.message
-      };
-
-      emailjs.init("YOUR_PUBLIC_KEY");
-
-      await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-        templateParams
-      );
-
-      toast({
-        title: "Formulario enviado",
-        description: "Su mensaje ha sido enviado correctamente. Nos pondremos en contacto pronto.",
-        duration: 5000,
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: "5c17cd0a-8c54-4b87-bf47-d6e388f0fad",
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          phone: formData.phone,
+          message: formData.message,
+          subject: "Nuevo mensaje de contacto - LIVS",
+        })
       });
 
-      setFormData({
-        name: '',
-        company: '',
-        email: '',
-        phone: '',
-        message: ''
-      });
+      const result = await response.json();
+      if (result.success) {
+        toast({
+          title: "Formulario enviado",
+          description: "Su mensaje ha sido enviado correctamente. Nos pondremos en contacto pronto.",
+          duration: 5000,
+        });
+
+        setFormData({
+          name: '',
+          company: '',
+          email: '',
+          phone: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Error al enviar el formulario');
+      }
 
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
