@@ -1,20 +1,15 @@
 
 import React from 'react';
 import { Card } from '@/components/ui/card';
-import { StarBorder } from '@/components/ui/star-border';
-import { RocketAnimation } from '@/components/ui/rocket-animation';
 
 const IntroSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-black to-gray-900 relative">
-      <RocketAnimation className="absolute inset-0" />
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
+    <section className="py-20 bg-gradient-to-b from-black to-gray-900">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
-          <StarBorder color="#6B46C1" speed="5s" className="w-full mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
-              Transformando Empresas con Inteligencia Artificial
-            </h2>
-          </StarBorder>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
+            Transformando Empresas con Inteligencia Artificial
+          </h2>
           
           <div className="space-y-6 text-gray-300 leading-relaxed">
             <p>
@@ -28,14 +23,12 @@ const IntroSection = () => {
               puede despegar enormemente, alcanzando niveles de eficiencia y crecimiento antes inimaginables.
             </p>
 
-            <StarBorder as="div" color="#0BC5EA" speed="6s" className="w-full">
-              <Card className="p-6 bg-blue-900/30 border-blue-800">
-                <p className="text-blue-100">
-                  Sabemos que usted busca soluciones reales, como las que han permitido a Zara reducir su 
-                  exceso de inventario en un 50%, o a Banco Santander disminuir fraudes en un 70% ahorrando millones.
-                </p>
-              </Card>
-            </StarBorder>
+            <Card className="p-6 bg-blue-900/30 border-blue-800">
+              <p className="text-blue-100">
+                Sabemos que usted busca soluciones reales, como las que han permitido a Zara reducir su 
+                exceso de inventario en un 50%, o a Banco Santander disminuir fraudes en un 70% ahorrando millones.
+              </p>
+            </Card>
 
             <p>
               También hemos visto cómo empresas que apenas eran conocidas se han transformado completamente 
@@ -62,15 +55,13 @@ const IntroSection = () => {
               implementaremos estrategias personalizadas y capacitaremos a su equipo.
             </p>
 
-            <StarBorder as="div" color="#6B46C1" speed="7s" className="w-full">
-              <Card className="p-6 bg-purple-900/30 border-purple-800">
-                <p className="text-purple-100">
-                  No se trata solo de tecnología, sino de convertir su información en conocimiento accionable 
-                  que potencie lo que hace único a su negocio. Permítanos proporcionarle esas herramientas y 
-                  ese saber hacer que transformarán su empresa.
-                </p>
-              </Card>
-            </StarBorder>
+            <Card className="p-6 bg-purple-900/30 border-purple-800">
+              <p className="text-purple-100">
+                No se trata solo de tecnología, sino de convertir su información en conocimiento accionable 
+                que potencie lo que hace único a su negocio. Permítanos proporcionarle esas herramientas y 
+                ese saber hacer que transformarán su empresa.
+              </p>
+            </Card>
           </div>
         </div>
       </div>
