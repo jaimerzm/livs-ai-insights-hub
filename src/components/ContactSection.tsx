@@ -1,14 +1,13 @@
-
 import React, { useState, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import ContactForm from './contact/ContactForm';
 import ContactInfo from './contact/ContactInfo';
 import { submitContactForm } from '@/services/contactService';
-import { Balloons } from '@/components/ui/balloons';
+import { Balloons, BalloonsRef } from '@/components/ui/balloons';
 
 const ContactSection = () => {
   const { toast } = useToast();
-  const balloonsRef = useRef<{ launchAnimation: () => void } | null>(null);
+  const balloonsRef = useRef<BalloonsRef>(null);
   const contactEmail = 'soporte.livs.business@gmail.com';
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({

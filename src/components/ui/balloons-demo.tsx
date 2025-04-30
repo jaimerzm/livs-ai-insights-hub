@@ -1,10 +1,10 @@
 
-import { Balloons } from "@/components/ui/balloons"
+import { Balloons, BalloonsRef } from "@/components/ui/balloons"
 import { Button } from "@/components/ui/button"
 import { useRef } from "react"
 
 export function DefaultBalloonsDemo() {
-  const balloonsRef = useRef<{ launchAnimation: () => void } | null>(null)
+  const balloonsRef = useRef<BalloonsRef>(null)
 
   const handleLaunch = () => {
     if (balloonsRef.current) {

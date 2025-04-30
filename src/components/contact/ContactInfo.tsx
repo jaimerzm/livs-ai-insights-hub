@@ -1,9 +1,8 @@
-
 import React, { useRef } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Balloons } from '@/components/ui/balloons';
+import { Balloons, BalloonsRef } from '@/components/ui/balloons';
 import { useToast } from '@/hooks/use-toast';
 
 interface ContactInfoProps {
@@ -11,7 +10,7 @@ interface ContactInfoProps {
 }
 
 const ContactInfo = ({ contactEmail }: ContactInfoProps) => {
-  const balloonsRef = useRef<{ launchAnimation: () => void } | null>(null);
+  const balloonsRef = useRef<BalloonsRef>(null);
   const { toast } = useToast();
 
   const handleReserveNow = () => {
