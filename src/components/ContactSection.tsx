@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -38,13 +39,16 @@ const ContactSection = () => {
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          access_key: "5c17cd0a-8c54-4b87-bf47-d6e388f0fad",
+          // Reemplaza esta clave de acceso con la tuya de Web3Forms
+          access_key: "5c17cd0a-8c54-4b87-bf47-d6e388f0fadc",
           name: formData.name,
           email: formData.email,
           company: formData.company,
           phone: formData.phone,
           message: formData.message,
           subject: "Nuevo mensaje de contacto - LIVS",
+          from_name: "Formulario de Contacto LIVS",
+          to_email: contactEmail, // Asegura que los correos lleguen a tu dirección
         })
       });
 
