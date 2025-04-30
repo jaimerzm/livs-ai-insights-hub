@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import Logo from './Logo';
@@ -37,7 +38,7 @@ const Navbar = () => {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          {navLinks.map(link => <a key={link.title} href={link.href} className="text-livs-white-light font-medium text-sm hover:text-livs-purple transition-colors ">
+          {navLinks.map(link => <a key={link.title} href={link.href} className="text-white font-medium text-sm hover:text-livs-purple transition-colors ">
               {link.title}
             </a>)}
           <Button className="bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90 transition-opacity">
