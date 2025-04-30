@@ -1,28 +1,11 @@
 
 import React from 'react';
 import { Card } from '@/components/ui/card';
-import AnimatedGradientBackground from '@/components/ui/animated-gradient-background';
+import { BackgroundBeams } from '@/components/ui/background-beams';
 
 const IntroSection = () => {
   return (
     <section className="py-20 relative overflow-hidden bg-black">
-      {/* Animated Gradient Background */}
-      <AnimatedGradientBackground 
-        Breathing={true}
-        gradientColors={[
-          "#000000",
-          "#0c2b5e", 
-          "#154288", 
-          "#1e5ab3", 
-          "#5682c7"
-        ]}
-        gradientStops={[0, 30, 50, 70, 100]}
-        startingGap={130}
-        topOffset={-10}
-        breathingRange={8}
-        animationSpeed={0.03}
-      />
-      
       {/* Content Container */}
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
@@ -84,6 +67,9 @@ const IntroSection = () => {
           </div>
         </div>
       </div>
+      
+      {/* Background Beams Effect */}
+      <BackgroundBeams />
     </section>
   );
 };
