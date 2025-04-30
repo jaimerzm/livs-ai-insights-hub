@@ -1,13 +1,31 @@
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Balloons } from '@/components/ui/balloons';
+import { useToast } from '@/hooks/use-toast';
 
 interface ContactInfoProps {
   contactEmail: string;
 }
 
 const ContactInfo = ({ contactEmail }: ContactInfoProps) => {
+  const balloonsRef = useRef<{ launchAnimation: () => void } | null>(null);
+  const { toast } = useToast();
+
+  const handleReserveNow = () => {
+    if (balloonsRef.current) {
+      balloonsRef.current.launchAnimation();
+    }
+    
+    toast({
+      title: "Solicitud enviada",
+      description: "Hemos recibido su solicitud de consulta gratuita. Nos pondremos en contacto pronto.",
+      duration: 5000,
+    });
+  };
+
   return (
     <div className="flex flex-col justify-between">
       <div className="mb-8">
@@ -50,12 +68,37 @@ const ContactInfo = ({ contactEmail }: ContactInfoProps) => {
           Ofrecemos una sesión inicial de consultoría sin compromiso para evaluar 
           cómo la IA puede optimizar su empresa.
         </p>
-        <Button 
-          variant="outline" 
-          className="bg-white text-livs-blue hover:bg-white/90"
-        >
-          Reservar ahora
-        </Button>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button 
+              variant="outline" 
+              className="bg-white text-livs-blue hover:bg-white/90"
+            >
+              Reservar ahora
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Consulta gratuita</DialogTitle>
+            </DialogHeader>
+            <div className="space-y-4">
+              <p>Por favor, complete el formulario de contacto con sus datos y mencionando "Consulta gratuita" en el mensaje.</p>
+              <Button 
+                onClick={handleReserveNow}
+                className="w-full bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90"
+              >
+                Confirmar solicitud
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+        
+        {/* Componente Balloons invisible pero funcional */}
+        <Balloons 
+          ref={balloonsRef}
+          type="default"
+          className="hidden"
+        />
       </div>
     </div>
   );

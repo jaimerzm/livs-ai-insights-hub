@@ -1,12 +1,14 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import ContactForm from './contact/ContactForm';
 import ContactInfo from './contact/ContactInfo';
 import { submitContactForm } from '@/services/contactService';
+import { Balloons } from '@/components/ui/balloons';
 
 const ContactSection = () => {
   const { toast } = useToast();
+  const balloonsRef = useRef<{ launchAnimation: () => void } | null>(null);
   const contactEmail = 'soporte.livs.business@gmail.com';
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -35,6 +37,11 @@ const ContactSection = () => {
           description: "Su mensaje ha sido enviado correctamente. Nos pondremos en contacto pronto.",
           duration: 5000,
         });
+
+        // Lanzar la animación de globos
+        if (balloonsRef.current) {
+          balloonsRef.current.launchAnimation();
+        }
 
         setFormData({
           name: '',
@@ -80,6 +87,16 @@ const ContactSection = () => {
           />
           <ContactInfo contactEmail={contactEmail} />
         </div>
+        
+        {/* Componente Balloons invisible pero funcional */}
+        <Balloons 
+          ref={balloonsRef}
+          type="text"
+          text="¡Gracias por su mensaje!"
+          fontSize={60}
+          color="#8B5CF6"
+          className="hidden"
+        />
       </div>
     </section>
   );
