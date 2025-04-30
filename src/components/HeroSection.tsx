@@ -1,10 +1,22 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { SplashCursor } from '@/components/ui/splash-cursor';
 import { RobotScene } from '@/components/ui/robot-scene';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - 80, // Adjust for navbar height
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return <section className="relative bg-black min-h-[90vh] flex items-center overflow-hidden">
       {/* Fluid Background Animation */}
       <SplashCursor BACK_COLOR={{
@@ -25,10 +37,19 @@ const HeroSection = () => {
               reducir costes y aumentar la rentabilidad con soluciones inteligentes adaptadas a su negocio.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-white hover:bg-white/90 text-black font-medium">
+              <Button 
+                size="lg" 
+                className="bg-white hover:bg-white/90 text-black font-medium"
+                onClick={() => scrollToSection('contacto')}
+              >
                 Solicitar consulta gratuita
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-blue-50 bg-blue-700 hover:bg-blue-600">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-white text-blue-50 bg-blue-700 hover:bg-blue-600"
+                onClick={() => scrollToSection('servicios')}
+              >
                 Conocer servicios <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>

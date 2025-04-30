@@ -36,11 +36,21 @@ const Index = () => {
       <main>
         <HeroSection />
         <IntroSection />
-        <BenefitsSection />
-        <ServicesSection />
-        <TestimonialsSection />
-        <AboutSection />
-        <ContactSection />
+        <div id="beneficios">
+          <BenefitsSection />
+        </div>
+        <div id="servicios">
+          <ServicesSection />
+        </div>
+        <div id="casos">
+          <TestimonialsSection />
+        </div>
+        <div id="nosotros">
+          <AboutSection />
+        </div>
+        <div id="contacto">
+          <ContactSection />
+        </div>
       </main>
       <Footer />
     </div>
