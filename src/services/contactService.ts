@@ -16,7 +16,7 @@ export const submitContactForm = async (formData: ContactFormData, contactEmail:
     },
     body: JSON.stringify({
       // Reemplaza esta clave de acceso con la tuya de Web3Forms
-      access_key: "5c17cd0a-8c54-4b87-bf47-d6e388f0fadc",
+      access_key: "5c17cd0a-8c54-4b87-bf47-d6e388f0fad4",
       name: formData.name,
       email: formData.email,
       company: formData.company,
