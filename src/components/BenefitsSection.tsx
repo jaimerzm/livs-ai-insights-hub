@@ -20,6 +20,11 @@ const BenefitsSection = () => {
       description: "Los sistemas de análisis predictivo mejoran la precisión de las decisiones estratégicas en un 60%."
     },
     {
+      stat: "30%",
+      title: "Mejora en la precisión",
+      description: "La implementación de IA mejora la precisión en la toma de decisiones en un 30% adicional."
+    },
+    {
       stat: "90%",
       title: "Satisfacción de clientes",
       description: "El 90% de los usuarios finales reporta una mayor satisfacción con los servicios mejorados por IA."
@@ -43,13 +48,16 @@ const BenefitsSection = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-livs-blue text-3xl md:text-4xl font-bold mb-4">Beneficios Cuantificables</h2>
-          <p className="text-livs-gray-dark text-lg">
+          <p className="text-livs-gray-dark text-lg mb-2">
             Nuestras soluciones de inteligencia artificial ofrecen resultados medibles
             que impactan directamente en su rentabilidad y crecimiento.
           </p>
+          <p className="text-livs-gray-dark text-sm italic">
+            Estos son promedios reportados por empresas que ya usan IA.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-16">
           {benefits.map((benefit, index) => (
             <div 
               key={index} 
