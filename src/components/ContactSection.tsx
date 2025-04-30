@@ -1,3 +1,4 @@
+
 import React, { useState, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import ContactForm from './contact/ContactForm';
@@ -90,10 +91,7 @@ const ContactSection = () => {
         {/* Componente Balloons invisible pero funcional */}
         <Balloons 
           ref={balloonsRef}
-          type="text"
-          text="¡Gracias por su mensaje!"
-          fontSize={60}
-          color="#8B5CF6"
+          type="default"
           className="hidden"
         />
       </div>
