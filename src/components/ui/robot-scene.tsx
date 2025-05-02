@@ -42,9 +42,18 @@ function Robot(props: RobotProps) {
       <mesh 
         position={[-0.25, 1.6, 0.51]} 
         castShadow
-        onClick={() => console.log("Eye clicked")}
-        onPointerOver={() => setHover(true)}
-        onPointerOut={() => setHover(false)}
+        onClick={(e) => {
+          e.stopPropagation()
+          console.log("Eye clicked")
+        }}
+        onPointerOver={(e) => {
+          e.stopPropagation()
+          setHover(true)
+        }}
+        onPointerOut={(e) => {
+          e.stopPropagation()
+          setHover(false)
+        }}
       >
         <sphereGeometry args={[0.1, 16, 16]} />
         <meshStandardMaterial color="#4ade80" emissive="#4ade80" emissiveIntensity={2} />
