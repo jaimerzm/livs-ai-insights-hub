@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from './Logo';
 
@@ -44,8 +43,7 @@ const Footer = () => {
           <div>
             <Logo />
             <p className="mt-4 text-sm text-white/80">
-              Consultoría especializada en inteligencia artificial para optimizar y 
-              transformar su empresa con soluciones personalizadas y efectivas.
+              Transformamos empresas a través de la inteligencia artificial con soluciones innovadoras y personalizadas para mejorar su eficiencia y rentabilidad.
             </p>
             <div className="mt-6 flex gap-4">
               <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
