@@ -33,9 +33,9 @@ const Logo = () => {
         <img 
           src="/lovable-uploads/99c03604-b2ed-4cbf-888d-38d0b461b4eb.png"
           alt="LIAS Logo" 
-          className={`w-9 h-9 object-contain transition-all duration-300 ${isScrolled ? 'filter-black' : 'filter-white'}`}
+          className="w-9 h-9 object-contain transition-all duration-300"
           style={{
-            filter: isScrolled ? 'invert(0%)' : 'invert(100%)'
+            filter: 'brightness(0) invert(1)'
           }}
         />
       </div>
