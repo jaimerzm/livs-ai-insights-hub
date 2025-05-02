@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
@@ -6,25 +5,24 @@ import { SplashCursor } from '@/components/ui/splash-cursor';
 import { RobotScene } from '@/components/ui/robot-scene';
 import { Link } from 'react-router-dom';
 import { GradientButton } from '@/components/ui/gradient-button';
-
 const HeroSection = () => {
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
       window.scrollTo({
-        top: section.offsetTop - 80, // Adjust for navbar height
+        top: section.offsetTop - 80,
+        // Adjust for navbar height
         behavior: 'smooth'
       });
     }
   };
-
   return <section className="relative bg-black min-h-[90vh] flex items-center overflow-hidden">
       {/* Fluid Background Animation */}
       <SplashCursor BACK_COLOR={{
-        r: 0.0,
-        g: 0.0,
-        b: 0.0
-      }} />
+      r: 0.0,
+      g: 0.0,
+      b: 0.0
+    }} />
 
       {/* Content */}
       <div className="container mx-auto px-4 md:px-6 z-10 relative">
@@ -38,17 +36,10 @@ const HeroSection = () => {
               reducir costes y aumentar la rentabilidad con soluciones inteligentes adaptadas a su negocio.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg" 
-                className="bg-white hover:bg-white/90 text-black font-medium"
-                onClick={() => scrollToSection('contacto')}
-              >
+              <Button size="lg" onClick={() => scrollToSection('contacto')} className="bg-white hover:bg-white/90 text-black font-bold text-base">
                 Solicitar consulta gratuita
               </Button>
-              <GradientButton
-                onClick={() => scrollToSection('servicios')}
-                className="flex items-center gap-2"
-              >
+              <GradientButton onClick={() => scrollToSection('servicios')} className="flex items-center gap-2">
                 Conocer servicios <ArrowRight className="ml-2 h-4 w-4" />
               </GradientButton>
             </div>
@@ -81,5 +72,4 @@ const HeroSection = () => {
       </div>
     </section>;
 };
-
 export default HeroSection;
