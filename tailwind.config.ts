@@ -122,6 +122,11 @@ export default {
 					'0%': { transform: 'rotate(0deg) translateX(0)' },
 					'50%': { transform: 'rotate(-180deg) translateX(-100px)' },
 					'100%': { transform: 'rotate(-360deg) translateX(0)' },
+				},
+				'rainbow': {
+					'0%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' },
+					'100%': { backgroundPosition: '0% 50%' },
 				}
 			},
 			animation: {
@@ -130,6 +135,7 @@ export default {
 				'fade-in': 'fade-in 0.5s ease-out',
 				'star-movement-top': 'star-movement-top 6s ease-in-out infinite',
 				'star-movement-bottom': 'star-movement-bottom 6s ease-in-out infinite',
+				'rainbow': 'rainbow 6s linear infinite',
 			}
 		}
 	},
