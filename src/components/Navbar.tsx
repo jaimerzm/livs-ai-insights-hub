@@ -22,6 +22,20 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contacto');
+    if (contactSection) {
+      window.scrollTo({
+        top: contactSection.offsetTop - 80, // Ajusta según la altura del navbar
+        behavior: 'smooth'
+      });
+    }
+    // Cierra el menú móvil si está abierto
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+  };
   
   const navLinks = [{
     title: "Servicios",
@@ -46,7 +60,10 @@ const Navbar = () => {
           {navLinks.map(link => <a key={link.title} href={link.href} className={`font-medium text-sm transition-colors ${isScrolled ? 'text-black' : 'text-white'} hover:text-livs-purple`}>
               {link.title}
             </a>)}
-          <Button className="bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90 transition-opacity">
+          <Button 
+            onClick={scrollToContact}
+            className="bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90 transition-opacity"
+          >
             Contactar
           </Button>
         </nav>
@@ -63,7 +80,10 @@ const Navbar = () => {
                   {link.title}
                 </a>)}
               <div className="mt-4">
-                <Button className="w-full bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90 transition-opacity" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button 
+                  onClick={scrollToContact}
+                  className="w-full bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90 transition-opacity"
+                >
                   Contactar
                 </Button>
               </div>
