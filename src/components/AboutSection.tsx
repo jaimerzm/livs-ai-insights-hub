@@ -1,14 +1,10 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
-
 const AboutSection = () => {
   const [showFullBio, setShowFullBio] = useState(false);
-  
-  return (
-    <section id="about" className="py-16 md:py-24 bg-white">
+  return <section id="about" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
           <div className="space-y-6">
@@ -22,26 +18,17 @@ const AboutSection = () => {
             <p className="text-gray-700 mb-4">
               Nuestra misión es ayudar a las empresas a aprovechar al máximo el potencial de la inteligencia artificial, ofreciendo soluciones innovadoras y personalizadas que impulsen su crecimiento y eficiencia.
             </p>
-            <Button 
-              onClick={() => setShowFullBio(!showFullBio)}
-              variant="default"
-              size="default"
-            >
+            <Button onClick={() => setShowFullBio(!showFullBio)} variant="default" size="default">
               {showFullBio ? "Leer menos" : "Leer más"}
               <ChevronDown className={`-me-1 ms-2 opacity-60 transition-transform ${showFullBio ? 'rotate-180' : ''}`} size={16} strokeWidth={2} aria-hidden="true" />
             </Button>
           </div>
           <div className="order-first md:order-none">
-            <img 
-              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" 
-              alt="Nuestro equipo" 
-              className="rounded-xl shadow-lg grayscale hover:grayscale-0 transition-all duration-500" 
-            />
+            <img alt="Nuestro equipo" className="rounded-xl shadow-lg grayscale hover:grayscale-0 transition-all duration-500" src="/lovable-uploads/85ae4eb3-7ef5-4537-bbcc-8d5c31f6904f.jpg" />
           </div>
         </div>
 
-        {showFullBio && (
-          <div className="animate-fade-in space-y-12">
+        {showFullBio && <div className="animate-fade-in space-y-12">
             <h3 className="text-2xl md:text-3xl font-bold text-center text-black mb-10">
               Nuestro Equipo Fundador
             </h3>
@@ -100,11 +87,8 @@ const AboutSection = () => {
               sino que ofrece la orientación experta necesaria para convertir esa información en ventajas competitivas reales para 
               nuestros clientes.
             </p>
-          </div>
-        )}
+          </div>}
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
