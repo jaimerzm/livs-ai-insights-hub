@@ -1,8 +1,10 @@
 
 'use client'
 
-import { useState, useEffect } from 'react'
+import { Suspense, lazy, useState, useEffect } from 'react'
 import AnimatedGradientBackground from '@/components/ui/animated-gradient-background'
+
+const Spline = lazy(() => import('@splinetool/react-spline'))
 
 interface SplineSceneProps {
   scene: string
@@ -50,6 +52,17 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-48 h-48 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 blur-3xl opacity-30"></div>
         </div>
+        
+        <Suspense fallback={
+          <div className="w-full h-full flex items-center justify-center">
+            <span className="loader"></span>
+          </div>
+        }>
+          <Spline
+            scene={scene}
+            className="w-full h-full"
+          />
+        </Suspense>
       </div>
     </div>
   )
