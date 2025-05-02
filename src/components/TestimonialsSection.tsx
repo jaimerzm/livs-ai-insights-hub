@@ -1,13 +1,10 @@
-
 import React from 'react';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { MessageSquareQuote, Users } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
 import { Skeleton } from '@/components/ui/skeleton';
-
 const TestimonialsSection = () => {
-  return (
-    <section id="casos" className="py-20 bg-livs-gray-light relative overflow-hidden">
+  return <section id="casos" className="py-20 bg-livs-gray-light relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-livs-blue text-3xl md:text-4xl font-bold mb-4">Futuros Testimonios</h2>
@@ -33,14 +30,8 @@ const TestimonialsSection = () => {
             </CardContent>
             <CardFooter className="mt-auto border-t pt-4">
               <div className="w-full flex justify-between items-center">
-                <span className="text-sm text-livs-gray">Satisfacción del cliente</span>
-                <Slider
-                  defaultValue={[85]}
-                  max={100}
-                  step={1}
-                  disabled
-                  className="w-32"
-                />
+                <span className="text-sm text-zinc-950">Satisfacción del cliente</span>
+                <Slider defaultValue={[85]} max={100} step={1} disabled className="w-32" />
               </div>
             </CardFooter>
           </Card>
@@ -59,8 +50,8 @@ const TestimonialsSection = () => {
             </CardContent>
             <CardFooter className="mt-auto border-t pt-4">
               <div className="text-sm text-livs-gray">
-                <span className="block">¿Interesado en ser uno de nuestros primeros casos de éxito?</span>
-                <span className="block mt-1">Contáctenos hoy mismo.</span>
+                <span className="block text-zinc-950">¿Interesado en ser uno de nuestros primeros casos de éxito?</span>
+                <span className="block mt-1 text-livs-purple">Contáctenos hoy mismo.</span>
               </div>
             </CardFooter>
           </Card>
@@ -90,8 +81,6 @@ const TestimonialsSection = () => {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default TestimonialsSection;
