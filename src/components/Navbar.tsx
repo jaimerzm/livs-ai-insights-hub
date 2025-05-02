@@ -57,7 +57,7 @@ const Navbar = () => {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          {navLinks.map(link => <a key={link.title} href={link.href} className={`font-medium text-sm transition-colors ${isScrolled ? 'text-black' : 'text-white'} hover:text-livs-purple`}>
+          {navLinks.map(link => <a key={link.title} href={link.href} className={`font-medium text-sm transition-colors ${isScrolled ? 'text-black' : 'text-white'} hover:text-livs-purple hover:bg-white/80 hover:shadow-sm px-3 py-1 rounded-md`}>
               {link.title}
             </a>)}
           <Button 
@@ -76,7 +76,7 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg animate-fade-in">
             <div className="container mx-auto px-4 py-4 flex flex-col">
-              {navLinks.map(link => <a key={link.title} href={link.href} className="text-black font-medium text-sm py-3 border-b border-gray-100 hover:text-livs-purple transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+              {navLinks.map(link => <a key={link.title} href={link.href} className="text-black font-medium text-sm py-3 border-b border-gray-100 hover:text-livs-purple hover:bg-gray-50 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                   {link.title}
                 </a>)}
               <div className="mt-4">
