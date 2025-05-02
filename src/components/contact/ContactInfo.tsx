@@ -1,33 +1,30 @@
-
 import React, { useRef } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Balloons, BalloonsRef } from '@/components/ui/balloons';
 import { useToast } from '@/hooks/use-toast';
-
 interface ContactInfoProps {
   contactEmail: string;
 }
-
-const ContactInfo = ({ contactEmail }: ContactInfoProps) => {
+const ContactInfo = ({
+  contactEmail
+}: ContactInfoProps) => {
   const balloonsRef = useRef<BalloonsRef>(null);
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleReserveNow = () => {
     if (balloonsRef.current) {
       balloonsRef.current.launchAnimation();
     }
-    
     toast({
       title: "Solicitud enviada",
       description: "Hemos recibido su solicitud de consulta gratuita. Nos pondremos en contacto pronto.",
-      duration: 5000,
+      duration: 5000
     });
   };
-
-  return (
-    <div className="flex flex-col justify-between">
+  return <div className="flex flex-col justify-between">
       <div className="mb-8">
         <h3 className="text-livs-blue text-2xl font-bold mb-6">Información de contacto</h3>
         <div className="space-y-4">
@@ -44,19 +41,17 @@ const ContactInfo = ({ contactEmail }: ContactInfoProps) => {
             <Phone className="h-6 w-6 text-livs-purple" />
             <div>
               <div className="font-medium text-livs-blue">Teléfono</div>
-              <a href="tel:+34911234567" className="text-livs-gray-dark hover:text-livs-purple">
-                +34 91 123 45 67
-              </a>
+              <a href="tel:+34911234567" className="text-livs-gray-dark hover:text-livs-purple">+34 609 92 74 95
++34 678  25 82 80
+            </a>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <MapPin className="h-6 w-6 text-livs-purple" />
+            
             <div>
-              <div className="font-medium text-livs-blue">Oficina</div>
-              <address className="not-italic text-livs-gray-dark">
-                Calle de la Innovación, 42<br />
-                28001 Madrid, España
-              </address>
+              <div className="font-medium text-livs-blue">
+            </div>
+              
             </div>
           </div>
         </div>
@@ -70,10 +65,7 @@ const ContactInfo = ({ contactEmail }: ContactInfoProps) => {
         </p>
         <Dialog>
           <DialogTrigger asChild>
-            <Button 
-              variant="outline" 
-              className="bg-white text-livs-blue hover:bg-white/90"
-            >
+            <Button variant="outline" className="bg-white text-livs-blue hover:bg-white/90">
               Reservar ahora
             </Button>
           </DialogTrigger>
@@ -83,10 +75,7 @@ const ContactInfo = ({ contactEmail }: ContactInfoProps) => {
             </DialogHeader>
             <div className="space-y-4">
               <p>Por favor, complete el formulario de contacto con sus datos y mencionando "Consulta gratuita" en el mensaje.</p>
-              <Button 
-                onClick={handleReserveNow}
-                className="w-full bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90"
-              >
+              <Button onClick={handleReserveNow} className="w-full bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90">
                 Confirmar solicitud
               </Button>
             </div>
@@ -94,14 +83,8 @@ const ContactInfo = ({ contactEmail }: ContactInfoProps) => {
         </Dialog>
         
         {/* Componente Balloons invisible pero funcional */}
-        <Balloons 
-          ref={balloonsRef}
-          type="default"
-          className="hidden"
-        />
+        <Balloons ref={balloonsRef} type="default" className="hidden" />
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default ContactInfo;
