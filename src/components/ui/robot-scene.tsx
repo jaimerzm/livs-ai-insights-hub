@@ -5,14 +5,20 @@ import { useEffect, useState } from "react"
 import { Card } from "@/components/ui/card"
 import { SplineScene } from "@/components/ui/spline"
 
-// Fallback component if 3D rendering fails
+// Fallback component with LIVS logo on white t-shirt
 function FallbackDisplay() {
   return (
     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
       <div className="relative">
         <div className="w-64 h-64 rounded-full bg-blue-500/10 animate-pulse"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold">
-          LIVS AI
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="bg-white p-4 rounded-lg shadow-lg">
+            <img 
+              src="/lovable-uploads/ac7a0701-3202-4c63-aa63-96c184a1113c.png"
+              alt="LIVS Logo"
+              className="h-16 w-auto"
+            />
+          </div>
         </div>
       </div>
     </div>
