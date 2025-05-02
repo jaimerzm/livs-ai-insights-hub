@@ -2,7 +2,7 @@
 import React, { useRef } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from '@/components/ui/dialog';
 import { Balloons, BalloonsRef } from '@/components/ui/balloons';
 import { useToast } from '@/hooks/use-toast';
 
@@ -78,9 +78,11 @@ const ContactInfo = ({
             </DialogHeader>
             <div className="space-y-4">
               <p>Por favor, complete el formulario de contacto con sus datos y mencionando "Consulta gratuita" en el mensaje para poder procesar su reserva.</p>
-              <Button onClick={handleReserveNow} className="w-full bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90">
-                OK, entiendo
-              </Button>
+              <DialogClose asChild>
+                <Button className="w-full bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90">
+                  OK, entiendo
+                </Button>
+              </DialogClose>
             </div>
           </DialogContent>
         </Dialog>
