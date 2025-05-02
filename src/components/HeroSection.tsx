@@ -28,7 +28,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 md:px-6 z-10 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-white animate-fade-in">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-4 font-bold text-center text-white">
               Transformamos su empresa con inteligencia artificial
             </h1>
             <p className="text-lg md:text-xl mb-8 text-gray-300 opacity-90 max-w-xl">
