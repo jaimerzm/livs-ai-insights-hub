@@ -29,11 +29,11 @@ const Logo = () => {
 
   return (
     <Link to="/" onClick={handleClick} className="flex items-center gap-2">
-      <div className="w-16 h-16 flex items-center justify-center">
+      <div className="w-20 h-20 flex items-center justify-center">
         <img 
           src="/lovable-uploads/99c03604-b2ed-4cbf-888d-38d0b461b4eb.png"
           alt="LIAS Logo" 
-          className="w-16 h-16 object-contain transition-all duration-300"
+          className="w-20 h-20 object-contain transition-all duration-300"
           style={{
             filter: 'brightness(0) invert(1)'
           }}
