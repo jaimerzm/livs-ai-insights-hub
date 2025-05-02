@@ -24,8 +24,8 @@ const AboutSection = () => {
               <ChevronDown className={`-me-1 ms-2 opacity-60 transition-transform ${showFullBio ? 'rotate-180' : ''}`} size={16} strokeWidth={2} aria-hidden="true" />
             </Button>
           </div>
-          <div className="order-first md:order-none">
-            <img alt="Nuestro equipo" className="rounded-xl shadow-lg hover:shadow-xl transition-all duration-500" src="/lovable-uploads/85ae4eb3-7ef5-4537-bbcc-8d5c31f6904f.jpg" />
+          <div className="order-first md:order-none flex justify-center">
+            <img alt="Nuestro equipo" className="rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 w-10/12 md:w-3/4" src="/lovable-uploads/85ae4eb3-7ef5-4537-bbcc-8d5c31f6904f.jpg" />
           </div>
         </div>
 
