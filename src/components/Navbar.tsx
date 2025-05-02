@@ -96,8 +96,8 @@ const Navbar = () => {
     icon: link.icon
   }));
   
-  // Use the new tubelight navbar on desktop
-  if (!isMobile && !isScrolled) {
+  // Always use the tubelight navbar when not on mobile
+  if (!isMobile) {
     return (
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between bg-transparent py-4">
@@ -114,51 +114,20 @@ const Navbar = () => {
     );
   }
   
-  // Use the original navbar for mobile or when scrolled
+  // Use the original navbar for mobile
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between bg-transparent">
         <Logo />
         
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-5">
-          {navLinks.map(link => {
-            const isActive = activeLink === link.href.substring(1);
-            return (
-              <a 
-                key={link.title} 
-                href={link.href} 
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleLinkClick(link.href);
-                }}
-                className={`font-medium text-lg transition-all duration-300 px-5 py-3 rounded-md
-                  ${isScrolled ? 'text-black' : 'text-white'} 
-                  ${isActive 
-                    ? 'bg-livs-purple text-white transform scale-105 shadow-md' 
-                    : 'hover:text-livs-purple hover:bg-white/80 hover:shadow-sm'
-                  } active:transform active:scale-95`}
-              >
-                {link.title}
-              </a>
-            )
-          })}
-          <Button 
-            onClick={scrollToContact}
-            className="bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90 transition-opacity text-lg px-8 py-6 h-auto hover:shadow-md active:transform active:scale-95"
-          >
-            Contactar
-          </Button>
-        </nav>
-        
-        {/* Mobile Menu Button */}
-        <button className="md:hidden text-livs-blue" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        {/* Mobile Navigation */}
+        <button className="text-livs-blue" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg animate-fade-in">
+          <div className="absolute top-full left-0 right-0 bg-white shadow-lg animate-fade-in">
             <div className="container mx-auto px-4 py-4 flex flex-col">
               {navLinks.map(link => {
                 const isActive = activeLink === link.href.substring(1);
