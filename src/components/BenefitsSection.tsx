@@ -1,47 +1,29 @@
-
 import React from 'react';
 import { Check } from 'lucide-react';
-
 const BenefitsSection = () => {
-  const benefits = [
-    {
-      stat: "40%",
-      title: "Reducción de costes operativos",
-      description: "Nuestros clientes experimentan una reducción promedio del 40% en costes operativos tras implementar nuestras soluciones de IA."
-    },
-    {
-      stat: "85%",
-      title: "Aumento en la productividad",
-      description: "Las soluciones de automatización inteligente aumentan la productividad de sus equipos hasta en un 85%."
-    },
-    {
-      stat: "60%",
-      title: "Mejora en la toma de decisiones",
-      description: "Los sistemas de análisis predictivo mejoran la precisión de las decisiones estratégicas en un 60%."
-    },
-    {
-      stat: "30%",
-      title: "Mejora en la precisión",
-      description: "La implementación de IA mejora la precisión en la toma de decisiones en un 30% adicional."
-    },
-    {
-      stat: "90%",
-      title: "Satisfacción de clientes",
-      description: "El 90% de los usuarios finales reporta una mayor satisfacción con los servicios mejorados por IA."
-    }
-  ];
-
-  const additionalBenefits = [
-    "Reducción significativa de errores humanos",
-    "Escalabilidad inmediata de operaciones",
-    "Identificación de oportunidades de mercado no evidentes",
-    "Personalización avanzada para clientes",
-    "Optimización de la cadena de suministro",
-    "Detección temprana de problemas y riesgos"
-  ];
-
-  return (
-    <section id="beneficios" className="py-20 bg-white relative overflow-hidden">
+  const benefits = [{
+    stat: "40%",
+    title: "Reducción de costes operativos",
+    description: "Nuestros clientes experimentan una reducción promedio del 40% en costes operativos tras implementar nuestras soluciones de IA."
+  }, {
+    stat: "85%",
+    title: "Aumento en la productividad",
+    description: "Las soluciones de automatización inteligente aumentan la productividad de sus equipos hasta en un 85%."
+  }, {
+    stat: "60%",
+    title: "Mejora en la toma de decisiones",
+    description: "Los sistemas de análisis predictivo mejoran la precisión de las decisiones estratégicas en un 60%."
+  }, {
+    stat: "30%",
+    title: "Mejora en la precisión",
+    description: "La implementación de IA mejora la precisión en la toma de decisiones en un 30% adicional."
+  }, {
+    stat: "90%",
+    title: "Satisfacción de clientes",
+    description: "El 90% de los usuarios finales reporta una mayor satisfacción con los servicios mejorados por IA."
+  }];
+  const additionalBenefits = ["Reducción significativa de errores humanos", "Escalabilidad inmediata de operaciones", "Identificación de oportunidades de mercado no evidentes", "Personalización avanzada para clientes", "Optimización de la cadena de suministro", "Detección temprana de problemas y riesgos"];
+  return <section id="beneficios" className="py-20 bg-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-livs-gray-light opacity-50 -skew-x-12 transform origin-top-right"></div>
       
@@ -58,16 +40,11 @@ const BenefitsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-16">
-          {benefits.map((benefit, index) => (
-            <div 
-              key={index} 
-              className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-livs-purple hover:transform hover:-translate-y-1 transition-transform duration-300"
-            >
+          {benefits.map((benefit, index) => <div key={index} className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-livs-purple hover:transform hover:-translate-y-1 transition-transform duration-300">
               <div className="text-4xl font-bold text-livs-purple mb-2">{benefit.stat}</div>
               <h3 className="text-xl font-semibold text-livs-blue mb-3">{benefit.title}</h3>
               <p className="text-livs-gray-dark">{benefit.description}</p>
-            </div>
-          ))}
+            </div>)}
         </div>
 
         <div className="bg-gradient-to-r from-livs-blue to-livs-purple rounded-xl p-8 text-white">
@@ -79,12 +56,10 @@ const BenefitsSection = () => {
                 estratégicas que posicionan a su empresa por delante de la competencia:
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {additionalBenefits.map((item, index) => (
-                  <div key={index} className="flex items-start gap-2">
+                {additionalBenefits.map((item, index) => <div key={index} className="flex items-start gap-2">
                     <Check className="h-5 w-5 text-livs-cyan mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
             <div className="flex items-center justify-center">
@@ -92,10 +67,10 @@ const BenefitsSection = () => {
                 <div className="w-full h-64 bg-white/10 backdrop-filter backdrop-blur-lg rounded-xl overflow-hidden border border-white/20">
                   <div className="h-40 bg-livs-blue/30">
                     <div className="h-full flex items-end">
-                      <div className="w-1/4 h-[20%] bg-livs-cyan ml-8"></div>
+                      <div className="w-1/4 h-[20%] ml-8 bg-zinc-400"></div>
                       <div className="w-1/4 h-[40%] bg-white/60 ml-4"></div>
-                      <div className="w-1/4 h-[75%] bg-livs-purple ml-4"></div>
-                      <div className="w-1/4 h-[90%] bg-livs-cyan/80 ml-4 mr-8"></div>
+                      <div className="w-1/4 h-[75%] ml-4 bg-zinc-300"></div>
+                      <div className="w-1/4 h-[90%] ml-4 mr-8 bg-zinc-50"></div>
                     </div>
                   </div>
                   <div className="p-4 text-center font-medium">
@@ -107,8 +82,6 @@ const BenefitsSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default BenefitsSection;
