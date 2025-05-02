@@ -14,20 +14,20 @@ interface RobotProps {
 }
 
 // Simple Robot model component
-function Robot(props: RobotProps) {
-  const meshRef = useRef<THREE.Group>(null)
+function Robot({ position, scale }: RobotProps) {
+  const groupRef = useRef<THREE.Group>(null)
   const [hovered, setHover] = useState(false)
 
   useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y += 0.01
-      meshRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1
+    if (groupRef.current) {
+      groupRef.current.rotation.y += 0.01
+      groupRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1
     }
   })
 
   // Create a simple robot using basic Three.js geometries
   return (
-    <group {...props} ref={meshRef}>
+    <group ref={groupRef} position={position} scale={scale}>
       {/* Robot head */}
       <mesh position={[0, 1.5, 0]} castShadow receiveShadow>
         <boxGeometry args={[1, 1, 1]} />
@@ -42,16 +42,13 @@ function Robot(props: RobotProps) {
       <mesh 
         position={[-0.25, 1.6, 0.51]} 
         castShadow
-        onClick={(e) => {
-          e.stopPropagation()
+        onClick={() => {
           console.log("Eye clicked")
         }}
-        onPointerOver={(e) => {
-          e.stopPropagation()
+        onPointerOver={() => {
           setHover(true)
         }}
-        onPointerOut={(e) => {
-          e.stopPropagation()
+        onPointerOut={() => {
           setHover(false)
         }}
       >
@@ -99,7 +96,7 @@ function Robot(props: RobotProps) {
 // Scene component that encapsulates the 3D environment
 function RobotModel() {
   return (
-    <Canvas shadows>
+    <Canvas shadows camera={{ position: [0, 0, 10], fov: 50 }}>
       <ambientLight intensity={0.5} />
       <spotLight 
         position={[10, 10, 10]} 
