@@ -39,12 +39,10 @@ export function RobotScene() {
       <div className="flex h-full">
         <div className="w-full h-full relative">
           {!renderError ? (
-            <div className="w-full h-full" style={{ background: "linear-gradient(to bottom, #000000, #0f172a)" }}>
-              <SplineScene 
-                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" 
-                className="w-full h-full"
-              />
-            </div>
+            <SplineScene 
+              scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" 
+              className="w-full h-full"
+            />
           ) : (
             <FallbackDisplay />
           )}

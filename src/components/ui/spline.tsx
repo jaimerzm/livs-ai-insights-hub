@@ -32,27 +32,6 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
       )}
       
       <div className={`w-full h-full ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
-        <AnimatedGradientBackground 
-          startingGap={125}
-          Breathing={true}
-          gradientColors={[
-            "#0A0A0A",
-            "#2979FF",
-            "#9C27B0",
-            "#6A1B9A",
-            "#3D5AFE",
-            "#304FFE"
-          ]}
-          gradientStops={[20, 40, 60, 75, 85, 100]}
-          animationSpeed={0.03}
-          breathingRange={8}
-          topOffset={-20}
-        />
-        
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-48 h-48 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 blur-3xl opacity-30"></div>
-        </div>
-        
         <Suspense fallback={
           <div className="w-full h-full flex items-center justify-center">
             <span className="loader"></span>
