@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -24,7 +25,7 @@ const AboutSection = () => {
             </Button>
           </div>
           <div className="order-first md:order-none">
-            <img alt="Nuestro equipo" className="rounded-xl shadow-lg grayscale hover:grayscale-0 transition-all duration-500" src="/lovable-uploads/85ae4eb3-7ef5-4537-bbcc-8d5c31f6904f.jpg" />
+            <img alt="Nuestro equipo" className="rounded-xl shadow-lg hover:shadow-xl transition-all duration-500" src="/lovable-uploads/85ae4eb3-7ef5-4537-bbcc-8d5c31f6904f.jpg" />
           </div>
         </div>
 
