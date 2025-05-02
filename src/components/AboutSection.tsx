@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { RainbowButton } from '@/components/ui/rainbow-button';
 
 const AboutSection = () => {
   const [showFullBio, setShowFullBio] = useState(false);
@@ -21,13 +20,11 @@ const AboutSection = () => {
             <p className="text-gray-700 mb-4">
               Nuestra misión es ayudar a las empresas a aprovechar al máximo el potencial de la inteligencia artificial, ofreciendo soluciones innovadoras y personalizadas que impulsen su crecimiento y eficiencia.
             </p>
-            <Button 
-              size="lg" 
-              className="bg-black hover:bg-black/90 text-white font-medium"
+            <RainbowButton 
               onClick={() => setShowFullBio(!showFullBio)}
             >
               {showFullBio ? "Leer menos" : "Leer más"}
-            </Button>
+            </RainbowButton>
           </div>
           <div className="order-first md:order-none">
             <img 
