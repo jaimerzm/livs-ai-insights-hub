@@ -39,7 +39,7 @@ const ServicesSection = () => {
 
   return (
     <section id="servicios" className="py-20 bg-livs-gray-light">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-livs-blue text-3xl md:text-4xl font-bold mb-4">Nuestros Servicios</h2>
           <p className="text-livs-gray-dark text-lg">
@@ -48,7 +48,7 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {services.map((service, index) => (
             <Card key={index} className="border border-livs-gray bg-white hover:shadow-lg transition-shadow duration-300 h-full">
               <CardHeader>
