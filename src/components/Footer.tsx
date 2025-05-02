@@ -84,10 +84,10 @@ const Footer = () => {
         
         <div className="mt-12 pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center">
           <div className="text-sm text-white/70">
-            © {currentYear} Livs. Todos los derechos reservados.
+            © {currentYear} Lias. Todos los derechos reservados.
           </div>
           <div className="mt-4 md:mt-0 text-sm text-white/70">
-            Diseñado y desarrollado con ❤️ por el equipo de Livs
+            Diseñado y desarrollado con ❤️ por el equipo de Lias
           </div>
         </div>
       </div>

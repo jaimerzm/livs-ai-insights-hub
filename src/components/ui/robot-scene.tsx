@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import { Card } from "@/components/ui/card"
 import { SplineScene } from "@/components/ui/spline"
 
-// Fallback component with LIVS logo on white t-shirt
+// Fallback component with LIAS logo on white t-shirt
 function FallbackDisplay() {
   return (
     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -14,8 +14,8 @@ function FallbackDisplay() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <div className="bg-white p-4 rounded-lg shadow-lg">
             <img 
-              src="/lovable-uploads/ac7a0701-3202-4c63-aa63-96c184a1113c.png"
-              alt="LIVS Logo"
+              src="/lovable-uploads/dee18853-5d63-4c37-9be0-caf041f5e3b7.png"
+              alt="LIAS Logo"
               className="h-16 w-auto"
             />
           </div>
