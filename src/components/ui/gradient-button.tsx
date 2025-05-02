@@ -15,7 +15,8 @@ const gradientButtonVariants = cva(
     "font-sans font-bold",
     "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
     "disabled:pointer-events-none disabled:opacity-50",
-    "border border-white/10",
+    "border border-white/20",
+    "shadow-lg shadow-blue-500/20",
   ],
   {
     variants: {
