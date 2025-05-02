@@ -1,6 +1,8 @@
+
 import React from 'react';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Star } from 'lucide-react';
+
 const TestimonialsSection = () => {
   const testimonials = [{
     quote: "Las soluciones de IA implementadas por Livs nos permitieron reducir nuestros costes operativos en un 35% y aumentar la satisfacción de nuestros clientes significativamente.",
@@ -21,6 +23,7 @@ const TestimonialsSection = () => {
     stars: 5,
     company: "Sector Salud"
   }];
+  
   const caseStudies = [{
     industry: "Retail",
     title: "Optimización de Inventario con IA",
@@ -37,6 +40,7 @@ const TestimonialsSection = () => {
     results: ["86% de precisión en la predicción de fallos", "41% de reducción en tiempo de inactividad", "ROI del 315% en el primer año"],
     bgColor: "bg-livs-cyan"
   }];
+  
   return <section id="casos" className="py-20 bg-livs-gray-light relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -62,10 +66,29 @@ const TestimonialsSection = () => {
 
         <div className="mb-16">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => {})}
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 bg-white">
+                <CardHeader className="pb-2">
+                  <div className="flex gap-1 mb-2">
+                    {Array.from({ length: testimonial.stars }).map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-current text-yellow-500" />
+                    ))}
+                  </div>
+                  <p className="italic text-gray-600">"{testimonial.quote}"</p>
+                </CardHeader>
+                <CardFooter className="pt-4 flex flex-col items-start">
+                  <h4 className="font-semibold">{testimonial.author}</h4>
+                  <p className="text-sm text-gray-500">{testimonial.position}</p>
+                  <span className="inline-block mt-1 px-2 py-1 bg-gray-100 rounded-full text-xs font-medium">
+                    {testimonial.company}
+                  </span>
+                </CardFooter>
+              </Card>
+            ))}
           </div>
         </div>
       </div>
     </section>;
 };
+
 export default TestimonialsSection;
