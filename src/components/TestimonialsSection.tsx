@@ -1,6 +1,8 @@
+
 import React from 'react';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Star } from 'lucide-react';
+
 const TestimonialsSection = () => {
   const testimonials = [{
     quote: "Las soluciones de IA implementadas por Livs nos permitieron reducir nuestros costes operativos en un 35% y aumentar la satisfacción de nuestros clientes significativamente.",
@@ -21,6 +23,7 @@ const TestimonialsSection = () => {
     stars: 5,
     company: "Sector Salud"
   }];
+
   const caseStudies = [{
     industry: "Retail",
     title: "Optimización de Inventario con IA",
@@ -37,6 +40,7 @@ const TestimonialsSection = () => {
     results: ["86% de precisión en la predicción de fallos", "41% de reducción en tiempo de inactividad", "ROI del 315% en el primer año"],
     bgColor: "bg-livs-cyan"
   }];
+
   return <section id="casos" className="py-20 bg-livs-gray-light relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -62,10 +66,31 @@ const TestimonialsSection = () => {
 
         <div className="mb-16">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => {})}
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="bg-white shadow-md hover:shadow-lg transition-shadow duration-300">
+                <CardHeader>
+                  <div className="flex items-center gap-1">
+                    {[...Array(testimonial.stars)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <blockquote className="italic text-livs-gray-dark mb-4">
+                    "{testimonial.quote}"
+                  </blockquote>
+                </CardContent>
+                <CardFooter className="flex flex-col items-start">
+                  <div className="font-bold text-livs-blue">{testimonial.author}</div>
+                  <div className="text-sm text-livs-gray">{testimonial.position}</div>
+                  <div className="text-xs text-livs-gray-light mt-1">{testimonial.company}</div>
+                </CardFooter>
+              </Card>
+            ))}
           </div>
         </div>
       </div>
     </section>;
 };
+
 export default TestimonialsSection;
