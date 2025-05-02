@@ -3,14 +3,19 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
-import { OrbitControls, PerspectiveCamera, useGLTF } from "@react-three/drei"
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei"
 import { Card } from "@/components/ui/card"
-import { SplineScene } from "@/components/ui/spline"
 import * as THREE from "three"
 
+// Define proper TypeScript types for the Robot component
+interface RobotProps {
+  position?: [number, number, number];
+  scale?: number | [number, number, number];
+}
+
 // Simple Robot model component
-function Robot(props) {
-  const meshRef = useRef()
+function Robot(props: RobotProps) {
+  const meshRef = useRef<THREE.Group>(null)
   const [hovered, setHover] = useState(false)
 
   useFrame((state) => {
