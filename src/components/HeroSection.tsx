@@ -51,10 +51,8 @@ const HeroSection = () => {
                 <span>Aumento de eficiencia<br />promedio</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-                  <span className="font-bold text-xl">+50</span>
-                </div>
-                <span>Proyectos de IA<br />implementados</span>
+                
+                
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
