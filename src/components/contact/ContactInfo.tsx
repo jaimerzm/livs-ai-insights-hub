@@ -42,8 +42,8 @@ const ContactInfo = ({
             <div>
               <div className="font-medium text-livs-blue">Teléfono</div>
               <a href="tel:+34911234567" className="text-livs-gray-dark hover:text-livs-purple">+34 609 92 74 95
-+34 678  25 82 80
-            </a>
+
++34 678  25 82 80</a>
             </div>
           </div>
           <div className="flex items-start gap-3">
