@@ -56,13 +56,13 @@ const Navbar = () => {
         <Logo />
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {navLinks.map(link => <a key={link.title} href={link.href} className={`font-medium text-sm transition-colors ${isScrolled ? 'text-black' : 'text-white'} hover:text-livs-purple hover:bg-white/80 hover:shadow-sm px-3 py-1 rounded-md`}>
+        <nav className="hidden md:flex items-center space-x-5">
+          {navLinks.map(link => <a key={link.title} href={link.href} className={`font-medium text-base transition-colors px-4 py-2 rounded-md ${isScrolled ? 'text-black' : 'text-white'} hover:text-livs-purple hover:bg-white/80 hover:shadow-sm`}>
               {link.title}
             </a>)}
           <Button 
             onClick={scrollToContact}
-            className="bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90 transition-opacity"
+            className="bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90 transition-opacity text-base px-6 py-5 h-auto"
           >
             Contactar
           </Button>
@@ -76,13 +76,13 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg animate-fade-in">
             <div className="container mx-auto px-4 py-4 flex flex-col">
-              {navLinks.map(link => <a key={link.title} href={link.href} className="text-black font-medium text-sm py-3 border-b border-gray-100 hover:text-livs-purple hover:bg-gray-50 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+              {navLinks.map(link => <a key={link.title} href={link.href} className="text-black font-medium text-base py-4 border-b border-gray-100 hover:text-livs-purple hover:bg-gray-50 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                   {link.title}
                 </a>)}
               <div className="mt-4">
                 <Button 
                   onClick={scrollToContact}
-                  className="w-full bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90 transition-opacity"
+                  className="w-full bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90 transition-opacity text-base py-5 h-auto"
                 >
                   Contactar
                 </Button>
