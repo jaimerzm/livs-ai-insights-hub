@@ -2,12 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import Logo from './Logo';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Home, User, Briefcase, FileText } from 'lucide-react';
+import { NavBar } from '@/components/ui/tubelight-navbar';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('');
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +44,7 @@ const Navbar = () => {
     const contactSection = document.getElementById('contacto');
     if (contactSection) {
       window.scrollTo({
-        top: contactSection.offsetTop - 80, // Ajusta según la altura del navbar
+        top: contactSection.offsetTop - 80,
         behavior: 'smooth'
       });
     }
@@ -71,19 +74,49 @@ const Navbar = () => {
 
   const navLinks = [{
     title: "Servicios",
-    href: "#servicios"
+    href: "#servicios",
+    icon: Briefcase
   }, {
     title: "Beneficios",
-    href: "#beneficios"
+    href: "#beneficios",
+    icon: FileText
   }, {
     title: "Casos de Éxito",
-    href: "#casos"
+    href: "#casos",
+    icon: User
   }, {
     title: "Sobre Nosotros",
-    href: "#nosotros"
+    href: "#nosotros",
+    icon: Home
   }];
   
-  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
+  const tubeLightNavItems = navLinks.map(link => ({
+    name: link.title,
+    url: link.href,
+    icon: link.icon
+  }));
+  
+  // Use the new tubelight navbar on desktop
+  if (!isMobile && !isScrolled) {
+    return (
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div className="container mx-auto px-4 md:px-6 flex items-center justify-between bg-transparent py-4">
+          <Logo />
+          <NavBar items={tubeLightNavItems} className="sm:relative sm:top-0 sm:w-auto sm:translate-x-0 sm:pt-0" />
+          <Button 
+            onClick={scrollToContact}
+            className="bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90 transition-opacity text-lg px-8 py-6 h-auto hover:shadow-md active:transform active:scale-95"
+          >
+            Contactar
+          </Button>
+        </div>
+      </header>
+    );
+  }
+  
+  // Use the original navbar for mobile or when scrolled
+  return (
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between bg-transparent">
         <Logo />
         
@@ -99,12 +132,12 @@ const Navbar = () => {
                   e.preventDefault();
                   handleLinkClick(link.href);
                 }}
-                className={`font-medium text-base transition-all duration-300 px-4 py-2 rounded-md
+                className={`font-medium text-lg transition-all duration-300 px-5 py-3 rounded-md
                   ${isScrolled ? 'text-black' : 'text-white'} 
                   ${isActive 
                     ? 'bg-livs-purple text-white transform scale-105 shadow-md' 
                     : 'hover:text-livs-purple hover:bg-white/80 hover:shadow-sm'
-                  }`}
+                  } active:transform active:scale-95`}
               >
                 {link.title}
               </a>
@@ -112,7 +145,7 @@ const Navbar = () => {
           })}
           <Button 
             onClick={scrollToContact}
-            className="bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90 transition-opacity text-base px-6 py-5 h-auto hover:shadow-md active:transform active:scale-95"
+            className="bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90 transition-opacity text-lg px-8 py-6 h-auto hover:shadow-md active:transform active:scale-95"
           >
             Contactar
           </Button>
@@ -124,7 +157,8 @@ const Navbar = () => {
         </button>
 
         {/* Mobile Navigation */}
-        {isMobileMenuOpen && <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg animate-fade-in">
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg animate-fade-in">
             <div className="container mx-auto px-4 py-4 flex flex-col">
               {navLinks.map(link => {
                 const isActive = activeLink === link.href.substring(1);
@@ -140,7 +174,7 @@ const Navbar = () => {
                       ${isActive 
                         ? 'bg-livs-purple/10 text-livs-purple font-semibold pl-2' 
                         : 'hover:text-livs-purple hover:bg-gray-50'
-                      }`}
+                      } active:transform active:scale-95`}
                   >
                     {link.title}
                   </a>
@@ -155,9 +189,11 @@ const Navbar = () => {
                 </Button>
               </div>
             </div>
-          </div>}
+          </div>
+        )}
       </div>
-    </header>;
+    </header>
+  );
 };
 
 export default Navbar;
