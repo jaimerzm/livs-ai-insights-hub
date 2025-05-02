@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
@@ -35,20 +36,20 @@ const Index = () => {
       <main>
         <HeroSection />
         <IntroSection />
-        <div id="servicios">
-          <ServicesSection />
-        </div>
         <div id="beneficios">
           <BenefitsSection />
         </div>
-        <div id="casos">
+        <div id="contacto">
+          <ContactSection />
+        </div>
+        <div id="servicios">
+          <ServicesSection />
+        </div>
+        <div id="futuros-casos">
           <TestimonialsSection />
         </div>
         <div id="nosotros">
           <AboutSection />
-        </div>
-        <div id="contacto">
-          <ContactSection />
         </div>
       </main>
       <Footer />
