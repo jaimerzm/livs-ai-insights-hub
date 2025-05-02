@@ -11,19 +11,19 @@ const AboutSection = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-livs-blue">
+            <h2 className="text-3xl md:text-4xl font-bold text-black">
               Sobre Nosotros
             </h2>
-            <p className="text-livs-gray-dark mb-4">
+            <p className="text-gray-700 mb-4">
               Con una amplia experiencia en el desarrollo e implementación de soluciones de IA para empresas multinacionales. Especialista en aprendizaje automático y procesamiento del lenguaje natural.
             </p>
             
-            <p className="text-livs-gray-dark mb-4">
+            <p className="text-gray-700 mb-4">
               Nuestra misión es ayudar a las empresas a aprovechar al máximo el potencial de la inteligencia artificial, ofreciendo soluciones innovadoras y personalizadas que impulsen su crecimiento y eficiencia.
             </p>
             <Button 
               size="lg" 
-              className="bg-livs-purple hover:bg-livs-purple/90 text-white font-medium"
+              className="bg-black hover:bg-black/90 text-white font-medium"
               onClick={() => setShowFullBio(!showFullBio)}
             >
               {showFullBio ? "Leer menos" : "Leer más"}
@@ -33,24 +33,24 @@ const AboutSection = () => {
             <img 
               src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" 
               alt="Nuestro equipo" 
-              className="rounded-xl shadow-lg" 
+              className="rounded-xl shadow-lg grayscale hover:grayscale-0 transition-all duration-500" 
             />
           </div>
         </div>
 
         {showFullBio && (
           <div className="animate-fade-in space-y-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-center text-livs-blue mb-10">
+            <h3 className="text-2xl md:text-3xl font-bold text-center text-black mb-10">
               Nuestro Equipo Fundador
             </h3>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <Card className="border-livs-blue/20 shadow-md hover:shadow-lg transition-shadow">
+              <Card className="border-gray-200 shadow-md hover:shadow-lg transition-shadow bg-white">
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-livs-blue text-xl md:text-2xl">Manuel Talón</CardTitle>
-                  <CardDescription className="text-livs-purple font-medium">Visionario Emprendedor</CardDescription>
+                  <CardTitle className="text-black text-xl md:text-2xl">Manuel Talón</CardTitle>
+                  <CardDescription className="text-black/70 font-medium">Visionario Emprendedor</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4 text-livs-gray-dark">
+                <CardContent className="space-y-4 text-gray-700">
                   <p>
                     Manuel Talón es un empresario innovador con una trayectoria probada en la identificación de oportunidades de mercado emergentes. 
                     Como cofundador de LIVS, aporta su experiencia en desarrollo de negocios y su pasión por conectar tecnologías disruptivas con 
@@ -68,12 +68,12 @@ const AboutSection = () => {
                 </CardContent>
               </Card>
 
-              <Card className="border-livs-blue/20 shadow-md hover:shadow-lg transition-shadow">
+              <Card className="border-gray-200 shadow-md hover:shadow-lg transition-shadow bg-white">
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-livs-blue text-xl md:text-2xl">Jaime Ruiz</CardTitle>
-                  <CardDescription className="text-livs-purple font-medium">Experto en Inteligencia Artificial</CardDescription>
+                  <CardTitle className="text-black text-xl md:text-2xl">Jaime Ruiz</CardTitle>
+                  <CardDescription className="text-black/70 font-medium">Experto en Inteligencia Artificial</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4 text-livs-gray-dark">
+                <CardContent className="space-y-4 text-gray-700">
                   <p>
                     Jaime Ruiz es un especialista en inteligencia artificial con amplia experiencia en el desarrollo e implementación de 
                     soluciones tecnológicas avanzadas. Su profundo conocimiento técnico y su capacidad para mantenerse a la vanguardia de 
@@ -93,7 +93,7 @@ const AboutSection = () => {
               </Card>
             </div>
 
-            <p className="text-center text-livs-blue font-medium text-lg mt-10">
+            <p className="text-center text-black font-medium text-lg mt-10">
               Juntos, Manuel y Jaime han creado en LIVS una empresa que no solo proporciona información sobre inteligencia artificial, 
               sino que ofrece la orientación experta necesaria para convertir esa información en ventajas competitivas reales para 
               nuestros clientes.

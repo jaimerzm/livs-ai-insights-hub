@@ -59,15 +59,15 @@ export default {
 				},
 				livs: {
 					blue: {
-						DEFAULT: '#1A365D',
-						light: '#2A4365',
+						DEFAULT: '#000000',
+						light: '#333333',
 					},
-					purple: '#6B46C1',
-					cyan: '#0BC5EA',
+					purple: '#000000',
+					cyan: '#000000',
 					gray: {
-						light: '#F7FAFC',
-						DEFAULT: '#E2E8F0',
-						dark: '#4A5568',
+						light: '#F7F7F7',
+						DEFAULT: '#E2E2E2',
+						dark: '#333333',
 					},
 				},
 				sidebar: {
