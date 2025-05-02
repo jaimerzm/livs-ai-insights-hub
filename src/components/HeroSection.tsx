@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import { SplashCursor } from '@/components/ui/splash-cursor';
 import { RobotScene } from '@/components/ui/robot-scene';
 import { Link } from 'react-router-dom';
-import { RainbowButton } from '@/components/ui/rainbow-button';
+import { GradientButton } from '@/components/ui/gradient-button';
 
 const HeroSection = () => {
   const scrollToSection = (sectionId: string) => {
@@ -45,12 +45,12 @@ const HeroSection = () => {
               >
                 Solicitar consulta gratuita
               </Button>
-              <RainbowButton
+              <GradientButton
                 onClick={() => scrollToSection('servicios')}
                 className="flex items-center gap-2"
               >
                 Conocer servicios <ArrowRight className="ml-2 h-4 w-4" />
-              </RainbowButton>
+              </GradientButton>
             </div>
             <div className="mt-12 flex flex-col sm:flex-row gap-6 sm:gap-12 text-sm">
               <div className="flex items-center gap-2">
