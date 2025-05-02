@@ -31,7 +31,7 @@ const Logo = () => {
     <Link to="/" onClick={handleClick} className="flex items-center gap-2">
       <div className="w-20 h-20 flex items-center justify-center">
         <img 
-          src="/lovable-uploads/99c03604-b2ed-4cbf-888d-38d0b461b4eb.png"
+          src="/lovable-uploads/9ae8d914-fd9e-416c-b610-e7d10dfe3e02.png"
           alt="LIAS Logo" 
           className="w-20 h-20 object-contain transition-all duration-300"
           style={{
