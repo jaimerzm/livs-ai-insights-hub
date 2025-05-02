@@ -3,7 +3,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei"
+import { OrbitControls } from "@react-three/drei"
 import { Card } from "@/components/ui/card"
 import * as THREE from "three"
 
@@ -35,13 +35,17 @@ function Robot(props: RobotProps) {
           color={hovered ? "#4169E1" : "#1E40AF"} 
           roughness={0.5}
           metalness={0.8}
-          onPointerOver={() => setHover(true)} 
-          onPointerOut={() => setHover(false)} 
         />
       </mesh>
 
       {/* Robot eyes */}
-      <mesh position={[-0.25, 1.6, 0.51]} castShadow>
+      <mesh 
+        position={[-0.25, 1.6, 0.51]} 
+        castShadow
+        onClick={() => console.log("Eye clicked")}
+        onPointerOver={() => setHover(true)}
+        onPointerOut={() => setHover(false)}
+      >
         <sphereGeometry args={[0.1, 16, 16]} />
         <meshStandardMaterial color="#4ade80" emissive="#4ade80" emissiveIntensity={2} />
       </mesh>
