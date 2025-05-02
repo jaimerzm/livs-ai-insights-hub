@@ -35,7 +35,7 @@ const Logo = () => {
           alt="LIAS Logo" 
           className="w-20 h-20 object-contain transition-all duration-300"
           style={{
-            filter: 'brightness(0) invert(1)'
+            filter: isScrolled ? 'brightness(0)' : 'brightness(0) invert(1)'
           }}
         />
       </div>
