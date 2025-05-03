@@ -1,8 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button as StandardButton } from '@/components/ui/button';
-import { Button as MovingBorderButton } from '@/components/ui/moving-border';
 import Logo from './Logo';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
+import { GlowEffect } from '@/components/ui/glow-effect';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -122,15 +123,23 @@ const Navbar = () => {
               </a>
             )
           })}
-          <MovingBorderButton 
-            onClick={scrollToContact}
-            containerClassName="h-12 w-32"
-            borderClassName="bg-[radial-gradient(var(--livs-purple)_40%,transparent_60%)]"
-            className="bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90 border-none py-0 text-base"
-            borderRadius="0.75rem"
-          >
-            Contactar
-          </MovingBorderButton>
+          
+          <div className="relative">
+            <GlowEffect
+              colors={['#0EA5E9', '#8B5CF6', '#D946EF']}
+              mode="colorShift"
+              blur="soft"
+              duration={3}
+              scale={1.2}
+            />
+            <button 
+              onClick={scrollToContact}
+              className="relative z-10 flex items-center gap-1 rounded-md bg-gradient-to-r from-livs-blue to-livs-purple px-6 py-2 text-sm font-medium text-white transition-all hover:opacity-90"
+            >
+              Contactar
+              <ArrowRight className="h-4 w-4 ml-1" />
+            </button>
+          </div>
         </nav>
         
         {/* Mobile Menu Button */}
@@ -166,16 +175,21 @@ const Navbar = () => {
                   </a>
                 )
               })}
-              <div className="mt-4">
-                <MovingBorderButton 
+              <div className="mt-4 relative">
+                <GlowEffect
+                  colors={['#0EA5E9', '#8B5CF6', '#D946EF']}
+                  mode="colorShift"
+                  blur="soft"
+                  duration={3}
+                  scale={1.2}
+                />
+                <button 
                   onClick={scrollToContact}
-                  containerClassName="w-full h-12"
-                  className="w-full bg-gradient-to-r from-livs-blue to-livs-purple border-none py-0 text-base"
-                  borderClassName="bg-[radial-gradient(var(--livs-purple)_40%,transparent_60%)]"
-                  borderRadius="0.75rem"
+                  className="relative z-10 w-full flex items-center justify-center gap-1 rounded-md bg-gradient-to-r from-livs-blue to-livs-purple px-6 py-3 text-sm font-medium text-white transition-all hover:opacity-90"
                 >
                   Contactar
-                </MovingBorderButton>
+                  <ArrowRight className="h-4 w-4 ml-1" />
+                </button>
               </div>
             </div>
           </div>}
