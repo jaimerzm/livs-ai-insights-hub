@@ -10,6 +10,7 @@ const PrivacyPolicy = () => {
   const navigate = useNavigate();
   
   const handleGoBack = () => {
+    console.log("Back button clicked");
     navigate(-1);
   };
   
@@ -21,7 +22,7 @@ const PrivacyPolicy = () => {
           <Button 
             onClick={handleGoBack} 
             variant="outline" 
-            className="mb-6 flex items-center gap-2"
+            className="mb-6 flex items-center gap-2 hover:bg-gray-100"
             size="sm"
           >
             <ArrowLeft className="h-4 w-4" />
