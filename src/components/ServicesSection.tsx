@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BrainCircuit, TrendingUp, LineChart, Database, Code, Users, Video, BarChart } from 'lucide-react';
@@ -64,8 +63,7 @@ const ServicesSection = () => {
           <div className="text-livs-gray-dark text-lg mb-8">
             <p className="mb-6">
               <strong className="text-xl text-livs-blue block mb-3">Consultoría en Inteligencia Artificial para Empresas</strong>
-              Ofrecemos conocimiento especializado en IA para transformar su negocio. Nuestros expertos le ayudarán a 
-              implementar soluciones tecnológicas adaptadas a sus necesidades específicas.
+              Ofrecemos conocimiento especializado en IA para transformar su negocio. Nosotros, mano a mano, le ayudaremos  a implementar soluciones tecnológicas adaptadas a sus necesidades específicas, LE ENSEÑAREMOS A USAR LAS MEJORES IAS DE FORMA SENCILLA, ES MÁS FÁCIL Y RÁPIDO DE LO QUE CREE.
             </p>
             
             <div className="mt-8 mb-6">
