@@ -1,89 +1,76 @@
 
 import React from 'react';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { MessageSquareQuote, Users } from 'lucide-react';
-import { Slider } from '@/components/ui/slider';
-import { Skeleton } from '@/components/ui/skeleton';
+import { Card, CardContent } from '@/components/ui/card';
+import { Star, Quote } from 'lucide-react';
 
 const TestimonialsSection = () => {
-  return <section id="casos" className="py-20 bg-livs-gray-light relative overflow-hidden">
+  const testimonials = [
+    {
+      id: 1,
+      name: 'Empresa de Logística',
+      position: 'CEO',
+      text: 'La implementación de IA en nuestra cadena de suministro ha reducido nuestros costes operativos en un 28% y ha mejorado significativamente la precisión de nuestras previsiones de inventario.',
+      rating: 5,
+      image: '/lovable-uploads/f8abbaef-fae8-4fec-9576-57ea3f4cce0f.png'
+    },
+    {
+      id: 2,
+      name: 'Compañía Manufacturera',
+      position: 'Director de Operaciones',
+      text: 'Gracias a las soluciones de IA implementadas por Livs, hemos optimizado nuestros procesos de producción, reduciendo el tiempo de inactividad en un 35% y mejorando la calidad del producto.',
+      rating: 5,
+    },
+    {
+      id: 3,
+      name: 'Empresa de Retail',
+      position: 'CMO',
+      text: 'La personalización impulsada por IA ha transformado nuestra estrategia de marketing, aumentando las conversiones en un 42% y mejorando significativamente la retención de clientes.',
+      rating: 5,
+    }
+  ];
+
+  return (
+    <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-livs-blue text-3xl md:text-4xl font-bold mb-4">Futuros Testimonios</h2>
-          <p className="text-livs-gray-dark text-lg">
-            Estamos iniciando nuestro camino y pronto este espacio se llenará con las experiencias 
-            de nuestros clientes. ¡Sé uno de los primeros en aprovechar nuestras soluciones!
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <h2 className="text-3xl font-bold mb-4">Lo que dicen nuestros clientes</h2>
+          <p className="text-lg text-gray-600">
+            Empresas de diversos sectores han experimentado resultados excepcionales gracias a nuestras soluciones de IA.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {/* Tarjeta de "Próximamente" */}
-          <Card className="bg-white shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col">
-            <div className="flex items-center justify-center h-40 bg-gradient-to-r from-livs-blue/10 to-livs-blue/5 rounded-t-lg">
-              <MessageSquareQuote className="h-16 w-16 text-livs-blue/30" />
-            </div>
-            <CardContent className="pt-6">
-              <h3 className="font-bold text-livs-blue text-xl mb-3">Tu experiencia aquí</h3>
-              <div className="space-y-3">
-                <Skeleton className="h-4 w-full" />
-                <Skeleton className="h-4 w-5/6" />
-                <Skeleton className="h-4 w-4/6" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial) => (
+            <Card key={testimonial.id} className="overflow-hidden">
+              <div className="flex items-center justify-center h-40 bg-gradient-to-r from-livs-blue/5 to-livs-blue/10 rounded-t-lg">
+                {testimonial.image ? (
+                  <img 
+                    src={testimonial.image} 
+                    alt={testimonial.name} 
+                    className="h-full object-contain"
+                  />
+                ) : (
+                  <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-sm">
+                    <Quote size={24} className="text-livs-purple/80" />
+                  </div>
+                )}
               </div>
-            </CardContent>
-            <CardFooter className="mt-auto border-t pt-4">
-              <div className="w-full flex justify-between items-center">
-                <span className="text-sm text-zinc-950">Satisfacción del cliente</span>
-                <Slider defaultValue={[85]} max={100} step={1} disabled className="w-32" />
-              </div>
-            </CardFooter>
-          </Card>
-
-          {/* Tarjeta de "En colaboración" */}
-          <Card className="bg-white shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col">
-            <div className="flex items-center justify-center h-40 bg-gradient-to-r from-livs-blue/5 to-livs-blue/10 rounded-t-lg">
-              <Users className="h-16 w-16 text-livs-blue/30" />
-            </div>
-            <CardContent className="pt-6">
-              <h3 className="font-bold text-livs-blue text-xl mb-3">Colaboración futura</h3>
-              <p className="text-livs-gray-dark mb-4">
-                Nos encantaría trabajar con su empresa para crear soluciones personalizadas 
-                de IA que impulsen su negocio hacia el futuro.
-              </p>
-            </CardContent>
-            <CardFooter className="mt-auto border-t pt-4">
-              <div className="text-sm text-livs-gray">
-                <span className="block text-zinc-950">¿Interesado en ser uno de nuestros primeros casos de éxito?</span>
-                <span className="block mt-1 text-livs-purple">Contáctenos hoy mismo.</span>
-              </div>
-            </CardFooter>
-          </Card>
-
-          {/* Tarjeta de "Visión" */}
-          <Card className="bg-white shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col">
-            <div className="flex items-center justify-center h-40 bg-gradient-to-r from-livs-blue/10 to-livs-blue/5 rounded-t-lg">
-              <div className="relative">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur opacity-30"></div>
-                <div className="relative bg-white rounded-full p-3">
-                  <MessageSquareQuote className="h-10 w-10 text-livs-blue" />
+              <CardContent className="p-6">
+                <div className="flex mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
+                  ))}
                 </div>
-              </div>
-            </div>
-            <CardContent className="pt-6">
-              <h3 className="font-bold text-livs-blue text-xl mb-3">Nuestra promesa</h3>
-              <p className="text-livs-gray-dark mb-4">
-                Nos comprometemos a ofrecer soluciones innovadoras de IA que transformen 
-                positivamente su negocio, con resultados medibles y un enfoque personalizado.
-              </p>
-            </CardContent>
-            <CardFooter className="mt-auto border-t pt-4">
-              <div className="w-full text-center">
-                <span className="text-livs-blue font-medium">Pronto compartiremos historias de éxito reales</span>
-              </div>
-            </CardFooter>
-          </Card>
+                <blockquote className="italic mb-4 text-gray-700">{testimonial.text}</blockquote>
+                <div className="font-bold">{testimonial.name}</div>
+                <div className="text-sm text-gray-500">{testimonial.position}</div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
 
 export default TestimonialsSection;
