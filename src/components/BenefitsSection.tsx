@@ -1,8 +1,9 @@
 
 import React from 'react';
-import { Check } from 'lucide-react';
+import { Check, Info, TrendingUp, BarChart } from 'lucide-react';
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import { BarChart as RechartsBarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import { Tooltip as UITooltip, TooltipTrigger, TooltipContent, TooltipProvider } from '@/components/ui/tooltip';
 
 const BenefitsSection = () => {
   const benefits = [{
@@ -38,6 +39,25 @@ const BenefitsSection = () => {
 
   const additionalBenefits = ["Reducción significativa de errores humanos", "Escalabilidad inmediata de operaciones", "Identificación de oportunidades de mercado no evidentes", "Personalización avanzada para clientes", "Optimización de la cadena de suministro", "Detección temprana de problemas y riesgos"];
   
+  // Interesting AI facts with icons
+  const aiFacts = [
+    {
+      icon: <BarChart className="h-6 w-6 text-livs-cyan" />,
+      fact: "El 63% de las empresas que adoptaron IA reportaron un aumento en ingresos",
+      source: "McKinsey"
+    },
+    {
+      icon: <TrendingUp className="h-6 w-6 text-livs-purple" />,
+      fact: "La automatización con IA puede ahorrar hasta 20-30 horas semanales por empleado",
+      source: "Deloitte"
+    },
+    {
+      icon: <Info className="h-6 w-6 text-livs-cyan" />,
+      fact: "Las empresas con IA tienen un 35% más probabilidades de superar a su competencia",
+      source: "BCG"
+    }
+  ];
+  
   return <section id="beneficios" className="py-20 bg-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-livs-gray-light opacity-50 -skew-x-12 transform origin-top-right"></div>
@@ -52,6 +72,32 @@ const BenefitsSection = () => {
           <p className="text-livs-gray-dark text-sm italic">
             Estos son promedios reportados por empresas que ya usan IA.
           </p>
+        </div>
+
+        {/* IA Facts Cards - Added new visual section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <TooltipProvider>
+            {aiFacts.map((item, index) => (
+              <div key={index} className="bg-gradient-to-br from-white to-livs-gray-light/20 rounded-xl shadow-md p-6 hover:shadow-lg transition-all duration-300 border border-livs-gray-light/30">
+                <div className="flex items-start gap-4">
+                  <div className="rounded-full bg-white p-2 shadow-sm">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <p className="font-medium text-livs-blue text-lg">{item.fact}</p>
+                    <UITooltip>
+                      <TooltipTrigger asChild>
+                        <p className="text-xs text-livs-gray-dark cursor-help mt-1">Fuente: {item.source}</p>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p className="text-xs">Investigación realizada por {item.source}</p>
+                      </TooltipContent>
+                    </UITooltip>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </TooltipProvider>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-16">
@@ -82,7 +128,7 @@ const BenefitsSection = () => {
                 <div className="w-full h-full bg-white/10 backdrop-filter backdrop-blur-lg rounded-xl overflow-hidden border border-white/20 p-2">
                   <h4 className="text-center text-white text-sm mb-2 font-medium">Evolución de la Implementación de IA en Empresas (%)</h4>
                   <ResponsiveContainer width="100%" height="85%">
-                    <BarChart data={graphData} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
+                    <RechartsBarChart data={graphData} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
                       <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.2)" />
                       <XAxis dataKey="año" stroke="rgba(255,255,255,0.8)" />
                       <YAxis stroke="rgba(255,255,255,0.8)" />
@@ -91,7 +137,7 @@ const BenefitsSection = () => {
                       <Bar dataKey="adopción" name="Adopción de IA" fill="#36A2EB" />
                       <Bar dataKey="eficiencia" name="Mejora de Eficiencia" fill="#4BC0C0" />
                       <Bar dataKey="competitividad" name="Aumento Competitividad" fill="#9966FF" />
-                    </BarChart>
+                    </RechartsBarChart>
                   </ResponsiveContainer>
                 </div>
                 <div className="absolute bottom-2 right-3 text-xs text-white/70">
