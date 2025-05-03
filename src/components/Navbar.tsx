@@ -77,11 +77,11 @@ const Navbar = () => {
   };
 
   const navLinks = [{
-    title: "Servicios",
-    href: "#servicios"
-  }, {
     title: "Beneficios",
     href: "#beneficios"
+  }, {
+    title: "Servicios",
+    href: "#servicios"
   }, {
     title: "Casos de Éxito",
     href: "#futuros-testimonios"
