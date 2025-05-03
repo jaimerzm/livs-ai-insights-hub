@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
@@ -5,6 +6,8 @@ import { SplashCursor } from '@/components/ui/splash-cursor';
 import { RobotScene } from '@/components/ui/robot-scene';
 import { Link } from 'react-router-dom';
 import { GradientButton } from '@/components/ui/gradient-button';
+import { HoverButton } from '@/components/ui/hover-button';
+
 const HeroSection = () => {
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
@@ -36,9 +39,12 @@ const HeroSection = () => {
               reducir costes y aumentar la rentabilidad con soluciones inteligentes adaptadas a su negocio.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" onClick={() => scrollToSection('contacto')} className="bg-white hover:bg-white/90 text-black font-bold text-base">
+              <HoverButton 
+                onClick={() => scrollToSection('contacto')} 
+                className="bg-white hover:bg-white/90 text-black font-bold"
+              >
                 Solicitar consulta gratuita
-              </Button>
+              </HoverButton>
               <GradientButton onClick={() => scrollToSection('servicios')} className="flex items-center gap-2">
                 Conocer servicios <ArrowRight className="ml-2 h-4 w-4" />
               </GradientButton>
