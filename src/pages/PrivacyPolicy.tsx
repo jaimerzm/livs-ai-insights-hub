@@ -1,12 +1,9 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
-
 const PrivacyPolicy = () => {
-  return (
-    <div className="min-h-screen flex flex-col bg-black text-white">
+  return <div className="min-h-screen flex flex-col bg-black text-white">
       <Navbar />
       <main className="flex-grow container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto">
@@ -22,10 +19,10 @@ const PrivacyPolicy = () => {
               <li><strong>Nombre de la empresa:</strong> LIVS</li>
               <li><strong>Titularidad:</strong> Sociedad creada por dos socios fundadores</li>
               <li><strong>Actividad:</strong> Consultoría y formación en inteligencia artificial, asesoramiento a empresas para la integración de IA, mejora y creación de páginas web corporativas</li>
-              <li><strong>Correo electrónico de contacto:</strong> [Introduce aquí tu correo de contacto]</li>
-              <li><strong>Teléfono de contacto:</strong> [Introduce aquí tu teléfono de contacto]</li>
-              <li><strong>Domicilio social:</strong> [Introduce aquí la dirección física, si la tenéis]</li>
-              <li><strong>NIF/CIF:</strong> [Introduce aquí el NIF/CIF de la empresa o autónomos]</li>
+              
+              
+              
+              
             </ul>
 
             <h2 className="text-xl font-semibold mt-8 mb-4 text-white">Objeto</h2>
@@ -78,8 +75,6 @@ const PrivacyPolicy = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default PrivacyPolicy;
