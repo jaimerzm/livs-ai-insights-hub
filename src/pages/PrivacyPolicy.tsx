@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -10,7 +9,7 @@ const PrivacyPolicy = () => {
   const navigate = useNavigate();
   
   const handleGoBack = () => {
-    // Esta función enviará al usuario a la página anterior en el historial
+    console.log("Back button clicked"); // Debug log
     navigate(-1);
   };
   
@@ -19,15 +18,14 @@ const PrivacyPolicy = () => {
       <Navbar />
       <main className="flex-grow container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto">
-          <Button 
+          <button 
             onClick={handleGoBack} 
-            variant="outline" 
-            className="mb-6 flex items-center gap-2 hover:bg-gray-100 cursor-pointer z-10 relative"
-            size="sm"
+            type="button"
+            className="mb-6 flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100 cursor-pointer bg-white text-black"
           >
             <ArrowLeft className="h-4 w-4" />
             Volver atrás
-          </Button>
+          </button>
           
           <div className="prose prose-slate dark:prose-invert">
             <h1 className="text-3xl font-bold mb-6 text-livs-blue">Aviso Legal de LIVS</h1>
