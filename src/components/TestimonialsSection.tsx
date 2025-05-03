@@ -1,8 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { MessageSquareQuote, Users } from 'lucide-react';
-import { Slider } from '@/components/ui/slider';
+import { MessageSquareQuote, Users, Star } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 
 const TestimonialsSection = () => {
@@ -32,8 +31,12 @@ const TestimonialsSection = () => {
             </CardContent>
             <CardFooter className="mt-auto border-t pt-4">
               <div className="w-full flex justify-between items-center">
-                <span className="text-sm text-zinc-950">Satisfacción del cliente</span>
-                <Slider defaultValue={[85]} max={100} step={1} disabled className="w-32" />
+                <span className="text-sm text-zinc-950">Futuras reseñas</span>
+                <div className="flex">
+                  {[...Array(5)].map((_, index) => (
+                    <Star key={index} className="w-5 h-5 text-gray-300" strokeWidth={1.5} />
+                  ))}
+                </div>
               </div>
             </CardFooter>
           </Card>
