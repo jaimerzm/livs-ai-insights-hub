@@ -19,7 +19,7 @@ const LegalNotice = () => {
               <li><strong>Denominación Social:</strong> LIVS</li>
               <li><strong>Tipo de Sociedad:</strong> Sociedad Limitada</li>
               <li><strong>Actividad:</strong> Consultoría y formación en inteligencia artificial</li>
-              <li><strong>Domicilio Social:</strong> [Dirección de la empresa]</li>
+              
               
               <li><strong>Teléfono:</strong> [Número de teléfono]</li>
             </ul>
