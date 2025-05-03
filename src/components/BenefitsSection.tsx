@@ -141,7 +141,7 @@ const BenefitsSection = () => {
                   </ResponsiveContainer>
                 </div>
                 <div className="absolute bottom-2 right-3 text-xs text-white/70">
-                  Fuente: Gartner, McKinsey & IDC 2023
+                  Fuente: Gartner, McKinsey & IDC 2025
                 </div>
               </div>
             </div>
