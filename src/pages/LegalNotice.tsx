@@ -1,12 +1,9 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
-
 const LegalNotice = () => {
-  return (
-    <div className="min-h-screen flex flex-col bg-black text-white">
+  return <div className="min-h-screen flex flex-col bg-black text-white">
       <Navbar />
       <main className="flex-grow container mx-auto px-4 pt-24 pb-12">
         <div className="max-w-4xl mx-auto border border-gray-700 rounded-lg p-6 shadow-lg bg-gradient-to-br from-gray-900 to-black">
@@ -23,7 +20,7 @@ const LegalNotice = () => {
               <li><strong>Tipo de Sociedad:</strong> Sociedad Limitada</li>
               <li><strong>Actividad:</strong> Consultoría y formación en inteligencia artificial</li>
               <li><strong>Domicilio Social:</strong> [Dirección de la empresa]</li>
-              <li><strong>Email:</strong> contacto@livs.com</li>
+              
               <li><strong>Teléfono:</strong> [Número de teléfono]</li>
             </ul>
 
@@ -57,8 +54,6 @@ const LegalNotice = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default LegalNotice;
