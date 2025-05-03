@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -7,10 +8,10 @@ const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen flex flex-col bg-black text-white">
       <Navbar />
-      <main className="flex-grow container mx-auto px-4 py-8 pt-32 pb-12">
+      <main className="flex-grow container mx-auto px-4 pt-24 pb-12">
         <div className="max-w-4xl mx-auto border border-gray-700 rounded-lg p-6 shadow-lg bg-gradient-to-br from-gray-900 to-black">
           <div className="prose prose-invert prose-sm">
-            <h1 className="text-2xl font-bold mb-6 text-white">Aviso Legal de LIVS</h1>
+            <h1 className="text-2xl font-bold mb-6 text-white">Política de Privacidad de LIVS</h1>
             
             <p className="text-sm">
               En cumplimiento con el deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSI-CE), así como el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD), se exponen a continuación los datos identificativos de la empresa responsable de este sitio web.

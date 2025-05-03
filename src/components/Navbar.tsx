@@ -4,12 +4,14 @@ import { Button as StandardButton } from '@/components/ui/button';
 import Logo from './Logo';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { GlowEffect } from '@/components/ui/glow-effect';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('');
   const [clickedLink, setClickedLink] = useState('');
+  const location = useLocation();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -19,15 +21,18 @@ const Navbar = () => {
         setIsScrolled(false);
       }
 
-      // Update active section based on scroll position
-      const sections = navLinks.map(link => link.href.substring(1));
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveLink(section);
-            break;
+      // Only check sections if we're on the homepage
+      if (location.pathname === '/') {
+        // Update active section based on scroll position
+        const sections = navLinks.map(link => link.href.substring(1));
+        for (const section of sections) {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= 100 && rect.bottom >= 100) {
+              setActiveLink(section);
+              break;
+            }
           }
         }
       }
@@ -37,17 +42,24 @@ const Navbar = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [location.pathname]);
 
   const scrollToContact = () => {
-    const contactSection = document.getElementById('contacto');
-    if (contactSection) {
-      window.scrollTo({
-        top: contactSection.offsetTop - 80, // Ajusta según la altura del navbar
-        behavior: 'smooth'
-      });
+    // If on homepage, scroll to contact section
+    if (location.pathname === '/') {
+      const contactSection = document.getElementById('contacto');
+      if (contactSection) {
+        window.scrollTo({
+          top: contactSection.offsetTop - 80, // Adjust according to navbar height
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // If not on homepage, navigate to homepage and then to contact section
+      window.location.href = '/#contacto';
     }
-    // Cierra el menú móvil si está abierto
+    
+    // Close mobile menu if open
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
     }
@@ -63,12 +75,18 @@ const Navbar = () => {
       setClickedLink('');
     }, 600);
     
-    const section = document.getElementById(sectionId);
-    if (section) {
-      window.scrollTo({
-        top: section.offsetTop - 80,
-        behavior: 'smooth'
-      });
+    // If on homepage, smoothly scroll to section
+    if (location.pathname === '/') {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        window.scrollTo({
+          top: section.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // If not on homepage, navigate to homepage with hash
+      window.location.href = href;
     }
     
     // Close mobile menu if open
@@ -91,9 +109,12 @@ const Navbar = () => {
     href: "#nosotros"
   }];
   
-  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
+  return (
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between bg-transparent">
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-5">
@@ -109,7 +130,7 @@ const Navbar = () => {
                   handleLinkClick(link.href);
                 }}
                 className={`font-medium text-base transition-all duration-300 px-4 py-2 rounded-md
-                  ${isScrolled ? 'text-black' : 'text-white'} 
+                  ${isScrolled || location.pathname !== '/' ? 'text-black' : 'text-white'} 
                   ${isActive 
                     ? 'bg-livs-purple text-white transform scale-105 shadow-md' 
                     : 'hover:text-livs-purple hover:bg-white/80 hover:shadow-sm'
@@ -148,7 +169,8 @@ const Navbar = () => {
         </button>
 
         {/* Mobile Navigation */}
-        {isMobileMenuOpen && <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg animate-fade-in">
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg animate-fade-in">
             <div className="container mx-auto px-4 py-4 flex flex-col">
               {navLinks.map(link => {
                 const isActive = activeLink === link.href.substring(1);
@@ -192,9 +214,11 @@ const Navbar = () => {
                 </button>
               </div>
             </div>
-          </div>}
+          </div>
+        )}
       </div>
-    </header>;
+    </header>
+  );
 };
 
 export default Navbar;

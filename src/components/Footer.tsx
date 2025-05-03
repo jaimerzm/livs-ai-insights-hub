@@ -10,30 +10,30 @@ const Footer = () => {
     {
       title: "Servicios",
       links: [
-        { text: "Estrategia de IA", href: "#servicios" },
-        { text: "Automatización Inteligente", href: "#servicios" },
-        { text: "Análisis Predictivo", href: "#servicios" },
-        { text: "Gestión de Datos", href: "#servicios" },
-        { text: "Desarrollo de Soluciones", href: "#servicios" }
+        { text: "Estrategia de IA", href: "/#servicios", isExternal: false },
+        { text: "Automatización Inteligente", href: "/#servicios", isExternal: false },
+        { text: "Análisis Predictivo", href: "/#servicios", isExternal: false },
+        { text: "Gestión de Datos", href: "/#servicios", isExternal: false },
+        { text: "Desarrollo de Soluciones", href: "/#servicios", isExternal: false }
       ]
     },
     {
       title: "Empresa",
       links: [
-        { text: "Sobre Nosotros", href: "#nosotros" },
-        { text: "Casos de Éxito", href: "#casos" },
-        { text: "Beneficios", href: "#beneficios" },
-        { text: "Blog", href: "#" },
-        { text: "Contacto", href: "#contacto" }
+        { text: "Sobre Nosotros", href: "/#nosotros", isExternal: false },
+        { text: "Casos de Éxito", href: "/#casos", isExternal: false },
+        { text: "Beneficios", href: "/#beneficios", isExternal: false },
+        { text: "Blog", href: "#", isExternal: true },
+        { text: "Contacto", href: "/#contacto", isExternal: false }
       ]
     },
     {
       title: "Legal",
       links: [
-        { text: "Política de Privacidad", href: "/privacy-policy" },
-        { text: "Términos y Condiciones", href: "/terms-conditions" },
-        { text: "Política de Cookies", href: "/cookies-policy" },
-        { text: "Aviso Legal", href: "/legal-notice" }
+        { text: "Política de Privacidad", href: "/privacy-policy", isExternal: false },
+        { text: "Términos y Condiciones", href: "/terms-conditions", isExternal: false },
+        { text: "Política de Cookies", href: "/cookies-policy", isExternal: false },
+        { text: "Aviso Legal", href: "/legal-notice", isExternal: false }
       ]
     }
   ];
@@ -43,7 +43,9 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <Logo />
+            <Link to="/">
+              <Logo />
+            </Link>
             <p className="mt-4 text-sm text-white/80">
               Transformamos empresas a través de la inteligencia artificial con soluciones innovadoras y personalizadas para mejorar su eficiencia y rentabilidad.
             </p>
@@ -69,7 +71,14 @@ const Footer = () => {
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.text}>
-                    {link.href.startsWith('/') ? (
+                    {link.isExternal ? (
+                      <a 
+                        href={link.href} 
+                        className="text-sm text-white/80 hover:text-white transition-colors"
+                      >
+                        {link.text}
+                      </a>
+                    ) : link.href.startsWith('/') ? (
                       <Link 
                         to={link.href} 
                         className="text-sm text-white/80 hover:text-white transition-colors"
