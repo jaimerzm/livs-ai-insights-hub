@@ -1,10 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button as StandardButton } from '@/components/ui/button';
 import Logo from './Logo';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { GlowEffect } from '@/components/ui/glow-effect';
 import { Link, useLocation } from 'react-router-dom';
+import { HoverButton } from '@/components/ui/hover-button';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -146,20 +146,13 @@ const Navbar = () => {
           })}
           
           <div className="relative">
-            <GlowEffect
-              colors={['#0EA5E9', '#8B5CF6', '#D946EF']}
-              mode="colorShift"
-              blur="soft"
-              duration={3}
-              scale={1.2}
-            />
-            <button 
+            <HoverButton 
               onClick={scrollToContact}
-              className="relative z-10 flex items-center gap-1 rounded-md bg-gradient-to-r from-livs-blue to-livs-purple px-6 py-2 text-sm font-medium text-white transition-all hover:opacity-90"
+              className="text-white flex items-center gap-1 py-2 px-6"
             >
               Contactar
               <ArrowRight className="h-4 w-4 ml-1" />
-            </button>
+            </HoverButton>
           </div>
         </nav>
         
@@ -197,21 +190,14 @@ const Navbar = () => {
                   </a>
                 )
               })}
-              <div className="mt-4 relative">
-                <GlowEffect
-                  colors={['#0EA5E9', '#8B5CF6', '#D946EF']}
-                  mode="colorShift"
-                  blur="soft"
-                  duration={3}
-                  scale={1.2}
-                />
-                <button 
+              <div className="mt-4 w-full">
+                <HoverButton 
                   onClick={scrollToContact}
-                  className="relative z-10 w-full flex items-center justify-center gap-1 rounded-md bg-gradient-to-r from-livs-blue to-livs-purple px-6 py-3 text-sm font-medium text-white transition-all hover:opacity-90"
+                  className="w-full text-white flex items-center justify-center gap-1 py-2"
                 >
                   Contactar
                   <ArrowRight className="h-4 w-4 ml-1" />
-                </button>
+                </HoverButton>
               </div>
             </div>
           </div>
