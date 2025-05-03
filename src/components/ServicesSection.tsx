@@ -2,7 +2,6 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BrainCircuit, TrendingUp, LineChart, Database, Code, Users, Video, BarChart } from 'lucide-react';
-import { Separator } from '@/components/ui/accordion';
 
 const ServicesSection = () => {
   const services = [
