@@ -39,7 +39,7 @@ const Logo = () => {
     <Link to="/" onClick={handleClick} className="flex items-center gap-2">
       <div className={`w-20 h-20 flex items-center justify-center transition-all duration-300 ${isClicked ? 'animate-ping-once' : ''}`}>
         <img 
-          src="/lovable-uploads/9ae8d914-fd9e-416c-b610-e7d10dfe3e02.png"
+          src="/lovable-uploads/afe3d12d-dc92-469b-aff9-a88c86a57b97.png"
           alt="LIAS Logo" 
           className={`w-20 h-20 object-contain transition-all duration-300 ${isClicked ? 'scale-90' : ''}`}
           style={{
