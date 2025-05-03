@@ -1,11 +1,10 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const PrivacyPolicy = () => {
-  const navigate = useNavigate();
-  
   return (
     <div className="min-h-screen flex flex-col bg-black text-white">
       <Navbar />
@@ -71,6 +70,10 @@ const PrivacyPolicy = () => {
             <p>
               La relación entre LIVS y el usuario se regirá por la normativa española vigente y cualquier controversia se someterá a los Juzgados y tribunales de la ciudad donde se encuentre el domicilio social de LIVS, salvo que la Ley disponga otra cosa.
             </p>
+            
+            <div className="mt-12 flex space-x-4">
+              <Link to="/" className="text-livs-blue hover:text-livs-purple">Volver a la página principal</Link>
+            </div>
           </div>
         </div>
       </main>
