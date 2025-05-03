@@ -33,7 +33,7 @@ const Footer = () => {
         { text: "Política de Privacidad", href: "/privacy-policy" },
         { text: "Términos y Condiciones", href: "/terms-conditions" },
         { text: "Política de Cookies", href: "/cookies-policy" },
-        { text: "Aviso Legal", href: "#" }
+        { text: "Aviso Legal", href: "/legal-notice" }
       ]
     }
   ];
