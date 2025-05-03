@@ -1,12 +1,9 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
-
 const CookiesPolicy = () => {
-  return (
-    <div className="min-h-screen flex flex-col bg-black text-white">
+  return <div className="min-h-screen flex flex-col bg-black text-white">
       <Navbar />
       <main className="flex-grow container mx-auto px-4 pt-24 pb-12">
         <div className="max-w-4xl mx-auto border border-gray-700 rounded-lg p-6 shadow-lg bg-gradient-to-br from-gray-900 to-black">
@@ -30,17 +27,9 @@ const CookiesPolicy = () => {
               <li><strong>Cookies de publicidad comportamental:</strong> Almacenan información del comportamiento de los usuarios obtenida a través de la observación continuada de sus hábitos de navegación, lo que permite desarrollar un perfil específico para mostrar publicidad en función del mismo.</li>
             </ul>
 
-            <h2 className="text-lg font-semibold mt-8 mb-4 text-white">¿Cómo administrar o desactivar las cookies?</h2>
-            <p className="text-sm">
-              Puede permitir, bloquear o eliminar las cookies instaladas en su dispositivo mediante la configuración de las opciones del navegador instalado en su dispositivo. A continuación, tiene enlaces a la configuración de cookies de los navegadores más populares:
-            </p>
-            <ul className="list-disc pl-6 space-y-2 text-sm">
-              <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className="text-livs-blue hover:text-livs-purple">Google Chrome</a></li>
-              <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank" rel="noopener noreferrer" className="text-livs-blue hover:text-livs-purple">Mozilla Firefox</a></li>
-              <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" className="text-livs-blue hover:text-livs-purple">Safari</a></li>
-              <li><a href="https://support.microsoft.com/es-es/help/17442/windows-internet-explorer-delete-manage-cookies" target="_blank" rel="noopener noreferrer" className="text-livs-blue hover:text-livs-purple">Internet Explorer</a></li>
-              <li><a href="https://support.microsoft.com/es-es/microsoft-edge/eliminar-las-cookies-en-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer" className="text-livs-blue hover:text-livs-purple">Microsoft Edge</a></li>
-            </ul>
+            
+            
+            
 
             <h2 className="text-lg font-semibold mt-8 mb-4 text-white">Actualizaciones y cambios en la Política de Cookies</h2>
             <p className="text-sm">
@@ -54,8 +43,6 @@ const CookiesPolicy = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default CookiesPolicy;
