@@ -104,7 +104,7 @@ const Navbar = () => {
     title: "Sobre Nosotros",
     href: "#nosotros"
   }];
-  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-1' : 'bg-transparent py-2'}`}>
+  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-0.5' : 'bg-transparent py-2'}`}>
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between bg-transparent">
         <Link to="/">
           <Logo />
@@ -141,7 +141,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg animate-fade-in">
-            <div className="container mx-auto px-4 py-4 flex flex-col">
+            <div className="container mx-auto px-4 py-3 flex flex-col">
               {navLinks.map(link => {
             const isActive = activeLink === link.href.substring(1);
             const isClicked = clickedLink === link.href.substring(1);
