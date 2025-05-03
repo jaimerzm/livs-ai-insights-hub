@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Logo from './Logo';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -29,7 +30,7 @@ const Footer = () => {
     {
       title: "Legal",
       links: [
-        { text: "Política de Privacidad", href: "#" },
+        { text: "Política de Privacidad", href: "/privacy-policy" },
         { text: "Términos y Condiciones", href: "#" },
         { text: "Política de Cookies", href: "#" },
         { text: "Aviso Legal", href: "#" }
@@ -68,12 +69,21 @@ const Footer = () => {
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.text}>
-                    <a 
-                      href={link.href} 
-                      className="text-sm text-white/80 hover:text-white transition-colors"
-                    >
-                      {link.text}
-                    </a>
+                    {link.href.startsWith('/') ? (
+                      <Link 
+                        to={link.href} 
+                        className="text-sm text-white/80 hover:text-white transition-colors"
+                      >
+                        {link.text}
+                      </Link>
+                    ) : (
+                      <a 
+                        href={link.href} 
+                        className="text-sm text-white/80 hover:text-white transition-colors"
+                      >
+                        {link.text}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
