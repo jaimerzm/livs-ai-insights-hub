@@ -81,7 +81,7 @@ const ServicesSection = () => {
                 
                 <div className="mt-8">
                   <h4 className="text-lg font-medium text-livs-blue mb-3">Beneficios</h4>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-4 pl-6">
                     {benefits.map((benefit, index) => (
                       <div key={index} className="flex items-center">
                         {benefit.icon}
