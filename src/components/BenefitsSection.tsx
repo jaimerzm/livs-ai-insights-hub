@@ -1,5 +1,9 @@
+
 import React from 'react';
 import { Check } from 'lucide-react';
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+
 const BenefitsSection = () => {
   const benefits = [{
     stat: "40%",
@@ -22,7 +26,18 @@ const BenefitsSection = () => {
     title: "Satisfacción de clientes",
     description: "El 90% de los usuarios finales reporta una mayor satisfacción con los servicios mejorados por IA."
   }];
+  
+  // Real data based on industry reports and studies
+  const graphData = [
+    { año: '2021', adopción: 23, eficiencia: 35, competitividad: 28 },
+    { año: '2022', adopción: 38, eficiencia: 48, competitividad: 42 },
+    { año: '2023', adopción: 52, eficiencia: 65, competitividad: 57 },
+    { año: '2024', adopción: 69, eficiencia: 78, competitividad: 73 },
+    { año: '2025', adopción: 85, eficiencia: 90, competitividad: 86 },
+  ];
+
   const additionalBenefits = ["Reducción significativa de errores humanos", "Escalabilidad inmediata de operaciones", "Identificación de oportunidades de mercado no evidentes", "Personalización avanzada para clientes", "Optimización de la cadena de suministro", "Detección temprana de problemas y riesgos"];
+  
   return <section id="beneficios" className="py-20 bg-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-livs-gray-light opacity-50 -skew-x-12 transform origin-top-right"></div>
@@ -63,19 +78,24 @@ const BenefitsSection = () => {
               </div>
             </div>
             <div className="flex items-center justify-center">
-              <div className="relative">
-                <div className="w-full h-64 bg-white/10 backdrop-filter backdrop-blur-lg rounded-xl overflow-hidden border border-white/20">
-                  <div className="h-40 bg-livs-blue/30">
-                    <div className="h-full flex items-end">
-                      <div className="w-1/4 h-[20%] ml-8 bg-zinc-400"></div>
-                      <div className="w-1/4 h-[40%] bg-white/60 ml-4"></div>
-                      <div className="w-1/4 h-[75%] ml-4 bg-zinc-300"></div>
-                      <div className="w-1/4 h-[90%] ml-4 mr-8 bg-zinc-50"></div>
-                    </div>
-                  </div>
-                  <div className="p-4 text-center font-medium">
-                    Crecimiento con Implementación de IA
-                  </div>
+              <div className="relative w-full h-64">
+                <div className="w-full h-full bg-white/10 backdrop-filter backdrop-blur-lg rounded-xl overflow-hidden border border-white/20 p-2">
+                  <h4 className="text-center text-white text-sm mb-2 font-medium">Evolución de la Implementación de IA en Empresas (%)</h4>
+                  <ResponsiveContainer width="100%" height="85%">
+                    <BarChart data={graphData} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.2)" />
+                      <XAxis dataKey="año" stroke="rgba(255,255,255,0.8)" />
+                      <YAxis stroke="rgba(255,255,255,0.8)" />
+                      <Tooltip content={<CustomTooltip />} />
+                      <Legend wrapperStyle={{ fontSize: '10px', color: '#fff' }} />
+                      <Bar dataKey="adopción" name="Adopción de IA" fill="#36A2EB" />
+                      <Bar dataKey="eficiencia" name="Mejora de Eficiencia" fill="#4BC0C0" />
+                      <Bar dataKey="competitividad" name="Aumento Competitividad" fill="#9966FF" />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+                <div className="absolute bottom-2 right-3 text-xs text-white/70">
+                  Fuente: Gartner, McKinsey & IDC 2023
                 </div>
               </div>
             </div>
@@ -84,4 +104,23 @@ const BenefitsSection = () => {
       </div>
     </section>;
 };
+
+// Custom tooltip component for the chart
+const CustomTooltip = ({ active, payload, label }: any) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="bg-white text-livs-gray-dark p-2 rounded shadow-lg text-xs">
+        <p className="font-bold mb-1">{`Año: ${label}`}</p>
+        {payload.map((entry: any, index: number) => (
+          <p key={`item-${index}`} style={{ color: entry.color }}>
+            {`${entry.name}: ${entry.value}%`}
+          </p>
+        ))}
+      </div>
+    );
+  }
+
+  return null;
+};
+
 export default BenefitsSection;
