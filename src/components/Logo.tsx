@@ -43,7 +43,7 @@ const Logo = () => {
           alt="LIAS Logo" 
           className={`w-20 h-20 object-contain transition-all duration-300 ${isClicked ? 'scale-90' : ''}`}
           style={{
-            filter: isScrolled ? 'none' : 'brightness(0) invert(1)' // Black when scrolled, white when not
+            filter: isScrolled ? 'brightness(0)' : 'brightness(0) invert(1)'
           }}
         />
       </div>
