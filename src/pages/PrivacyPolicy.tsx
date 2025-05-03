@@ -22,8 +22,9 @@ const PrivacyPolicy = () => {
           <Button 
             onClick={handleGoBack} 
             variant="outline" 
-            className="mb-6 flex items-center gap-2 hover:bg-gray-100"
+            className="mb-6 flex items-center gap-2 hover:bg-gray-100 cursor-pointer z-10 relative"
             size="sm"
+            type="button"
           >
             <ArrowLeft className="h-4 w-4" />
             Volver atrás
