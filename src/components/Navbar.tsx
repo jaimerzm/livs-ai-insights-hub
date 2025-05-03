@@ -5,6 +5,7 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 import { GlowEffect } from '@/components/ui/glow-effect';
 import { Link, useLocation } from 'react-router-dom';
 import { HoverButton } from '@/components/ui/hover-button';
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -103,21 +104,21 @@ const Navbar = () => {
     title: "Sobre Nosotros",
     href: "#nosotros"
   }];
-  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
+  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-1' : 'bg-transparent py-2'}`}>
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between bg-transparent">
         <Link to="/">
           <Logo />
         </Link>
         
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-5">
+        {/* Desktop Navigation - Making it more compact */}
+        <nav className="hidden md:flex items-center space-x-3">
           {navLinks.map(link => {
           const isActive = activeLink === link.href.substring(1);
           const isClicked = clickedLink === link.href.substring(1);
           return <a key={link.title} href={link.href} onClick={e => {
             e.preventDefault();
             handleLinkClick(link.href);
-          }} className={`font-medium text-base transition-all duration-300 px-4 py-2 rounded-md
+          }} className={`font-medium text-sm transition-all duration-300 px-3 py-1 rounded-md
                   ${isScrolled || location.pathname !== '/' ? 'text-black' : 'text-white'} 
                   ${isActive ? 'bg-livs-purple text-white transform scale-105 shadow-md' : 'hover:text-livs-purple hover:bg-white/80 hover:shadow-sm'}
                   ${isClicked ? 'animate-ping-once transform scale-90' : ''}`}>
@@ -126,9 +127,9 @@ const Navbar = () => {
         })}
           
           <div className="relative">
-            <HoverButton onClick={scrollToContact} className="text-white flex items-center gap-1 py-2 px-6 bg-sky-900 hover:bg-sky-800">
+            <HoverButton onClick={scrollToContact} className="text-white text-sm flex items-center gap-1 py-1 px-4 bg-sky-900 hover:bg-sky-800">
               Contactar
-              <ArrowRight className="h-4 w-4 ml-1" />
+              <ArrowRight className="h-3 w-3 ml-1" />
             </HoverButton>
           </div>
         </nav>
@@ -147,16 +148,16 @@ const Navbar = () => {
             return <a key={link.title} href={link.href} onClick={e => {
               e.preventDefault();
               handleLinkClick(link.href);
-            }} className={`text-black font-medium text-base py-4 border-b border-gray-100 transition-all duration-300
+            }} className={`text-black font-medium text-sm py-3 border-b border-gray-100 transition-all duration-300
                       ${isActive ? 'bg-livs-purple/10 text-livs-purple font-semibold pl-2' : 'hover:text-livs-purple hover:bg-gray-50'}
                       ${isClicked ? 'animate-ping-once' : ''}`}>
                     {link.title}
                   </a>;
           })}
               <div className="mt-4 w-full">
-                <HoverButton onClick={scrollToContact} className="w-full text-white flex items-center justify-center gap-1 py-2">
+                <HoverButton onClick={scrollToContact} className="w-full text-white text-sm flex items-center justify-center gap-1 py-1">
                   Contactar
-                  <ArrowRight className="h-4 w-4 ml-1" />
+                  <ArrowRight className="h-3 w-3 ml-1" />
                 </HoverButton>
               </div>
             </div>
@@ -164,4 +165,5 @@ const Navbar = () => {
       </div>
     </header>;
 };
+
 export default Navbar;
