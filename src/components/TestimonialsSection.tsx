@@ -1,8 +1,10 @@
+
 import React from 'react';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { MessageSquareQuote, Users } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
 import { Skeleton } from '@/components/ui/skeleton';
+
 const TestimonialsSection = () => {
   return <section id="casos" className="py-20 bg-livs-gray-light relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
@@ -83,4 +85,5 @@ const TestimonialsSection = () => {
       </div>
     </section>;
 };
+
 export default TestimonialsSection;
