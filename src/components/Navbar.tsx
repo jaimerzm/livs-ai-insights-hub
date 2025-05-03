@@ -8,6 +8,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('');
+  const [clickedLink, setClickedLink] = useState('');
   
   useEffect(() => {
     const handleScroll = () => {
@@ -54,6 +55,12 @@ const Navbar = () => {
   const handleLinkClick = (href: string) => {
     const sectionId = href.substring(1);
     setActiveLink(sectionId);
+    setClickedLink(sectionId);
+    
+    // Reset animation after duration
+    setTimeout(() => {
+      setClickedLink('');
+    }, 600);
     
     const section = document.getElementById(sectionId);
     if (section) {
@@ -77,7 +84,7 @@ const Navbar = () => {
     href: "#beneficios"
   }, {
     title: "Casos de Éxito",
-    href: "#casos"
+    href: "#futuros-testimonios"
   }, {
     title: "Sobre Nosotros",
     href: "#nosotros"
@@ -91,6 +98,7 @@ const Navbar = () => {
         <nav className="hidden md:flex items-center space-x-5">
           {navLinks.map(link => {
             const isActive = activeLink === link.href.substring(1);
+            const isClicked = clickedLink === link.href.substring(1);
             return (
               <a 
                 key={link.title} 
@@ -104,6 +112,10 @@ const Navbar = () => {
                   ${isActive 
                     ? 'bg-livs-purple text-white transform scale-105 shadow-md' 
                     : 'hover:text-livs-purple hover:bg-white/80 hover:shadow-sm'
+                  }
+                  ${isClicked 
+                    ? 'animate-ping-once transform scale-90' 
+                    : ''
                   }`}
               >
                 {link.title}
@@ -128,6 +140,7 @@ const Navbar = () => {
             <div className="container mx-auto px-4 py-4 flex flex-col">
               {navLinks.map(link => {
                 const isActive = activeLink === link.href.substring(1);
+                const isClicked = clickedLink === link.href.substring(1);
                 return (
                   <a 
                     key={link.title} 
@@ -140,6 +153,10 @@ const Navbar = () => {
                       ${isActive 
                         ? 'bg-livs-purple/10 text-livs-purple font-semibold pl-2' 
                         : 'hover:text-livs-purple hover:bg-gray-50'
+                      }
+                      ${isClicked 
+                        ? 'animate-ping-once' 
+                        : ''
                       }`}
                   >
                     {link.title}

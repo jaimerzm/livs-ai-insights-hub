@@ -158,6 +158,26 @@
   }
 }
 
+/* New Animation for Click Effect */
+@keyframes ping-once {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(139, 92, 246, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+  }
+}
+
+.animate-ping-once {
+  animation: ping-once 0.6s cubic-bezier(0, 0, 0.2, 1);
+}
+
 .animate-rainbow {
   animation: rainbow 6s linear infinite;
 }
