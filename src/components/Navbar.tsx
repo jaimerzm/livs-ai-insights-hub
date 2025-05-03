@@ -1,6 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
+import { Button as StandardButton } from '@/components/ui/button';
+import { Button as MovingBorderButton } from '@/components/ui/moving-border';
 import Logo from './Logo';
 import { Menu, X } from 'lucide-react';
 
@@ -122,12 +122,15 @@ const Navbar = () => {
               </a>
             )
           })}
-          <Button 
+          <MovingBorderButton 
             onClick={scrollToContact}
-            className="bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90 transition-opacity text-base px-6 py-5 h-auto hover:shadow-md active:transform active:scale-95"
+            containerClassName="h-12 w-32"
+            borderClassName="bg-[radial-gradient(var(--livs-purple)_40%,transparent_60%)]"
+            className="bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90 border-none py-0 text-base"
+            borderRadius="0.75rem"
           >
             Contactar
-          </Button>
+          </MovingBorderButton>
         </nav>
         
         {/* Mobile Menu Button */}
@@ -164,12 +167,15 @@ const Navbar = () => {
                 )
               })}
               <div className="mt-4">
-                <Button 
+                <MovingBorderButton 
                   onClick={scrollToContact}
-                  className="w-full bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90 transition-opacity text-base py-5 h-auto active:transform active:scale-95"
+                  containerClassName="w-full h-12"
+                  className="w-full bg-gradient-to-r from-livs-blue to-livs-purple border-none py-0 text-base"
+                  borderClassName="bg-[radial-gradient(var(--livs-purple)_40%,transparent_60%)]"
+                  borderRadius="0.75rem"
                 >
                   Contactar
-                </Button>
+                </MovingBorderButton>
               </div>
             </div>
           </div>}
