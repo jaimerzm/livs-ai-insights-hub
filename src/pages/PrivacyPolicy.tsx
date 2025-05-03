@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -8,7 +7,7 @@ const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen flex flex-col bg-black text-white">
       <Navbar />
-      <main className="flex-grow container mx-auto px-4 pt-24 pb-12">
+      <main className="flex-grow container mx-auto px-4 py-8 pt-32 pb-12">
         <div className="max-w-4xl mx-auto border border-gray-700 rounded-lg p-6 shadow-lg bg-gradient-to-br from-gray-900 to-black">
           <div className="prose prose-invert prose-sm">
             <h1 className="text-2xl font-bold mb-6 text-white">Aviso Legal de LIVS</h1>
