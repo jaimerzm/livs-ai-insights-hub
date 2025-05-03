@@ -1,26 +1,33 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const PrivacyPolicy = () => {
+  const navigate = useNavigate();
+  
+  const handleGoBack = () => {
+    // Esta función enviará al usuario a la página anterior en el historial
+    navigate(-1);
+  };
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto">
-          <Link to="/">
-            <Button 
-              variant="outline" 
-              className="mb-6 flex items-center gap-2 hover:bg-gray-100 cursor-pointer z-10 relative"
-              size="sm"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Volver atrás
-            </Button>
-          </Link>
+          <Button 
+            onClick={handleGoBack} 
+            variant="outline" 
+            className="mb-6 flex items-center gap-2 hover:bg-gray-100 cursor-pointer z-10 relative"
+            size="sm"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Volver atrás
+          </Button>
           
           <div className="prose prose-slate dark:prose-invert">
             <h1 className="text-3xl font-bold mb-6 text-livs-blue">Aviso Legal de LIVS</h1>
