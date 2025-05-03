@@ -3,7 +3,7 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Menu } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const PrivacyPolicy = () => {
@@ -14,19 +14,35 @@ const PrivacyPolicy = () => {
     navigate(-1);
   };
   
+  const handleGoToMenu = () => {
+    console.log("Menu button clicked"); // Debug log
+    navigate('/');
+  };
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto">
-          <Button 
-            onClick={handleGoBack}
-            variant="outline" 
-            className="mb-6 flex items-center gap-2 px-4 py-2 rounded-md hover:bg-gray-100 text-black"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Volver atrás
-          </Button>
+          <div className="flex space-x-4 mb-6">
+            <Button 
+              onClick={handleGoBack}
+              variant="outline" 
+              className="flex items-center gap-2 px-4 py-2 rounded-md hover:bg-gray-100 text-black"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Volver atrás
+            </Button>
+            
+            <Button 
+              onClick={handleGoToMenu}
+              variant="default"
+              className="flex items-center gap-2 bg-livs-blue text-white hover:bg-livs-blue/90"
+            >
+              <Menu className="h-4 w-4" />
+              Ir al menú principal
+            </Button>
+          </div>
           
           <div className="prose prose-slate dark:prose-invert">
             <h1 className="text-3xl font-bold mb-6 text-livs-blue">Aviso Legal de LIVS</h1>
