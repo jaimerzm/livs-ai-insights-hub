@@ -1,13 +1,14 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
+
 const AboutSection = () => {
   const [showFullBio, setShowFullBio] = useState(false);
+
   return <section id="about" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-8">
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold text-black">
               Sobre Nosotros
@@ -29,8 +30,8 @@ const AboutSection = () => {
           </div>
         </div>
 
-        {showFullBio && <div className="animate-fade-in space-y-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-center text-black mb-10">
+        {showFullBio && <div className="animate-fade-in space-y-8 mt-4 p-6 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 shadow-sm">
+            <h3 className="text-2xl md:text-3xl font-bold text-center text-black mb-6">
               Nuestro Equipo Fundador
             </h3>
             
@@ -83,7 +84,7 @@ const AboutSection = () => {
               </Card>
             </div>
 
-            <p className="text-center text-black font-medium text-lg mt-10">
+            <p className="text-center text-black font-medium text-lg mt-8">
               Juntos, Manuel y Jaime han creado en LIVS una empresa que no solo proporciona información sobre inteligencia artificial, 
               sino que ofrece la orientación experta necesaria para convertir esa información en ventajas competitivas reales para 
               nuestros clientes.
@@ -92,4 +93,5 @@ const AboutSection = () => {
       </div>
     </section>;
 };
+
 export default AboutSection;
