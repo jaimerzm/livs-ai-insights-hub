@@ -33,7 +33,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <main>
+      <main className="pt-16 md:pt-0">
         <HeroSection />
         <IntroSection />
         <div id="beneficios">
