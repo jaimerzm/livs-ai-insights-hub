@@ -1,3 +1,4 @@
+
 import React, { useRef } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -41,7 +42,7 @@ const ContactInfo = ({
             <Phone className="h-6 w-6 text-livs-purple" />
             <div>
               <div className="font-medium text-livs-blue">Teléfonos de contacto:</div>
-              <a href="tel:+34911234567" className="text-livs-gray-dark hover:text-livs-purple">+34 609 92 74 95                
+              <a href="tel:+34911234567" className="text-livs-gray-dark hover:text-livs-purple">+34 609 92 74 95                
 +34 678 25 82 80</a>
             </div>
           </div>
@@ -51,6 +52,23 @@ const ContactInfo = ({
             </div>
           </div>
         </div>
+      </div>
+
+      {/* New Pricing Section */}
+      <div className="mb-8 bg-white p-6 rounded-lg shadow-sm">
+        <h3 className="text-livs-blue text-xl font-bold mb-4">Precios</h3>
+        <p className="text-livs-gray-dark mb-4">
+          Nuestros precios se acuerdan de manera personalizada y privada, ya que dependen de:
+        </p>
+        <ul className="list-disc pl-5 text-livs-gray-dark mb-4">
+          <li>Las exigencias específicas de cada proyecto</li>
+          <li>El tipo de cliente y sus necesidades particulares</li>
+          <li>El tamaño y sector de la empresa</li>
+          <li>El alcance y la duración de los servicios requeridos</li>
+        </ul>
+        <p className="text-livs-gray-dark italic">
+          Contáctenos para obtener una cotización adaptada a su situación específica.
+        </p>
       </div>
 
       <div className="bg-gradient-to-r from-livs-blue to-livs-purple rounded-xl p-8 text-white">
