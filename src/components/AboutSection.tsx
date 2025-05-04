@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -30,14 +31,17 @@ const AboutSection = () => {
           </div>
         </div>
 
-        {showFullBio && <div className="animate-fade-in space-y-8 mt-4 p-6 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 shadow-sm">
+        {showFullBio && <div className="animate-fade-in mt-2 p-8 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 shadow-lg">
             <h3 className="text-2xl md:text-3xl font-bold text-center text-black mb-6">
-              Nuestro Equipo Fundador
+              <span className="relative">
+                Nuestro Equipo Fundador
+                <span className="absolute bottom-0 left-0 w-full h-1 bg-sky-500 rounded-full"></span>
+              </span>
             </h3>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <Card className="border-gray-200 shadow-md hover:shadow-lg transition-shadow bg-white">
-                <CardHeader className="pb-2">
+              <Card className="border-2 border-blue-200 shadow-md hover:shadow-xl transition-shadow bg-white transform hover:-translate-y-1 duration-300">
+                <CardHeader className="pb-2 bg-gradient-to-r from-blue-50 to-indigo-50">
                   <CardTitle className="text-black text-xl md:text-2xl">Manuel Talón</CardTitle>
                   <CardDescription className="text-black/70 font-medium">Visionario Emprendedor</CardDescription>
                 </CardHeader>
@@ -59,8 +63,8 @@ const AboutSection = () => {
                 </CardContent>
               </Card>
 
-              <Card className="border-gray-200 shadow-md hover:shadow-lg transition-shadow bg-white">
-                <CardHeader className="pb-2">
+              <Card className="border-2 border-blue-200 shadow-md hover:shadow-xl transition-shadow bg-white transform hover:-translate-y-1 duration-300">
+                <CardHeader className="pb-2 bg-gradient-to-r from-blue-50 to-indigo-50">
                   <CardTitle className="text-black text-xl md:text-2xl">Jaime Ruiz</CardTitle>
                   <CardDescription className="text-black/70 font-medium">Experto en Inteligencia Artificial</CardDescription>
                 </CardHeader>
@@ -84,7 +88,7 @@ const AboutSection = () => {
               </Card>
             </div>
 
-            <p className="text-center text-black font-medium text-lg mt-8">
+            <p className="text-center text-black font-medium text-lg mt-8 p-4 bg-white rounded-lg border border-blue-200 shadow-sm">
               Juntos, Manuel y Jaime han creado en LIVS una empresa que no solo proporciona información sobre inteligencia artificial, 
               sino que ofrece la orientación experta necesaria para convertir esa información en ventajas competitivas reales para 
               nuestros clientes.
