@@ -54,19 +54,24 @@ const ContactInfo = ({
         </div>
       </div>
 
-      {/* New Pricing Section */}
-      <div className="mb-8 bg-white p-6 rounded-lg shadow-sm">
-        <h3 className="text-livs-blue text-xl font-bold mb-4">Precios</h3>
-        <p className="text-livs-gray-dark mb-4">
-          Nuestros precios se acuerdan de manera personalizada y privada, ya que dependen de:
-        </p>
-        <ul className="list-disc pl-5 text-livs-gray-dark mb-4">
-          <li>Las exigencias específicas de cada proyecto</li>
-          <li>El tipo de cliente y sus necesidades particulares</li>
-          <li>El tamaño y sector de la empresa</li>
-          <li>El alcance y la duración de los servicios requeridos</li>
-        </ul>
-        <p className="text-livs-gray-dark italic">
+      {/* Enhanced Pricing Section */}
+      <div className="mb-8 bg-gradient-to-r from-[#f0f4ff] to-[#e6eeff] p-6 rounded-lg shadow-md border-2 border-[#d1dcfa] transform hover:scale-[1.02] transition-all duration-300">
+        <h3 className="text-livs-blue text-xl font-bold mb-4 flex items-center">
+          <span className="bg-livs-blue text-white rounded-full w-7 h-7 inline-flex items-center justify-center mr-2">€</span>
+          Precios
+        </h3>
+        <div className="border-l-4 border-livs-purple pl-4">
+          <p className="text-livs-gray-dark mb-4">
+            Nuestros precios se acuerdan de manera personalizada y privada, ya que dependen de:
+          </p>
+          <ul className="list-disc pl-5 text-livs-gray-dark mb-4">
+            <li>Las exigencias específicas de cada proyecto</li>
+            <li>El tipo de cliente y sus necesidades particulares</li>
+            <li>El tamaño y sector de la empresa</li>
+            <li>El alcance y la duración de los servicios requeridos</li>
+          </ul>
+        </div>
+        <p className="text-livs-gray-dark italic bg-white p-3 rounded-md shadow-sm">
           Contáctenos para obtener una cotización adaptada a su situación específica.
         </p>
       </div>
