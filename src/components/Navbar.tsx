@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button as StandardButton } from '@/components/ui/button';
 import Logo from './Logo';
@@ -10,7 +11,6 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('');
-  const [clickedLink, setClickedLink] = useState('');
   const location = useLocation();
   useEffect(() => {
     const handleScroll = () => {
@@ -65,12 +65,6 @@ const Navbar = () => {
   const handleLinkClick = (href: string) => {
     const sectionId = href.substring(1);
     setActiveLink(sectionId);
-    setClickedLink(sectionId);
-
-    // Reset animation after duration
-    setTimeout(() => {
-      setClickedLink('');
-    }, 600);
 
     // If on homepage, smoothly scroll to section
     if (location.pathname === '/') {
@@ -114,14 +108,12 @@ const Navbar = () => {
         <nav className="hidden md:flex items-center space-x-3">
           {navLinks.map(link => {
           const isActive = activeLink === link.href.substring(1);
-          const isClicked = clickedLink === link.href.substring(1);
           return <a key={link.title} href={link.href} onClick={e => {
             e.preventDefault();
             handleLinkClick(link.href);
           }} className={`font-medium text-sm transition-all duration-300 px-3 py-1 rounded-md
                   ${isScrolled || location.pathname !== '/' ? 'text-black' : 'text-white'} 
-                  ${isActive ? 'bg-livs-purple text-white transform scale-105 shadow-md' : 'hover:text-livs-purple hover:bg-white/80 hover:shadow-sm'}
-                  ${isClicked ? 'animate-ping-once transform scale-90' : ''}`}>
+                  ${isActive ? 'bg-livs-purple text-white transform scale-105 shadow-md' : 'hover:text-livs-purple hover:bg-white/80 hover:shadow-sm'}`}>
                 {link.title}
               </a>;
         })}
@@ -144,13 +136,11 @@ const Navbar = () => {
             <div className="container mx-auto px-4 py-3 flex flex-col">
               {navLinks.map(link => {
             const isActive = activeLink === link.href.substring(1);
-            const isClicked = clickedLink === link.href.substring(1);
             return <a key={link.title} href={link.href} onClick={e => {
               e.preventDefault();
               handleLinkClick(link.href);
             }} className={`text-black font-medium text-sm py-3 border-b border-gray-100 transition-all duration-300
-                      ${isActive ? 'bg-livs-purple/10 text-livs-purple font-semibold pl-2' : 'hover:text-livs-purple hover:bg-gray-50'}
-                      ${isClicked ? 'animate-ping-once' : ''}`}>
+                      ${isActive ? 'bg-livs-purple/10 text-livs-purple font-semibold pl-2' : 'hover:text-livs-purple hover:bg-gray-50'}`}>
                     {link.title}
                   </a>;
           })}
