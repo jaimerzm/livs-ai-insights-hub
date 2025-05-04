@@ -87,7 +87,7 @@ const ContactInfo = ({
               className="w-full mt-4 bg-white border border-livs-purple text-livs-purple hover:bg-livs-purple hover:text-white transition-colors duration-300 flex items-center justify-center"
             >
               <ShieldCheck className="mr-2 h-5 w-5" /> 
-              Nuestra Garantía de Satisfacción
+              Si no acabas satisfecho con el aprendizaje, te devolvemos el dinero ;)
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-md">
