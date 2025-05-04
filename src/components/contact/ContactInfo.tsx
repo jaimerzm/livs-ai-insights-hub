@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -76,36 +75,7 @@ const ContactInfo = ({
         </p>
       </div>
 
-      <div className="bg-gradient-to-r from-livs-blue to-livs-purple rounded-xl p-8 text-white">
-        <h4 className="text-xl font-semibold mb-4">Solicite una consulta gratuita</h4>
-        <p className="mb-6 opacity-90">
-          Ofrecemos una sesión inicial de consultoría sin compromiso para evaluar 
-          cómo la IA puede optimizar su empresa.
-        </p>
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button variant="outline" className="bg-white text-livs-blue hover:bg-white/90">
-              Reservar ahora
-            </Button>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Consulta gratuita</DialogTitle>
-            </DialogHeader>
-            <div className="space-y-4">
-              <p>Por favor, complete el formulario de contacto con sus datos y mencionando "Consulta gratuita" en el mensaje para poder procesar su reserva.</p>
-              <DialogClose asChild>
-                <Button className="w-full bg-gradient-to-r from-livs-blue to-livs-purple hover:opacity-90">
-                  OK, entiendo
-                </Button>
-              </DialogClose>
-            </div>
-          </DialogContent>
-        </Dialog>
-        
-        {/* Componente Balloons invisible pero funcional */}
-        <Balloons ref={balloonsRef} type="default" className="hidden" />
-      </div>
+      
     </div>;
 };
 export default ContactInfo;
