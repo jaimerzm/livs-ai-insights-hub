@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const Logo = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -21,14 +20,7 @@ const Logo = () => {
     };
   }, []);
   
-  const handleClick = () => {
-    setIsClicked(true);
-    
-    // Reset animation after duration
-    setTimeout(() => {
-      setIsClicked(false);
-    }, 600);
-    
+  const handleClick = () => {    
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -37,11 +29,11 @@ const Logo = () => {
 
   return (
     <Link to="/" onClick={handleClick} className="flex items-center gap-2">
-      <div className={`w-20 h-20 flex items-center justify-center transition-all duration-300 ${isClicked ? 'animate-ping-once' : ''}`}>
+      <div className="w-20 h-20 flex items-center justify-center transition-all duration-300">
         <img 
           src="/lovable-uploads/afe3d12d-dc92-469b-aff9-a88c86a57b97.png"
           alt="LIAS Logo" 
-          className={`w-20 h-20 object-contain transition-all duration-300 ${isClicked ? 'scale-90' : ''}`}
+          className="w-20 h-20 object-contain transition-all duration-300"
           style={{
             filter: isScrolled ? 'brightness(0)' : 'brightness(0) invert(1)'
           }}
