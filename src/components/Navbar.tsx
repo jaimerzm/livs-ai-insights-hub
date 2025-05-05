@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button as StandardButton } from '@/components/ui/button';
 import Logo from './Logo';
@@ -6,12 +5,15 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 import { GlowEffect } from '@/components/ui/glow-effect';
 import { Link, useLocation } from 'react-router-dom';
 import { HoverButton } from '@/components/ui/hover-button';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('');
   const location = useLocation();
+  const isMobile = useIsMobile();
+  
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -41,6 +43,7 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [location.pathname]);
+  
   const scrollToContact = () => {
     // If on homepage, scroll to contact section
     if (location.pathname === '/') {
@@ -62,6 +65,7 @@ const Navbar = () => {
       setIsMobileMenuOpen(false);
     }
   };
+  
   const handleLinkClick = (href: string) => {
     const sectionId = href.substring(1);
     setActiveLink(sectionId);
@@ -85,6 +89,7 @@ const Navbar = () => {
       setIsMobileMenuOpen(false);
     }
   };
+  
   const navLinks = [{
     title: "Beneficios",
     href: "#beneficios"
@@ -98,6 +103,7 @@ const Navbar = () => {
     title: "Sobre Nosotros",
     href: "#nosotros"
   }];
+  
   return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-md py-0.5`}>
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link to="/">
@@ -145,7 +151,7 @@ const Navbar = () => {
                   </a>;
           })}
               <div className="mt-4 w-full">
-                <HoverButton onClick={scrollToContact} className="w-full text-white text-sm flex items-center justify-center gap-1 py-1">
+                <HoverButton onClick={scrollToContact} className={`w-full text-white text-sm flex items-center justify-center gap-1 py-1 ${isMobile ? 'bg-[#0A192F]' : ''}`}>
                   Contactar
                   <ArrowRight className="h-3 w-3 ml-1" />
                 </HoverButton>
