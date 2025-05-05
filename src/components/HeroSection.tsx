@@ -7,8 +7,11 @@ import { RobotScene } from '@/components/ui/robot-scene';
 import { Link } from 'react-router-dom';
 import { GradientButton } from '@/components/ui/gradient-button';
 import { HoverButton } from '@/components/ui/hover-button';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const HeroSection = () => {
+  const isMobile = useIsMobile();
+  
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -19,22 +22,24 @@ const HeroSection = () => {
       });
     }
   };
-  return <section className="relative bg-black min-h-[90vh] flex items-center overflow-hidden">
+  
+  return (
+    <section className="relative bg-black min-h-[90vh] flex items-center overflow-hidden max-w-full">
       {/* Fluid Background Animation */}
       <SplashCursor BACK_COLOR={{
-      r: 0.0,
-      g: 0.0,
-      b: 0.0
-    }} />
+        r: 0.0,
+        g: 0.0,
+        b: 0.0
+      }} />
 
       {/* Content */}
       <div className="container mx-auto px-4 md:px-6 z-10 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-white animate-fade-in">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-4 font-bold text-center text-white">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl leading-tight mb-4 font-bold text-center text-white pt-16 md:pt-0">
               Transformamos su empresa con inteligencia artificial
             </h1>
-            <p className="text-lg md:text-xl mb-8 text-gray-300 opacity-90 max-w-xl">
+            <p className="text-base md:text-xl mb-8 text-gray-300 opacity-90 max-w-xl">
               En Livs, combinamos experiencia en IA con conocimiento empresarial para optimizar sus operaciones, 
               reducir costes y aumentar la rentabilidad con soluciones inteligentes adaptadas a su negocio.
             </p>
@@ -74,6 +79,8 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default HeroSection;
