@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useVisitorCount } from '@/hooks/use-visitor-count';
 import { Users } from 'lucide-react';
 
@@ -9,7 +9,12 @@ interface VisitorCounterProps {
 }
 
 const VisitorCounter = ({ className, isScrolled = false }: VisitorCounterProps) => {
-  const { visitorCount, isLoading } = useVisitorCount();
+  const { visitorCount, isLoading, incrementVisitorCount } = useVisitorCount();
+  
+  useEffect(() => {
+    // Increment visitor count when component mounts
+    incrementVisitorCount();
+  }, [incrementVisitorCount]);
 
   if (isLoading) {
     return null;

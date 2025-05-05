@@ -9,10 +9,14 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import { Helmet } from 'react-helmet';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <meta name="lovable:disable-badge" content="true" />
+      </Helmet>
       <Navbar />
       <main>
         <HeroSection />
