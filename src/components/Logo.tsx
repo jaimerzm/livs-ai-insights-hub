@@ -3,23 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Logo = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-  
   const handleClick = () => {    
     window.scrollTo({
       top: 0,
@@ -35,7 +18,7 @@ const Logo = () => {
           alt="LIAS Logo" 
           className="w-20 h-20 object-contain transition-all duration-300"
           style={{
-            filter: isScrolled ? 'brightness(0)' : 'brightness(0) invert(1)'
+            filter: 'brightness(0)'
           }}
         />
       </div>

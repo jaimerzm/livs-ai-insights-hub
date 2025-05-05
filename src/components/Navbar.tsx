@@ -98,8 +98,8 @@ const Navbar = () => {
     title: "Sobre Nosotros",
     href: "#nosotros"
   }];
-  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-0.5' : 'bg-transparent py-2'}`}>
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between bg-transparent">
+  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-md py-0.5`}>
+      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link to="/">
           <Logo />
         </Link>
@@ -112,8 +112,8 @@ const Navbar = () => {
             e.preventDefault();
             handleLinkClick(link.href);
           }} className={`font-medium text-sm transition-all duration-300 px-3 py-1 rounded-md
-                  ${isScrolled || location.pathname !== '/' ? 'text-black' : 'text-white'} 
-                  ${isActive ? 'bg-livs-purple text-white transform scale-105 shadow-md' : 'hover:text-livs-purple hover:bg-white/80 hover:shadow-sm'}`}>
+                  text-black 
+                  ${isActive ? 'bg-livs-purple text-white transform scale-105 shadow-md' : 'hover:text-livs-purple hover:bg-gray-100 hover:shadow-sm'}`}>
                 {link.title}
               </a>;
         })}
@@ -127,7 +127,7 @@ const Navbar = () => {
         </nav>
         
         {/* Mobile Menu Button */}
-        <button className="md:hidden text-livs-blue" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button className="md:hidden text-black" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
