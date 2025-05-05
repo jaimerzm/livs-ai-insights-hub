@@ -1,8 +1,8 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Logo = () => {
+const Logo = ({ isScrolled = false }) => {
   const handleClick = () => {    
     window.scrollTo({
       top: 0,
