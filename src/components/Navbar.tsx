@@ -7,6 +7,7 @@ import { GlowEffect } from '@/components/ui/glow-effect';
 import { Link, useLocation } from 'react-router-dom';
 import { HoverButton } from '@/components/ui/hover-button';
 import { useIsMobile } from '@/hooks/use-mobile';
+import VisitorCounter from './VisitorCounter';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -130,7 +131,8 @@ const Navbar = () => {
               </a>;
         })}
           
-          <div className="relative">
+          <div className="relative flex items-center gap-2">
+            <VisitorCounter isScrolled={isScrolled} className="hidden md:flex" />
             <HoverButton onClick={scrollToContact} className={`text-white text-sm flex items-center gap-1 py-1 px-4 ${isScrolled ? 'bg-sky-900 hover:bg-sky-800' : 'bg-white/20 backdrop-blur-sm hover:bg-white/30'}`}>
               Contactar
               <ArrowRight className="h-3 w-3 ml-1" />
@@ -156,8 +158,9 @@ const Navbar = () => {
                     {link.title}
                   </a>;
           })}
-              <div className="mt-4 w-full">
-                <HoverButton onClick={scrollToContact} className={`w-full text-white text-sm flex items-center justify-center gap-1 py-1 ${isMobile ? 'bg-[#0A192F]' : ''}`}>
+              <div className="mt-4 w-full flex items-center gap-2">
+                <VisitorCounter isScrolled={true} className="flex" />
+                <HoverButton onClick={scrollToContact} className={`flex-1 text-white text-sm flex items-center justify-center gap-1 py-1 ${isMobile ? 'bg-[#0A192F]' : ''}`}>
                   Contactar
                   <ArrowRight className="h-3 w-3 ml-1" />
                 </HoverButton>
