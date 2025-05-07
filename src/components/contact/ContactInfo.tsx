@@ -84,10 +84,12 @@ const ContactInfo = ({
           <DialogTrigger asChild>
             <Button 
               variant="default" 
-              className="w-full mt-4 bg-white border border-livs-purple text-livs-purple hover:bg-livs-purple hover:text-white transition-colors duration-300 flex items-center justify-center"
+              className="w-full mt-4 bg-white border border-livs-purple text-livs-purple hover:bg-livs-purple hover:text-white transition-colors duration-300 flex items-center justify-center py-3 text-sm whitespace-normal h-auto"
             >
-              <ShieldCheck className="mr-2 h-5 w-5" /> 
-              Si no acabas satisfecho con el aprendizaje, te devolvemos el dinero ;)
+              <ShieldCheck className="mr-2 h-5 w-5 flex-shrink-0" /> 
+              <span className="leading-tight">
+                Si no acabas satisfecho con el aprendizaje,<br />te devolvemos el dinero ;)
+              </span>
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-md">
