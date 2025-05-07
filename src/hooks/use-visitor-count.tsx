@@ -1,7 +1,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
+import { supabase } from '@/integrations/supabase/client';
 
-const VISITOR_COUNT_KEY = 'livs-visitor-count';
 const VISITOR_COUNTED_KEY = 'livs-visitor-counted';
 
 export function useVisitorCount() {
@@ -11,16 +11,19 @@ export function useVisitorCount() {
   useEffect(() => {
     const fetchVisitorCount = async () => {
       try {
-        // Try to get the current count from localStorage first (for development)
-        let count = parseInt(localStorage.getItem(VISITOR_COUNT_KEY) || '0');
+        // Get current count from Supabase
+        const { data, error } = await supabase
+          .from('visitor_count')
+          .select('count')
+          .eq('id', 1)
+          .single();
         
-        // Check if this visit has already been counted in this session
-        const hasBeenCounted = localStorage.getItem(VISITOR_COUNTED_KEY) === 'true';
+        if (error) throw error;
         
-        setVisitorCount(count);
+        setVisitorCount(data.count);
         setIsLoading(false);
       } catch (error) {
-        console.error('Error handling visitor count:', error);
+        console.error('Error fetching visitor count:', error);
         setIsLoading(false);
       }
     };
@@ -28,22 +31,20 @@ export function useVisitorCount() {
     fetchVisitorCount();
   }, []);
 
-  const incrementVisitorCount = useCallback(() => {
+  const incrementVisitorCount = useCallback(async () => {
     try {
       // Check if this visit has already been counted in this session
       const hasBeenCounted = localStorage.getItem(VISITOR_COUNTED_KEY) === 'true';
       
       if (!hasBeenCounted) {
-        // Get current count
-        let count = parseInt(localStorage.getItem(VISITOR_COUNT_KEY) || '0');
+        // Call the Supabase function to increment the count
+        const { data, error } = await supabase.rpc('increment_visitor_count');
         
-        // Increment the count for this new visit
-        count += 1;
-        localStorage.setItem(VISITOR_COUNT_KEY, count.toString());
+        if (error) throw error;
+        
+        // Update state with the new count
+        setVisitorCount(data);
         localStorage.setItem(VISITOR_COUNTED_KEY, 'true');
-        
-        // Update state
-        setVisitorCount(count);
       }
     } catch (error) {
       console.error('Error incrementing visitor count:', error);
