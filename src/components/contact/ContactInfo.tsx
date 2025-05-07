@@ -1,6 +1,6 @@
 
 import React, { useRef, useState } from 'react';
-import { Mail, Phone, MapPin, ShieldCheck } from 'lucide-react';
+import { Mail, Phone, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from '@/components/ui/dialog';
 import { Balloons, BalloonsRef } from '@/components/ui/balloons';
@@ -47,8 +47,10 @@ const ContactInfo = ({
             <Phone className="h-6 w-6 text-livs-purple" />
             <div>
               <div className="font-medium text-livs-blue">Teléfonos de contacto:</div>
-              <a href="tel:+34911234567" className="text-livs-gray-dark hover:text-livs-purple">+34 609 92 74 95                
-+34 678 25 82 80</a>
+              <div className="flex flex-col">
+                <a href="tel:+34609927495" className="text-livs-gray-dark hover:text-livs-purple">+34 609 92 74 95</a>
+                <a href="tel:+34678258280" className="text-livs-gray-dark hover:text-livs-purple">+34 678 25 82 80</a>
+              </div>
             </div>
           </div>
           <div className="flex items-start gap-3">
