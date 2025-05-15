@@ -1,10 +1,31 @@
 
 import React from 'react';
 import Logo from './Logo';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
+  
+  // Helper function to handle navigation
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    
+    if (location.pathname === '/') {
+      // If on homepage, scroll to section
+      const sectionId = href.substring(1);
+      const section = document.getElementById(sectionId);
+      if (section) {
+        window.scrollTo({
+          top: section.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // If on another page, navigate to homepage with hash
+      window.location.href = href;
+    }
+  };
 
   const sections = [
     {
@@ -21,7 +42,7 @@ const Footer = () => {
       title: "Empresa",
       links: [
         { text: "Sobre Nosotros", href: "/#nosotros", isExternal: false },
-        { text: "Casos de Éxito", href: "/#casos", isExternal: false },
+        { text: "Casos de Éxito", href: "/#futuros-testimonios", isExternal: false },
         { text: "Beneficios", href: "/#beneficios", isExternal: false },
         { text: "Blog", href: "#", isExternal: true },
         { text: "Contacto", href: "/#contacto", isExternal: false }
@@ -78,7 +99,7 @@ const Footer = () => {
                       >
                         {link.text}
                       </a>
-                    ) : link.href.startsWith('/') ? (
+                    ) : link.href.startsWith('/') && !link.href.startsWith('/#') ? (
                       <Link 
                         to={link.href} 
                         className="text-sm text-white/80 hover:text-white transition-colors"
@@ -89,6 +110,7 @@ const Footer = () => {
                       <a 
                         href={link.href} 
                         className="text-sm text-white/80 hover:text-white transition-colors"
+                        onClick={(e) => handleNavigation(e, link.href)}
                       >
                         {link.text}
                       </a>
