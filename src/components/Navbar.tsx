@@ -131,6 +131,16 @@ const Navbar = () => {
               </a>;
         })}
           
+          <Link 
+            to="/blog" 
+            className={`font-medium text-sm transition-all duration-300 px-3 py-1 rounded-md
+              ${isScrolled ? 'text-black' : 'text-white'} 
+              ${location.pathname === '/blog' ? 'bg-livs-purple text-white transform scale-105 shadow-md' : `hover:text-livs-purple ${isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white/20'} hover:shadow-sm`}`}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Blog
+          </Link>
+          
           <div className="relative flex items-center gap-2">
             <VisitorCounter isScrolled={isScrolled} className="hidden md:flex" />
             <HoverButton onClick={scrollToContact} className={`text-white text-sm flex items-center gap-1 py-1 px-4 ${isScrolled ? 'bg-sky-900 hover:bg-sky-800' : 'bg-white/20 backdrop-blur-sm hover:bg-white/30'}`}>
@@ -158,6 +168,16 @@ const Navbar = () => {
                     {link.title}
                   </a>;
           })}
+              
+              <Link 
+                to="/blog" 
+                className={`text-black font-medium text-sm py-3 border-b border-gray-100 transition-all duration-300
+                  ${location.pathname === '/blog' ? 'bg-livs-purple/10 text-livs-purple font-semibold pl-2' : 'hover:text-livs-purple hover:bg-gray-50'}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Blog
+              </Link>
+              
               <div className="mt-4 w-full flex items-center gap-2">
                 <VisitorCounter isScrolled={true} className="flex" />
                 <HoverButton onClick={scrollToContact} className={`flex-1 text-white text-sm flex items-center justify-center gap-1 py-1 ${isMobile ? 'bg-[#0A192F]' : ''}`}>
