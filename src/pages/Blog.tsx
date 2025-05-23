@@ -1,22 +1,25 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
 import { Calendar, User, ArrowRight, Clock, Tag } from 'lucide-react';
 import { Helmet } from 'react-helmet';
+import BlogPagination from '@/components/blog/BlogPagination';
 
 const Blog = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const articlesPerPage = 6;
+
   const articles = [
     {
       id: 1,
-      title: "Cómo la Inteligencia Artificial está Transformando las Empresas Españolas en 2024",
+      title: "Cómo la Inteligencia Artificial está Transformando las Empresas Españolas en 2025",
       excerpt: "Descubre las últimas tendencias en IA empresarial y cómo LIVS ayuda a las compañías a implementar soluciones de inteligencia artificial que aumentan la productividad hasta un 40%.",
-      date: "15 de Enero, 2024",
+      date: "15 de Enero, 2025",
       author: "Equipo LIVS",
       readTime: "8 min lectura",
       tags: ["Consultoría IA", "Transformación Digital", "Empresas"],
-      slug: "ia-transformando-empresas-espana-2024",
+      slug: "ia-transformando-empresas-espana-2025",
       image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       featured: true
     },
@@ -24,7 +27,7 @@ const Blog = () => {
       id: 2,
       title: "Automatización Inteligente: La Clave para Reducir Costes Operativos",
       excerpt: "Aprende cómo la automatización con IA puede reducir hasta un 60% los costes operativos de tu empresa. Casos reales de éxito en consultoría de inteligencia artificial.",
-      date: "8 de Enero, 2024",
+      date: "10 de Enero, 2025",
       author: "Jaime Ruiz",
       readTime: "6 min lectura",
       tags: ["Automatización", "Consultoría IA", "Eficiencia"],
@@ -35,7 +38,7 @@ const Blog = () => {
       id: 3,
       title: "Análisis Predictivo con IA: Anticiparse al Futuro del Negocio",
       excerpt: "Descubre cómo el análisis predictivo puede ayudar a tu empresa a tomar decisiones estratégicas basadas en datos. Consultoría especializada en IA predictiva.",
-      date: "3 de Enero, 2024",
+      date: "5 de Enero, 2025",
       author: "Manuel Talón",
       readTime: "7 min lectura",
       tags: ["Análisis Predictivo", "Machine Learning", "Consultoría IA"],
@@ -46,7 +49,7 @@ const Blog = () => {
       id: 4,
       title: "Implementación de IA en PYMES: Guía Completa para Empresarios",
       excerpt: "Una guía práctica para implementar inteligencia artificial en pequeñas y medianas empresas. Consultoría accesible y personalizada en IA empresarial.",
-      date: "28 de Diciembre, 2023",
+      date: "2 de Enero, 2025",
       author: "Equipo LIVS",
       readTime: "9 min lectura",
       tags: ["PYMES", "Consultoría IA", "Implementación"],
@@ -57,7 +60,7 @@ const Blog = () => {
       id: 5,
       title: "ChatGPT vs Soluciones de IA Personalizadas: ¿Qué Conviene Más a tu Empresa?",
       excerpt: "Comparamos las ventajas de usar herramientas genéricas como ChatGPT frente a desarrollar soluciones de IA personalizadas para tu empresa.",
-      date: "20 de Diciembre, 2023",
+      date: "28 de Diciembre, 2024",
       author: "Jaime Ruiz",
       readTime: "5 min lectura",
       tags: ["ChatGPT", "IA Personalizada", "Consultoría"],
@@ -68,17 +71,94 @@ const Blog = () => {
       id: 6,
       title: "ROI de la Inteligencia Artificial: Cómo Medir el Éxito de tu Inversión",
       excerpt: "Aprende a calcular y medir el retorno de inversión de proyectos de IA. Métricas clave y casos de éxito en consultoría de inteligencia artificial.",
-      date: "15 de Diciembre, 2023",
+      date: "25 de Diciembre, 2024",
       author: "Manuel Talón",
       readTime: "8 min lectura",
       tags: ["ROI", "Métricas IA", "Consultoría Empresarial"],
       slug: "roi-inteligencia-artificial-medir-exito",
       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      id: 7,
+      title: "IA Generativa en el Marketing Digital: Revolucionando la Creatividad Empresarial",
+      excerpt: "Explora cómo la IA generativa está transformando las estrategias de marketing digital y creando nuevas oportunidades de negocio en 2025.",
+      date: "20 de Enero, 2025",
+      author: "Laura García",
+      readTime: "7 min lectura",
+      tags: ["IA Generativa", "Marketing Digital", "Creatividad"],
+      slug: "ia-generativa-marketing-digital-2025",
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      id: 8,
+      title: "Ciberseguridad con IA: Protegiendo tu Empresa en la Era Digital",
+      excerpt: "Descubre cómo la inteligencia artificial está revolucionando la ciberseguridad empresarial y protegiendo contra amenazas avanzadas.",
+      date: "18 de Enero, 2025",
+      author: "Carlos Mendoza",
+      readTime: "6 min lectura",
+      tags: ["Ciberseguridad", "IA", "Protección Digital"],
+      slug: "ciberseguridad-ia-proteccion-empresarial",
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      id: 9,
+      title: "Machine Learning para Optimizar la Cadena de Suministro",
+      excerpt: "Aprende cómo el machine learning puede optimizar tu cadena de suministro, reducir costes y mejorar la eficiencia operativa.",
+      date: "16 de Enero, 2025",
+      author: "Ana Rodríguez",
+      readTime: "8 min lectura",
+      tags: ["Machine Learning", "Cadena de Suministro", "Optimización"],
+      slug: "machine-learning-cadena-suministro",
+      image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      id: 10,
+      title: "Chatbots Inteligentes: Mejorando la Atención al Cliente con IA",
+      excerpt: "Descubre cómo implementar chatbots inteligentes que mejoren la experiencia del cliente y reduzcan costes operativos.",
+      date: "14 de Enero, 2025",
+      author: "David López",
+      readTime: "5 min lectura",
+      tags: ["Chatbots", "Atención al Cliente", "IA Conversacional"],
+      slug: "chatbots-inteligentes-atencion-cliente",
+      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      id: 11,
+      title: "IA en Recursos Humanos: Transformando la Gestión del Talento",
+      excerpt: "Explora cómo la inteligencia artificial está revolucionando la gestión de recursos humanos, desde la selección hasta el desarrollo del talento.",
+      date: "12 de Enero, 2025",
+      author: "María Fernández",
+      readTime: "7 min lectura",
+      tags: ["RRHH", "Gestión del Talento", "IA"],
+      slug: "ia-recursos-humanos-gestion-talento",
+      image: "https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      id: 12,
+      title: "Computer Vision: Automatizando Procesos Visuales en la Industria",
+      excerpt: "Descubre las aplicaciones de computer vision en la industria manufacturera y cómo puede automatizar procesos de control de calidad.",
+      date: "8 de Enero, 2025",
+      author: "Roberto Silva",
+      readTime: "9 min lectura",
+      tags: ["Computer Vision", "Automatización", "Industria 4.0"],
+      slug: "computer-vision-automatizacion-industrial",
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
     }
   ];
 
   const featuredArticle = articles.find(article => article.featured);
   const regularArticles = articles.filter(article => !article.featured);
+
+  // Pagination logic
+  const totalPages = Math.ceil(regularArticles.length / articlesPerPage);
+  const startIndex = (currentPage - 1) * articlesPerPage;
+  const endIndex = startIndex + articlesPerPage;
+  const currentArticles = regularArticles.slice(startIndex, endIndex);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -208,7 +288,7 @@ const Blog = () => {
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {regularArticles.map((article) => (
+                {currentArticles.map((article) => (
                   <article key={article.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 group">
                     <div className="relative h-48 overflow-hidden">
                       <img 
@@ -261,6 +341,13 @@ const Blog = () => {
                   </article>
                 ))}
               </div>
+
+              {/* Pagination */}
+              <BlogPagination 
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+              />
             </div>
           </div>
         </section>
