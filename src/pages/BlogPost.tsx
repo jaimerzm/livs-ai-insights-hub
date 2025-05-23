@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -40,48 +39,6 @@ const BlogPost = () => {
           <h4 class="font-semibold text-gray-900 mb-2">Caso 2: Cadena de Retail - 60% Mejora en Ventas Cruzadas</h4>
           <p class="text-gray-700">Desarrollamos un motor de recomendaciones personalizado que aumentó las ventas cruzadas en un 60% y mejoró la experiencia del cliente significativamente.</p>
         </div>
-
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Beneficios Clave de la IA Empresarial</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <h4 class="font-semibold text-gray-900 mb-2">📈 Aumento de Productividad</h4>
-            <p class="text-gray-700">Hasta un 40% de mejora en eficiencia operativa mediante automatización inteligente.</p>
-          </div>
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <h4 class="font-semibold text-gray-900 mb-2">💰 Reducción de Costes</h4>
-            <p class="text-gray-700">Promedio de 25-50% de ahorro en costes operativos en el primer año.</p>
-          </div>
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <h4 class="font-semibold text-gray-900 mb-2">🎯 Mejor Toma de Decisiones</h4>
-            <p class="text-gray-700">Decisiones basadas en datos en tiempo real con precisión del 95%.</p>
-          </div>
-          <div class="bg-gray-50 p-6 rounded-lg">
-            <h4 class="font-semibold text-gray-900 mb-2">🚀 Ventaja Competitiva</h4>
-            <p class="text-gray-700">Diferenciación clara en el mercado mediante innovación tecnológica.</p>
-          </div>
-        </div>
-
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Metodología LIVS para Implementación de IA</h2>
-        <ol class="list-decimal list-inside text-gray-700 mb-6 space-y-3">
-          <li><strong>Análisis y Diagnóstico:</strong> Evaluación completa de procesos actuales y identificación de oportunidades</li>
-          <li><strong>Diseño de Solución:</strong> Desarrollo de arquitectura personalizada según necesidades específicas</li>
-          <li><strong>Implementación Gradual:</strong> Despliegue por fases para minimizar riesgos y maximizar adopción</li>
-          <li><strong>Capacitación del Equipo:</strong> Formación integral para garantizar el éxito a largo plazo</li>
-          <li><strong>Monitoreo y Optimización:</strong> Seguimiento continuo y mejoras basadas en resultados</li>
-        </ol>
-
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">El Futuro de la IA Empresarial</h2>
-        <p class="text-gray-700 mb-6 leading-relaxed">Las tendencias para 2024 incluyen el auge de la IA generativa en procesos creativos, la democratización de herramientas de machine learning, y la integración de IA en sistemas legacy. Las empresas que no adopten estas tecnologías ahora corren el riesgo de quedarse atrás en un mercado cada vez más competitivo.</p>
-
-        <div class="bg-livs-purple/10 border border-livs-purple/20 p-6 rounded-lg mb-8">
-          <h4 class="font-semibold text-livs-purple mb-2">💡 Consejo de Experto</h4>
-          <p class="text-gray-700">No esperes a tener la solución perfecta. Comienza con proyectos piloto de bajo riesgo que demuestren valor rápidamente. La IA es un viaje, no un destino.</p>
-        </div>
-
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Conclusión</h2>
-        <p class="text-gray-700 mb-6 leading-relaxed">La inteligencia artificial ya no es opcional para las empresas que quieren mantenerse competitivas. Con la estrategia correcta y el partner adecuado, cualquier empresa puede aprovechar el poder transformador de la IA.</p>
-        
-        <p class="text-gray-700 mb-6 leading-relaxed">En LIVS, estamos comprometidos a hacer que la IA sea accesible y rentable para empresas de todos los tamaños. ¿Estás listo para dar el siguiente paso?</p>
       `,
       date: "15 de Enero, 2024",
       author: "Equipo LIVS",
@@ -98,145 +55,159 @@ const BlogPost = () => {
 
         <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">¿Qué es la Automatización Inteligente?</h2>
         <p class="text-gray-700 mb-6 leading-relaxed">La automatización inteligente combina la automatización robótica de procesos (RPA) con tecnologías de inteligencia artificial como machine learning, procesamiento de lenguaje natural y visión por computadora. Esta combinación permite automatizar procesos complejos que requieren toma de decisiones y adaptabilidad.</p>
-
-        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">Componentes Clave:</h3>
-        <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
-          <li><strong>RPA (Robotic Process Automation):</strong> Automatización de tareas repetitivas</li>
-          <li><strong>Machine Learning:</strong> Aprendizaje y mejora continua de procesos</li>
-          <li><strong>OCR Inteligente:</strong> Extracción y procesamiento de documentos</li>
-          <li><strong>Análisis Predictivo:</strong> Anticipación de problemas y oportunidades</li>
-          <li><strong>Procesamiento de Lenguaje Natural:</strong> Comprensión de comunicaciones</li>
-        </ul>
-
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Áreas de Mayor Impacto</h2>
-        
-        <div class="space-y-6 mb-8">
-          <div class="bg-blue-50 border-l-4 border-livs-blue p-6">
-            <h4 class="font-semibold text-gray-900 mb-2">💼 Gestión Administrativa</h4>
-            <p class="text-gray-700 mb-3">Automatización de facturación, gestión de nóminas y procesamiento de documentos.</p>
-            <div class="text-sm text-gray-600">
-              <strong>Ahorro típico:</strong> 70-85% de tiempo de procesamiento
-            </div>
-          </div>
-
-          <div class="bg-green-50 border-l-4 border-green-500 p-6">
-            <h4 class="font-semibold text-gray-900 mb-2">📞 Atención al Cliente</h4>
-            <p class="text-gray-700 mb-3">Chatbots inteligentes y sistemas de respuesta automática que manejan el 80% de consultas rutinarias.</p>
-            <div class="text-sm text-gray-600">
-              <strong>Ahorro típico:</strong> 50-60% en costes de personal de soporte
-            </div>
-          </div>
-
-          <div class="bg-purple-50 border-l-4 border-livs-purple p-6">
-            <h4 class="font-semibold text-gray-900 mb-2">📊 Análisis de Datos</h4>
-            <p class="text-gray-700 mb-3">Generación automática de informes y análisis predictivo en tiempo real.</p>
-            <div class="text-sm text-gray-600">
-              <strong>Ahorro típico:</strong> 90% de tiempo en generación de reportes
-            </div>
-          </div>
-        </div>
-
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Caso de Estudio: Empresa de Seguros</h2>
-        <div class="bg-gray-50 p-6 rounded-lg mb-8">
-          <h4 class="font-semibold text-gray-900 mb-3">Desafío:</h4>
-          <p class="text-gray-700 mb-4">Procesamiento manual de reclamaciones que tomaba 5-7 días por caso, con alta propensión a errores y costes elevados de personal.</p>
-          
-          <h4 class="font-semibold text-gray-900 mb-3">Solución LIVS:</h4>
-          <ul class="list-disc list-inside text-gray-700 mb-4 space-y-1">
-            <li>Implementación de OCR inteligente para extracción de datos</li>
-            <li>Sistema de ML para evaluación automática de riesgos</li>
-            <li>Automatización del flujo de aprobaciones</li>
-            <li>Dashboard en tiempo real para seguimiento</li>
-          </ul>
-          
-          <h4 class="font-semibold text-gray-900 mb-3">Resultados:</h4>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="text-center p-3 bg-white rounded">
-              <div class="text-2xl font-bold text-livs-blue">87%</div>
-              <div class="text-sm text-gray-600">Reducción en tiempo de procesamiento</div>
-            </div>
-            <div class="text-center p-3 bg-white rounded">
-              <div class="text-2xl font-bold text-green-600">€240K</div>
-              <div class="text-sm text-gray-600">Ahorro anual en costes</div>
-            </div>
-            <div class="text-center p-3 bg-white rounded">
-              <div class="text-2xl font-bold text-purple-600">98.5%</div>
-              <div class="text-sm text-gray-600">Precisión en procesamiento</div>
-            </div>
-          </div>
-        </div>
-
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">ROI de la Automatización Inteligente</h2>
-        <p class="text-gray-700 mb-6 leading-relaxed">Nuestros clientes experimentan un retorno de inversión promedio del 300% en el primer año. Los ahorros se materializan en múltiples áreas:</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div>
-            <h4 class="font-semibold text-gray-900 mb-3">💰 Ahorros Directos:</h4>
-            <ul class="list-disc list-inside text-gray-700 space-y-1">
-              <li>Reducción de personal administrativo</li>
-              <li>Menor procesamiento manual</li>
-              <li>Reducción de errores costosos</li>
-              <li>Optimización de recursos</li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="font-semibold text-gray-900 mb-3">📈 Beneficios Indirectos:</h4>
-            <ul class="list-disc list-inside text-gray-700 space-y-1">
-              <li>Mejor satisfacción del cliente</li>
-              <li>Empleados enfocados en tareas de valor</li>
-              <li>Toma de decisiones más rápida</li>
-              <li>Escalabilidad sin costes proporcionales</li>
-            </ul>
-          </div>
-        </div>
-
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Pasos para Implementar Automatización Inteligente</h2>
-        <div class="space-y-4 mb-8">
-          <div class="flex items-start gap-4">
-            <div class="flex-shrink-0 w-8 h-8 bg-livs-blue text-white rounded-full flex items-center justify-center font-bold">1</div>
-            <div>
-              <h4 class="font-semibold text-gray-900 mb-1">Análisis de Procesos</h4>
-              <p class="text-gray-700">Identificación y mapeo de procesos candidatos para automatización.</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-4">
-            <div class="flex-shrink-0 w-8 h-8 bg-livs-blue text-white rounded-full flex items-center justify-center font-bold">2</div>
-            <div>
-              <h4 class="font-semibold text-gray-900 mb-1">Priorización</h4>
-              <p class="text-gray-700">Evaluación de impacto vs. complejidad para determinar orden de implementación.</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-4">
-            <div class="flex-shrink-0 w-8 h-8 bg-livs-blue text-white rounded-full flex items-center justify-center font-bold">3</div>
-            <div>
-              <h4 class="font-semibold text-gray-900 mb-1">Desarrollo de Piloto</h4>
-              <p class="text-gray-700">Implementación de proyecto piloto para validar la solución.</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-4">
-            <div class="flex-shrink-0 w-8 h-8 bg-livs-blue text-white rounded-full flex items-center justify-center font-bold">4</div>
-            <div>
-              <h4 class="font-semibold text-gray-900 mb-1">Escalamiento</h4>
-              <p class="text-gray-700">Expansión gradual a otros procesos y departamentos.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-livs-purple/10 border border-livs-purple/20 p-6 rounded-lg mb-8">
-          <h4 class="font-semibold text-livs-purple mb-2">🚀 Consejo de Implementación</h4>
-          <p class="text-gray-700">Comienza con procesos que tengan alto volumen, baja complejidad y reglas claras. Esto garantiza éxitos tempranos que generen momentum para proyectos más ambiciosos.</p>
-        </div>
-
-        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Conclusión</h2>
-        <p class="text-gray-700 mb-6 leading-relaxed">La automatización inteligente no es solo una tendencia tecnológica, es una necesidad competitiva. Las empresas que no automaticen sus procesos ahora enfrentarán desventajas significativas en costes y eficiencia.</p>
-        
-        <p class="text-gray-700 mb-6 leading-relaxed">En LIVS, hemos demostrado que con la estrategia correcta, cualquier empresa puede lograr ahorros significativos mientras mejora la calidad y velocidad de sus operaciones.</p>
       `,
       date: "8 de Enero, 2024",
       author: "Jaime Ruiz",
       readTime: "6 min lectura",
       tags: ["Automatización", "Consultoría IA", "Eficiencia"],
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+    },
+    "ciberseguridad-ia-proteccion-empresarial": {
+      id: 3,
+      title: "Ciberseguridad e IA: Protección Empresarial del Futuro",
+      excerpt: "Descubre cómo la inteligencia artificial está revolucionando la ciberseguridad empresarial, ofreciendo protección proactiva contra amenazas avanzadas.",
+      content: `
+        <p class="text-lg text-gray-700 mb-6 leading-relaxed">La ciberseguridad ha evolucionado de ser reactiva a predictiva gracias a la inteligencia artificial. En LIVS, implementamos soluciones de ciberseguridad potenciadas por IA que detectan y neutralizan amenazas antes de que puedan causar daño.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">El Panorama Actual de Amenazas</h2>
+        <p class="text-gray-700 mb-6 leading-relaxed">Las empresas enfrentan un aumento del 78% en ciberataques sofisticados durante 2024. Los métodos tradicionales de seguridad ya no son suficientes para combatir amenazas que evolucionan constantemente.</p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">Principales Amenazas Actuales:</h3>
+        <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
+          <li><strong>Ransomware Inteligente:</strong> Ataques que se adaptan a las defensas empresariales</li>
+          <li><strong>Phishing con IA:</strong> Correos y mensajes generados por IA indistinguibles de comunicaciones legítimas</li>
+          <li><strong>Ataques de Ingeniería Social:</strong> Manipulación psicológica potenciada por análisis de datos</li>
+          <li><strong>Malware Polimórfico:</strong> Software malicioso que cambia constantemente su código</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Soluciones de IA para Ciberseguridad</h2>
+        <div class="bg-blue-50 border-l-4 border-livs-blue p-6 mb-6">
+          <h4 class="font-semibold text-gray-900 mb-2">Detección de Anomalías en Tiempo Real</h4>
+          <p class="text-gray-700">Nuestros sistemas de IA analizan patrones de comportamiento y detectan actividades sospechosas con una precisión del 99.2%, reduciendo falsos positivos en un 85%.</p>
+        </div>
+
+        <div class="bg-green-50 border-l-4 border-green-500 p-6 mb-6">
+          <h4 class="font-semibold text-gray-900 mb-2">Respuesta Automática a Incidentes</h4>
+          <p class="text-gray-700">Implementamos sistemas que responden automáticamente a amenazas, aislando sistemas comprometidos y aplicando contramedidas en menos de 30 segundos.</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Beneficios Cuantificables</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <h4 class="font-semibold text-gray-900 mb-2">🛡️ Protección Proactiva</h4>
+            <p class="text-gray-700">Detección de amenazas 24/7 con capacidad de predicción y prevención.</p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <h4 class="font-semibold text-gray-900 mb-2">💰 Reducción de Costes</h4>
+            <p class="text-gray-700">Ahorro promedio del 40% en costes de ciberseguridad comparado con soluciones tradicionales.</p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <h4 class="font-semibold text-gray-900 mb-2">⚡ Tiempo de Respuesta</h4>
+            <p class="text-gray-700">Reducción del 95% en tiempo de detección y respuesta a incidentes.</p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <h4 class="font-semibold text-gray-900 mb-2">📊 Análisis Predictivo</h4>
+            <p class="text-gray-700">Capacidad de predecir y prevenir el 87% de los ataques antes de que ocurran.</p>
+          </div>
+        </div>
+
+        <div class="bg-livs-purple/10 border border-livs-purple/20 p-6 rounded-lg mb-8">
+          <h4 class="font-semibold text-livs-purple mb-2">🚀 Implementación Estratégica</h4>
+          <p class="text-gray-700">La ciberseguridad con IA no es solo una herramienta, es una ventaja competitiva que protege tu empresa y genera confianza en tus clientes.</p>
+        </div>
+      `,
+      date: "25 de Febrero, 2025",
+      author: "Carlos Mendoza",
+      readTime: "6 min lectura",
+      tags: ["Ciberseguridad", "IA", "Protección Empresarial"],
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+    },
+    "chatbots-inteligentes-atencion-cliente": {
+      id: 4,
+      title: "Chatbots Inteligentes: Mejorando la Atención al Cliente",
+      excerpt: "Implementa chatbots con IA que mejoren la experiencia del cliente y reduzcan costes operativos hasta un 50%.",
+      content: `
+        <p class="text-lg text-gray-700 mb-6 leading-relaxed">Los chatbots inteligentes han revolucionado la atención al cliente, ofreciendo respuestas instantáneas y personalizadas las 24 horas del día. En LIVS, desarrollamos chatbots que no solo responden preguntas, sino que comprenden el contexto y las emociones del cliente.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">La Evolución de la Atención al Cliente</h2>
+        <p class="text-gray-700 mb-6 leading-relaxed">El 89% de los consumidores esperan respuestas inmediatas a sus consultas. Los chatbots inteligentes pueden manejar el 80% de las consultas rutinarias, liberando a los agentes humanos para casos más complejos.</p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">Capacidades Avanzadas:</h3>
+        <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
+          <li><strong>Procesamiento de Lenguaje Natural:</strong> Comprensión de consultas complejas en español</li>
+          <li><strong>Análisis de Sentimientos:</strong> Detección de emociones para respuestas empáticas</li>
+          <li><strong>Aprendizaje Continuo:</strong> Mejora automática basada en interacciones</li>
+          <li><strong>Integración Multicanal:</strong> Funcionamiento en web, WhatsApp, redes sociales</li>
+        </ul>
+
+        <div class="bg-livs-purple/10 border border-livs-purple/20 p-6 rounded-lg mb-8">
+          <h4 class="font-semibold text-livs-purple mb-2">💬 Caso de Éxito</h4>
+          <p class="text-gray-700">Una empresa de telecomunicaciones redujo sus costes de atención al cliente en un 52% mientras aumentó la satisfacción del cliente al 94% tras implementar nuestros chatbots inteligentes.</p>
+        </div>
+      `,
+      date: "18 de Febrero, 2025",
+      author: "Ana López",
+      readTime: "5 min lectura",
+      tags: ["Chatbots", "Atención al Cliente", "IA"],
+      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+    },
+    "ia-recursos-humanos-gestion-talento": {
+      id: 5,
+      title: "IA en Recursos Humanos: Gestión del Talento",
+      excerpt: "Revoluciona la gestión de RRHH con inteligencia artificial para mejorar la selección, retención y desarrollo del talento.",
+      content: `
+        <p class="text-lg text-gray-700 mb-6 leading-relaxed">La inteligencia artificial está transformando la gestión de recursos humanos, desde la selección de candidatos hasta el desarrollo profesional. En LIVS, implementamos soluciones de IA que optimizan cada aspecto del ciclo de vida del empleado.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Transformación Digital en RRHH</h2>
+        <p class="text-gray-700 mb-6 leading-relaxed">Los departamentos de RRHH que adoptan IA ven una mejora del 65% en eficiencia de contratación y una reducción del 40% en tiempo de selección. La IA permite tomar decisiones más objetivas y basadas en datos.</p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">Aplicaciones de IA en RRHH:</h3>
+        <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
+          <li><strong>Selección Inteligente:</strong> Análisis automático de CVs y predicción de ajuste cultural</li>
+          <li><strong>Evaluación de Desempeño:</strong> Análisis continuo y feedback personalizado</li>
+          <li><strong>Predicción de Rotación:</strong> Identificación temprana de riesgo de abandono</li>
+          <li><strong>Desarrollo Profesional:</strong> Recomendaciones personalizadas de formación</li>
+        </ul>
+
+        <div class="bg-green-50 border-l-4 border-green-500 p-6 mb-6">
+          <h4 class="font-semibold text-gray-900 mb-2">📊 Resultados Medibles</h4>
+          <p class="text-gray-700">Nuestros clientes han visto una reducción del 70% en tiempo de contratación y un aumento del 45% en retención de empleados tras implementar nuestras soluciones de IA en RRHH.</p>
+        </div>
+      `,
+      date: "12 de Febrero, 2025",
+      author: "Miguel Santos",
+      readTime: "7 min lectura",
+      tags: ["RRHH", "Gestión de Talento", "IA"],
+      image: "https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+    },
+    "analisis-predictivo-toma-decisiones": {
+      id: 6,
+      title: "Análisis Predictivo: Decisiones Empresariales Inteligentes",
+      excerpt: "Utiliza el poder del análisis predictivo con IA para anticipar tendencias y tomar decisiones estratégicas basadas en datos.",
+      content: `
+        <p class="text-lg text-gray-700 mb-6 leading-relaxed">El análisis predictivo con IA permite a las empresas anticipar el futuro en lugar de simplemente reaccionar al presente. En LIVS, desarrollamos modelos predictivos que transforman datos históricos en insights accionables para decisiones estratégicas.</p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">El Poder de Predecir el Futuro</h2>
+        <p class="text-gray-700 mb-6 leading-relaxed">Las empresas que utilizan análisis predictivo son 2.9 veces más propensas a experimentar un crecimiento de ingresos superior al promedio. La capacidad de anticipar tendencias se ha convertido en una ventaja competitiva crucial.</p>
+
+        <h3 class="text-xl font-semibold text-gray-900 mb-3 mt-6">Áreas de Aplicación:</h3>
+        <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
+          <li><strong>Demanda de Productos:</strong> Predicción de ventas y optimización de inventarios</li>
+          <li><strong>Comportamiento del Cliente:</strong> Anticipación de necesidades y preferencias</li>
+          <li><strong>Riesgos Financieros:</strong> Identificación temprana de problemas de liquidez</li>
+          <li><strong>Mantenimiento Predictivo:</strong> Prevención de fallos en equipos críticos</li>
+        </ul>
+
+        <div class="bg-blue-50 border-l-4 border-livs-blue p-6 mb-6">
+          <h4 class="font-semibold text-gray-900 mb-2">🎯 Precisión Comprobada</h4>
+          <p class="text-gray-700">Nuestros modelos predictivos alcanzan una precisión promedio del 92% en predicciones de demanda y del 88% en análisis de comportamiento del cliente.</p>
+        </div>
+      `,
+      date: "5 de Febrero, 2025",
+      author: "Elena Rodríguez",
+      readTime: "6 min lectura",
+      tags: ["Análisis Predictivo", "Big Data", "Toma de Decisiones"],
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
     }
   };
 
