@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -21,7 +22,7 @@ const LegalNotice = () => {
               <li><strong>Actividad:</strong> Consultoría y formación en inteligencia artificial</li>
               
               
-              <li><strong>Teléfono:</strong> [Número de teléfono]</li>
+              <li><strong>Email:</strong> business@livs.es</li>
             </ul>
 
             <h2 className="text-lg font-semibold mt-8 mb-4 text-white">Propiedad Intelectual e Industrial</h2>
