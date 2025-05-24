@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button as StandardButton } from '@/components/ui/button';
 import Logo from './Logo';
@@ -126,7 +125,7 @@ const Navbar = () => {
             handleLinkClick(link.href);
           }} className={`font-medium text-sm transition-all duration-300 px-3 py-1 rounded-md
                   ${isScrolled ? 'text-gray-800' : 'text-white'} 
-                  ${isActive ? 'bg-livs-purple text-white transform scale-105 shadow-md' : `hover:text-livs-purple ${isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white/20'} hover:shadow-sm`}`}>
+                  ${isActive ? (isScrolled ? 'bg-gray-800 text-white' : 'bg-white text-gray-800') + ' transform scale-105 shadow-md' : `hover:text-${isScrolled ? 'gray-600' : 'gray-200'} ${isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white/20'} hover:shadow-sm`}`}>
                 {link.title}
               </a>;
         })}
@@ -135,7 +134,7 @@ const Navbar = () => {
             to="/blog" 
             className={`font-medium text-sm transition-all duration-300 px-3 py-1 rounded-md
               ${isScrolled ? 'text-gray-800' : 'text-white'} 
-              ${location.pathname === '/blog' ? 'bg-livs-purple text-white transform scale-105 shadow-md' : `hover:text-livs-purple ${isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white/20'} hover:shadow-sm`}`}
+              ${location.pathname === '/blog' ? (isScrolled ? 'bg-gray-800 text-white' : 'bg-white text-gray-800') + ' transform scale-105 shadow-md' : `hover:text-${isScrolled ? 'gray-600' : 'gray-200'} ${isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white/20'} hover:shadow-sm`}`}
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Blog
@@ -143,15 +142,15 @@ const Navbar = () => {
           
           <div className="relative flex items-center gap-2">
             <VisitorCounter isScrolled={isScrolled} className="hidden md:flex" />
-            <HoverButton onClick={scrollToContact} className={`text-white text-sm flex items-center gap-1 py-1 px-4 ${isScrolled ? 'bg-livs-purple hover:bg-livs-purple/80' : 'bg-white/20 backdrop-blur-sm hover:bg-white/30'}`}>
+            <HoverButton onClick={scrollToContact} className={`text-white text-sm flex items-center gap-1 py-1 px-4 ${isScrolled ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white/20 backdrop-blur-sm hover:bg-white/30'}`}>
               Contactar
               <ArrowRight className="h-3 w-3 ml-1" />
             </HoverButton>
           </div>
         </nav>
         
-        {/* Mobile Menu Button - Always black text on mobile */}
-        <button className={`md:hidden ${isScrolled ? 'text-gray-800' : 'text-white'}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        {/* Mobile Menu Button */}
+        <button className={`md:hidden ${isMobile ? 'text-gray-800' : (isScrolled ? 'text-gray-800' : 'text-white')}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
@@ -164,7 +163,7 @@ const Navbar = () => {
               e.preventDefault();
               handleLinkClick(link.href);
             }} className={`text-black font-medium text-sm py-3 border-b border-gray-100 transition-all duration-300
-                      ${isActive ? 'bg-livs-purple/10 text-livs-purple font-semibold pl-2' : 'hover:text-livs-purple hover:bg-gray-50'}`}>
+                      ${isActive ? 'bg-gray-800/10 text-gray-800 font-semibold pl-2' : 'hover:text-gray-600 hover:bg-gray-50'}`}>
                     {link.title}
                   </a>;
           })}
@@ -172,7 +171,7 @@ const Navbar = () => {
               <Link 
                 to="/blog" 
                 className={`text-black font-medium text-sm py-3 border-b border-gray-100 transition-all duration-300
-                  ${location.pathname === '/blog' ? 'bg-livs-purple/10 text-livs-purple font-semibold pl-2' : 'hover:text-livs-purple hover:bg-gray-50'}`}
+                  ${location.pathname === '/blog' ? 'bg-gray-800/10 text-gray-800 font-semibold pl-2' : 'hover:text-gray-600 hover:bg-gray-50'}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Blog
@@ -180,7 +179,7 @@ const Navbar = () => {
               
               <div className="mt-4 w-full flex items-center gap-2">
                 <VisitorCounter isScrolled={true} className="flex" />
-                <HoverButton onClick={scrollToContact} className={`flex-1 text-white text-sm flex items-center justify-center gap-1 py-1 ${isMobile ? 'bg-[#0A192F]' : ''}`}>
+                <HoverButton onClick={scrollToContact} className="flex-1 text-white text-sm flex items-center justify-center gap-1 py-1 bg-gray-800 hover:bg-gray-700">
                   Contactar
                   <ArrowRight className="h-3 w-3 ml-1" />
                 </HoverButton>
