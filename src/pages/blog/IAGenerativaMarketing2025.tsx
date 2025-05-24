@@ -1,7 +1,7 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import BackToBlogButton from '@/components/BackToBlogButton';
 import { Link } from 'react-router-dom';
 import { Calendar, User, Clock, ArrowLeft, Share2, BookOpen } from 'lucide-react';
 import { Helmet } from 'react-helmet';
@@ -20,20 +20,13 @@ const IAGenerativaMarketing2025 = () => {
       </Helmet>
 
       <Navbar />
+      <BackToBlogButton />
       
       <main className="pt-20">
         {/* Hero Section */}
         <section className="bg-gray-50 py-16">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-4xl mx-auto">
-              <Link 
-                to="/blog" 
-                className="inline-flex items-center gap-2 text-livs-blue hover:text-livs-purple mb-8 font-medium"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Volver al Blog
-              </Link>
-              
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
@@ -66,6 +59,10 @@ const IAGenerativaMarketing2025 = () => {
                       <span>7 min lectura</span>
                     </div>
                   </div>
+                  
+                  <p className="text-xs text-gray-400 italic mb-4">
+                    *Los casos y ejemplos mencionados en este artículo, incluidas las referencias a personas, son ficticios y se utilizan únicamente con fines ilustrativos.
+                  </p>
                 </div>
               </div>
             </div>

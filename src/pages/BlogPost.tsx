@@ -1,8 +1,8 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Calendar, User, Clock, ArrowLeft, ArrowRight, Share2, Tag } from 'lucide-react';
+import BackToBlogButton from '@/components/BackToBlogButton';
 import { Helmet } from 'react-helmet';
 
 const BlogPost = () => {
@@ -826,22 +826,18 @@ const BlogPost = () => {
     }
   };
 
-  // Agregar artículos adicionales con contenido completo...
-  const article = articles[slug as keyof typeof articles];
+  const post = articles[slug as keyof typeof articles];
 
-  if (!article) {
+  if (!post) {
     return (
       <div className="min-h-screen bg-white">
         <Navbar />
-        <main className="pt-20 py-16">
-          <div className="container mx-auto px-4 md:px-6">
+        <BackToBlogButton />
+        <main className="pt-20">
+          <div className="container mx-auto px-4 md:px-6 py-16">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl font-bold text-gray-900 mb-6">Artículo no encontrado</h1>
-              <p className="text-xl text-gray-600 mb-8">Lo sentimos, el artículo que buscas no existe.</p>
-              <Link to="/blog" className="inline-flex items-center gap-2 bg-livs-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-livs-purple transition-colors">
-                <ArrowLeft className="w-5 h-5" />
-                Volver al Blog
-              </Link>
+              <h1 className="text-3xl font-bold text-gray-900 mb-4">Artículo no encontrado</h1>
+              <p className="text-gray-600">El artículo que buscas no existe o ha sido movido.</p>
             </div>
           </div>
         </main>
@@ -853,50 +849,17 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>{article.title} | Blog LIVS - Consultoría IA</title>
-        <meta name="description" content={article.excerpt} />
-        <meta name="keywords" content={`${article.tags.join(', ')}, consultoría IA, inteligencia artificial, LIVS`} />
-        <meta property="og:title" content={article.title} />
-        <meta property="og:description" content={article.excerpt} />
-        <meta property="og:type" content="article" />
-        <meta property="og:image" content={article.image} />
-        <meta name="author" content={article.author} />
-        <meta name="article:published_time" content={article.date} />
-        <meta name="article:section" content="Consultoría IA" />
-        {article.tags.map(tag => (
-          <meta key={tag} name="article:tag" content={tag} />
-        ))}
-        <link rel="canonical" href={`https://livs.es/blog/${slug}`} />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            "headline": article.title,
-            "description": article.excerpt,
-            "image": article.image,
-            "author": {
-              "@type": "Person",
-              "name": article.author
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "LIVS",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://livs.es/logo.png"
-              }
-            },
-            "datePublished": article.date,
-            "dateModified": article.date,
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": `https://livs.es/blog/${slug}`
-            }
-          })}
-        </script>
+        <title>{post.title} | LIVS</title>
+        <meta name="description" content={post.excerpt} />
+        <meta name="keywords" content={post.tags.join(', ')} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:image" content={post.image} />
+        <link rel="canonical" href={`https://livs.es/blog/${post.slug}`} />
       </Helmet>
       
       <Navbar />
+      <BackToBlogButton />
       
       <main className="pt-20">
         {/* Breadcrumb */}
@@ -908,7 +871,7 @@ const BlogPost = () => {
                 <span>/</span>
                 <Link to="/blog" className="hover:text-livs-blue">Blog</Link>
                 <span>/</span>
-                <span className="text-gray-900">{article.title}</span>
+                <span className="text-gray-900">{post.title}</span>
               </nav>
             </div>
           </div>
@@ -928,7 +891,7 @@ const BlogPost = () => {
                 </Link>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {article.tags.map((tag) => (
+                  {post.tags.map((tag) => (
                     <span key={tag} className="bg-livs-purple/10 text-livs-purple px-3 py-1 rounded-full text-sm font-medium">
                       {tag}
                     </span>
@@ -936,21 +899,21 @@ const BlogPost = () => {
                 </div>
                 
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                  {article.title}
+                  {post.title}
                 </h1>
                 
                 <div className="flex flex-wrap items-center gap-6 text-gray-600 mb-8">
                   <div className="flex items-center gap-2">
                     <User className="w-5 h-5" />
-                    <span>{article.author}</span>
+                    <span>{post.author}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Calendar className="w-5 h-5" />
-                    <span>{article.date}</span>
+                    <span>{post.date}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="w-5 h-5" />
-                    <span>{article.readTime}</span>
+                    <span>{post.readTime}</span>
                   </div>
                 </div>
                 
@@ -964,8 +927,8 @@ const BlogPost = () => {
               
               <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden mb-12">
                 <img 
-                  src={article.image} 
-                  alt={article.title}
+                  src={post.image} 
+                  alt={post.title}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
@@ -980,7 +943,7 @@ const BlogPost = () => {
             <div className="max-w-4xl mx-auto">
               <div 
                 className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-li:text-gray-700 prose-a:text-livs-blue hover:prose-a:text-livs-purple"
-                dangerouslySetInnerHTML={{ __html: article.content }}
+                dangerouslySetInnerHTML={{ __html: post.content }}
               />
             </div>
           </div>
