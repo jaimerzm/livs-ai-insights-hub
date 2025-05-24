@@ -125,7 +125,7 @@ const Navbar = () => {
             e.preventDefault();
             handleLinkClick(link.href);
           }} className={`font-medium text-sm transition-all duration-300 px-3 py-1 rounded-md
-                  ${isScrolled ? 'text-black' : 'text-white'} 
+                  ${isScrolled ? 'text-gray-800' : 'text-white'} 
                   ${isActive ? 'bg-livs-purple text-white transform scale-105 shadow-md' : `hover:text-livs-purple ${isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white/20'} hover:shadow-sm`}`}>
                 {link.title}
               </a>;
@@ -134,7 +134,7 @@ const Navbar = () => {
           <Link 
             to="/blog" 
             className={`font-medium text-sm transition-all duration-300 px-3 py-1 rounded-md
-              ${isScrolled ? 'text-black' : 'text-white'} 
+              ${isScrolled ? 'text-gray-800' : 'text-white'} 
               ${location.pathname === '/blog' ? 'bg-livs-purple text-white transform scale-105 shadow-md' : `hover:text-livs-purple ${isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white/20'} hover:shadow-sm`}`}
             onClick={() => setIsMobileMenuOpen(false)}
           >
@@ -143,7 +143,7 @@ const Navbar = () => {
           
           <div className="relative flex items-center gap-2">
             <VisitorCounter isScrolled={isScrolled} className="hidden md:flex" />
-            <HoverButton onClick={scrollToContact} className={`text-white text-sm flex items-center gap-1 py-1 px-4 ${isScrolled ? 'bg-sky-900 hover:bg-sky-800' : 'bg-white/20 backdrop-blur-sm hover:bg-white/30'}`}>
+            <HoverButton onClick={scrollToContact} className={`text-white text-sm flex items-center gap-1 py-1 px-4 ${isScrolled ? 'bg-livs-purple hover:bg-livs-purple/80' : 'bg-white/20 backdrop-blur-sm hover:bg-white/30'}`}>
               Contactar
               <ArrowRight className="h-3 w-3 ml-1" />
             </HoverButton>
@@ -151,7 +151,7 @@ const Navbar = () => {
         </nav>
         
         {/* Mobile Menu Button - Always black text on mobile */}
-        <button className="md:hidden text-black" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button className={`md:hidden ${isScrolled ? 'text-gray-800' : 'text-white'}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
