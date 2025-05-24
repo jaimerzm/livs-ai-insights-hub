@@ -124,8 +124,8 @@ const Navbar = () => {
             e.preventDefault();
             handleLinkClick(link.href);
           }} className={`font-medium text-sm transition-all duration-300 px-3 py-1 rounded-md
-                  ${isScrolled ? 'text-gray-800' : 'text-white'} 
-                  ${isActive ? (isScrolled ? 'bg-gray-800 text-white' : 'bg-white text-gray-800') + ' transform scale-105 shadow-md' : `hover:text-${isScrolled ? 'gray-600' : 'gray-200'} ${isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white/20'} hover:shadow-sm`}`}>
+                  ${isScrolled ? 'text-gray-800 hover:text-gray-600 hover:bg-gray-100' : 'text-white hover:text-gray-200 hover:bg-white/20'} 
+                  ${isActive ? (isScrolled ? 'bg-gray-800 text-white' : 'bg-white text-gray-800') + ' transform scale-105 shadow-md' : ''}`}>
                 {link.title}
               </a>;
         })}
@@ -133,8 +133,8 @@ const Navbar = () => {
           <Link 
             to="/blog" 
             className={`font-medium text-sm transition-all duration-300 px-3 py-1 rounded-md
-              ${isScrolled ? 'text-gray-800' : 'text-white'} 
-              ${location.pathname === '/blog' ? (isScrolled ? 'bg-gray-800 text-white' : 'bg-white text-gray-800') + ' transform scale-105 shadow-md' : `hover:text-${isScrolled ? 'gray-600' : 'gray-200'} ${isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white/20'} hover:shadow-sm`}`}
+              ${isScrolled ? 'text-gray-800 hover:text-gray-600 hover:bg-gray-100' : 'text-white hover:text-gray-200 hover:bg-white/20'} 
+              ${location.pathname === '/blog' ? (isScrolled ? 'bg-gray-800 text-white' : 'bg-white text-gray-800') + ' transform scale-105 shadow-md' : ''}`}
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Blog
