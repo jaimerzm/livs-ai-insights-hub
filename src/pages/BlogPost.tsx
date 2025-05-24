@@ -20,6 +20,17 @@ const blogPosts = [
     image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
   },
   {
+    id: 12,
+    title: "Cómo la Inteligencia Artificial está Transformando las Empresas Españolas en 2025",
+    excerpt: "Descubre cómo la IA está revolucionando el panorama empresarial español en 2025, con casos de éxito reales y estrategias de implementación.",
+    content: "<p>España se encuentra en el epicentro de una revolución tecnológica sin precedentes. En 2025, la inteligencia artificial ha dejado de ser una promesa futurista para convertirse en una realidad tangible que está transformando radicalmente el panorama empresarial español.</p>",
+    date: "18 de Enero, 2025",
+    author: "María González",
+    readTime: "10 min lectura",
+    tags: ["Inteligencia Artificial", "Transformación Digital", "Empresas Españolas"],
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+  },
+  {
     id: 2,
     title: "Chatbots Inteligentes: Mejorando la Atención al Cliente",
     excerpt: "Implementa chatbots que mejoren la experiencia del cliente...",

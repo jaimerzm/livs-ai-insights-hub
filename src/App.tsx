@@ -13,6 +13,7 @@ import TermsConditions from "./pages/TermsConditions";
 import LegalNotice from "./pages/LegalNotice";
 import NotFound from "./pages/NotFound";
 import IAGenerativaMarketing2025 from "./pages/blog/IAGenerativaMarketing2025";
+import IATransformandoEmpresasEspana2025 from "./pages/blog/IATransformandoEmpresasEspana2025";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/blog/ia-generativa-marketing-digital-2025" element={<IAGenerativaMarketing2025 />} />
+          <Route path="/blog/ia-transformando-empresas-espana-2025" element={<IATransformandoEmpresasEspana2025 />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/cookies-policy" element={<CookiesPolicy />} />
           <Route path="/terms-conditions" element={<TermsConditions />} />
