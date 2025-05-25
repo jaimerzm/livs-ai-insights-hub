@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button as StandardButton } from '@/components/ui/button';
 import Logo from './Logo';
@@ -14,6 +15,9 @@ const Navbar = () => {
   const [activeLink, setActiveLink] = useState('');
   const location = useLocation();
   const isMobile = useIsMobile();
+  
+  // Check if we're on blog pages
+  const isOnBlogPage = location.pathname.startsWith('/blog');
   
   useEffect(() => {
     const handleScroll = () => {
@@ -105,15 +109,15 @@ const Navbar = () => {
     href: "#nosotros"
   }];
   
-  // Apply transparent only on desktop, mobile always has white background
-  const headerClass = isMobile 
+  // Apply transparent only on desktop and homepage, mobile and blog pages always have white background
+  const headerClass = isMobile || isOnBlogPage
     ? "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-md py-0.5" 
     : `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'} py-0.5`;
   
   return <header className={headerClass}>
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link to="/">
-          <Logo isScrolled={isMobile ? true : isScrolled} />
+          <Logo isScrolled={isMobile || isOnBlogPage || isScrolled} />
         </Link>
         
         {/* Desktop Navigation - Making it more compact */}
@@ -124,8 +128,8 @@ const Navbar = () => {
             e.preventDefault();
             handleLinkClick(link.href);
           }} className={`font-medium text-sm transition-all duration-300 px-3 py-1 rounded-md
-                  ${isScrolled ? 'text-gray-800 hover:text-gray-600 hover:bg-gray-100' : 'text-white hover:text-gray-200 hover:bg-white/20'} 
-                  ${isActive ? (isScrolled ? 'bg-gray-800 text-white' : 'bg-white text-gray-800') + ' transform scale-105 shadow-md' : ''}`}>
+                  ${isOnBlogPage || isScrolled ? 'text-gray-800 hover:text-gray-600 hover:bg-gray-100' : 'text-white hover:text-gray-200 hover:bg-white/20'} 
+                  ${isActive ? ((isOnBlogPage || isScrolled) ? 'bg-gray-800 text-white' : 'bg-white text-gray-800') + ' transform scale-105 shadow-md' : ''}`}>
                 {link.title}
               </a>;
         })}
@@ -133,16 +137,16 @@ const Navbar = () => {
           <Link 
             to="/blog" 
             className={`font-medium text-sm transition-all duration-300 px-3 py-1 rounded-md
-              ${isScrolled ? 'text-gray-800 hover:text-gray-600 hover:bg-gray-100' : 'text-white hover:text-gray-200 hover:bg-white/20'} 
-              ${location.pathname === '/blog' ? (isScrolled ? 'bg-gray-800 text-white' : 'bg-white text-gray-800') + ' transform scale-105 shadow-md' : ''}`}
+              ${isOnBlogPage || isScrolled ? 'text-gray-800 hover:text-gray-600 hover:bg-gray-100' : 'text-white hover:text-gray-200 hover:bg-white/20'} 
+              ${location.pathname === '/blog' ? ((isOnBlogPage || isScrolled) ? 'bg-gray-800 text-white' : 'bg-white text-gray-800') + ' transform scale-105 shadow-md' : ''}`}
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Blog
           </Link>
           
           <div className="relative flex items-center gap-2">
-            <VisitorCounter isScrolled={isScrolled} className="hidden md:flex" />
-            <HoverButton onClick={scrollToContact} className={`text-white text-sm flex items-center gap-1 py-1 px-4 ${isScrolled ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white/20 backdrop-blur-sm hover:bg-white/30'}`}>
+            <VisitorCounter isScrolled={isOnBlogPage || isScrolled} className="hidden md:flex" />
+            <HoverButton onClick={scrollToContact} className={`text-white text-sm flex items-center gap-1 py-1 px-4 ${isOnBlogPage || isScrolled ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white/20 backdrop-blur-sm hover:bg-white/30'}`}>
               Contactar
               <ArrowRight className="h-3 w-3 ml-1" />
             </HoverButton>
@@ -150,7 +154,7 @@ const Navbar = () => {
         </nav>
         
         {/* Mobile Menu Button */}
-        <button className={`md:hidden ${isMobile ? 'text-gray-800' : (isScrolled ? 'text-gray-800' : 'text-white')}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button className={`md:hidden ${isMobile || isOnBlogPage ? 'text-gray-800' : (isScrolled ? 'text-gray-800' : 'text-white')}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
