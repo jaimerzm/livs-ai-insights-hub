@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,11 @@ import { Calendar, User, Clock, ArrowLeft, Share2, BookOpen } from 'lucide-react
 import { Helmet } from 'react-helmet';
 
 const IAGenerativaMarketing2025 = () => {
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
