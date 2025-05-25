@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button as StandardButton } from '@/components/ui/button';
 import Logo from './Logo';
@@ -29,18 +28,28 @@ const Navbar = () => {
 
       // Only check sections if we're on the homepage
       if (location.pathname === '/') {
-        // Update active section based on scroll position
+        // Update active section based on scroll position with better detection
         const sections = navLinks.map(link => link.href.substring(1));
+        let currentActiveSection = '';
+        
+        // Check each section from top to bottom
         for (const section of sections) {
           const element = document.getElementById(section);
           if (element) {
             const rect = element.getBoundingClientRect();
-            if (rect.top <= 100 && rect.bottom >= 100) {
-              setActiveLink(section);
-              break;
+            // Only consider a section active if we've scrolled significantly into it
+            // The section needs to be at least 30% visible from the top
+            const sectionHeight = rect.height;
+            const visibleFromTop = Math.max(0, Math.min(sectionHeight, window.innerHeight - rect.top));
+            const visibilityPercent = visibleFromTop / sectionHeight;
+            
+            if (rect.top <= 150 && rect.bottom >= 150 && visibilityPercent >= 0.3) {
+              currentActiveSection = section;
             }
           }
         }
+        
+        setActiveLink(currentActiveSection);
       }
     };
     window.addEventListener('scroll', handleScroll);
