@@ -123,8 +123,9 @@ const Navbar = () => {
     ? "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-md py-0.5" 
     : `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'} py-0.5`;
   
-  return <header className={headerClass}>
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
+  return (
+    <header className={headerClass}>
+      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-16">
         <Link to="/">
           <Logo isScrolled={isMobile || isOnBlogPage || isScrolled} />
         </Link>
@@ -132,16 +133,23 @@ const Navbar = () => {
         {/* Desktop Navigation - Making it more compact */}
         <nav className="hidden md:flex items-center space-x-3">
           {navLinks.map(link => {
-          const isActive = activeLink === link.href.substring(1);
-          return <a key={link.title} href={link.href} onClick={e => {
-            e.preventDefault();
-            handleLinkClick(link.href);
-          }} className={`font-medium text-sm transition-all duration-300 px-3 py-1 rounded-md
+            const isActive = activeLink === link.href.substring(1);
+            return (
+              <a 
+                key={link.title} 
+                href={link.href} 
+                onClick={e => {
+                  e.preventDefault();
+                  handleLinkClick(link.href);
+                }} 
+                className={`font-medium text-sm transition-all duration-300 px-3 py-1 rounded-md
                   ${isOnBlogPage || isScrolled ? 'text-gray-800 hover:text-gray-600 hover:bg-gray-100' : 'text-white hover:text-gray-200 hover:bg-white/20'} 
-                  ${isActive ? ((isOnBlogPage || isScrolled) ? 'bg-gray-800 text-white' : 'bg-white text-gray-800') + ' transform scale-105 shadow-md' : ''}`}>
+                  ${isActive ? ((isOnBlogPage || isScrolled) ? 'bg-gray-800 text-white' : 'bg-white text-gray-800') + ' transform scale-105 shadow-md' : ''}`}
+              >
                 {link.title}
-              </a>;
-        })}
+              </a>
+            );
+          })}
           
           <Link 
             to="/blog" 
@@ -155,7 +163,10 @@ const Navbar = () => {
           
           <div className="relative flex items-center gap-2">
             <VisitorCounter isScrolled={isOnBlogPage || isScrolled} className="hidden md:flex" />
-            <HoverButton onClick={scrollToContact} className={`text-white text-sm flex items-center gap-1 py-1 px-4 ${isOnBlogPage || isScrolled ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white/20 backdrop-blur-sm hover:bg-white/30'}`}>
+            <HoverButton 
+              onClick={scrollToContact} 
+              className={`text-white text-sm flex items-center gap-1 py-1 px-4 ${isOnBlogPage || isScrolled ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white/20 backdrop-blur-sm hover:bg-white/30'}`}
+            >
               Contactar
               <ArrowRight className="h-3 w-3 ml-1" />
             </HoverButton>
@@ -163,23 +174,35 @@ const Navbar = () => {
         </nav>
         
         {/* Mobile Menu Button */}
-        <button className={`md:hidden ${isMobile || isOnBlogPage ? 'text-gray-800' : (isScrolled ? 'text-gray-800' : 'text-white')}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button 
+          className={`md:hidden ${isMobile || isOnBlogPage ? 'text-gray-800' : (isScrolled ? 'text-gray-800' : 'text-white')}`} 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle mobile menu"
+        >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
         {/* Mobile Navigation */}
-        {isMobileMenuOpen && <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg animate-fade-in">
+        {isMobileMenuOpen && (
+          <div className="md:hidden fixed top-[64px] left-0 right-0 bg-white shadow-lg z-50 animate-fade-in">
             <div className="container mx-auto px-4 py-3 flex flex-col">
               {navLinks.map(link => {
-            const isActive = activeLink === link.href.substring(1);
-            return <a key={link.title} href={link.href} onClick={e => {
-              e.preventDefault();
-              handleLinkClick(link.href);
-            }} className={`text-black font-medium text-sm py-3 border-b border-gray-100 transition-all duration-300
-                      ${isActive ? 'bg-gray-800/10 text-gray-800 font-semibold pl-2' : 'hover:text-gray-600 hover:bg-gray-50'}`}>
+                const isActive = activeLink === link.href.substring(1);
+                return (
+                  <a 
+                    key={link.title} 
+                    href={link.href} 
+                    onClick={e => {
+                      e.preventDefault();
+                      handleLinkClick(link.href);
+                    }} 
+                    className={`text-black font-medium text-sm py-3 border-b border-gray-100 transition-all duration-300
+                      ${isActive ? 'bg-gray-800/10 text-gray-800 font-semibold pl-2' : 'hover:text-gray-600 hover:bg-gray-50'}`}
+                  >
                     {link.title}
-                  </a>;
-          })}
+                  </a>
+                );
+              })}
               
               <Link 
                 to="/blog" 
@@ -192,15 +215,20 @@ const Navbar = () => {
               
               <div className="mt-4 w-full flex items-center gap-2">
                 <VisitorCounter isScrolled={true} className="flex" />
-                <HoverButton onClick={scrollToContact} className="flex-1 text-white text-sm flex items-center justify-center gap-1 py-1 bg-gray-800 hover:bg-gray-700">
+                <HoverButton 
+                  onClick={scrollToContact} 
+                  className="flex-1 text-white text-sm flex items-center justify-center gap-1 py-1 bg-gray-800 hover:bg-gray-700"
+                >
                   Contactar
                   <ArrowRight className="h-3 w-3 ml-1" />
                 </HoverButton>
               </div>
             </div>
-          </div>}
+          </div>
+        )}
       </div>
-    </header>;
+    </header>
+  );
 };
 
 export default Navbar;
