@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found</title>
+  <script>
+    // Redirigir a la página principal con hash routing
+    var segmentCount = 1;
+    var location = window.location;
+    var pathname = location.pathname;
+    var baseUrl = '/livs-ai-insights-hub/';
+    
+    // Eliminar la base URL del pathname si está presente
+    if (pathname.indexOf(baseUrl) === 0) {
+      pathname = pathname.substr(baseUrl.length);
+    }
+    
+    // Redirigir a la página principal con hash routing
+    window.location.href = location.origin + baseUrl + '#' + pathname;
+  </script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      background-color: #f7f7f7;
+    }
+    .container {
+      max-width: 600px;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 1rem;
+    }
+    p {
+      color: #666;
+      margin-bottom: 2rem;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Página no encontrada</h1>
+    <p>La página que estás buscando no existe o ha sido movida.</p>
+    <p>Serás redirigido a la página principal en unos segundos...</p>
+    <p>Si no eres redirigido automáticamente, <a href="/livs-ai-insights-hub/">haz clic aquí</a>.</p>
+  </div>
+</body>
+</html>
