@@ -14,9 +14,9 @@ function FallbackDisplay() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <div className="bg-white p-4 rounded-lg shadow-lg">
             <img 
-              src="/lovable-uploads/dee18853-5d63-4c37-9be0-caf041f5e3b7.png"
-              alt="LIAS Logo"
-              className="h-16 w-auto"
+              src="/livs-ai-insights-hub/lovable-uploads/dee18853-5d63-4c37-9be0-caf041f5e3b7.png" 
+              alt="Robot" 
+              className="w-full h-full object-contain" 
             />
           </div>
         </div>

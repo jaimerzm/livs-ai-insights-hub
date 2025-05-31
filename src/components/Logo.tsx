@@ -2,25 +2,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Logo = ({ isScrolled = false }) => {
-  const handleClick = () => {    
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
+interface LogoProps {
+  className?: string;
+  onClick?: () => void;
+}
 
+const Logo = ({ className = '', onClick }: LogoProps) => {
   return (
-    <Link to="/" onClick={handleClick} className="flex items-center gap-2">
-      <div className="w-20 h-20 flex items-center justify-center transition-all duration-300">
-        <img 
-          src="/lovable-uploads/afe3d12d-dc92-469b-aff9-a88c86a57b97.png"
-          alt="LIAS Logo" 
-          className="w-20 h-20 object-contain transition-all duration-300"
-          style={{
-            filter: isScrolled ? 'brightness(0)' : 'brightness(1)'
-          }}
-        />
+    <Link to="/" className="flex items-center" onClick={onClick}>
+      <div className="flex items-center">
+        <div className="w-20 h-20 flex items-center justify-center transition-all duration-300">
+          <img 
+            src="/livs-ai-insights-hub/lovable-uploads/afe3d12d-dc92-469b-aff9-a88c86a57b97.png"
+            alt="LIAS Logo" 
+            className="w-20 h-20 object-contain transition-all duration-300"
+          />
+        </div>
+        <span className="text-2xl font-bold text-livs-blue ml-2 hidden md:inline-block">
+          LIVS
+        </span>
       </div>
     </Link>
   );

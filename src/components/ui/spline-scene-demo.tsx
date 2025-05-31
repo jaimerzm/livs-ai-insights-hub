@@ -24,9 +24,9 @@ export function SplineSceneBasic() {
           </p>
           <div className="mt-4">
             <img 
-              src="/lovable-uploads/dee18853-5d63-4c37-9be0-caf041f5e3b7.png"
-              alt="LIAS Logo"
-              className="h-10 w-auto bg-white p-2 rounded"
+              src="/livs-ai-insights-hub/lovable-uploads/dee18853-5d63-4c37-9be0-caf041f5e3b7.png" 
+              alt="LIAS Logo" 
+              className="h-10 w-auto bg-white p-2 rounded" 
             />
           </div>
         </div>

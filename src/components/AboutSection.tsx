@@ -27,7 +27,7 @@ const AboutSection = () => {
             </Button>
           </div>
           <div className="order-first md:order-none flex justify-center">
-            <img alt="Nuestro equipo" className="rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 w-10/12 md:w-3/4" src="/lovable-uploads/85ae4eb3-7ef5-4537-bbcc-8d5c31f6904f.jpg" />
+            <img alt="Nuestro equipo" className="rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 w-10/12 md:w-3/4" src="/livs-ai-insights-hub/lovable-uploads/85ae4eb3-7ef5-4537-bbcc-8d5c31f6904f.jpg" />
           </div>
         </div>
 
