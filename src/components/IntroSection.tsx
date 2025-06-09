@@ -1,84 +1,88 @@
 
 import React from 'react';
-import { Card } from '@/components/ui/card';
-import { BackgroundBeams } from '@/components/ui/background-beams';
-import { Brain } from 'lucide-react';
+import ScrollFloat from '@/components/ui/scroll-float';
+import AnimatedSection from '@/components/ui/animated-section';
 
 const IntroSection = () => {
   return (
-    <section className="py-20 relative overflow-hidden bg-black">
-      {/* Content Container */}
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col items-center mb-10">
-            <div className="bg-blue-600/30 p-4 rounded-full mb-4">
-              <Brain size={40} className="text-blue-400" />
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-4 md:px-6">
+        <AnimatedSection
+          title="¿Por qué elegir inteligencia artificial para su empresa?"
+          subtitle="La IA no es solo el futuro, es el presente. Las empresas que la adoptan hoy liderarán el mercado mañana."
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <ScrollFloat 
+                element="h3"
+                containerClassName="text-xl font-semibold mb-3"
+                scrollStart="center bottom+=20%"
+              >
+                Velocidad sin precedentes
+              </ScrollFloat>
+              <ScrollFloat 
+                element="p"
+                containerClassName="text-gray-600"
+                scrollStart="center bottom+=10%"
+                stagger={0.01}
+              >
+                Automatice procesos que antes tomaban horas en segundos. La IA procesa información y toma decisiones a velocidades imposibles para los humanos.
+              </ScrollFloat>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 text-center">
-              Transformando Empresas con <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">Inteligencia Artificial</span>
-            </h2>
-            <div className="h-1 w-20 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"></div>
+
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <ScrollFloat 
+                element="h3"
+                containerClassName="text-xl font-semibold mb-3"
+                scrollStart="center bottom+=20%"
+              >
+                Precisión matemática
+              </ScrollFloat>
+              <ScrollFloat 
+                element="p"
+                containerClassName="text-gray-600"
+                scrollStart="center bottom+=10%"
+                stagger={0.01}
+              >
+                Elimine los errores humanos. La IA analiza datos con precisión absoluta, identifica patrones y predice resultados con base científica.
+              </ScrollFloat>
+            </div>
+
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                </svg>
+              </div>
+              <ScrollFloat 
+                element="h3"
+                containerClassName="text-xl font-semibold mb-3"
+                scrollStart="center bottom+=20%"
+              >
+                ROI comprobado
+              </ScrollFloat>
+              <ScrollFloat 
+                element="p"
+                containerClassName="text-gray-600"
+                scrollStart="center bottom+=10%"
+                stagger={0.01}
+              >
+                Vea resultados medibles desde el primer día. Nuestros clientes reportan incrementos de eficiencia del 85% y reducción de costos del 30%.
+              </ScrollFloat>
+            </div>
           </div>
-          
-          <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
-            <p className="animate-fade-in">
-              Hoy en día, el activo más valioso que existe es la información. En un mundo donde los datos 
-              se generan a cada segundo, nuestra empresa quiere ayudarle a transformar su negocio utilizando 
-              esta riqueza a través del poder de la inteligencia artificial.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-              <Card className="p-6 bg-blue-900/30 border-blue-800 backdrop-blur-sm hover:scale-105 transition-transform">
-                <p className="text-blue-100">
-                  Sabemos que usted busca soluciones reales, como las que han permitido a Zara reducir su 
-                  exceso de inventario en un 50%, o a Banco Santander disminuir fraudes en un 70% ahorrando millones.
-                </p>
-              </Card>
-              
-              <Card className="p-6 bg-purple-900/30 border-purple-800 backdrop-blur-sm hover:scale-105 transition-transform">
-                <p className="text-purple-100">
-                  No se trata solo de tecnología, sino de convertir su información en conocimiento accionable 
-                  que potencie lo que hace único a su negocio.
-                </p>
-              </Card>
-            </div>
-
-            <p>
-              También hemos visto cómo empresas que apenas eran conocidas se han transformado completamente 
-              gracias a la IA:
-            </p>
-
-            <ul className="space-y-4 pl-6 list-disc marker:text-blue-400">
-              <li className="hover:text-white transition-colors">
-                <span className="font-medium text-blue-300">Stitch Fix</span> pasó de ser una pequeña startup a una compañía valorada en miles de millones 
-                gracias a sus algoritmos de recomendación personalizada de ropa
-              </li>
-              <li className="hover:text-white transition-colors">
-                <span className="font-medium text-blue-300">Lemonade</span> revolucionó el sector de seguros procesando reclamaciones en segundos en lugar 
-                de semanas
-              </li>
-              <li className="hover:text-white transition-colors">
-                <span className="font-medium text-blue-300">Duolingo</span> se convirtió en líder mundial del aprendizaje de idiomas utilizando IA para 
-                personalizar la experiencia educativa de cada usuario
-              </li>
-            </ul>
-
-            <p>
-              Estamos aquí para acompañarle en este viaje: analizaremos juntos sus necesidades específicas, 
-              implementaremos estrategias personalizadas y capacitaremos a su equipo.
-            </p>
-            
-            <div className="mt-10 bg-gradient-to-r from-blue-600/20 to-purple-600/20 p-6 rounded-xl border border-blue-800/50">
-              <p className="text-white font-medium text-center text-xl">
-                Permítanos proporcionarle esas herramientas y ese saber hacer que transformarán su empresa.
-              </p>
-            </div>
-          </div>
-        </div>
+        </AnimatedSection>
       </div>
-      
-      {/* Background Beams Effect */}
-      <BackgroundBeams />
     </section>
   );
 };
