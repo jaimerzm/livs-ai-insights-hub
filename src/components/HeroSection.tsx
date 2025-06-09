@@ -37,8 +37,9 @@ const HeroSection = () => {
             <ScrollFloat 
               element="h1"
               containerClassName="text-2xl md:text-4xl lg:text-5xl leading-tight mb-4 font-bold text-center text-white pt-24 md:pt-0"
-              scrollStart="top bottom"
-              scrollEnd="bottom center"
+              animationDuration={1.2}
+              ease="power1.out"
+              stagger={0.015}
             >
               Le ayudaremos a transformar su empresa con inteligencia artificial
             </ScrollFloat>

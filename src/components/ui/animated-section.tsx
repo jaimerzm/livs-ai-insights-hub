@@ -27,6 +27,9 @@ const AnimatedSection = ({
         <ScrollFloat 
           element={titleElement}
           containerClassName={titleClassName}
+          animationDuration={1}
+          ease="power1.out"
+          stagger={0.015}
         >
           {title}
         </ScrollFloat>
@@ -34,8 +37,9 @@ const AnimatedSection = ({
           <ScrollFloat 
             element="p"
             containerClassName={subtitleClassName}
-            scrollStart="center bottom+=30%"
-            stagger={0.01}
+            animationDuration={1.2}
+            ease="power1.out"
+            stagger={0.008}
           >
             {subtitle}
           </ScrollFloat>

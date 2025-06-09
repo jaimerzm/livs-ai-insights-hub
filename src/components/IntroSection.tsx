@@ -21,15 +21,18 @@ const IntroSection = () => {
               <ScrollFloat 
                 element="h3"
                 containerClassName="text-xl font-semibold mb-3"
-                scrollStart="center bottom+=20%"
+                animationDuration={0.8}
+                ease="power1.out"
+                stagger={0.01}
               >
                 Velocidad sin precedentes
               </ScrollFloat>
               <ScrollFloat 
                 element="p"
                 containerClassName="text-gray-600"
-                scrollStart="center bottom+=10%"
-                stagger={0.01}
+                animationDuration={1}
+                ease="power1.out"
+                stagger={0.005}
               >
                 Automatice procesos que antes tomaban horas en segundos. La IA procesa información y toma decisiones a velocidades imposibles para los humanos.
               </ScrollFloat>
@@ -44,15 +47,18 @@ const IntroSection = () => {
               <ScrollFloat 
                 element="h3"
                 containerClassName="text-xl font-semibold mb-3"
-                scrollStart="center bottom+=20%"
+                animationDuration={0.8}
+                ease="power1.out"
+                stagger={0.01}
               >
                 Precisión matemática
               </ScrollFloat>
               <ScrollFloat 
                 element="p"
                 containerClassName="text-gray-600"
-                scrollStart="center bottom+=10%"
-                stagger={0.01}
+                animationDuration={1}
+                ease="power1.out"
+                stagger={0.005}
               >
                 Elimine los errores humanos. La IA analiza datos con precisión absoluta, identifica patrones y predice resultados con base científica.
               </ScrollFloat>
@@ -67,15 +73,18 @@ const IntroSection = () => {
               <ScrollFloat 
                 element="h3"
                 containerClassName="text-xl font-semibold mb-3"
-                scrollStart="center bottom+=20%"
+                animationDuration={0.8}
+                ease="power1.out"
+                stagger={0.01}
               >
                 ROI comprobado
               </ScrollFloat>
               <ScrollFloat 
                 element="p"
                 containerClassName="text-gray-600"
-                scrollStart="center bottom+=10%"
-                stagger={0.01}
+                animationDuration={1}
+                ease="power1.out"
+                stagger={0.005}
               >
                 Vea resultados medibles desde el primer día. Nuestros clientes reportan incrementos de eficiencia del 85% y reducción de costos del 30%.
               </ScrollFloat>

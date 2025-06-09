@@ -64,16 +64,18 @@ const BenefitsSection = () => {
                   <ScrollFloat 
                     element="h3"
                     containerClassName="text-xl font-bold text-livs-blue mb-4"
-                    scrollStart="center bottom+=30%"
-                    stagger={0.02}
+                    animationDuration={0.8}
+                    ease="power1.out"
+                    stagger={0.01}
                   >
                     {benefit.title}
                   </ScrollFloat>
                   <ScrollFloat 
                     element="p"
                     containerClassName="text-livs-gray-dark leading-relaxed"
-                    scrollStart="center bottom+=20%"
-                    stagger={0.01}
+                    animationDuration={1}
+                    ease="power1.out"
+                    stagger={0.005}
                   >
                     {benefit.description}
                   </ScrollFloat>

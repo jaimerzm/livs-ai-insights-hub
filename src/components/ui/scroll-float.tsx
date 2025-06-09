@@ -23,11 +23,11 @@ const ScrollFloat = ({
   scrollContainerRef,
   containerClassName = "",
   textClassName = "",
-  animationDuration = 1,
-  ease = 'back.inOut(2)',
-  scrollStart = 'center bottom+=50%',
-  scrollEnd = 'bottom bottom-=40%',
-  stagger = 0.03,
+  animationDuration = 0.8,
+  ease = 'power2.out',
+  scrollStart = 'top bottom-=20%',
+  scrollEnd = 'bottom top+=20%',
+  stagger = 0.02,
   element: Element = 'h2'
 }) => {
   const containerRef = useRef<HTMLElement>(null);
@@ -57,9 +57,9 @@ const ScrollFloat = ({
       {
         willChange: 'opacity, transform',
         opacity: 0,
-        yPercent: 120,
-        scaleY: 2.3,
-        scaleX: 0.7,
+        yPercent: 30,
+        scaleY: 1.1,
+        scaleX: 0.95,
         transformOrigin: '50% 0%'
       },
       {
@@ -75,7 +75,7 @@ const ScrollFloat = ({
           scroller,
           start: scrollStart,
           end: scrollEnd,
-          scrub: true
+          scrub: 1
         }
       }
     );
