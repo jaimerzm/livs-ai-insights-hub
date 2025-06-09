@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
@@ -7,6 +8,8 @@ import { Link } from 'react-router-dom';
 import { GradientButton } from '@/components/ui/gradient-button';
 import { HoverButton } from '@/components/ui/hover-button';
 import { useIsMobile } from '@/hooks/use-mobile';
+import TextPressure from '@/components/ui/text-pressure';
+
 const HeroSection = () => {
   const isMobile = useIsMobile();
   const scrollToSection = (sectionId: string) => {
@@ -31,7 +34,22 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 md:px-6 z-10 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-white animate-fade-in">
-            <h1 className="text-2xl md:text-4xl lg:text-5xl leading-tight mb-4 font-bold text-center text-white pt-24 md:pt-0">Le ayudaremos a transformar su empresa con inteligencia artificial</h1>
+            <div className="h-32 md:h-40 mb-8 pt-24 md:pt-0">
+              <TextPressure
+                text="Le ayudaremos a transformar su empresa con inteligencia artificial"
+                textColor="#FFFFFF"
+                fontFamily="Inter"
+                minFontSize={isMobile ? 20 : 32}
+                width={true}
+                weight={true}
+                italic={false}
+                alpha={false}
+                flex={false}
+                stroke={false}
+                scale={true}
+                className="font-bold"
+              />
+            </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
               <HoverButton onClick={() => scrollToSection('contacto')} className="bg-white hover:bg-white/90 text-black font-bold">
