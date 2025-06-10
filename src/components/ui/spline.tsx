@@ -18,62 +18,57 @@ export function SplineScene({ scene, className, onError }: SplineSceneProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const rafId = useRef<number>()
 
-  // Función para manejar errores
   const handleError = useCallback(() => {
     setHasError(true)
     onError?.()
   }, [onError])
 
-  // Función para manejar la carga de Spline con optimizaciones
+  // Función muy optimizada para cargar Spline
   const onLoad = useCallback((splineApp: any) => {
     setSplineApp(splineApp)
     setIsLoaded(true)
     
-    // Optimizaciones agresivas de rendimiento
     if (splineApp && splineApp.canvas) {
       const canvas = splineApp.canvas
       
-      // Reducir resolución del canvas para mejorar rendimiento
-      const devicePixelRatio = Math.min(window.devicePixelRatio || 1, 1.5)
+      // Reducir drásticamente la resolución
+      const devicePixelRatio = Math.min(window.devicePixelRatio || 1, 1)
       
-      // Configurar canvas para rendimiento
       try {
-        const context = canvas.getContext('webgl2') || canvas.getContext('webgl') || canvas.getContext('experimental-webgl')
+        const context = canvas.getContext('webgl2') || canvas.getContext('webgl')
         if (context) {
-          // Configuraciones de WebGL para mejor rendimiento
-          const loseContext = (context as WebGLRenderingContext).getExtension('WEBGL_lose_context')
-          if (loseContext) {
-            // Extensión disponible para cleanup posterior
-          }
+          // Configuraciones de rendimiento máximo
+          context.disable(context.DEPTH_TEST)
+          context.disable(context.STENCIL_TEST)
         }
       } catch (error) {
         console.warn('Error optimizing WebGL context:', error)
       }
 
-      // Pausar animaciones cuando no está visible
+      // Pausar cuando no está visible con threshold muy alto
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (splineApp.setVariable) {
             try {
-              splineApp.setVariable('playAnimation', entry.isIntersecting)
+              // Solo ejecutar cuando esté completamente visible
+              splineApp.setVariable('playAnimation', entry.intersectionRatio > 0.8)
             } catch (error) {
-              console.warn('Error controlling animation state:', error)
+              console.warn('Error controlling animation:', error)
             }
           }
         },
-        { threshold: 0.1 }
+        { threshold: 0.8 }
       )
 
       if (containerRef.current) {
         observer.observe(containerRef.current)
       }
 
-      // Cleanup function para el observer
       return () => observer.disconnect()
     }
   }, [])
 
-  // Cleanup mejorado cuando el componente se desmonta
+  // Cleanup agresivo
   useEffect(() => {
     return () => {
       if (rafId.current) {
@@ -82,7 +77,6 @@ export function SplineScene({ scene, className, onError }: SplineSceneProps) {
       
       if (splineApp) {
         try {
-          // Limpiar recursos de Spline
           if (splineApp.dispose) {
             splineApp.dispose()
           }
@@ -102,7 +96,7 @@ export function SplineScene({ scene, className, onError }: SplineSceneProps) {
     }
   }, [splineApp])
 
-  // Pausar/reanudar cuando la pestaña cambia de visibilidad
+  // Pausar inmediatamente cuando la pestaña no está visible
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (splineApp && splineApp.setVariable) {
