@@ -35,14 +35,16 @@ export function SplineScene({ scene, className, onError }: SplineSceneProps) {
       
       // Reducir resolución del canvas para mejorar rendimiento
       const devicePixelRatio = Math.min(window.devicePixelRatio || 1, 1.5)
-      canvas.style.imageRendering = 'optimizeSpeed'
       
       // Configurar canvas para rendimiento
       try {
         const context = canvas.getContext('webgl2') || canvas.getContext('webgl') || canvas.getContext('experimental-webgl')
         if (context) {
           // Configuraciones de WebGL para mejor rendimiento
-          context.getExtension('WEBGL_lose_context')
+          const loseContext = (context as WebGLRenderingContext).getExtension('WEBGL_lose_context')
+          if (loseContext) {
+            // Extensión disponible para cleanup posterior
+          }
         }
       } catch (error) {
         console.warn('Error optimizing WebGL context:', error)
@@ -86,8 +88,11 @@ export function SplineScene({ scene, className, onError }: SplineSceneProps) {
           }
           if (splineApp.canvas) {
             const context = splineApp.canvas.getContext('webgl') || splineApp.canvas.getContext('webgl2')
-            if (context && context.getExtension('WEBGL_lose_context')) {
-              context.getExtension('WEBGL_lose_context').loseContext()
+            if (context) {
+              const loseContext = (context as WebGLRenderingContext).getExtension('WEBGL_lose_context')
+              if (loseContext && loseContext.loseContext) {
+                loseContext.loseContext()
+              }
             }
           }
         } catch (error) {
@@ -134,7 +139,7 @@ export function SplineScene({ scene, className, onError }: SplineSceneProps) {
         <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-500/10 to-purple-500/10">
           <div className="flex flex-col items-center">
             <div className="w-6 h-6 border-2 border-white/20 border-t-white/60 rounded-full animate-spin mb-2"></div>
-            <p className="text-white/60 text-xs">Cargando...</p>
+            <p className="text-white/60 text-xs">Cargando robot...</p>
           </div>
         </div>
       )}
@@ -149,8 +154,7 @@ export function SplineScene({ scene, className, onError }: SplineSceneProps) {
             style={{
               background: 'transparent',
               width: '100%',
-              height: '100%',
-              imageRendering: 'optimizeSpeed'
+              height: '100%'
             }}
           />
         </Suspense>

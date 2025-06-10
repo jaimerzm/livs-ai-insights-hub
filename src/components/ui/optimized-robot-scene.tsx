@@ -33,7 +33,7 @@ function OptimizedFallback() {
 
 // Hook mejorado para detectar capacidades del dispositivo
 function useDeviceCapability() {
-  const [capability, setCapability] = useState<'low' | 'medium' | 'high'>('low')
+  const [capability, setCapability] = useState<'low' | 'medium' | 'high'>('medium')
   
   useEffect(() => {
     const checkCapability = () => {
@@ -46,16 +46,16 @@ function useDeviceCapability() {
         return
       }
 
-      // Verificar extensiones WebGL críticas
-      const ext = gl.getExtension('WEBGL_debug_renderer_info')
-      const renderer = ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : 'unknown'
+      // Verificar extensiones WebGL críticas - corregir tipos
+      const ext = (gl as WebGLRenderingContext).getExtension('WEBGL_debug_renderer_info')
+      const renderer = ext ? (gl as WebGLRenderingContext).getParameter(ext.UNMASKED_RENDERER_WEBGL) : 'unknown'
       
       // Detectar GPU integrada (menor rendimiento)
-      const isIntegratedGPU = renderer.includes('Intel') || renderer.includes('integrated')
+      const isIntegratedGPU = typeof renderer === 'string' && (renderer.includes('Intel') || renderer.includes('integrated'))
       
-      // Memoria y cores más estrictos
-      const memory = (navigator as any).deviceMemory || 2
-      const cores = navigator.hardwareConcurrency || 2
+      // Memoria y cores más permisivos para mostrar el robot
+      const memory = (navigator as any).deviceMemory || 4
+      const cores = navigator.hardwareConcurrency || 4
       
       // Verificar si es dispositivo móvil o tablet
       const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
@@ -64,7 +64,8 @@ function useDeviceCapability() {
       const connection = (navigator as any).connection
       const isSlowConnection = connection && (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g')
       
-      if (isMobileDevice || isSlowConnection || isIntegratedGPU || memory < 4 || cores < 4) {
+      // Criterios más permisivos para mostrar el robot
+      if (isSlowConnection || (isMobileDevice && memory < 2)) {
         setCapability('low')
       } else if (memory >= 8 && cores >= 8 && !isIntegratedGPU) {
         setCapability('high')
@@ -82,7 +83,7 @@ function useDeviceCapability() {
 }
 
 // Hook para intersection observer más eficiente
-function useIntersection(threshold = 0.3) {
+function useIntersection(threshold = 0.2) {
   const [isIntersecting, setIntersecting] = useState(false)
   const [hasIntersected, setHasIntersected] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
@@ -100,7 +101,7 @@ function useIntersection(threshold = 0.3) {
       },
       { 
         threshold,
-        rootMargin: '50px' // Cargar un poco antes de que sea visible
+        rootMargin: '100px' // Cargar antes de que sea visible
       }
     )
 
@@ -125,7 +126,7 @@ function useBatteryStatus() {
         if ('getBattery' in navigator) {
           // @ts-ignore
           const battery = await navigator.getBattery()
-          setIsLowBattery(battery.level < 0.2 && battery.charging === false)
+          setIsLowBattery(battery.level < 0.15 && battery.charging === false)
         }
       } catch (error) {
         // Ignorar errores de API de batería
@@ -142,47 +143,24 @@ export function OptimizedRobotScene() {
   const isMobile = useIsMobile()
   const capability = useDeviceCapability()
   const isLowBattery = useBatteryStatus()
-  const [containerRef, isVisible, hasIntersected] = useIntersection(0.3)
+  const [containerRef, isVisible, hasIntersected] = useIntersection(0.2)
   const [shouldRender, setShouldRender] = useState(false)
   const [hasError, setHasError] = useState(false)
-  const [userInteracted, setUserInteracted] = useState(false)
 
-  // Detectar interacción del usuario para cargar bajo demanda
-  const handleUserInteraction = useCallback(() => {
-    if (!userInteracted && hasIntersected && capability !== 'low') {
-      setUserInteracted(true)
-    }
-  }, [userInteracted, hasIntersected, capability])
-
-  // Solo renderizar cuando todas las condiciones se cumplan
+  // Solo renderizar cuando todas las condiciones se cumplan, pero más permisivo
   useEffect(() => {
-    if (hasIntersected && !shouldRender && capability !== 'low' && !isLowBattery && !isMobile) {
-      // Delay más largo para mejorar rendimiento inicial
+    if (hasIntersected && !shouldRender && capability !== 'low' && !isLowBattery) {
+      // Delay más corto para cargar más rápido
       const timer = setTimeout(() => {
         setShouldRender(true)
-      }, 1500)
+      }, 500)
       
       return () => clearTimeout(timer)
     }
-  }, [hasIntersected, shouldRender, capability, isLowBattery, isMobile])
+  }, [hasIntersected, shouldRender, capability, isLowBattery])
 
-  // Agregar listeners de interacción
-  useEffect(() => {
-    const events = ['click', 'scroll', 'mousemove', 'touchstart']
-    
-    events.forEach(event => {
-      document.addEventListener(event, handleUserInteraction, { once: true, passive: true })
-    })
-
-    return () => {
-      events.forEach(event => {
-        document.removeEventListener(event, handleUserInteraction)
-      })
-    }
-  }, [handleUserInteraction])
-
-  // Condiciones para mostrar fallback
-  const showFallback = capability === 'low' || isMobile || isLowBattery || !shouldRender || hasError
+  // Condiciones para mostrar fallback - más restrictivo para mostrar el robot
+  const showFallback = capability === 'low' || isLowBattery || !shouldRender || hasError
 
   return (
     <Card className="w-full h-[300px] md:h-[400px] bg-transparent relative overflow-hidden border-none shadow-none" ref={containerRef}>
@@ -199,10 +177,10 @@ export function OptimizedRobotScene() {
           </React.Suspense>
         )}
         
-        {/* Indicador sutil de carga interactiva */}
-        {hasIntersected && capability !== 'low' && !userInteracted && !shouldRender && !isMobile && (
-          <div className="absolute bottom-4 right-4 text-white/40 text-xs">
-            Click para cargar robot 3D
+        {/* Debug info para ver el estado */}
+        {process.env.NODE_ENV === 'development' && (
+          <div className="absolute top-2 left-2 text-xs text-white/60 bg-black/20 p-1 rounded">
+            Cap: {capability} | Mobile: {isMobile ? 'Y' : 'N'} | Battery: {isLowBattery ? 'Low' : 'OK'} | Render: {shouldRender ? 'Y' : 'N'}
           </div>
         )}
       </div>
