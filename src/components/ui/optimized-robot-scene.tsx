@@ -31,35 +31,36 @@ function OptimizedFallback() {
   )
 }
 
-// Hook muy restrictivo para detectar capacidades del dispositivo
+// Hook optimizado para detectar capacidades del dispositivo - menos restrictivo
 function useDeviceCapability() {
-  const [capability, setCapability] = useState<'low' | 'medium' | 'high'>('low')
+  const [capability, setCapability] = useState<'low' | 'medium' | 'high'>('medium')
   
   useEffect(() => {
     const checkCapability = () => {
-      // Solo cargar en dispositivos muy potentes
-      const memory = (navigator as any).deviceMemory || 2
-      const cores = navigator.hardwareConcurrency || 2
+      const memory = (navigator as any).deviceMemory || 4
+      const cores = navigator.hardwareConcurrency || 4
       const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
       
-      // Solo mostrar robot en desktop con mucha memoria y cores
-      if (!isMobileDevice && memory >= 8 && cores >= 8) {
+      // Mostrar robot en más dispositivos - requisitos menos estrictos
+      if (!isMobileDevice && memory >= 4 && cores >= 4) {
         setCapability('high')
+      } else if (!isMobileDevice) {
+        setCapability('medium')
       } else {
         setCapability('low')
       }
     }
 
     // Delay para no bloquear el render inicial
-    const timer = setTimeout(checkCapability, 2000)
+    const timer = setTimeout(checkCapability, 1000)
     return () => clearTimeout(timer)
   }, [])
   
   return capability
 }
 
-// Hook para intersection observer más restrictivo
-function useIntersection(threshold = 0.5) {
+// Hook para intersection observer
+function useIntersection(threshold = 0.3) {
   const [isIntersecting, setIntersecting] = useState(false)
   const [hasIntersected, setHasIntersected] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
@@ -76,7 +77,7 @@ function useIntersection(threshold = 0.5) {
       },
       { 
         threshold,
-        rootMargin: '50px' // Cargar solo cuando esté muy cerca
+        rootMargin: '100px'
       }
     )
 
@@ -90,7 +91,7 @@ function useIntersection(threshold = 0.5) {
   return [ref, isIntersecting, hasIntersected] as const
 }
 
-// Hook para detectar interacción del usuario antes de cargar
+// Hook para detectar interacción del usuario
 function useUserInteraction() {
   const [hasInteracted, setHasInteracted] = useState(false)
 
@@ -99,7 +100,6 @@ function useUserInteraction() {
       setHasInteracted(true)
     }
 
-    // Esperar a que el usuario haga scroll, click o hover
     window.addEventListener('scroll', handleInteraction, { once: true })
     window.addEventListener('click', handleInteraction, { once: true })
     window.addEventListener('mousemove', handleInteraction, { once: true })
@@ -118,30 +118,30 @@ export function OptimizedRobotScene() {
   const isMobile = useIsMobile()
   const capability = useDeviceCapability()
   const hasUserInteracted = useUserInteraction()
-  const [containerRef, isVisible, hasIntersected] = useIntersection(0.5)
+  const [containerRef, isVisible, hasIntersected] = useIntersection(0.3)
   const [shouldRender, setShouldRender] = useState(false)
   const [hasError, setHasError] = useState(false)
 
-  // Solo renderizar con condiciones muy estrictas
+  // Condiciones menos restrictivas para renderizar
   useEffect(() => {
     if (
       hasIntersected && 
       !shouldRender && 
-      capability === 'high' && 
+      (capability === 'high' || capability === 'medium') && 
       hasUserInteracted &&
       !isMobile
     ) {
-      // Delay muy largo para asegurar que la página ya esté cargada
+      // Delay más corto
       const timer = setTimeout(() => {
         setShouldRender(true)
-      }, 3000)
+      }, 1500)
       
       return () => clearTimeout(timer)
     }
   }, [hasIntersected, shouldRender, capability, hasUserInteracted, isMobile])
 
-  // Mostrar fallback en casi todos los casos
-  const showFallback = capability !== 'high' || !hasUserInteracted || !shouldRender || hasError || isMobile
+  // Mostrar fallback solo en casos específicos
+  const showFallback = capability === 'low' || !hasUserInteracted || !shouldRender || hasError || isMobile
 
   return (
     <Card className="w-full h-[300px] md:h-[400px] bg-transparent relative overflow-hidden border-none shadow-none" ref={containerRef}>
