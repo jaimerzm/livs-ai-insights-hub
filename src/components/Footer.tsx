@@ -43,6 +43,7 @@ const Footer = () => {
       links: [
         { text: "Sobre Nosotros", href: "/#nosotros", isExternal: false },
         { text: "Casos de Éxito", href: "/#futuros-testimonios", isExternal: false },
+        { text: "Certificados", href: "/#certificados", isExternal: false },
         { text: "Beneficios", href: "/#beneficios", isExternal: false },
         { text: "Blog", href: "/blog", isExternal: false },
         { text: "Contacto", href: "/#contacto", isExternal: false }
