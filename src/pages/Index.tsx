@@ -21,23 +21,51 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
+        
+        {/* Visual separator between dark and light sections */}
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+        
         <IntroSection />
-        <div id="beneficios">
+        
+        {/* Section separator */}
+        <div className="h-8 bg-gradient-to-b from-black to-gray-50"></div>
+        
+        <div id="beneficios" className="py-8">
           <BenefitsSection />
         </div>
-        <div id="servicios">
+        
+        {/* Section separator */}
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
+        
+        <div id="servicios" className="py-8">
           <ServicesSection />
         </div>
-        <div id="futuros-testimonios">
+        
+        {/* Section separator */}
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
+        
+        <div id="futuros-testimonios" className="py-8">
           <TestimonialsSection />
         </div>
-        <div id="certificados">
+        
+        {/* Section separator */}
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
+        
+        <div id="certificados" className="py-8">
           <CertificatesSection />
         </div>
-        <div id="nosotros">
+        
+        {/* Section separator */}
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
+        
+        <div id="nosotros" className="py-8">
           <AboutSection />
         </div>
-        <div id="contacto">
+        
+        {/* Section separator */}
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
+        
+        <div id="contacto" className="py-8">
           <ContactSection />
         </div>
       </main>
