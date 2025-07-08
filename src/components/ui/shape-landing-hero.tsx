@@ -81,21 +81,6 @@ function HeroGeometric({
     title1?: string;
     title2?: string;
 }) {
-    const fadeUpVariants = {
-        hidden: { 
-            opacity: 0, 
-            y: 30 
-        },
-        visible: { 
-            opacity: 1, 
-            y: 0,
-            transition: {
-                duration: 1,
-                ease: "easeOut",
-            }
-        }
-    };
-
     return (
         <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl" />
@@ -150,10 +135,9 @@ function HeroGeometric({
             <div className="relative z-10 container mx-auto px-4 md:px-6">
                 <div className="max-w-3xl mx-auto text-center">
                     <motion.div
-                        variants={fadeUpVariants}
-                        initial="hidden"
-                        animate="visible"
-                        transition={{ delay: 0.5 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
                         className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
                     >
                         <Circle className="h-2 w-2 fill-rose-500/80" />
@@ -163,10 +147,9 @@ function HeroGeometric({
                     </motion.div>
 
                     <motion.div
-                        variants={fadeUpVariants}
-                        initial="hidden"
-                        animate="visible"
-                        transition={{ delay: 0.7 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.7, duration: 1, ease: "easeOut" }}
                     >
                         <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
                             <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
@@ -184,10 +167,9 @@ function HeroGeometric({
                     </motion.div>
 
                     <motion.div
-                        variants={fadeUpVariants}
-                        initial="hidden"
-                        animate="visible"
-                        transition={{ delay: 0.9 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.9, duration: 1, ease: "easeOut" }}
                     >
                         <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
                             Crafting exceptional digital experiences through

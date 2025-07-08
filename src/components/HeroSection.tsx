@@ -89,21 +89,6 @@ const HeroSection = () => {
     }
   };
 
-  const fadeUpVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 30 
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 1,
-        ease: "easeOut",
-      }
-    }
-  };
-
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303] pt-20 md:pt-24">
       {/* Fondo con gradientes */}
@@ -162,10 +147,9 @@ const HeroSection = () => {
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
           <motion.div
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 0.5 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
           >
             <Circle className="h-2 w-2 fill-blue-500/80" />
@@ -176,10 +160,9 @@ const HeroSection = () => {
 
           {/* Título principal */}
           <motion.div
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 0.7 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 1, ease: "easeOut" }}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 md:mb-10 tracking-tight leading-tight">
               <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
@@ -194,10 +177,9 @@ const HeroSection = () => {
 
           {/* Botones de acción */}
           <motion.div
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 0.9 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 1, ease: "easeOut" }}
             className="flex flex-col sm:flex-row gap-4 mb-12 md:mb-16 justify-center"
           >
             <HoverButton 
@@ -216,10 +198,9 @@ const HeroSection = () => {
 
           {/* Estadísticas */}
           <motion.div
-            variants={fadeUpVariants}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 1.1 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.1, duration: 1, ease: "easeOut" }}
             className="flex flex-col sm:flex-row gap-8 sm:gap-16 justify-center items-center"
           >
             <div className="flex items-center gap-4">
