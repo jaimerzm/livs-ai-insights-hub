@@ -30,17 +30,17 @@ const Index = () => {
         </div>
         
         {/* Section separator */}
-        <div className="h-8 bg-gradient-to-b from-[#030303] to-[#030303]"></div>
+        <div className="h-8 bg-gradient-to-b from-[#030303] to-white"></div>
         
-        <div id="beneficios" className="py-8 section-dark">
-          <BenefitsSection />
+        <div id="servicios" className="py-8 section-light">
+          <ServicesSection />
         </div>
         
         {/* Section separator */}
-        <div className="section-separator my-8"></div>
+        <div className="h-8 bg-gradient-to-b from-white to-[#030303]"></div>
         
-        <div id="servicios" className="py-8 section-dark">
-          <ServicesSection />
+        <div id="beneficios" className="py-8 section-dark">
+          <BenefitsSection />
         </div>
         
         {/* Section separator */}

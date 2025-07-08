@@ -197,7 +197,7 @@
   }
 }
 
-/* Dark theme styles for sections */
+/* Estilos mejorados para contraste */
 .section-dark {
   background: #030303;
   color: #ffffff;
@@ -214,6 +214,25 @@
 
 .section-dark p {
   color: rgba(255, 255, 255, 0.8);
+}
+
+/* Sección clara con texto negro para mejor contraste */
+.section-light {
+  background: #ffffff;
+  color: #000000;
+}
+
+.section-light h1,
+.section-light h2,
+.section-light h3,
+.section-light h4,
+.section-light h5,
+.section-light h6 {
+  color: #000000;
+}
+
+.section-light p {
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .section-separator {
