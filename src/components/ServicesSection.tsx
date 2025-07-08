@@ -41,7 +41,7 @@ const ServicesSection = () => {
   const automationBenefits = [
     {
       icon: <Zap className="h-6 w-6 text-blue-600" />,
-      title: "Ahorro de tiempo del 70-90%"
+      title: "Potencial de ahorro del 70-90%"
     },
     {
       icon: <TrendingUp className="h-6 w-6 text-blue-600" />,
@@ -53,7 +53,7 @@ const ServicesSection = () => {
     },
     {
       icon: <BarChart className="h-6 w-6 text-blue-600" />,
-      title: "ROI visible en 30-90 días"
+      title: "ROI proyectado en 30-90 días"
     }
   ];
 
@@ -71,7 +71,7 @@ const ServicesSection = () => {
         "Garantía de funcionamiento y optimización"
       ],
       highlighted: false,
-      savings: "Ahorro promedio: 15-20 horas semanales"
+      savings: "Objetivo: 15-20 horas semanales ahorradas"
     },
     {
       icon: <Workflow className="h-12 w-12 mb-4 text-blue-600" />,
@@ -87,7 +87,7 @@ const ServicesSection = () => {
         "Nuevas automatizaciones según necesidades"
       ],
       highlighted: true,
-      savings: "Ahorro promedio: 30-40 horas semanales"
+      savings: "Objetivo: 30-40 horas semanales ahorradas"
     }
   ];
 
@@ -99,8 +99,8 @@ const ServicesSection = () => {
           <div className="text-gray-700 text-lg mb-8">
             <p className="mb-6">
               <strong className="text-xl text-black block mb-3">Especialistas en Automatización Empresarial con IA</strong>
-              Liberamos a su equipo de tareas repetitivas implementando automatizaciones inteligentes que trabajan 24/7. 
-              <span className="font-semibold text-blue-600"> Nuestros clientes ahorran entre 15-40 horas semanales</span> y ven resultados 
+              Somos una empresa nueva y especializada en liberar a su equipo de tareas repetitivas implementando automatizaciones inteligentes que trabajan 24/7. 
+              <span className="font-semibold text-blue-600"> Nos comprometemos a ayudarle a ahorrar entre 15-40 horas semanales</span> con resultados 
               medibles desde el primer mes.
             </p>
             
@@ -112,11 +112,12 @@ const ServicesSection = () => {
                 </h3>
                 <p className="text-left mb-4 text-gray-700">
                   Le acompañamos en videollamadas personalizadas durante todo el proceso de automatización, 
-                  desde el análisis inicial hasta la implementación final y capacitación de su equipo.
+                  desde el análisis inicial hasta la implementación final y capacitación de su equipo. 
+                  <strong className="text-blue-600"> Garantizamos resultados o devolvemos su inversión.</strong>
                 </p>
                 
                 <div className="mt-6">
-                  <h4 className="text-lg font-medium text-black mb-3">Beneficios Inmediatos</h4>
+                  <h4 className="text-lg font-medium text-black mb-3">Beneficios Proyectados</h4>
                   <div className="grid grid-cols-2 gap-4 pl-6">
                     {automationBenefits.map((benefit, index) => (
                       <div key={index} className="flex items-center">
@@ -127,6 +128,13 @@ const ServicesSection = () => {
                   </div>
                 </div>
               </div>
+            </div>
+            
+            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <p className="text-blue-800 font-medium text-center">
+                <strong>Compromiso de transparencia:</strong> Somos una empresa nueva en este sector, pero contamos con un equipo especializado 
+                y tecnología de vanguardia. Nos comprometemos a entregar resultados concretos o reembolsamos su inversión.
+              </p>
             </div>
           </div>
         </div>
