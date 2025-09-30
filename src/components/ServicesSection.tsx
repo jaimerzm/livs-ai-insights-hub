@@ -7,77 +7,97 @@ import { Badge } from '@/components/ui/badge';
 const ServicesSection = () => {
   const services = [
     {
-      icon: <Zap className="h-10 w-10 mb-4 text-blue-600" />,
-      title: "Automatización de Procesos",
-      description: "Transformamos sus tareas repetitivas en procesos automatizados inteligentes que funcionan 24/7, liberando tiempo valioso para actividades estratégicas."
-    },
-    {
       icon: <Bot className="h-10 w-10 mb-4 text-blue-600" />,
-      title: "Asistentes Virtuales IA",
-      description: "Implementamos chatbots y asistentes inteligentes que atienden a sus clientes, gestionan consultas y procesan solicitudes automáticamente."
-    },
-    {
-      icon: <Workflow className="h-10 w-10 mb-4 text-blue-600" />,
-      title: "Flujos de Trabajo Inteligentes",
-      description: "Diseñamos workflows que conectan todas sus herramientas y sistemas, automatizando completamente procesos complejos de negocio."
+      title: "Chatbot Empresarial con IA",
+      description: "Chatbot inteligente personalizado con la información específica de su empresa. Atiende consultas 24/7 y mejora la experiencia de sus clientes.",
+      difficulty: "Media"
     },
     {
       icon: <Database className="h-10 w-10 mb-4 text-blue-600" />,
-      title: "Automatización de Datos",
-      description: "Automatizamos la recolección, procesamiento y análisis de datos para generar reportes y insights sin intervención manual."
+      title: "Gestor de Reservas",
+      description: "Sistema completo de gestión de reservas automatizado. Control total de disponibilidad, confirmaciones automáticas y recordatorios.",
+      difficulty: "Alta"
+    },
+    {
+      icon: <Bell className="h-10 w-10 mb-4 text-blue-600" />,
+      title: "Gestor de Llamadas",
+      description: "Sistema inteligente para gestionar y clasificar llamadas. Prioriza contactos importantes y automatiza respuestas básicas.",
+      difficulty: "Media"
+    },
+    {
+      icon: <FileText className="h-10 w-10 mb-4 text-blue-600" />,
+      title: "Gestor de Correos Electrónicos",
+      description: "Clasificación automática de correos por urgencia. Prioriza mensajes importantes y automatiza respuestas frecuentes.",
+      difficulty: "Media"
+    },
+    {
+      icon: <Code className="h-10 w-10 mb-4 text-blue-600" />,
+      title: "Desarrollo Web",
+      description: "Creación de páginas web y landing pages profesionales. Diseño responsive y optimizado para conversión.",
+      difficulty: "Fácil"
+    },
+    {
+      icon: <TrendingUp className="h-10 w-10 mb-4 text-blue-600" />,
+      title: "Automatización de Redes Sociales",
+      description: "Respuestas automáticas a usuarios, generación de descripciones para posts y programación de contenido.",
+      difficulty: "Media"
     }
   ];
 
   const automationBenefits = [
     {
       icon: <Zap className="h-6 w-6 text-blue-600" />,
-      title: "Potencial de ahorro del 70-90%"
+      title: "Soluciones personalizadas"
     },
     {
       icon: <TrendingUp className="h-6 w-6 text-blue-600" />,
-      title: "Reducción de errores humanos"
+      title: "Implementación rápida"
     },
     {
       icon: <Cog className="h-6 w-6 text-blue-600" />,
-      title: "Operación 24/7 sin descanso"
+      title: "Mantenimiento continuo"
     },
     {
       icon: <BarChart className="h-6 w-6 text-blue-600" />,
-      title: "ROI proyectado en 30-90 días"
+      title: "Soporte técnico incluido"
     }
   ];
 
   const packs = [
     {
-      icon: <Bot className="h-12 w-12 mb-4 text-blue-600" />,
-      title: "Pack Automatización Básica",
-      description: "Solución integral para automatizar sus primeros procesos empresariales con herramientas de IA de última generación.",
+      icon: <Zap className="h-12 w-12 mb-4 text-blue-600" />,
+      title: "Solución Completa de Automatización",
+      description: "Implementamos las soluciones de IA y automatización que su negocio necesita para optimizar procesos y mejorar la eficiencia.",
       features: [
-        "Análisis completo de procesos automatizables",
-        "Implementación de 3-5 automatizaciones clave",
-        "Configuración de chatbot básico para atención al cliente",
-        "Capacitación práctica del equipo (4 sesiones)",
-        "Soporte técnico durante 3 meses",
-        "Garantía de funcionamiento y optimización"
+        "Seleccione los servicios que necesita de nuestro catálogo",
+        "Implementación profesional y personalizada",
+        "Configuración completa y puesta en marcha",
+        "Documentación detallada del sistema",
+        "Formación del equipo para uso efectivo",
+        "Garantía de funcionamiento"
       ],
       highlighted: false,
-      savings: "Objetivo: 15-20 horas semanales ahorradas"
+      price: "400€",
+      realValue: "Valor real: 1.200€",
+      savings: "Ahorro de 800€"
     },
     {
       icon: <Workflow className="h-12 w-12 mb-4 text-blue-600" />,
-      title: "Pack Automatización Avanzada + Seguimiento",
-      description: "Transformación completa con automatizaciones complejas, integraciones avanzadas y seguimiento continuo para maximizar resultados.",
+      title: "Solución Completa + Mantenimiento Mensual",
+      description: "La solución completa más mantenimiento continuo, actualizaciones mensuales y soporte prioritario para garantizar el máximo rendimiento.",
       features: [
-        "Automatización completa de workflows complejos",
-        "Integración entre todas sus herramientas de trabajo",
-        "Asistente IA personalizado para su sector",
-        "Dashboard de métricas y rendimiento en tiempo real",
-        "Optimización mensual de automatizaciones",
-        "Soporte prioritario 24/7 durante 12 meses",
-        "Nuevas automatizaciones según necesidades"
+        "Todo lo incluido en la Solución Completa",
+        "Mantenimiento continuo del sistema",
+        "Pequeñas actualizaciones mensuales",
+        "Optimización y mejoras constantes",
+        "Soporte prioritario",
+        "Monitoreo proactivo 24/7",
+        "Nuevas funcionalidades según necesidades"
       ],
       highlighted: true,
-      savings: "Objetivo: 30-40 horas semanales ahorradas"
+      price: "400€ + 90€/mes",
+      realValue: "Valor real: 1.200€ + 149€/mes",
+      savings: "Ahorro de 800€ iniciales + 59€/mes"
     }
   ];
 
@@ -85,29 +105,28 @@ const ServicesSection = () => {
     <section id="servicios" className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-4xl mx-auto mb-12">
-          <h2 className="text-black text-3xl md:text-4xl font-bold mb-4">Automatizaciones que Transforman su Negocio</h2>
+          <h2 className="text-black text-3xl md:text-4xl font-bold mb-4">Soluciones de IA y Automatización para su Negocio</h2>
           <div className="text-gray-700 text-lg mb-8">
             <p className="mb-6">
-              <strong className="text-xl text-black block mb-3">Especialistas en Automatización Empresarial con IA</strong>
-              Somos una empresa nueva y especializada en liberar a su equipo de tareas repetitivas implementando automatizaciones inteligentes que trabajan 24/7. 
-              <span className="font-semibold text-blue-600"> Nos comprometemos a ayudarle a ahorrar entre 15-40 horas semanales</span> con resultados 
-              medibles desde el primer mes.
+              <strong className="text-xl text-black block mb-3">Transformamos su Negocio con Inteligencia Artificial</strong>
+              Implementamos soluciones de automatización e inteligencia artificial personalizadas que optimizan sus procesos empresariales. 
+              <span className="font-semibold text-blue-600"> Chatbots inteligentes, gestión automatizada y presencia digital profesional</span> para hacer crecer su negocio.
             </p>
             
             <div className="mt-8 mb-6">
               <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-blue-600">
                 <h3 className="text-xl font-semibold text-black flex items-center mb-3">
                   <Video className="h-6 w-6 mr-2 text-blue-600" />
-                  Implementación Guiada Paso a Paso
+                  Proceso de Implementación Profesional
                 </h3>
                 <p className="text-left mb-4 text-gray-700">
-                  Le acompañamos en videollamadas personalizadas durante todo el proceso de automatización, 
-                  desde el análisis inicial hasta la implementación final y capacitación de su equipo. 
-                  <strong className="text-blue-600"> Garantizamos resultados o devolvemos su inversión.</strong>
+                  Trabajamos estrechamente con usted para implementar las soluciones que su negocio necesita. 
+                  Desde el análisis inicial hasta la capacitación de su equipo.
+                  <strong className="text-blue-600"> Garantizamos el funcionamiento óptimo de cada solución.</strong>
                 </p>
                 
                 <div className="mt-6">
-                  <h4 className="text-lg font-medium text-black mb-3">Beneficios Proyectados</h4>
+                  <h4 className="text-lg font-medium text-black mb-3">¿Por qué elegirnos?</h4>
                   <div className="grid grid-cols-2 gap-4 pl-6">
                     {automationBenefits.map((benefit, index) => (
                       <div key={index} className="flex items-center">
@@ -122,8 +141,8 @@ const ServicesSection = () => {
             
             <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
               <p className="text-blue-800 font-medium text-center">
-                <strong>Compromiso de transparencia:</strong> Somos una empresa nueva en este sector, pero contamos con un equipo especializado 
-                y tecnología de vanguardia. Nos comprometemos a entregar resultados concretos o reembolsamos su inversión.
+                <strong>Precios especiales de lanzamiento:</strong> Ofrecemos soluciones de IA por 400€ (valor real 1.200€). 
+                Incluye implementación completa, formación y garantía de funcionamiento.
               </p>
             </div>
           </div>
@@ -131,7 +150,7 @@ const ServicesSection = () => {
 
         {/* Packs de automatización destacados */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-black text-center mb-8">Paquetes de Automatización</h3>
+          <h3 className="text-2xl font-bold text-black text-center mb-8">Nuestras Soluciones</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {packs.map((pack, index) => (
               <Card 
@@ -142,7 +161,7 @@ const ServicesSection = () => {
                 {pack.highlighted && (
                   <div className="absolute top-0 right-0">
                     <Badge className="bg-blue-600 text-white rounded-none rounded-bl-md px-3 py-1 text-xs">
-                      Más Popular
+                      Recomendado
                     </Badge>
                   </div>
                 )}
@@ -152,8 +171,16 @@ const ServicesSection = () => {
                     <CardTitle className="text-xl font-semibold text-black mb-2">
                       {pack.title}
                     </CardTitle>
-                    <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium mb-3">
-                      {pack.savings}
+                    <div className="flex flex-col gap-2 mb-3">
+                      <div className="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg text-lg font-bold">
+                        {pack.price}
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        <span className="line-through">{pack.realValue}</span>
+                      </div>
+                      <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium inline-block">
+                        {pack.savings}
+                      </div>
                     </div>
                   </div>
                 </CardHeader>
@@ -182,16 +209,21 @@ const ServicesSection = () => {
 
         {/* Servicios de automatización */}
         <div>
-          <h3 className="text-2xl font-bold text-black text-center mb-8">Nuestros Servicios de Automatización</h3>
+          <h3 className="text-2xl font-bold text-black text-center mb-8">Catálogo de Servicios</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <Card key={index} className="border border-gray-300 bg-white hover:shadow-lg transition-shadow duration-300 h-full">
                 <CardHeader>
                   <div className="flex flex-col items-start">
                     {service.icon}
-                    <CardTitle className="text-xl font-semibold text-black">
-                      {service.title}
-                    </CardTitle>
+                    <div className="flex items-center justify-between w-full mb-2">
+                      <CardTitle className="text-xl font-semibold text-black">
+                        {service.title}
+                      </CardTitle>
+                    </div>
+                    <Badge variant="outline" className="text-xs">
+                      Dificultad: {service.difficulty}
+                    </Badge>
                   </div>
                 </CardHeader>
                 <CardContent>
