@@ -25,16 +25,6 @@ const ServicesSection = () => {
       icon: <Database className="h-10 w-10 mb-4 text-blue-600" />,
       title: "Automatización de Datos",
       description: "Automatizamos la recolección, procesamiento y análisis de datos para generar reportes y insights sin intervención manual."
-    },
-    {
-      icon: <TrendingUp className="h-10 w-10 mb-4 text-blue-600" />,
-      title: "Marketing Automatizado",
-      description: "Creamos campañas de marketing que se ejecutan automáticamente, segmentan audiencias y optimizan resultados usando IA."
-    },
-    {
-      icon: <Users className="h-10 w-10 mb-4 text-blue-600" />,
-      title: "Capacitación y Soporte",
-      description: "Formamos a su equipo para gestionar y optimizar las automatizaciones implementadas, garantizando el máximo aprovechamiento."
     }
   ];
 
