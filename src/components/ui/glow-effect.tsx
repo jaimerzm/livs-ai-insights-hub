@@ -38,10 +38,10 @@ export function GlowEffect({
   scale = 1,
   duration = 5,
 }: GlowEffectProps) {
-  const BASE_TRANSITION = {
+  const BASE_TRANSITION: Transition = {
     repeat: Infinity,
     duration: duration,
-    ease: 'linear',
+    ease: 'linear' as const,
   };
 
   const animations = {
@@ -64,9 +64,9 @@ export function GlowEffect({
       transition: {
         ...(transition ?? {
           ...BASE_TRANSITION,
-          repeatType: 'mirror',
+          repeatType: 'mirror' as const,
         }),
-      },
+      } as Transition,
     },
     breathe: {
       background: [
@@ -79,9 +79,9 @@ export function GlowEffect({
       transition: {
         ...(transition ?? {
           ...BASE_TRANSITION,
-          repeatType: 'mirror',
+          repeatType: 'mirror' as const,
         }),
-      },
+      } as Transition,
     },
     colorShift: {
       background: colors.map((color, index) => {
@@ -91,9 +91,9 @@ export function GlowEffect({
       transition: {
         ...(transition ?? {
           ...BASE_TRANSITION,
-          repeatType: 'mirror',
+          repeatType: 'mirror' as const,
         }),
-      },
+      } as Transition,
     },
     flowHorizontal: {
       background: colors.map((color) => {
@@ -103,9 +103,9 @@ export function GlowEffect({
       transition: {
         ...(transition ?? {
           ...BASE_TRANSITION,
-          repeatType: 'mirror',
+          repeatType: 'mirror' as const,
         }),
-      },
+      } as Transition,
     },
     static: {
       background: `linear-gradient(to right, ${colors.join(', ')})`,
