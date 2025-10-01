@@ -84,7 +84,7 @@ const BenefitsSection = () => {
                     {item.icon}
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">{item.fact}</p>
+                    <p className="font-medium text-black text-lg">{item.fact}</p>
                     <UITooltip>
                       <TooltipTrigger asChild>
                         <p className="text-xs text-gray-600 cursor-help mt-1">Fuente: {item.source}</p>
