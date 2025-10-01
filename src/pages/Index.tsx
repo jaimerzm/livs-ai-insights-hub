@@ -14,7 +14,7 @@ import { Helmet } from 'react-helmet';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-[#030303] text-white">
+    <div className="min-h-screen bg-white">
       <Helmet>
         <meta name="lovable:disable-badge" content="true" />
       </Helmet>
@@ -22,52 +22,50 @@ const Index = () => {
       <main>
         <HeroSection />
         
-        {/* Visual separator between sections */}
-        <div className="section-separator"></div>
+        {/* Visual separator between dark and light sections */}
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
         
-        <div className="section-dark">
-          <IntroSection />
-        </div>
+        <IntroSection />
         
         {/* Section separator */}
-        <div className="h-8 bg-gradient-to-b from-[#030303] to-white"></div>
+        <div className="h-8 bg-gradient-to-b from-black to-gray-50"></div>
         
-        <div id="servicios" className="py-8 section-light">
-          <ServicesSection />
-        </div>
-        
-        {/* Section separator */}
-        <div className="h-8 bg-gradient-to-b from-white to-[#030303]"></div>
-        
-        <div id="beneficios" className="py-8 section-dark">
+        <div id="beneficios" className="py-8">
           <BenefitsSection />
         </div>
         
         {/* Section separator */}
-        <div className="section-separator my-8"></div>
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
         
-        <div id="futuros-testimonios" className="py-8 section-dark">
+        <div id="servicios" className="py-8">
+          <ServicesSection />
+        </div>
+        
+        {/* Section separator */}
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
+        
+        <div id="futuros-testimonios" className="py-8">
           <TestimonialsSection />
         </div>
         
         {/* Section separator */}
-        <div className="section-separator my-8"></div>
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
         
-        <div id="certificados" className="py-8 section-dark">
+        <div id="certificados" className="py-8">
           <CertificatesSection />
         </div>
         
         {/* Section separator */}
-        <div className="section-separator my-8"></div>
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
         
-        <div id="nosotros" className="py-8 section-dark">
+        <div id="nosotros" className="py-8">
           <AboutSection />
         </div>
         
         {/* Section separator */}
-        <div className="section-separator my-8"></div>
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
         
-        <div id="contacto" className="py-8 section-dark">
+        <div id="contacto" className="py-8">
           <ContactSection />
         </div>
       </main>
