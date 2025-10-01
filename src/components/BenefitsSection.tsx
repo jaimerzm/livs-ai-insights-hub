@@ -64,12 +64,12 @@ const BenefitsSection = () => {
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-livs-blue text-3xl md:text-4xl font-bold mb-4">Beneficios Cuantificables</h2>
-          <p className="text-livs-gray-dark text-lg mb-2">
+          <h2 className="text-gray-900 text-3xl md:text-4xl font-bold mb-4">Beneficios Cuantificables</h2>
+          <p className="text-gray-700 text-lg mb-2">
             Nuestras soluciones de inteligencia artificial ofrecen resultados medibles
             que impactan directamente en su rentabilidad y crecimiento.
           </p>
-          <p className="text-livs-gray-dark text-sm italic">
+          <p className="text-gray-600 text-sm italic">
             Estos son promedios reportados por empresas que ya usan IA.
           </p>
         </div>
@@ -80,14 +80,14 @@ const BenefitsSection = () => {
             {aiFacts.map((item, index) => (
               <div key={index} className="bg-gradient-to-br from-white to-livs-gray-light/20 rounded-xl shadow-md p-6 hover:shadow-lg transition-all duration-300 border border-livs-gray-light/30">
                 <div className="flex items-start gap-4">
-                  <div className="rounded-full bg-white p-2 shadow-sm">
+                   <div className="rounded-full bg-white p-2 shadow-sm">
                     {item.icon}
                   </div>
                   <div>
-                    <p className="font-medium text-livs-blue text-lg">{item.fact}</p>
+                    <p className="font-medium text-gray-900 text-lg">{item.fact}</p>
                     <UITooltip>
                       <TooltipTrigger asChild>
-                        <p className="text-xs text-livs-gray-dark cursor-help mt-1">Fuente: {item.source}</p>
+                        <p className="text-xs text-gray-600 cursor-help mt-1">Fuente: {item.source}</p>
                       </TooltipTrigger>
                       <TooltipContent>
                         <p className="text-xs">Investigación realizada por {item.source}</p>
@@ -103,8 +103,8 @@ const BenefitsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-16">
           {benefits.map((benefit, index) => <div key={index} className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-livs-purple hover:transform hover:-translate-y-1 transition-transform duration-300">
               <div className="text-4xl font-bold text-livs-purple mb-2">{benefit.stat}</div>
-              <h3 className="text-xl font-semibold text-livs-blue mb-3">{benefit.title}</h3>
-              <p className="text-livs-gray-dark">{benefit.description}</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">{benefit.title}</h3>
+              <p className="text-gray-700">{benefit.description}</p>
             </div>)}
         </div>
 
@@ -155,7 +155,7 @@ const BenefitsSection = () => {
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white text-livs-gray-dark p-2 rounded shadow-lg text-xs">
+      <div className="bg-white text-gray-900 p-2 rounded shadow-lg text-xs">
         <p className="font-bold mb-1">{`Año: ${label}`}</p>
         {payload.map((entry: any, index: number) => (
           <p key={`item-${index}`} style={{ color: entry.color }}>
