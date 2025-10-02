@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BrainCircuit, TrendingUp, LineChart, Database, Code, Users, Video, BarChart, FileText, Bell } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import AIChatCard from '@/components/ui/ai-chat';
 
 const ServicesSection = () => {
   const services = [
@@ -196,9 +197,14 @@ const ServicesSection = () => {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-livs-gray-dark text-base">
+                  <CardDescription className="text-livs-gray-dark text-base mb-4">
                     {service.description}
                   </CardDescription>
+                  {index === 0 && (
+                    <div className="mt-6 flex justify-center">
+                      <AIChatCard className="scale-75 origin-top" />
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             ))}
