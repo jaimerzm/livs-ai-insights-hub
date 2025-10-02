@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import AIChatCard from '@/components/ui/ai-chat';
+import { PixelTrailDemo } from '@/components/ui/pixel-trail-demo';
 
 const ServicesSection = () => {
   const services = [
@@ -212,6 +213,20 @@ const ServicesSection = () => {
                         </DialogTrigger>
                         <DialogContent className="max-w-fit border-none bg-transparent p-0">
                           <AIChatCard />
+                        </DialogContent>
+                      </Dialog>
+                    </div>
+                  )}
+                  {index === 4 && (
+                    <div className="mt-6 flex justify-center">
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button className="bg-livs-purple hover:bg-livs-purple/90 text-white">
+                            Probar DEMO
+                          </Button>
+                        </DialogTrigger>
+                        <DialogContent className="max-w-fit border-none bg-transparent p-0">
+                          <PixelTrailDemo />
                         </DialogContent>
                       </Dialog>
                     </div>
