@@ -20,7 +20,7 @@ export default function AIChatCard({ className }: { className?: string }) {
 
     // Simulate AI response
     setTimeout(() => {
-      setMessages((prev) => [...prev, { sender: "ai", text: "🤖 This is a sample AI response." }]);
+      setMessages((prev) => [...prev, { sender: "ai", text: "🤖 Esto es un chatbot de demostración y tan solo una prueba ;)" }]);
       setIsTyping(false);
     }, 1200);
   };
