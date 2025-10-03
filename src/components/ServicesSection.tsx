@@ -1,12 +1,13 @@
 
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { BrainCircuit, TrendingUp, LineChart, Database, Code, Users, Video, BarChart, FileText, Bell } from 'lucide-react';
+import { BrainCircuit, TrendingUp, LineChart, Database, Code, Users, Video, BarChart, FileText, Bell, Phone } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import AIChatCard from '@/components/ui/ai-chat';
 import { PixelTrailDemo } from '@/components/ui/pixel-trail-demo';
+import { motion } from 'framer-motion';
 
 const ServicesSection = () => {
   const services = [
@@ -23,7 +24,14 @@ const ServicesSection = () => {
       difficulty: "Alta"
     },
     {
-      icon: <Users className="h-10 w-10 mb-4 text-livs-purple" />,
+      icon: (
+        <motion.div
+          animate={{ rotate: [0, 15, -15, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
+        >
+          <Phone className="h-10 w-10 mb-4 text-livs-purple" />
+        </motion.div>
+      ),
       title: "Gestor de Llamadas",
       description: "Automatización inteligente de llamadas entrantes y salientes con registro y seguimiento.",
       difficulty: "Media"
