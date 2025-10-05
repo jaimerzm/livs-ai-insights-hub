@@ -15,19 +15,6 @@
     
     <!-- Botpress Webchat -->
     <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
-    <style>
-      #webchat .bpWebchat {
-        position: unset;
-        width: 100%;
-        height: 100%;
-        max-height: 100%;
-        max-width: 100%;
-      }
-
-      #webchat .bpFab {
-        display: none;
-      }
-    </style>
 
     <meta property="og:title" content="Livs | Consultoría en Inteligencia Artificial" />
     <meta property="og:description" content="Consultoría especializada en inteligencia artificial para transformar y optimizar su empresa. Soluciones de IA personalizadas para su negocio." />
@@ -44,5 +31,37 @@
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Botpress Initialization -->
+    <script>
+      window.botpress.init({
+        "botId": "bb75a8b6-54ba-4dd1-ab41-2fe272ca9b99",
+        "configuration": {
+          "version": "v2",
+          "botName": "Livs Support Agent",
+          "botAvatar": "https://files.bpcontent.cloud/2025/10/05/11/20251005114727-PVVBUNQ0.png",
+          "botDescription": "",
+          "website": {},
+          "email": {},
+          "phone": {},
+          "termsOfService": {},
+          "privacyPolicy": {},
+          "color": "#5F8BFF",
+          "variant": "solid",
+          "headerVariant": "glass",
+          "themeMode": "dark",
+          "fontFamily": "inter",
+          "radius": 3.5,
+          "feedbackEnabled": false,
+          "footer": "[⚡ by Botpress](https://botpress.com/?from=webchat)",
+          "soundEnabled": false,
+          "proactiveMessageEnabled": false,
+          "proactiveBubbleMessage": "Hi! 👋 Need help?",
+          "proactiveBubbleTriggerType": "afterDelay",
+          "proactiveBubbleDelayTime": 10
+        },
+        "clientId": "ccb124d2-67e6-4120-a586-6617279419a8"
+      });
+    </script>
   </body>
 </html>

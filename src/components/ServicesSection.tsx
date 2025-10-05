@@ -213,17 +213,16 @@ const ServicesSection = () => {
                   </CardDescription>
                   {index === 0 && (
                     <div className="mt-6 flex justify-center">
-                      <Dialog>
-                        <DialogTrigger asChild>
-                          <Button className="bg-livs-purple hover:bg-livs-purple/90 text-white">
-                            Probar DEMO
-                          </Button>
-                        </DialogTrigger>
-                        <DialogContent className="max-w-4xl h-[700px] border-none bg-transparent p-0">
-                          {/* Botpress Chat Integration */}
-                          <BotpressChat />
-                        </DialogContent>
-                      </Dialog>
+                      <Button 
+                        className="bg-livs-purple hover:bg-livs-purple/90 text-white"
+                        onClick={() => {
+                          if (window.botpress) {
+                            window.botpress.open();
+                          }
+                        }}
+                      >
+                        Probar DEMO
+                      </Button>
                     </div>
                   )}
                   {index === 4 && (
