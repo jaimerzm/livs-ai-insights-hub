@@ -151,7 +151,10 @@ const Navbar = () => {
             className={`font-medium text-sm transition-all duration-300 px-3 py-1 rounded-md
               ${isOnBlogPage || isScrolled ? 'text-gray-800 hover:text-gray-600 hover:bg-gray-100' : 'text-white hover:text-gray-200 hover:bg-white/20'} 
               ${location.pathname === '/blog' ? ((isOnBlogPage || isScrolled) ? 'bg-gray-800 text-white' : 'bg-white text-gray-800') + ' transform scale-105 shadow-md' : ''}`}
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              window.scrollTo(0, 0);
+            }}
           >
             Blog
           </Link>
@@ -188,7 +191,10 @@ const Navbar = () => {
                 to="/blog" 
                 className={`text-black font-medium text-sm py-3 border-b border-gray-100 transition-all duration-300
                   ${location.pathname === '/blog' ? 'bg-gray-800/10 text-gray-800 font-semibold pl-2' : 'hover:text-gray-600 hover:bg-gray-50'}`}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.scrollTo(0, 0);
+                }}
               >
                 Blog
               </Link>
