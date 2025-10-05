@@ -30,7 +30,7 @@ const IntroSection = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-12">
-              <Card className="p-8 bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-600/50 backdrop-blur-sm hover:scale-105 transition-all duration-300 shadow-2xl">
+              <Card className="p-8 bg-blue-950 border-blue-600/50 backdrop-blur-sm hover:scale-105 transition-all duration-300 shadow-2xl">
                 <p className="text-blue-50 leading-relaxed">
                   Sabemos que usted busca soluciones reales, como las que han permitido a <span className="font-semibold text-blue-200">Zara</span> reducir su 
                   exceso de inventario en un <span className="font-bold text-blue-300">50%</span>, o a <span className="font-semibold text-blue-200">Banco Santander</span> disminuir fraudes en un <span className="font-bold text-blue-300">70%</span> ahorrando millones.
