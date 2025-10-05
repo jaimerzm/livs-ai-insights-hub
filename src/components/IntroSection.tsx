@@ -37,7 +37,7 @@ const IntroSection = () => {
                 </p>
               </Card>
               
-              <Card className="p-8 bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-600/50 backdrop-blur-sm hover:scale-105 transition-all duration-300 shadow-2xl">
+              <Card className="p-8 bg-purple-950 border-purple-600/50 backdrop-blur-sm hover:scale-105 transition-all duration-300 shadow-2xl">
                 <p className="text-purple-50 leading-relaxed">
                   No se trata solo de tecnología, sino de convertir su información en conocimiento accionable 
                   que potencie lo que hace único a su negocio.
