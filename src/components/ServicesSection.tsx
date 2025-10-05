@@ -220,6 +220,7 @@ const ServicesSection = () => {
                           </Button>
                         </DialogTrigger>
                         <DialogContent className="max-w-4xl h-[700px] border-none bg-transparent p-0">
+                          {/* Botpress Chat Integration */}
                           <BotpressChat />
                         </DialogContent>
                       </Dialog>
