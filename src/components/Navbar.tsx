@@ -95,7 +95,7 @@ const Navbar = () => {
       }
     } else {
       // If not on homepage, navigate to homepage with hash
-      window.location.href = href;
+      window.location.href = '/' + href;
     }
 
     // Close mobile menu if open
