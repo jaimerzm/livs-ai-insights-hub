@@ -5,7 +5,7 @@ import { BrainCircuit, TrendingUp, LineChart, Database, Code, Users, Video, BarC
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import AIChatCard from '@/components/ui/ai-chat';
+import BotpressChat from '@/components/ui/botpress-chat';
 import { PixelTrailDemo } from '@/components/ui/pixel-trail-demo';
 import { motion } from 'framer-motion';
 
@@ -219,8 +219,8 @@ const ServicesSection = () => {
                             Probar DEMO
                           </Button>
                         </DialogTrigger>
-                        <DialogContent className="max-w-fit border-none bg-transparent p-0">
-                          <AIChatCard />
+                        <DialogContent className="max-w-4xl h-[700px] border-none bg-transparent p-0">
+                          <BotpressChat />
                         </DialogContent>
                       </Dialog>
                     </div>
