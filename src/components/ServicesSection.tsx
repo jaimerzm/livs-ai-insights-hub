@@ -14,14 +14,12 @@ const ServicesSection = () => {
     {
       icon: <BrainCircuit className="h-10 w-10 mb-4 text-livs-purple" />,
       title: "Chatbot Empresarial",
-      description: "Chatbot personalizado con la información específica de tu empresa para atender consultas 24/7.",
-      difficulty: "Media"
+      description: "Chatbot personalizado con la información específica de tu empresa para atender consultas 24/7."
     },
     {
       icon: <Database className="h-10 w-10 mb-4 text-livs-purple" />,
       title: "Gestor de Reservas",
-      description: "Sistema automatizado de gestión de reservas que optimiza la disponibilidad y confirmaciones.",
-      difficulty: "Alta"
+      description: "Sistema automatizado de gestión de reservas que optimiza la disponibilidad y confirmaciones."
     },
     {
       icon: (
@@ -33,26 +31,22 @@ const ServicesSection = () => {
         </motion.div>
       ),
       title: "Gestor de Llamadas",
-      description: "Automatización inteligente de llamadas entrantes y salientes con registro y seguimiento.",
-      difficulty: "Media"
+      description: "Automatización inteligente de llamadas entrantes y salientes con registro y seguimiento."
     },
     {
       icon: <FileText className="h-10 w-10 mb-4 text-livs-purple" />,
       title: "Gestor de Correos",
-      description: "Gestión automática de correos electrónicos con clasificación por urgencia y respuestas automáticas.",
-      difficulty: "Media"
+      description: "Gestión automática de correos electrónicos con clasificación por urgencia y respuestas automáticas."
     },
     {
       icon: <Code className="h-10 w-10 mb-4 text-livs-purple" />,
       title: "Página Web",
-      description: "Desarrollo de landing pages profesionales y páginas web optimizadas para conversión.",
-      difficulty: "Fácil"
+      description: "Desarrollo de landing pages profesionales y páginas web optimizadas para conversión."
     },
     {
       icon: <TrendingUp className="h-10 w-10 mb-4 text-livs-purple" />,
       title: "Automatización de Redes Sociales",
-      description: "Respuestas automáticas a usuarios, generación de descripciones para posts y gestión de contenido.",
-      difficulty: "Media"
+      description: "Respuestas automáticas a usuarios, generación de descripciones para posts y gestión de contenido."
     }
   ];
 
@@ -202,9 +196,6 @@ const ServicesSection = () => {
                     <CardTitle className="text-xl font-semibold text-livs-blue">
                       {service.title}
                     </CardTitle>
-                    <Badge variant="outline" className="mt-2 text-xs">
-                      Dificultad: {service.difficulty}
-                    </Badge>
                   </div>
                 </CardHeader>
                 <CardContent>
