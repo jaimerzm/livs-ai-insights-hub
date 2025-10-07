@@ -225,6 +225,28 @@ const ServicesSection = () => {
                       </Button>
                     </div>
                   )}
+                  {index === 2 && (
+                    <div className="mt-6 flex justify-center">
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button className="bg-livs-purple hover:bg-livs-purple/90 text-white">
+                            Probar DEMO
+                          </Button>
+                        </DialogTrigger>
+                        <DialogContent className="max-w-4xl w-full">
+                          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                            <video 
+                              controls 
+                              className="absolute top-0 left-0 w-full h-full rounded-lg"
+                              src="/demo-videos/call-manager-demo.mp4"
+                            >
+                              Tu navegador no soporta la reproducción de video.
+                            </video>
+                          </div>
+                        </DialogContent>
+                      </Dialog>
+                    </div>
+                  )}
                   {index === 4 && (
                     <div className="mt-6 flex justify-center">
                       <Dialog>
