@@ -185,7 +185,7 @@ const ServicesSection = () => {
         </div>
 
         {/* Servicios detallados */}
-        <div>
+        <div id="servicios-detallados">
           <h3 className="text-2xl font-bold text-livs-blue text-center mb-8">Servicios Disponibles</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (

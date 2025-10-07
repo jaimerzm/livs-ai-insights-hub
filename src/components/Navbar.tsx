@@ -109,7 +109,7 @@ const Navbar = () => {
     href: "#beneficios"
   }, {
     title: "Servicios",
-    href: "#servicios"
+    href: "#servicios-detallados"
   }, {
     title: "Casos de Éxito",
     href: "#futuros-testimonios"
