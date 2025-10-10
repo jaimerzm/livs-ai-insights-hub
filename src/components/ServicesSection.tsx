@@ -5,7 +5,7 @@ import { BrainCircuit, TrendingUp, LineChart, Database, Code, Users, Video, BarC
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import BotpressChat from '@/components/ui/botpress-chat';
+import LovableChatbot from '@/components/ui/botpress-chat';
 import { PixelTrailDemo } from '@/components/ui/pixel-trail-demo';
 import { motion } from 'framer-motion';
 
@@ -207,8 +207,8 @@ const ServicesSection = () => {
                       <Button 
                         className="bg-livs-purple hover:bg-livs-purple/90 text-white"
                         onClick={() => {
-                          if (window.botpress) {
-                            window.botpress.open();
+                          if (window.LovableChatbot) {
+                            window.LovableChatbot.open();
                           }
                         }}
                       >
