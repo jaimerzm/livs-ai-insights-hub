@@ -5,7 +5,6 @@ import { BrainCircuit, TrendingUp, LineChart, Database, Code, Users, Video, BarC
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import LovableChatbot from '@/components/ui/botpress-chat';
 import { PixelTrailDemo } from '@/components/ui/pixel-trail-demo';
 import { motion } from 'framer-motion';
 
@@ -207,8 +206,10 @@ const ServicesSection = () => {
                       <Button 
                         className="bg-livs-purple hover:bg-livs-purple/90 text-white"
                         onClick={() => {
-                          if (window.LovableChatbot) {
-                            window.LovableChatbot.open();
+                          // El widget se abrirá automáticamente al hacer clic
+                          const chatButton = document.querySelector('[data-chatbot-button]') as HTMLElement;
+                          if (chatButton) {
+                            chatButton.click();
                           }
                         }}
                       >
