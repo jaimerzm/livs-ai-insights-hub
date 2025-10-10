@@ -10,6 +10,7 @@ import CertificatesSection from '@/components/CertificatesSection';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import { ChatWidget } from '@/components/ChatWidget';
 import { Helmet } from 'react-helmet';
 
 const Index = () => {
@@ -70,6 +71,7 @@ const Index = () => {
         </div>
       </main>
       <Footer />
+      <ChatWidget />
     </div>
   );
 };
