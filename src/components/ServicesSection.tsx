@@ -206,10 +206,27 @@ const ServicesSection = () => {
                       <Button 
                         className="bg-livs-purple hover:bg-livs-purple/90 text-white"
                         onClick={() => {
-                          // El widget se abrirá automáticamente al hacer clic
+                          // Intenta múltiples formas de abrir el chatbot
                           const chatButton = document.querySelector('[data-chatbot-button]') as HTMLElement;
+                          const chatWidget = document.querySelector('#lovable-chatbot-widget button') as HTMLElement;
+                          const iframeButton = document.querySelector('iframe')?.contentDocument?.querySelector('button') as HTMLElement;
+                          
                           if (chatButton) {
                             chatButton.click();
+                          } else if (chatWidget) {
+                            chatWidget.click();
+                          } else if (iframeButton) {
+                            iframeButton.click();
+                          } else {
+                            // Intenta buscar cualquier botón del widget
+                            const allButtons = Array.from(document.querySelectorAll('button'));
+                            const widgetButton = allButtons.find(btn => 
+                              btn.className.includes('chatbot') || 
+                              btn.getAttribute('aria-label')?.includes('chat')
+                            );
+                            if (widgetButton) {
+                              (widgetButton as HTMLElement).click();
+                            }
                           }
                         }}
                       >
