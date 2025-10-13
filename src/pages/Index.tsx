@@ -73,7 +73,7 @@ const Index = () => {
       
       {/* Chatbot Widget */}
       <iframe 
-        src="https://4f0b00f4-ba50-4f22-8474-79a5965ff98d.lovableproject.com/chatbot-embed?user_id=9d812369-08b7-46f9-a445-20d7560b4a2c"
+        src="TU_DOMINIO_PUBLICADO/chatbot-embed?user_id=9d812369-08b7-46f9-a445-20d7560b4a2c"
         style={{
           position: 'fixed',
           bottom: '20px',
