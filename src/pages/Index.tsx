@@ -10,6 +10,7 @@ import CertificatesSection from '@/components/CertificatesSection';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import ChatbotWidget from '@/components/ChatbotWidget';
 import { Helmet } from 'react-helmet';
 
 const Index = () => {
@@ -70,23 +71,7 @@ const Index = () => {
         </div>
       </main>
       <Footer />
-      
-      {/* Chatbot Widget */}
-      <iframe 
-        src="https://4f0b00f4-ba50-4f22-8474-79a5965ff98d.lovableproject.com/chatbot-embed?user_id=9d812369-08b7-46f9-a445-20d7560b4a2c"
-        style={{
-          position: 'fixed',
-          bottom: '20px',
-          right: '20px',
-          width: '400px',
-          height: '600px',
-          border: 'none',
-          borderRadius: '16px',
-          boxShadow: '0 10px 40px rgba(0,0,0,0.2)',
-          zIndex: 9999
-        }}
-        title="Chatbot Assistant"
-      />
+      <ChatbotWidget />
     </div>
   );
 };
