@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { BrainCircuit, TrendingUp, LineChart, Database, Code, Users, Video, BarChart, FileText, Bell, Phone } from 'lucide-react';
+import { BrainCircuit, TrendingUp, Database, Code, Video, BarChart, Phone } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
@@ -11,16 +11,6 @@ import { motion } from 'framer-motion';
 const ServicesSection = () => {
   const services = [
     {
-      icon: <BrainCircuit className="h-10 w-10 mb-4 text-livs-purple" />,
-      title: "Chatbot Empresarial",
-      description: "Chatbot personalizado con la información específica de tu empresa para atender consultas 24/7."
-    },
-    {
-      icon: <Database className="h-10 w-10 mb-4 text-livs-purple" />,
-      title: "Gestor de Reservas",
-      description: "Sistema automatizado de gestión de reservas que optimiza la disponibilidad y confirmaciones."
-    },
-    {
       icon: (
         <motion.div
           animate={{ rotate: [0, 15, -15, 0] }}
@@ -29,23 +19,24 @@ const ServicesSection = () => {
           <Phone className="h-10 w-10 mb-4 text-livs-purple" />
         </motion.div>
       ),
-      title: "Gestor de Llamadas",
-      description: "Automatización inteligente de llamadas entrantes y salientes con registro y seguimiento."
+      title: "Llamadas Automatizadas",
+      description: "Llamadas automáticas inteligentes que responden a clientes, recogen información y registran datos de cada conversación en tiempo real.",
+      showDemo: true,
+      demoType: 'video'
     },
     {
-      icon: <FileText className="h-10 w-10 mb-4 text-livs-purple" />,
-      title: "Gestor de Correos",
-      description: "Gestión automática de correos electrónicos con clasificación por urgencia y respuestas automáticas."
+      icon: <BrainCircuit className="h-10 w-10 mb-4 text-livs-purple" />,
+      title: "Chatbot Empresarial",
+      description: "Chatbot personalizado con la información específica de tu empresa para atender consultas 24/7 y mejorar la atención al cliente.",
+      showDemo: true,
+      demoType: 'chat'
     },
     {
       icon: <Code className="h-10 w-10 mb-4 text-livs-purple" />,
-      title: "Página Web",
-      description: "Desarrollo de landing pages profesionales y páginas web optimizadas para conversión."
-    },
-    {
-      icon: <TrendingUp className="h-10 w-10 mb-4 text-livs-purple" />,
-      title: "Automatización de Redes Sociales",
-      description: "Respuestas automáticas a usuarios, generación de descripciones para posts y gestión de contenido."
+      title: "Páginas Web",
+      description: "Desarrollo de landing pages profesionales y páginas web optimizadas para conversión y experiencia de usuario.",
+      showDemo: true,
+      demoType: 'web'
     }
   ];
 
@@ -94,8 +85,8 @@ const ServicesSection = () => {
           <h2 className="text-livs-blue text-3xl md:text-4xl font-bold mb-4">Nuestros Servicios</h2>
           <div className="text-livs-gray-dark text-lg mb-8">
             <p className="mb-6">
-              <strong className="text-xl text-livs-blue block mb-3">Consultoría en Inteligencia Artificial para Empresas</strong>
-              Ofrecemos conocimiento especializado en IA para transformar su negocio. Nosotros, mano a mano, le ayudaremos  a implementar soluciones tecnológicas adaptadas a sus necesidades específicas, LE ENSEÑAREMOS A USAR LAS MEJORES IAS DE FORMA SENCILLA, ES MÁS FÁCIL Y RÁPIDO DE LO QUE CREE.
+              <strong className="text-xl text-livs-blue block mb-3">Soluciones de IA Personalizadas para Tu Empresa</strong>
+              Especializados en tres áreas clave: llamadas automatizadas inteligentes, chatbots empresariales y desarrollo de páginas web. Implementamos soluciones de IA adaptadas a tus necesidades específicas para automatizar procesos y mejorar la atención al cliente.
             </p>
             
             <div className="mt-8 mb-6">
@@ -186,7 +177,7 @@ const ServicesSection = () => {
         {/* Servicios detallados */}
         <div id="servicios-detallados">
           <h3 className="text-2xl font-bold text-livs-blue text-center mb-8">Servicios Disponibles</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <Card key={index} className="border border-livs-gray bg-white hover:shadow-lg transition-shadow duration-300 h-full">
                 <CardHeader>
@@ -201,53 +192,50 @@ const ServicesSection = () => {
                   <CardDescription className="text-livs-gray-dark text-base mb-4">
                     {service.description}
                   </CardDescription>
-                  {index === 0 && (
+                  {service.showDemo && (
                     <div className="mt-6 flex justify-center">
-                      <Button 
-                        className="bg-livs-purple hover:bg-livs-purple/90 text-white"
-                        onClick={() => {
-                          // Disparar evento para abrir el chat
-                          window.dispatchEvent(new CustomEvent('openChat'));
-                        }}
-                      >
-                        Probar DEMO
-                      </Button>
-                    </div>
-                  )}
-                  {index === 2 && (
-                    <div className="mt-6 flex justify-center">
-                      <Dialog>
-                        <DialogTrigger asChild>
-                          <Button className="bg-livs-purple hover:bg-livs-purple/90 text-white">
-                            Probar DEMO
-                          </Button>
-                        </DialogTrigger>
-                        <DialogContent className="max-w-4xl w-full">
-                          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                            <video 
-                              controls 
-                              className="absolute top-0 left-0 w-full h-full rounded-lg"
-                              src="/demo-videos/call-manager-demo.mp4"
-                            >
-                              Tu navegador no soporta la reproducción de video.
-                            </video>
-                          </div>
-                        </DialogContent>
-                      </Dialog>
-                    </div>
-                  )}
-                  {index === 4 && (
-                    <div className="mt-6 flex justify-center">
-                      <Dialog>
-                        <DialogTrigger asChild>
-                          <Button className="bg-livs-purple hover:bg-livs-purple/90 text-white">
-                            Probar DEMO
-                          </Button>
-                        </DialogTrigger>
-                        <DialogContent className="max-w-fit border-none bg-transparent p-0">
-                          <PixelTrailDemo />
-                        </DialogContent>
-                      </Dialog>
+                      {service.demoType === 'chat' && (
+                        <Button 
+                          className="bg-livs-purple hover:bg-livs-purple/90 text-white"
+                          onClick={() => {
+                            window.dispatchEvent(new CustomEvent('openChat'));
+                          }}
+                        >
+                          Probar DEMO
+                        </Button>
+                      )}
+                      {service.demoType === 'video' && (
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            <Button className="bg-livs-purple hover:bg-livs-purple/90 text-white">
+                              Ver DEMO
+                            </Button>
+                          </DialogTrigger>
+                          <DialogContent className="max-w-4xl w-full">
+                            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                              <video 
+                                controls 
+                                className="absolute top-0 left-0 w-full h-full rounded-lg"
+                                src="/demo-videos/call-manager-demo.mp4"
+                              >
+                                Tu navegador no soporta la reproducción de video.
+                              </video>
+                            </div>
+                          </DialogContent>
+                        </Dialog>
+                      )}
+                      {service.demoType === 'web' && (
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            <Button className="bg-livs-purple hover:bg-livs-purple/90 text-white">
+                              Ver DEMO
+                            </Button>
+                          </DialogTrigger>
+                          <DialogContent className="max-w-fit border-none bg-transparent p-0">
+                            <PixelTrailDemo />
+                          </DialogContent>
+                        </Dialog>
+                      )}
                     </div>
                   )}
                 </CardContent>
