@@ -8,7 +8,7 @@ const ChatbotWidget = () => {
   const SUPABASE_URL = 'https://iwxerzbncpzknzfbryap.supabase.co';
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3eGVyemJuY3B6a256ZmJyeWFwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAyOTQwMDQsImV4cCI6MjA3NTg3MDAwNH0.Jfyd5wYvSK82R_NxvNsMie0Rsqehk9PVXO5FNXrjnp8';
   const USER_ID = '052872ec-48ce-476c-8ff8-d29f1dddb9b7';
-  const CHATBOT_ID = '2c433fba-9675-4a64-854a-04bd053be9a9';
+  const CHATBOT_ID = 'fc8f19e9-9a79-4fe3-a1a4-a25285528598';
   
   const container = document.getElementById('chatbot-widget-052872ec-48ce-476c-8ff8-d29f1dddb9b7');
   if (!container) {
@@ -156,7 +156,9 @@ const ChatbotWidget = () => {
 
           try {
             const parsed = JSON.parse(jsonStr);
-            const content = parsed.choices?.[0]?.delta?.content;
+            const content = 
+              parsed.candidates?.[0]?.content?.parts?.[0]?.text || 
+              parsed.choices?.[0]?.delta?.content;
             if (content) {
               assistantContent += content;
               updateMessage(assistantMsgDiv, assistantContent);
