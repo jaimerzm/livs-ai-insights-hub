@@ -26,7 +26,7 @@ export const ChatbotWidget = () => {
     document.body.appendChild(katexAutoRender);
 
     const scriptContent = `
-const K='GEMINI_API_KEY',C=\`### **LIVS: Company Profile**
+const K='AIzaSyDB_uI5M6-aTFNVQhW0N2ZqWTVFc17exU0',C=\`### **LIVS: Company Profile**
 
 *   **Name:** LIVS
 *   **Website:** \\\`https://livs.es/\\\`
