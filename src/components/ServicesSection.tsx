@@ -35,7 +35,7 @@ const ServicesSection = () => {
       icon: <Code className="h-10 w-10 mb-4 text-livs-purple" />,
       title: "Páginas Web",
       description: "Desarrollo de landing pages profesionales y páginas web optimizadas para conversión y experiencia de usuario.",
-      showDemo: true,
+      showDemo: false,
       demoType: 'web'
     }
   ];
@@ -179,7 +179,7 @@ const ServicesSection = () => {
           <h3 className="text-2xl font-bold text-livs-blue text-center mb-8">Servicios Disponibles</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="border border-livs-gray bg-white hover:shadow-lg transition-shadow duration-300 h-full">
+              <Card key={index} className="border border-livs-gray bg-white hover:shadow-lg transition-shadow duration-300 h-full overflow-hidden">
                 <CardHeader>
                   <div className="flex flex-col items-start">
                     {service.icon}
@@ -192,6 +192,25 @@ const ServicesSection = () => {
                   <CardDescription className="text-livs-gray-dark text-base mb-4">
                     {service.description}
                   </CardDescription>
+                  
+                  {/* Video animación para páginas web */}
+                  {service.demoType === 'web' && (
+                    <div className="mt-6 -mx-6 -mb-6">
+                      <div className="relative w-full bg-black rounded-lg overflow-hidden" style={{ paddingBottom: '56.25%' }}>
+                        <video 
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="absolute top-0 left-0 w-full h-full object-cover"
+                          src="/demo-videos/web-intro.mp4"
+                        >
+                          Tu navegador no soporta la reproducción de video.
+                        </video>
+                      </div>
+                    </div>
+                  )}
+                  
                   {service.showDemo && (
                     <div className="mt-6 flex justify-center">
                       {service.demoType === 'chat' && (
@@ -221,18 +240,6 @@ const ServicesSection = () => {
                                 Tu navegador no soporta la reproducción de video.
                               </video>
                             </div>
-                          </DialogContent>
-                        </Dialog>
-                      )}
-                      {service.demoType === 'web' && (
-                        <Dialog>
-                          <DialogTrigger asChild>
-                            <Button className="bg-livs-purple hover:bg-livs-purple/90 text-white">
-                              Ver DEMO
-                            </Button>
-                          </DialogTrigger>
-                          <DialogContent className="max-w-fit border-none bg-transparent p-0">
-                            <PixelTrailDemo />
                           </DialogContent>
                         </Dialog>
                       )}
