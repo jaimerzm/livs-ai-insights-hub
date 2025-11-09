@@ -7,8 +7,11 @@ export const ChatbotWidget = () => {
     const USER_ID = '052872ec-48ce-476c-8ff8-d29f1dddb9b7';
     const CHATBOT_ID = 'cd5b2b33-2d7f-4d2c-a2da-7e3de95e88d4';
     
-    const container = document.getElementById('chatbot-widget-container');
-    if (!container) return;
+    const container = document.getElementById('chatbot-widget-052872ec-48ce-476c-8ff8-d29f1dddb9b7');
+    if (!container) {
+      console.error('No se encontró el contenedor del chatbot');
+      return;
+    }
 
     const chatHTML = `
       <style>
@@ -43,17 +46,17 @@ export const ChatbotWidget = () => {
       </style>
       
       <div class="chatbot-wrapper">
-        <button class="chatbot-toggle" id="chatbot-toggle">
+        <button class="chatbot-toggle" id="chatbot-toggle-052872ec-48ce-476c-8ff8-d29f1dddb9b7">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
         </button>
         
-        <div class="chatbot-window" id="chatbot-window">
+        <div class="chatbot-window" id="chatbot-window-052872ec-48ce-476c-8ff8-d29f1dddb9b7">
           <div class="chatbot-header">
             <h3>Asistente Virtual</h3>
-            <button class="chatbot-close" id="chatbot-close">&times;</button>
+            <button class="chatbot-close" id="chatbot-close-052872ec-48ce-476c-8ff8-d29f1dddb9b7">&times;</button>
           </div>
           
-          <div class="chatbot-messages" id="chatbot-messages">
+          <div class="chatbot-messages" id="chatbot-messages-052872ec-48ce-476c-8ff8-d29f1dddb9b7">
             <div class="chatbot-message assistant">
               <div class="chatbot-avatar">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
@@ -63,8 +66,8 @@ export const ChatbotWidget = () => {
           </div>
           
           <div class="chatbot-input-area">
-            <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Escribe tu mensaje...">
-            <button class="chatbot-send" id="chatbot-send">Enviar</button>
+            <input type="text" class="chatbot-input" id="chatbot-input-052872ec-48ce-476c-8ff8-d29f1dddb9b7" placeholder="Escribe tu mensaje...">
+            <button class="chatbot-send" id="chatbot-send-052872ec-48ce-476c-8ff8-d29f1dddb9b7">Enviar</button>
           </div>
         </div>
       </div>
@@ -72,22 +75,25 @@ export const ChatbotWidget = () => {
     
     container.innerHTML = chatHTML;
     
-    const toggle = document.getElementById('chatbot-toggle');
-    const chatWindow = document.getElementById('chatbot-window');
-    const close = document.getElementById('chatbot-close');
-    const messages = document.getElementById('chatbot-messages');
-    const input = document.getElementById('chatbot-input') as HTMLInputElement;
-    const send = document.getElementById('chatbot-send') as HTMLButtonElement;
+    const toggle = document.getElementById('chatbot-toggle-052872ec-48ce-476c-8ff8-d29f1dddb9b7');
+    const chatWindow = document.getElementById('chatbot-window-052872ec-48ce-476c-8ff8-d29f1dddb9b7');
+    const close = document.getElementById('chatbot-close-052872ec-48ce-476c-8ff8-d29f1dddb9b7');
+    const messages = document.getElementById('chatbot-messages-052872ec-48ce-476c-8ff8-d29f1dddb9b7');
+    const input = document.getElementById('chatbot-input-052872ec-48ce-476c-8ff8-d29f1dddb9b7') as HTMLInputElement;
+    const send = document.getElementById('chatbot-send-052872ec-48ce-476c-8ff8-d29f1dddb9b7') as HTMLButtonElement;
     
-    if (!toggle || !chatWindow || !close || !messages || !input || !send) return;
+    if (!toggle || !chatWindow || !close || !messages || !input || !send) {
+      console.error('No se pudieron encontrar todos los elementos del chatbot');
+      return;
+    }
     
     let isLoading = false;
-    let conversationHistory: Array<{ role: string; content: string }> = [
+    let conversationHistory = [
       { role: 'assistant', content: '¡Hola! Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?' }
     ];
     
-    toggle.addEventListener('click', () => chatWindow.classList.toggle('open'));
-    close.addEventListener('click', () => chatWindow.classList.remove('open'));
+    toggle.addEventListener('click', function() { chatWindow.classList.toggle('open'); });
+    close.addEventListener('click', function() { chatWindow.classList.remove('open'); });
     
     async function sendMessage() {
       const message = input.value.trim();
@@ -198,7 +204,8 @@ export const ChatbotWidget = () => {
       return returnElement ? messageDiv : null;
     }
 
-    function updateMessage(messageDiv: any, text: string) {
+    function updateMessage(messageDiv: HTMLElement | null, text: string) {
+      if (!messageDiv) return;
       const bubble = messageDiv.querySelector('.chatbot-bubble');
       if (bubble) {
         bubble.textContent = text;
@@ -209,11 +216,11 @@ export const ChatbotWidget = () => {
     function addLoading() {
       const loadingDiv = document.createElement('div');
       loadingDiv.className = 'chatbot-message assistant';
-      loadingDiv.id = 'loading-msg';
+      loadingDiv.id = 'loading-msg-052872ec-48ce-476c-8ff8-d29f1dddb9b7';
       loadingDiv.innerHTML = '<div class="chatbot-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div><div class="chatbot-bubble"><div class="chatbot-loading"><div></div><div></div><div></div></div></div>';
       messages.appendChild(loadingDiv);
       messages.scrollTop = messages.scrollHeight;
-      return 'loading-msg';
+      return 'loading-msg-052872ec-48ce-476c-8ff8-d29f1dddb9b7';
     }
     
     function removeLoading(id: string) {
@@ -222,16 +229,18 @@ export const ChatbotWidget = () => {
     }
     
     send.addEventListener('click', sendMessage);
-    input.addEventListener('keypress', (e) => {
+    input.addEventListener('keypress', function(e) {
       if (e.key === 'Enter') sendMessage();
     });
 
     return () => {
-      if (container) container.innerHTML = '';
+      if (container) {
+        container.innerHTML = '';
+      }
     };
   }, []);
 
-  return <div id="chatbot-widget-container"></div>;
+  return <div id="chatbot-widget-052872ec-48ce-476c-8ff8-d29f1dddb9b7"></div>;
 };
 
 export default ChatbotWidget;
