@@ -7,10 +7,10 @@ export type Json =
   | Json[]
 
 export type Database = {
-  // Allows to automatically instanciate createClient with right options
+  // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "12.2.3 (519615d)"
+    PostgrestVersion: "13.0.5"
   }
   public: {
     Tables: {
@@ -34,10 +34,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      increment_visitor_count: {
-        Args: Record<PropertyKey, never>
-        Returns: number
-      }
+      increment_visitor_count: { Args: never; Returns: number }
     }
     Enums: {
       [_ in never]: never
