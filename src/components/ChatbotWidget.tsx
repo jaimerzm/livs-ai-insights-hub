@@ -179,7 +179,7 @@ export const ChatbotWidget = () => {
                 y: 0
               }} transition={{
                 duration: 0.4
-              }} className={cn("px-3 py-2 rounded-xl max-w-[80%] shadow-md backdrop-blur-md", msg.role === "assistant" ? "bg-muted text-foreground self-start" : "bg-primary text-primary-foreground font-semibold self-end")}>
+              }} className={cn("px-3 py-2 rounded-xl max-w-[80%] shadow-md backdrop-blur-md whitespace-pre-line", msg.role === "assistant" ? "bg-muted text-foreground self-start" : "bg-primary text-primary-foreground font-semibold self-end")}>
                       {msg.content}
                     </motion.div>)}
 
