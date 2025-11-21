@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, MessageCircle, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -17,6 +17,14 @@ export const ChatbotWidget = () => {
   }]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  
+  // Listen for openChat event
+  useEffect(() => {
+    const handleOpenChat = () => setIsOpen(true);
+    window.addEventListener('openChat', handleOpenChat);
+    return () => window.removeEventListener('openChat', handleOpenChat);
+  }, []);
+
   const sendMessage = async () => {
     const message = input.trim();
     if (!message || isLoading) return;
