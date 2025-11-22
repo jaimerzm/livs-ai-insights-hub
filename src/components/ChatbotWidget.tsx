@@ -104,7 +104,7 @@ export const ChatbotWidget = () => {
       setIsLoading(false);
     }
   };
-  return <div className="fixed bottom-5 right-5 z-[9999]">
+  return <div className="fixed bottom-4 right-4 md:bottom-5 md:right-5 z-[9999]">
       <AnimatePresence>
         {isOpen && <motion.div initial={{
         opacity: 0,
@@ -120,8 +120,8 @@ export const ChatbotWidget = () => {
         y: 20
       }} transition={{
         duration: 0.2
-      }} className="absolute bottom-20 right-0 mb-4">
-            <div className={cn("relative w-[420px] h-[600px] rounded-2xl overflow-hidden p-[2px]")}>
+      }} className="fixed inset-4 md:absolute md:inset-auto md:bottom-20 md:right-0 md:mb-4">
+            <div className={cn("relative w-full h-full md:w-[420px] md:h-[600px] rounded-2xl overflow-hidden p-[2px]")}>
               {/* Animated Outer Border */}
               <motion.div className="absolute inset-0 rounded-2xl border-2 border-primary/20" animate={{
             rotate: [0, 360]
