@@ -120,7 +120,7 @@ export const ChatbotWidget = () => {
         y: 20
       }} transition={{
         duration: 0.2
-      }} className="fixed inset-4 md:absolute md:inset-auto md:bottom-20 md:right-0 md:mb-4">
+      }} className="fixed inset-x-4 top-20 bottom-20 md:absolute md:inset-auto md:bottom-20 md:right-0 md:mb-4">
             <div className={cn("relative w-full h-full md:w-[420px] md:h-[600px] md:max-h-[calc(100vh-140px)] rounded-2xl overflow-hidden p-[2px]")}>
               {/* Animated Outer Border */}
               <motion.div className="absolute inset-0 rounded-2xl border-2 border-primary/20" animate={{
