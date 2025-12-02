@@ -62,8 +62,17 @@ const ServicesSection = () => {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-livs-blue text-3xl md:text-4xl font-bold mb-4">Nuestros Servicios</h2>
           <div className="text-livs-gray-dark text-lg mb-8">
-            <p className="mb-6">​<strong className="text-xl text-livs-blue block mb-3">Soluciones de IA Personalizadas para Tu Empresa</strong>
-              Especializados en tres áreas clave: llamadas automatizadas inteligentes, chatbots empresariales y desarrollo de páginas web. Implementamos soluciones de IA adaptadas a tus necesidades específicas para automatizar procesos y mejorar la atención al cliente.
+            <p className="mb-6">
+              <strong className="text-xl text-livs-blue block mb-3">Soluciones de IA Personalizadas para Tu Empresa</strong>
+              Especializados en tres áreas clave:
+              <br /><br />
+              • <strong className="text-livs-blue">Llamadas automatizadas inteligentes</strong>
+              <br />
+              • <strong className="text-livs-blue">Chatbots empresariales</strong>
+              <br />
+              • <strong className="text-livs-blue">Desarrollo de páginas web</strong>
+              <br /><br />
+              Implementamos soluciones de IA adaptadas a tus necesidades específicas para automatizar procesos y mejorar la atención al cliente.
             </p>
             
             <div className="mt-8 mb-6">
