@@ -1,12 +1,9 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
-
 const AboutSection = () => {
   const [showFullBio, setShowFullBio] = useState(false);
-
   return <section id="about" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-8">
@@ -47,9 +44,7 @@ const AboutSection = () => {
                 </CardHeader>
                 <CardContent className="space-y-4 text-gray-700">
                   <p>
-                    Manuel Talón es un empresario innovador con una trayectoria probada en la identificación de oportunidades de mercado emergentes. 
-                    Como cofundador de LIVS, aporta su experiencia en desarrollo de negocios y su pasión por conectar tecnologías disruptivas con 
-                    necesidades empresariales concretas.
+                    Manuel Talón es un emprendedor innovador , como cofundador de LIVS, aporta su  su pasión por conectar tecnologías disruptivas con necesidades empresariales concretas.
                   </p>
                   <p>
                     Su visión estratégica ha sido fundamental para posicionar a LIVS como un puente entre la complejidad de la inteligencia 
@@ -75,14 +70,11 @@ const AboutSection = () => {
                     las últimas innovaciones en IA constituyen el núcleo tecnológico de LIVS.
                   </p>
                   <p>
-                    Como cofundador, Jaime ha diseñado nuestra metodología exclusiva para evaluar y recomendar implementaciones de IA 
-                    adaptadas a las necesidades específicas de cada cliente. Su enfoque combina rigor técnico con practicidad, asegurando 
-                    que nuestras recomendaciones sean tanto innovadoras como implementables.
+                    Como cofundador, Jaime ha aportado sus conocimientos de IA  para adaptadarlas a las necesidades específicas de cada cliente. Su enfoque combina rigor técnico con practicidad, asegurando que nuestras recomendaciones sean tanto innovadoras como implementables.
                   </p>
                   <p>
-                    Su experiencia abarca desde sistemas de procesamiento de lenguaje natural hasta análisis predictivo, habiendo 
-                    colaborado con empresas de diversos sectores para transformar sus operaciones mediante la aplicación estratégica 
-                    de tecnologías de IA.
+                    ​Aparte, es fundador de Sera VFX, ya que es Editor de Video Profesional &amp; Artista VFX.
+Transformando ideas en experiencias visuales extraordinarias con precisión técnica y visión creativa.       
                   </p>
                 </CardContent>
               </Card>
@@ -97,5 +89,4 @@ const AboutSection = () => {
       </div>
     </section>;
 };
-
 export default AboutSection;
