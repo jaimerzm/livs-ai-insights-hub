@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
@@ -11,8 +12,10 @@ import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import ChatbotWidget from '@/components/ChatbotWidget';
 import { Helmet } from 'react-helmet';
+
 const Index = () => {
-  return <div className="min-h-screen bg-white">
+  return (
+    <div className="min-h-screen bg-white">
       <Helmet>
         <meta name="lovable:disable-badge" content="true" />
       </Helmet>
@@ -35,12 +38,16 @@ const Index = () => {
         {/* Section separator */}
         <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
         
-        
+        <div id="servicios" className="py-8">
+          <ServicesSection />
+        </div>
         
         {/* Section separator */}
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
         
-        
-        
+        <div id="futuros-testimonios" className="py-8">
+          <TestimonialsSection />
+        </div>
         
         {/* Section separator */}
         <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
@@ -65,6 +72,8 @@ const Index = () => {
       </main>
       <Footer />
       <ChatbotWidget />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
