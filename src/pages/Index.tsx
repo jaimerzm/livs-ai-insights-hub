@@ -5,7 +5,7 @@ import HeroSection from '@/components/HeroSection';
 import IntroSection from '@/components/IntroSection';
 import ServicesSection from '@/components/ServicesSection';
 import BenefitsSection from '@/components/BenefitsSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
+
 import CertificatesSection from '@/components/CertificatesSection';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
@@ -42,15 +42,7 @@ const Index = () => {
           <ServicesSection />
         </div>
         
-        {/* Section separator */}
-        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
         
-        <div id="futuros-testimonios" className="py-8">
-          <TestimonialsSection />
-        </div>
-        
-        {/* Section separator */}
-        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
         
         <div id="certificados" className="py-8">
           <CertificatesSection />

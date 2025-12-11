@@ -111,9 +111,6 @@ const Navbar = () => {
     title: "Servicios",
     href: "#servicios-detallados"
   }, {
-    title: "Casos de Éxito",
-    href: "#futuros-testimonios"
-  }, {
     title: "Certificados",
     href: "#certificados"
   }, {
