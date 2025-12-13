@@ -28,6 +28,12 @@ const ServicesSection = () => {
     showDemo: true,
     demoType: 'chat'
   }, {
+    icon: <Video className="h-10 w-10 mb-4 text-livs-purple" />,
+    title: "Videos con IA",
+    description: "Creación de contenido de video con inteligencia artificial para potenciar la presencia de tu empresa en redes sociales.",
+    showDemo: false,
+    demoType: 'none'
+  }, {
     icon: <Code className="h-10 w-10 mb-4 text-livs-purple" />,
     title: "Páginas Web",
     description: "Desarrollo de landing pages profesionales y páginas web optimizadas para conversión y experiencia de usuario.",
@@ -59,6 +65,8 @@ const ServicesSection = () => {
               • <strong className="text-livs-blue">Llamadas automatizadas inteligentes</strong>
               <br />
               • <strong className="text-livs-blue">Chatbots empresariales</strong>
+              <br />
+              • <strong className="text-livs-blue">Videos con IA para redes sociales</strong>
               <br />
               • <strong className="text-livs-blue">Desarrollo de páginas web</strong>
               <br /><br />
@@ -101,7 +109,7 @@ const ServicesSection = () => {
         {/* Servicios detallados */}
         <div id="servicios-detallados">
           <h3 className="text-2xl font-bold text-livs-blue text-center mb-8">Servicios Disponibles</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => <Card key={index} className="border border-livs-gray bg-white hover:shadow-lg transition-shadow duration-300 h-full overflow-hidden">
                 <CardHeader>
                   <div className="flex flex-col items-start">
