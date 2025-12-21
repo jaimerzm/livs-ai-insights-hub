@@ -14,8 +14,8 @@ const Logo = ({ isScrolled = false }) => {
     <Link to="/" onClick={handleClick} className="flex items-center gap-2">
       <div className="w-20 h-20 flex items-center justify-center transition-all duration-300">
         <img 
-          src="/lovable-uploads/afe3d12d-dc92-469b-aff9-a88c86a57b97.png"
-          alt="LIAS Logo" 
+          src="/lovable-uploads/lias-logo-new.png"
+          alt="LIAS Logo"
           className="w-20 h-20 object-contain transition-all duration-300"
           style={{
             filter: isScrolled ? 'brightness(0)' : 'brightness(1)'
