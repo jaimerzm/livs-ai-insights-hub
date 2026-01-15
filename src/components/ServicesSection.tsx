@@ -33,6 +33,20 @@ const ServicesSection = () => {
     description: "Desarrollo de landing pages profesionales y páginas web optimizadas para conversión y experiencia de usuario.",
     showDemo: false,
     demoType: 'web'
+  }, {
+    icon: <motion.div animate={{
+      scale: [1, 1.1, 1]
+    }} transition={{
+      duration: 2,
+      repeat: Infinity,
+      repeatDelay: 1
+    }}>
+          <TrendingUp className="h-10 w-10 mb-4 text-livs-purple" />
+        </motion.div>,
+    title: "Videos con IA",
+    description: "Creamos contenido de video con inteligencia artificial para ayudar a las empresas a generar contenido atractivo para redes sociales.",
+    showDemo: false,
+    demoType: 'video-ia'
   }];
   const chatbotSuccessStories = [{
     company: "Sephora",
@@ -71,13 +85,15 @@ const ServicesSection = () => {
           <div className="text-livs-gray-dark text-lg mb-8">
             <p className="mb-6">
               <strong className="text-xl text-livs-blue block mb-3">Soluciones de IA Personalizadas para Tu Empresa</strong>
-              Especializados en tres áreas clave:
+              Especializados en cuatro áreas clave:
               <br /><br />
               • <strong className="text-livs-blue">Llamadas automatizadas inteligentes</strong>
               <br />
               • <strong className="text-livs-blue">Chatbots empresariales 24/7</strong>
               <br />
               • <strong className="text-livs-blue">Desarrollo de páginas web</strong>
+              <br />
+              • <strong className="text-livs-blue">Videos con IA para redes sociales</strong>
               <br /><br />
               Implementamos soluciones de IA adaptadas a tus necesidades específicas para automatizar procesos y mejorar la atención al cliente.
             </p>
@@ -127,7 +143,7 @@ const ServicesSection = () => {
         {/* Servicios detallados */}
         <div id="servicios-detallados">
           <h3 className="text-2xl font-bold text-livs-blue text-center mb-8">Nuestros Servicios</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => <Card key={index} className="border border-livs-gray bg-white hover:shadow-lg transition-shadow duration-300 h-full overflow-hidden">
                 <CardHeader>
                   <div className="flex flex-col items-start">
