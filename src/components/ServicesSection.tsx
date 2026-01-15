@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { BrainCircuit, TrendingUp, Database, Code, Video, BarChart, Phone } from 'lucide-react';
+import { BrainCircuit, TrendingUp, Database, Code, BarChart, Phone, Building2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { PixelTrailDemo } from '@/components/ui/pixel-trail-demo';
 import { motion } from 'framer-motion';
+
 const ServicesSection = () => {
   const services = [{
     icon: <motion.div animate={{
@@ -28,18 +29,35 @@ const ServicesSection = () => {
     showDemo: true,
     demoType: 'chat'
   }, {
-    icon: <Video className="h-10 w-10 mb-4 text-livs-purple" />,
-    title: "Videos con IA",
-    description: "Creación de contenido de video con inteligencia artificial para potenciar la presencia de tu empresa en redes sociales.",
-    showDemo: false,
-    demoType: 'none'
-  }, {
     icon: <Code className="h-10 w-10 mb-4 text-livs-purple" />,
     title: "Páginas Web",
     description: "Desarrollo de landing pages profesionales y páginas web optimizadas para conversión y experiencia de usuario.",
     showDemo: false,
     demoType: 'web'
   }];
+
+  const chatbotSuccessStories = [
+    {
+      company: "Sephora",
+      result: "Aumentó un 11% las reservas de citas con su chatbot de belleza",
+      industry: "Retail"
+    },
+    {
+      company: "Domino's Pizza",
+      result: "50% de pedidos online se realizan a través de su chatbot Dom",
+      industry: "Alimentación"
+    },
+    {
+      company: "Bank of America",
+      result: "Erica, su chatbot, gestiona +1.5 mil millones de interacciones",
+      industry: "Banca"
+    },
+    {
+      company: "H&M",
+      result: "Redujo un 70% las consultas repetitivas con su asistente virtual",
+      industry: "Moda"
+    }
+  ];
   const benefits = [{
     icon: <BarChart className="h-6 w-6 text-livs-purple" />,
     title: "Optimización de procesos"
@@ -64,9 +82,7 @@ const ServicesSection = () => {
               <br /><br />
               • <strong className="text-livs-blue">Llamadas automatizadas inteligentes</strong>
               <br />
-              • <strong className="text-livs-blue">Chatbots empresariales</strong>
-              <br />
-              • <strong className="text-livs-blue">Videos con IA para redes sociales</strong>
+              • <strong className="text-livs-blue">Chatbots empresariales 24/7</strong>
               <br />
               • <strong className="text-livs-blue">Desarrollo de páginas web</strong>
               <br /><br />
@@ -106,10 +122,32 @@ const ServicesSection = () => {
           </div>
         </div>
 
+        {/* Casos de éxito con chatbots */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold text-livs-blue text-center mb-4">Empresas que Triunfan con Chatbots</h3>
+          <p className="text-livs-gray-dark text-center mb-8 max-w-2xl mx-auto">
+            Grandes empresas ya están obteniendo resultados increíbles con la implementación de chatbots inteligentes
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {chatbotSuccessStories.map((story, index) => (
+              <div key={index} className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow border-l-4 border-livs-purple">
+                <div className="flex items-center gap-2 mb-3">
+                  <Building2 className="h-5 w-5 text-livs-purple" />
+                  <Badge variant="secondary" className="bg-livs-purple/10 text-livs-purple">
+                    {story.industry}
+                  </Badge>
+                </div>
+                <h4 className="font-bold text-livs-blue text-lg mb-2">{story.company}</h4>
+                <p className="text-livs-gray-dark text-sm">{story.result}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Servicios detallados */}
         <div id="servicios-detallados">
-          <h3 className="text-2xl font-bold text-livs-blue text-center mb-8">Servicios Disponibles</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <h3 className="text-2xl font-bold text-livs-blue text-center mb-8">Nuestros Servicios</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => <Card key={index} className="border border-livs-gray bg-white hover:shadow-lg transition-shadow duration-300 h-full overflow-hidden">
                 <CardHeader>
                   <div className="flex flex-col items-start">
