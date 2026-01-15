@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { PixelTrailDemo } from '@/components/ui/pixel-trail-demo';
 import { motion } from 'framer-motion';
-
 const ServicesSection = () => {
   const services = [{
     icon: <motion.div animate={{
@@ -35,29 +34,23 @@ const ServicesSection = () => {
     showDemo: false,
     demoType: 'web'
   }];
-
-  const chatbotSuccessStories = [
-    {
-      company: "Sephora",
-      result: "Aumentó un 11% las reservas de citas con su chatbot de belleza",
-      industry: "Retail"
-    },
-    {
-      company: "Domino's Pizza",
-      result: "50% de pedidos online se realizan a través de su chatbot Dom",
-      industry: "Alimentación"
-    },
-    {
-      company: "Bank of America",
-      result: "Erica, su chatbot, gestiona +1.5 mil millones de interacciones",
-      industry: "Banca"
-    },
-    {
-      company: "H&M",
-      result: "Redujo un 70% las consultas repetitivas con su asistente virtual",
-      industry: "Moda"
-    }
-  ];
+  const chatbotSuccessStories = [{
+    company: "Sephora",
+    result: "Aumentó un 11% las reservas de citas con su chatbot de belleza",
+    industry: "Retail"
+  }, {
+    company: "Domino's Pizza",
+    result: "50% de pedidos online se realizan a través de su chatbot Dom",
+    industry: "Alimentación"
+  }, {
+    company: "Bank of America",
+    result: "Erica, su chatbot, gestiona +1.5 mil millones de interacciones",
+    industry: "Banca"
+  }, {
+    company: "H&M",
+    result: "Redujo un 70% las consultas repetitivas con su asistente virtual",
+    industry: "Moda"
+  }];
   const benefits = [{
     icon: <BarChart className="h-6 w-6 text-livs-purple" />,
     title: "Optimización de procesos"
@@ -95,18 +88,7 @@ const ServicesSection = () => {
                   Cada proyecto es único. Trabajamos contigo para crear una solución personalizada que se adapte perfectamente a las necesidades de tu empresa.
                 </p>
                 
-                <div className="flex justify-center mb-6">
-                  <a 
-                    href="mailto:soporte.livs.business@gmail.com?subject=Solicitud%20de%20información%20-%20LIVS"
-                    className="inline-flex items-center gap-2 bg-gradient-to-r from-livs-purple to-livs-blue text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                      <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
-                    Contact Sales
-                  </a>
-                </div>
+                
                 
                 <div className="pt-4 border-t border-gray-100">
                   <h4 className="text-lg font-medium text-livs-blue mb-3 text-center">Beneficios</h4>
@@ -129,8 +111,7 @@ const ServicesSection = () => {
             Grandes empresas ya están obteniendo resultados increíbles con la implementación de chatbots inteligentes
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {chatbotSuccessStories.map((story, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow border-l-4 border-livs-purple">
+            {chatbotSuccessStories.map((story, index) => <div key={index} className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow border-l-4 border-livs-purple">
                 <div className="flex items-center gap-2 mb-3">
                   <Building2 className="h-5 w-5 text-livs-purple" />
                   <Badge variant="secondary" className="bg-livs-purple/10 text-livs-purple">
@@ -139,8 +120,7 @@ const ServicesSection = () => {
                 </div>
                 <h4 className="font-bold text-livs-blue text-lg mb-2">{story.company}</h4>
                 <p className="text-livs-gray-dark text-sm">{story.result}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
 
