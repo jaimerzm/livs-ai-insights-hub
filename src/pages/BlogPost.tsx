@@ -4,9 +4,10 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Calendar, User, Clock, ArrowLeft, ArrowRight, Share2, Tag } from 'lucide-react';
 import { Helmet } from 'react-helmet';
-
 const BlogPost = () => {
-  const { slug } = useParams();
+  const {
+    slug
+  } = useParams();
 
   // Base de datos de artículos completos
   const articles = {
@@ -828,10 +829,8 @@ const BlogPost = () => {
 
   // Agregar artículos adicionales con contenido completo...
   const article = articles[slug as keyof typeof articles];
-
   if (!article) {
-    return (
-      <div className="min-h-screen bg-white">
+    return <div className="min-h-screen bg-white">
         <Navbar />
         <main className="pt-20 py-16">
           <div className="container mx-auto px-4 md:px-6">
@@ -846,12 +845,9 @@ const BlogPost = () => {
           </div>
         </main>
         <Footer />
-      </div>
-    );
+      </div>;
   }
-
-  return (
-    <div className="min-h-screen bg-white">
+  return <div className="min-h-screen bg-white">
       <Helmet>
         <title>{article.title} | Blog LIVS - Consultoría IA</title>
         <meta name="description" content={article.excerpt} />
@@ -863,36 +859,34 @@ const BlogPost = () => {
         <meta name="author" content={article.author} />
         <meta name="article:published_time" content={article.date} />
         <meta name="article:section" content="Consultoría IA" />
-        {article.tags.map(tag => (
-          <meta key={tag} name="article:tag" content={tag} />
-        ))}
+        {article.tags.map(tag => <meta key={tag} name="article:tag" content={tag} />)}
         <link rel="canonical" href={`https://livs.es/blog/${slug}`} />
         <script type="application/ld+json">
           {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            "headline": article.title,
-            "description": article.excerpt,
-            "image": article.image,
-            "author": {
-              "@type": "Person",
-              "name": article.author
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "LIVS",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://livs.es/logo.png"
-              }
-            },
-            "datePublished": article.date,
-            "dateModified": article.date,
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": `https://livs.es/blog/${slug}`
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": article.title,
+          "description": article.excerpt,
+          "image": article.image,
+          "author": {
+            "@type": "Person",
+            "name": article.author
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "LIVS",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://livs.es/logo.png"
             }
-          })}
+          },
+          "datePublished": article.date,
+          "dateModified": article.date,
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://livs.es/blog/${slug}`
+          }
+        })}
         </script>
       </Helmet>
       
@@ -919,20 +913,15 @@ const BlogPost = () => {
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-4xl mx-auto">
               <div className="mb-8">
-                <Link 
-                  to="/blog"
-                  className="inline-flex items-center gap-2 text-livs-blue hover:text-livs-purple mb-6 transition-colors"
-                >
+                <Link to="/blog" className="inline-flex items-center gap-2 text-livs-blue hover:text-livs-purple mb-6 transition-colors">
                   <ArrowLeft className="w-4 h-4" />
                   Volver al Blog
                 </Link>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {article.tags.map((tag) => (
-                    <span key={tag} className="bg-livs-purple/10 text-livs-purple px-3 py-1 rounded-full text-sm font-medium">
+                  {article.tags.map(tag => <span key={tag} className="bg-livs-purple/10 text-livs-purple px-3 py-1 rounded-full text-sm font-medium">
                       {tag}
-                    </span>
-                  ))}
+                    </span>)}
                 </div>
                 
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
@@ -955,19 +944,12 @@ const BlogPost = () => {
                 </div>
                 
                 <div className="flex items-center gap-4 mb-8">
-                  <button className="flex items-center gap-2 bg-livs-blue text-white px-4 py-2 rounded-lg hover:bg-livs-purple transition-colors">
-                    <Share2 className="w-4 h-4" />
-                    Compartir
-                  </button>
+                  
                 </div>
               </div>
               
               <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden mb-12">
-                <img 
-                  src={article.image} 
-                  alt={article.title}
-                  className="w-full h-full object-cover"
-                />
+                <img src={article.image} alt={article.title} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
             </div>
@@ -978,10 +960,9 @@ const BlogPost = () => {
         <section className="pb-16">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-4xl mx-auto">
-              <div 
-                className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-li:text-gray-700 prose-a:text-livs-blue hover:prose-a:text-livs-purple"
-                dangerouslySetInnerHTML={{ __html: article.content }}
-              />
+              <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-li:text-gray-700 prose-a:text-livs-blue hover:prose-a:text-livs-purple" dangerouslySetInnerHTML={{
+              __html: article.content
+            }} />
             </div>
           </div>
         </section>
@@ -996,10 +977,7 @@ const BlogPost = () => {
               <p className="text-xl text-white/90 mb-8">
                 Descubre cómo podemos ayudar a tu empresa a implementar estas soluciones de IA.
               </p>
-              <Link 
-                to="/#contacto" 
-                className="inline-flex items-center gap-2 bg-white text-livs-blue px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-              >
+              <Link to="/#contacto" className="inline-flex items-center gap-2 bg-white text-livs-blue px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
                 Solicitar Consultoría Gratuita
                 <ArrowRight className="w-5 h-5" />
               </Link>
@@ -1017,11 +995,7 @@ const BlogPost = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <Link to="/blog/automatizacion-inteligente-reducir-costes" className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
                   <div className="relative h-48">
-                    <img 
-                      src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                      alt="Automatización Inteligente"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Automatización Inteligente" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-livs-blue transition-colors">
@@ -1056,8 +1030,6 @@ const BlogPost = () => {
       </main>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default BlogPost;
