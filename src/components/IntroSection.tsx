@@ -1,12 +1,9 @@
-
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { BackgroundBeams } from '@/components/ui/background-beams';
 import { Brain } from 'lucide-react';
-
 const IntroSection = () => {
-  return (
-    <section className="py-24 relative overflow-hidden bg-black">
+  return <section className="py-24 relative overflow-hidden bg-black">
       {/* Content Container with better spacing */}
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
@@ -45,46 +42,9 @@ const IntroSection = () => {
               </Card>
             </div>
 
-            <div className="bg-gray-900/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-700/50">
-              <p className="text-gray-100 mb-6">
-                También hemos visto cómo empresas que apenas eran conocidas se han transformado completamente 
-                gracias a la IA:
-              </p>
+            
 
-              <ul className="space-y-6 pl-6 list-none">
-                <li className="flex items-start gap-4 hover:bg-white/5 p-4 rounded-xl transition-colors">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full mt-3 flex-shrink-0"></div>
-                  <div>
-                    <span className="font-semibold text-blue-300 text-xl">Stitch Fix</span>
-                    <p className="text-gray-200 mt-1">pasó de ser una pequeña startup a una compañía valorada en miles de millones 
-                    gracias a sus algoritmos de recomendación personalizada de ropa</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-4 hover:bg-white/5 p-4 rounded-xl transition-colors">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-3 flex-shrink-0"></div>
-                  <div>
-                    <span className="font-semibold text-purple-300 text-xl">Lemonade</span>
-                    <p className="text-gray-200 mt-1">revolucionó el sector de seguros procesando reclamaciones en segundos en lugar 
-                    de semanas</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-4 hover:bg-white/5 p-4 rounded-xl transition-colors">
-                  <div className="w-2 h-2 bg-green-400 rounded-full mt-3 flex-shrink-0"></div>
-                  <div>
-                    <span className="font-semibold text-green-300 text-xl">Duolingo</span>
-                    <p className="text-gray-200 mt-1">se convirtió en líder mundial del aprendizaje de idiomas utilizando IA para 
-                    personalizar la experiencia educativa de cada usuario</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-gray-900/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-700/50">
-              <p className="text-gray-100">
-                Estamos aquí para acompañarle en este viaje: analizaremos juntos sus necesidades específicas, 
-                implementaremos estrategias personalizadas y capacitaremos a su equipo.
-              </p>
-            </div>
+            
             
             <div className="mt-12 bg-gradient-to-r from-blue-600/30 to-purple-600/30 p-10 rounded-2xl border border-blue-500/30 shadow-2xl backdrop-blur-sm">
               <p className="text-white font-semibold text-center text-xl leading-relaxed">
@@ -99,8 +59,6 @@ const IntroSection = () => {
       <div className="opacity-30">
         <BackgroundBeams />
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default IntroSection;
