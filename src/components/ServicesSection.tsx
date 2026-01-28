@@ -1,202 +1,246 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { BrainCircuit, TrendingUp, Database, Code, BarChart, Phone, Building2 } from 'lucide-react';
+import { Phone, BrainCircuit, Code, Video, GraduationCap, Users, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import { PixelTrailDemo } from '@/components/ui/pixel-trail-demo';
 import { motion } from 'framer-motion';
+
 const ServicesSection = () => {
-  const services = [{
-    icon: <motion.div animate={{
-      rotate: [0, 15, -15, 0]
-    }} transition={{
-      duration: 1.5,
-      repeat: Infinity,
-      repeatDelay: 2
-    }}>
-          <Phone className="h-10 w-10 mb-4 text-livs-purple" />
-        </motion.div>,
-    title: "Llamadas Automatizadas",
-    description: "Llamadas automáticas inteligentes que responden a clientes, recogen información y registran datos de cada conversación en tiempo real.",
-    showDemo: true,
-    demoType: 'video'
-  }, {
-    icon: <BrainCircuit className="h-10 w-10 mb-4 text-livs-purple" />,
-    title: "Chatbot Empresarial",
-    description: "Chatbot personalizado con la información específica de tu empresa para atender consultas 24/7 y mejorar la atención al cliente.",
-    showDemo: true,
-    demoType: 'chat'
-  }, {
-    icon: <Code className="h-10 w-10 mb-4 text-livs-purple" />,
-    title: "Páginas Web",
-    description: "Desarrollo de landing pages profesionales y páginas web optimizadas para conversión y experiencia de usuario.",
-    showDemo: false,
-    demoType: 'web'
-  }, {
-    icon: <motion.div animate={{
-      scale: [1, 1.1, 1]
-    }} transition={{
-      duration: 2,
-      repeat: Infinity,
-      repeatDelay: 1
-    }}>
-          <TrendingUp className="h-10 w-10 mb-4 text-livs-purple" />
-        </motion.div>,
-    title: "Videos con IA",
-    description: "Creamos contenido de video con inteligencia artificial para ayudar a las empresas a generar contenido atractivo para redes sociales.",
-    showDemo: false,
-    demoType: 'video-ia'
-  }];
-  const chatbotSuccessStories = [{
-    company: "Sephora",
-    result: "Aumentó un 11% las reservas de citas con su chatbot de belleza",
-    industry: "Retail"
-  }, {
-    company: "Domino's Pizza",
-    result: "50% de pedidos online se realizan a través de su chatbot Dom",
-    industry: "Alimentación"
-  }, {
-    company: "Bank of America",
-    result: "Erica, su chatbot, gestiona +1.5 mil millones de interacciones",
-    industry: "Banca"
-  }, {
-    company: "H&M",
-    result: "Redujo un 70% las consultas repetitivas con su asistente virtual",
-    industry: "Moda"
-  }];
-  const benefits = [{
-    icon: <BarChart className="h-6 w-6 text-livs-purple" />,
-    title: "Optimización de procesos"
-  }, {
-    icon: <Database className="h-6 w-6 text-livs-purple" />,
-    title: "Análisis avanzado de datos"
-  }, {
-    icon: <BrainCircuit className="h-6 w-6 text-livs-purple" />,
-    title: "Automatización inteligente"
-  }, {
-    icon: <TrendingUp className="h-6 w-6 text-livs-purple" />,
-    title: "Ventaja competitiva"
-  }];
-  return <section id="servicios" className="py-20 bg-livs-gray-light">
+  // Servicios principales - Automatización
+  const mainServices = [
+    {
+      icon: <Phone className="h-12 w-12 text-livs-purple" />,
+      title: "Llamadas Automatizadas con IA",
+      description: "Sistema inteligente que responde llamadas, cualifica leads y registra información automáticamente. Ideal para empresas con alto volumen de llamadas.",
+      benefits: ["Atención 24/7", "Cualificación automática", "Integración con CRM"],
+      showDemo: true,
+      demoType: 'video'
+    },
+    {
+      icon: <BrainCircuit className="h-12 w-12 text-livs-purple" />,
+      title: "Chatbots Empresariales",
+      description: "Chatbot personalizado con el conocimiento de tu empresa. Atiende consultas, agenda citas y captura leads mientras tu equipo descansa.",
+      benefits: ["Reducción de consultas repetitivas", "Captura de leads 24/7", "Escalable sin límite"],
+      showDemo: true,
+      demoType: 'chat'
+    }
+  ];
+
+  // Servicios complementarios
+  const complementaryServices = [
+    {
+      icon: <Video className="h-8 w-8 text-livs-purple" />,
+      title: "Videos con IA",
+      description: "Contenido de video generado con IA para redes sociales y marketing digital.",
+    },
+    {
+      icon: <Code className="h-8 w-8 text-livs-purple" />,
+      title: "Landing Pages Optimizadas",
+      description: "Páginas web diseñadas para convertir visitantes en clientes.",
+    }
+  ];
+
+  // Sectores objetivo (ICP)
+  const targetSectors = [
+    { name: "Clínicas y salud", problem: "Reciben muchas llamadas para citas" },
+    { name: "Inmobiliarias", problem: "Consultas de propiedades 24/7" },
+    { name: "E-commerce", problem: "Soporte y seguimiento de pedidos" },
+    { name: "Academias", problem: "Gestión de matrículas y consultas" },
+    { name: "Servicios profesionales", problem: "Cualificación de leads entrantes" },
+    { name: "Hoteles y turismo", problem: "Reservas y atención multiidioma" }
+  ];
+
+  const scrollToContact = () => {
+    const section = document.getElementById('contacto');
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  return (
+    <section id="servicios" className="py-20 bg-livs-gray-light">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-livs-blue text-3xl md:text-4xl font-bold mb-4">Nuestros Servicios</h2>
-          <div className="text-livs-gray-dark text-lg mb-8">
-            <p className="mb-6">
-              <strong className="text-xl text-livs-blue block mb-3">Soluciones de IA Personalizadas para Tu Empresa</strong>
-              Especializados en cuatro áreas clave:
-              <br /><br />
-              • <strong className="text-livs-blue">Llamadas automatizadas inteligentes</strong>
-              <br />
-              • <strong className="text-livs-blue">Chatbots empresariales 24/7</strong>
-              <br />
-              • <strong className="text-livs-blue">Desarrollo de páginas web</strong>
-              <br />
-              • <strong className="text-livs-blue">Videos con IA para redes sociales</strong>
-              <br /><br />
-              Implementamos soluciones de IA adaptadas a tus necesidades específicas para automatizar procesos y mejorar la atención al cliente.
-            </p>
-            
-            <div className="mt-8 mb-6">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <p className="text-left mb-6">
-                  Cada proyecto es único. Trabajamos contigo para crear una solución personalizada que se adapte perfectamente a las necesidades de tu empresa.
-                </p>
-                
-                
-                
-                <div className="pt-4 border-t border-gray-100">
-                  <h4 className="text-lg font-medium text-livs-blue mb-3 text-center">Beneficios</h4>
-                  <div className="grid grid-cols-2 gap-4 pl-6">
-                    {benefits.map((benefit, index) => <div key={index} className="flex items-center">
-                        {benefit.icon}
-                        <span className="ml-2">{benefit.title}</span>
-                      </div>)}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Casos de éxito con chatbots */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-livs-blue text-center mb-4">Empresas que Triunfan con Chatbots</h3>
-          <p className="text-livs-gray-dark text-center mb-8 max-w-2xl mx-auto">
-            Grandes empresas ya están obteniendo resultados increíbles con la implementación de chatbots inteligentes
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <Badge className="mb-4 bg-livs-purple/10 text-livs-purple border-livs-purple/20">
+            Especialistas en Automatización
+          </Badge>
+          <h2 className="text-livs-blue text-3xl md:text-4xl font-bold mb-4">
+            Automatiza la atención y captación de clientes
+          </h2>
+          <p className="text-livs-gray-dark text-lg">
+            Reduce costes operativos y escala tu negocio sin ampliar plantilla. 
+            Soluciones probadas para empresas que ya facturan y quieren optimizar.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {chatbotSuccessStories.map((story, index) => <div key={index} className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow border-l-4 border-livs-purple">
-                <div className="flex items-center gap-2 mb-3">
-                  <Building2 className="h-5 w-5 text-livs-purple" />
-                  <Badge variant="secondary" className="bg-livs-purple/10 text-livs-purple">
-                    {story.industry}
-                  </Badge>
-                </div>
-                <h4 className="font-bold text-livs-blue text-lg mb-2">{story.company}</h4>
-                <p className="text-livs-gray-dark text-sm">{story.result}</p>
-              </div>)}
-          </div>
         </div>
 
-        {/* Servicios detallados */}
-        <div id="servicios-detallados">
-          <h3 className="text-2xl font-bold text-livs-blue text-center mb-8">Nuestros Servicios</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, index) => <Card key={index} className="border border-livs-gray bg-white hover:shadow-lg transition-shadow duration-300 h-full overflow-hidden">
-                <CardHeader>
-                  <div className="flex flex-col items-start">
-                    {service.icon}
-                    <CardTitle className="text-xl font-semibold text-livs-blue">
-                      {service.title}
-                    </CardTitle>
+        {/* Servicios Principales */}
+        <div className="mb-16">
+          <h3 className="text-xl font-semibold text-livs-blue text-center mb-8 flex items-center justify-center gap-2">
+            <span className="w-12 h-px bg-livs-purple/30"></span>
+            Servicios Principales
+            <span className="w-12 h-px bg-livs-purple/30"></span>
+          </h3>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {mainServices.map((service, index) => (
+              <Card key={index} className="border-2 border-livs-purple/20 bg-white hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <CardHeader className="pb-4">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-livs-purple/10 rounded-xl">
+                      {service.icon}
+                    </div>
+                    <div>
+                      <CardTitle className="text-2xl font-bold text-livs-blue mb-2">
+                        {service.title}
+                      </CardTitle>
+                      <CardDescription className="text-livs-gray-dark text-base">
+                        {service.description}
+                      </CardDescription>
+                    </div>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-livs-gray-dark text-base mb-4">
-                    {service.description}
-                  </CardDescription>
-                  
-                  {/* Video animación para páginas web */}
-                  {service.demoType === 'web' && <div className="mt-6 -mx-6 -mb-6">
-                      <div className="relative w-full bg-black rounded-lg overflow-hidden" style={{
-                  paddingBottom: '56.25%'
-                }}>
-                        <video autoPlay loop muted playsInline className="absolute top-0 left-0 w-full h-full object-cover" src="/demo-videos/web-intro.mp4">
-                          Tu navegador no soporta la reproducción de video.
-                        </video>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {service.benefits.map((benefit, i) => (
+                      <div key={i} className="flex items-center gap-1.5 text-sm text-livs-gray-dark bg-gray-50 px-3 py-1.5 rounded-full">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-green-500" />
+                        {benefit}
                       </div>
-                    </div>}
+                    ))}
+                  </div>
                   
-                  {service.showDemo && <div className="mt-6 flex justify-center">
-                      {service.demoType === 'chat' && <Button className="bg-livs-purple hover:bg-livs-purple/90 text-white" onClick={() => {
-                  window.dispatchEvent(new CustomEvent('openChat'));
-                }}>
-                          Probar DEMO
-                        </Button>}
-                      {service.demoType === 'video' && <Dialog>
-                          <DialogTrigger asChild>
-                            <Button className="bg-livs-purple hover:bg-livs-purple/90 text-white">
-                              Ver DEMO
-                            </Button>
-                          </DialogTrigger>
-                          <DialogContent className="max-w-4xl w-full">
-                            <div className="relative w-full" style={{
-                      paddingBottom: '56.25%'
-                    }}>
-                              <video controls className="absolute top-0 left-0 w-full h-full rounded-lg" src="/demo-videos/call-manager-demo.mp4">
-                                Tu navegador no soporta la reproducción de video.
-                              </video>
-                            </div>
-                          </DialogContent>
-                        </Dialog>}
-                    </div>}
+                  <div className="flex gap-3">
+                    {service.demoType === 'chat' && (
+                      <Button 
+                        className="bg-livs-purple hover:bg-livs-purple/90 text-white"
+                        onClick={() => window.dispatchEvent(new CustomEvent('openChat'))}
+                      >
+                        Probar Demo
+                      </Button>
+                    )}
+                    {service.demoType === 'video' && (
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button className="bg-livs-purple hover:bg-livs-purple/90 text-white">
+                            Ver Demo
+                          </Button>
+                        </DialogTrigger>
+                        <DialogContent className="max-w-4xl w-full">
+                          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                            <video 
+                              controls 
+                              className="absolute top-0 left-0 w-full h-full rounded-lg" 
+                              src="/demo-videos/call-manager-demo.mp4"
+                            >
+                              Tu navegador no soporta la reproducción de video.
+                            </video>
+                          </div>
+                        </DialogContent>
+                      </Dialog>
+                    )}
+                    <Button 
+                      variant="outline" 
+                      className="border-livs-purple text-livs-purple hover:bg-livs-purple/5"
+                      onClick={scrollToContact}
+                    >
+                      Solicitar información
+                    </Button>
+                  </div>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Sectores objetivo (ICP) */}
+        <div className="mb-16 bg-gradient-to-br from-livs-blue to-livs-purple rounded-2xl p-8 md:p-12 text-white">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold mb-3">¿Es tu empresa como estas?</h3>
+            <p className="text-white/80">Ayudamos a empresas que enfrentan estos desafíos</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {targetSectors.map((sector, index) => (
+              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20">
+                <h4 className="font-semibold text-lg mb-1">{sector.name}</h4>
+                <p className="text-white/70 text-sm">{sector.problem}</p>
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-8">
+            <Button 
+              onClick={scrollToContact}
+              className="bg-white text-livs-purple hover:bg-white/90 font-semibold px-8 py-3"
+            >
+              Cuéntanos tu caso <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+
+        {/* Servicios Complementarios */}
+        <div className="mb-12">
+          <h3 className="text-xl font-semibold text-livs-blue text-center mb-8 flex items-center justify-center gap-2">
+            <span className="w-12 h-px bg-livs-purple/30"></span>
+            Servicios Complementarios
+            <span className="w-12 h-px bg-livs-purple/30"></span>
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {complementaryServices.map((service, index) => (
+              <Card key={index} className="border border-livs-gray bg-white hover:shadow-md transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="p-2 bg-livs-purple/10 rounded-lg">
+                      {service.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-livs-blue mb-1">{service.title}</h4>
+                      <p className="text-livs-gray-dark text-sm">{service.description}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Refuerzo de autoridad */}
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-livs-gray">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <GraduationCap className="h-6 w-6 text-livs-purple" />
+                <span className="text-livs-gray-dark">Consultoría especializada</span>
+              </div>
+              <div className="w-px h-6 bg-gray-200 hidden md:block" />
+              <div className="flex items-center gap-2">
+                <Users className="h-6 w-6 text-livs-purple" />
+                <span className="text-livs-gray-dark">Formación para equipos</span>
+              </div>
+            </div>
+            <Button 
+              variant="link" 
+              className="text-livs-purple hover:text-livs-purple/80"
+              onClick={() => {
+                const section = document.getElementById('certificados');
+                if (section) {
+                  window.scrollTo({ top: section.offsetTop - 80, behavior: 'smooth' });
+                }
+              }}
+            >
+              Ver certificaciones <ArrowRight className="ml-1 h-4 w-4" />
+            </Button>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default ServicesSection;

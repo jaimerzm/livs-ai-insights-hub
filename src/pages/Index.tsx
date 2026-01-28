@@ -1,11 +1,9 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import IntroSection from '@/components/IntroSection';
 import ServicesSection from '@/components/ServicesSection';
 import BenefitsSection from '@/components/BenefitsSection';
-
 import CertificatesSection from '@/components/CertificatesSection';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
@@ -17,48 +15,37 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
+        <title>LIVS - Automatización de Atención al Cliente con IA | Chatbots y Llamadas Inteligentes</title>
+        <meta name="description" content="Automatiza tu atención al cliente sin ampliar plantilla. Llamadas inteligentes y chatbots 24/7 para PYMEs. Reduce costes hasta un 40%. Consulta gratuita." />
         <meta name="lovable:disable-badge" content="true" />
       </Helmet>
       <Navbar />
       <main>
         <HeroSection />
         
-        {/* Visual separator between dark and light sections */}
         <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
         
         <IntroSection />
         
-        {/* Section separator */}
-        <div className="h-8 bg-gradient-to-b from-black to-gray-50"></div>
-        
-        <div id="beneficios" className="py-8">
-          <BenefitsSection />
-        </div>
-        
-        {/* Section separator */}
-        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
-        
-        <div id="servicios" className="py-8">
+        <div id="servicios">
           <ServicesSection />
         </div>
         
+        <div id="beneficios">
+          <BenefitsSection />
+        </div>
         
-        
-        <div id="certificados" className="py-8">
+        <div id="certificados">
           <CertificatesSection />
         </div>
         
-        {/* Section separator */}
-        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
         
-        <div id="nosotros" className="py-8">
+        <div id="nosotros">
           <AboutSection />
         </div>
         
-        {/* Section separator */}
-        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8"></div>
-        
-        <div id="contacto" className="py-8">
+        <div id="contacto">
           <ContactSection />
         </div>
       </main>
