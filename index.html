@@ -29,5 +29,110 @@
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
     
+    <!-- Chatbot BotSupreme Widget -->
+    <div id="chatbot-widget-052872ec-48ce-476c-8ff8-d29f1dddb9b7"></div>
+    <link rel="stylesheet" href="https://botsupreme.lovable.app/chatbot-widget.css">
+    <script>
+    (function() {
+      const SUPABASE_URL = 'https://iwxerzbncpzknzfbryap.supabase.co';
+      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3eGVyemJuY3B6a256ZmJyeWFwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAyOTQwMDQsImV4cCI6MjA3NTg3MDAwNH0.Jfyd5wYvSK82R_NxvNsMie0Rsqehk9PVXO5FNXrjnp8';
+      const USER_ID = '052872ec-48ce-476c-8ff8-d29f1dddb9b7';
+      const CHATBOT_ID = 'cd5b2b33-2d7f-4d2c-a2da-7e3de95e88d4';
+      var THEMES = {
+        'classic-light': { background:'#FFFFFF', headerBg:'#FFFFFF', headerText:'#000000', userBubble:'#000000', userText:'#FFFFFF', botBubble:'#F7F7F8', botText:'#000000', inputBg:'#F7F7F8', inputBorder:'#E5E5E5', buttonBg:'#000000', buttonText:'#FFFFFF', accent:'#000000' },
+        'classic-dark': { background:'#1A1A1A', headerBg:'#1A1A1A', headerText:'#FFFFFF', userBubble:'#FFFFFF', userText:'#000000', botBubble:'#2D2D2D', botText:'#FFFFFF', inputBg:'#2D2D2D', inputBorder:'#404040', buttonBg:'#FFFFFF', buttonText:'#000000', accent:'#FFFFFF' },
+        'ocean-blue': { background:'#F0F9FF', headerBg:'linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%)', headerText:'#FFFFFF', userBubble:'linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%)', userText:'#FFFFFF', botBubble:'#E0F2FE', botText:'#0C4A6E', inputBg:'#FFFFFF', inputBorder:'#BAE6FD', buttonBg:'#0EA5E9', buttonText:'#FFFFFF', accent:'#0EA5E9' },
+        'forest-green': { background:'#F0FDF4', headerBg:'linear-gradient(135deg, #22C55E 0%, #16A34A 100%)', headerText:'#FFFFFF', userBubble:'linear-gradient(135deg, #22C55E 0%, #16A34A 100%)', userText:'#FFFFFF', botBubble:'#DCFCE7', botText:'#14532D', inputBg:'#FFFFFF', inputBorder:'#BBF7D0', buttonBg:'#22C55E', buttonText:'#FFFFFF', accent:'#22C55E' },
+        'sunset-warm': { background:'#FFF7ED', headerBg:'linear-gradient(135deg, #F97316 0%, #EA580C 100%)', headerText:'#FFFFFF', userBubble:'linear-gradient(135deg, #F97316 0%, #EA580C 100%)', userText:'#FFFFFF', botBubble:'#FFEDD5', botText:'#7C2D12', inputBg:'#FFFFFF', inputBorder:'#FED7AA', buttonBg:'#F97316', buttonText:'#FFFFFF', accent:'#F97316' },
+        'purple-haze': { background:'#FAF5FF', headerBg:'linear-gradient(135deg, #A855F7 0%, #7C3AED 100%)', headerText:'#FFFFFF', userBubble:'linear-gradient(135deg, #A855F7 0%, #7C3AED 100%)', userText:'#FFFFFF', botBubble:'#F3E8FF', botText:'#581C87', inputBg:'#FFFFFF', inputBorder:'#E9D5FF', buttonBg:'#A855F7', buttonText:'#FFFFFF', accent:'#A855F7' },
+        'neon-glow': { background:'#0F0F1A', headerBg:'linear-gradient(135deg, #06B6D4 0%, #8B5CF6 100%)', headerText:'#FFFFFF', userBubble:'linear-gradient(135deg, #06B6D4 0%, #8B5CF6 100%)', userText:'#FFFFFF', botBubble:'#1E1E2E', botText:'#E0E0FF', inputBg:'#1E1E2E', inputBorder:'#3B3B5C', buttonBg:'linear-gradient(135deg, #06B6D4 0%, #8B5CF6 100%)', buttonText:'#FFFFFF', accent:'#06B6D4' },
+        'rose-gold': { background:'#FFF1F2', headerBg:'linear-gradient(135deg, #FB7185 0%, #E11D48 100%)', headerText:'#FFFFFF', userBubble:'linear-gradient(135deg, #FB7185 0%, #E11D48 100%)', userText:'#FFFFFF', botBubble:'#FFE4E6', botText:'#881337', inputBg:'#FFFFFF', inputBorder:'#FECDD3', buttonBg:'#FB7185', buttonText:'#FFFFFF', accent:'#FB7185' }
+      };
+      var settings = { bot_name:'Asistente Virtual', icon_background_color:'#000000', icon_color:'#FFFFFF', icon_image_url:null, interface_theme:'classic-light', bot_avatar_url:null, show_avatar:true };
+      var container = document.getElementById('chatbot-widget-' + USER_ID);
+      if (!container) { console.error('[Chatbot] Container not found'); return; }
+      async function loadSettings() {
+        try {
+          var resp = await fetch(SUPABASE_URL + '/rest/v1/chatbot_settings?user_id=eq.' + USER_ID + '&chatbot_id=eq.' + CHATBOT_ID + '&select=bot_name,icon_background_color,icon_color,icon_image_url,interface_theme,bot_avatar_url,show_avatar', { headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY } });
+          if (resp.ok) { var data = await resp.json(); if (data && data[0]) { var d = data[0]; settings.bot_name = d.bot_name || settings.bot_name; settings.icon_background_color = d.icon_background_color || settings.icon_background_color; settings.icon_color = d.icon_color || settings.icon_color; settings.icon_image_url = d.icon_image_url || null; settings.interface_theme = d.interface_theme || 'classic-light'; settings.bot_avatar_url = d.bot_avatar_url || null; settings.show_avatar = d.show_avatar !== false; } }
+        } catch(e) { console.warn('[Chatbot] Settings load warning', e); }
+      }
+      function setBg(el, val) { el.style.setProperty('background', val, 'important'); }
+      function applyTheme() {
+        var theme = THEMES[settings.interface_theme] || THEMES['classic-light']; container._theme = theme;
+        var ic = container.querySelector('.chatbot-inner-card'); if (ic) ic.style.setProperty('background', theme.background, 'important');
+        var hdr = container.querySelector('.chatbot-header'); if (hdr) { setBg(hdr, theme.headerBg); hdr.style.setProperty('border-bottom-color', theme.inputBorder, 'important'); }
+        var hTitle = container.querySelector('.chatbot-header h3'); if (hTitle) hTitle.style.setProperty('color', theme.headerText, 'important');
+        var closeB = container.querySelector('.chatbot-close'); if (closeB) closeB.style.setProperty('color', theme.headerText, 'important');
+        var msgArea = container.querySelector('.chatbot-messages'); if (msgArea) msgArea.style.setProperty('background', theme.background, 'important');
+        var inArea = container.querySelector('.chatbot-input-area'); if (inArea) { inArea.style.setProperty('background', theme.background, 'important'); inArea.style.setProperty('border-top-color', theme.inputBorder, 'important'); }
+        var inp = container.querySelector('.chatbot-input'); if (inp) { inp.style.setProperty('background', theme.inputBg, 'important'); inp.style.setProperty('border-color', theme.inputBorder, 'important'); inp.style.setProperty('color', theme.botText, 'important'); }
+        var sendB = container.querySelector('.chatbot-send'); if (sendB) { setBg(sendB, theme.buttonBg); sendB.style.setProperty('color', theme.buttonText, 'important'); var svg = sendB.querySelector('svg'); if (svg) svg.style.setProperty('color', theme.buttonText, 'important'); }
+        var toggleB = container.querySelector('.chatbot-toggle'); if (toggleB) { toggleB.style.setProperty('background', theme.accent, 'important'); toggleB.style.setProperty('color', theme.buttonText, 'important'); var tSvg = toggleB.querySelector('svg'); if (tSvg) tSvg.style.setProperty('color', theme.buttonText, 'important'); }
+        var msgs = container.querySelectorAll('.chatbot-message'); for (var i = 0; i < msgs.length; i++) styleMsg(msgs[i]);
+      }
+      function styleMsg(msgDiv) {
+        var theme = container._theme; if (!theme) return; var bubble = msgDiv.querySelector('.chatbot-bubble'); if (!bubble) return;
+        var isUser = msgDiv.classList.contains('user'); setBg(bubble, isUser ? theme.userBubble : theme.botBubble); bubble.style.setProperty('color', isUser ? theme.userText : theme.botText, 'important');
+        var kids = bubble.querySelectorAll(isUser ? '*' : '*:not(.chatbot-action-btn):not(.chatbot-action-btn *)'); for (var j = 0; j < kids.length; j++) kids[j].style.setProperty('color', isUser ? theme.userText : theme.botText, 'important');
+        var btns = bubble.querySelectorAll('.chatbot-action-btn'); for (var k = 0; k < btns.length; k++) { setBg(btns[k], theme.buttonBg.indexOf('gradient') !== -1 ? theme.buttonBg : theme.accent); btns[k].style.setProperty('color', theme.buttonText, 'important'); var bk = btns[k].querySelectorAll('*'); for (var l = 0; l < bk.length; l++) bk[l].style.setProperty('color', theme.buttonText, 'important'); }
+      }
+      function escapeHtml(t) { var d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
+      function parseActionButtons(text) {
+        var buttons = []; var clean = text; var s, e, content, parts;
+        while ((s = clean.indexOf('[BTN:')) !== -1) { e = clean.indexOf(']', s); if (e === -1) break; content = clean.substring(s + 5, e); parts = content.split('|'); if (parts.length === 3) { buttons.push({ label: parts[0].trim(), url: parts[1].trim(), type: parts[2].trim() }); } clean = clean.substring(0, s) + clean.substring(e + 1); }
+        return { text: clean.trim(), buttons: buttons };
+      }
+      function createButtonsHtml(buttons) {
+        if (!buttons.length) return ''; var theme = container._theme || THEMES['classic-light']; var html = '<div class="chatbot-action-buttons">';
+        for (var i = 0; i < buttons.length; i++) { var b = buttons[i]; var icon = b.type==='phone'?'📞':b.type==='email'?'📧':'🔗'; var href = escapeHtml(b.url); var tgt = b.type==='link'?' target="_blank" rel="noopener noreferrer"':''; html += '<a href="'+href+'"'+tgt+' class="chatbot-action-btn" style="background:'+theme.accent+';color:'+theme.buttonText+'"><span class="btn-label">'+icon+' '+escapeHtml(b.label)+'</span></a>'; }
+        return html + '</div>';
+      }
+      function formatMarkdown(text) {
+        if (!text) return ''; text = escapeHtml(text); text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'); text = text.replace(/(?<!\*)\*([^*]+?)\*(?!\*)/g, '<em>$1</em>');
+        var lines = text.split('\n'); var result = []; var inList = false;
+        for (var i = 0; i < lines.length; i++) { var line = lines[i]; var li = line.match(/^[-*•]\s+(.+)/); if (li) { if (!inList) { result.push('<ul>'); inList = true; } result.push('<li>'+li[1]+'</li>'); } else { if (inList) { result.push('</ul>'); inList = false; } if (line.trim()) result.push('<p>'+line+'</p>'); } }
+        if (inList) result.push('</ul>'); return result.join('');
+      }
+      async function init() {
+        await loadSettings();
+        var iconHtml = settings.icon_image_url ? '<img src="'+settings.icon_image_url+'" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" />' : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>';
+        container.innerHTML = '<div class="chatbot-wrapper"><button class="chatbot-toggle" style="background:'+settings.icon_background_color+';color:'+settings.icon_color+';">'+iconHtml+'</button><div class="chatbot-window" id="cw-'+USER_ID+'"><div class="chatbot-inner-card"><div class="chatbot-header"><h3>'+escapeHtml(settings.bot_name)+'</h3><button class="chatbot-close">&times;</button></div><div class="chatbot-messages" id="cm-'+USER_ID+'"></div><div class="chatbot-input-area"><input type="text" class="chatbot-input" id="ci-'+USER_ID+'" placeholder="Escribe tu mensaje..." /><button class="chatbot-send" id="cs-'+USER_ID+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button></div></div></div></div>';
+        applyTheme();
+        var msgs = document.getElementById('cm-'+USER_ID);
+        addMessage('¡Hola! Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?', 'assistant', msgs);
+        var toggle = container.querySelector('.chatbot-toggle'); var win = document.getElementById('cw-'+USER_ID); var closeBtn = container.querySelector('.chatbot-close'); var input = document.getElementById('ci-'+USER_ID); var sendBtn = document.getElementById('cs-'+USER_ID);
+        var isLoading = false; var history = [{ role: 'assistant', content: '¡Hola! Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?' }];
+        toggle.addEventListener('click', function() { win.classList.toggle('open'); });
+        closeBtn.addEventListener('click', function() { win.classList.remove('open'); });
+        // Listen for openChat event from React
+        window.addEventListener('openChat', function() { win.classList.add('open'); });
+        function addMessage(text, role, target) {
+          target = target || msgs; var div = document.createElement('div'); div.className = 'chatbot-message ' + role; var avatarHtml = '';
+          if (role === 'assistant' && settings.show_avatar && settings.bot_avatar_url) { avatarHtml = '<img src="'+settings.bot_avatar_url+'" style="width:32px;height:32px;border-radius:50%;object-fit:cover;flex-shrink:0" />'; }
+          var bubble = document.createElement('div'); bubble.className = 'chatbot-bubble';
+          if (role === 'user') { bubble.textContent = text; } else { var p = parseActionButtons(text); bubble.innerHTML = formatMarkdown(p.text) + createButtonsHtml(p.buttons); }
+          if (avatarHtml) { var avDiv = document.createElement('div'); avDiv.innerHTML = avatarHtml; div.appendChild(avDiv.firstChild); }
+          div.appendChild(bubble); target.appendChild(div); target.scrollTop = target.scrollHeight; styleMsg(div); return div;
+        }
+        function updateMessage(div, text) { var bubble = div.querySelector('.chatbot-bubble'); if (bubble) { var p = parseActionButtons(text); bubble.innerHTML = formatMarkdown(p.text) + createButtonsHtml(p.buttons); styleMsg(div); msgs.scrollTop = msgs.scrollHeight; } }
+        async function sendMessage() {
+          var msg = input.value.trim(); if (!msg || isLoading) return;
+          history.push({ role: 'user', content: msg }); addMessage(msg, 'user'); input.value = ''; isLoading = true; sendBtn.disabled = true;
+          var loadDiv = document.createElement('div'); loadDiv.className = 'chatbot-message assistant'; loadDiv.innerHTML = '<div class="chatbot-bubble"><div class="chatbot-loading"><div class="chatbot-loading-dot"></div><div class="chatbot-loading-dot"></div><div class="chatbot-loading-dot"></div></div></div>'; msgs.appendChild(loadDiv); msgs.scrollTop = msgs.scrollHeight; styleMsg(loadDiv);
+          try {
+            var resp = await fetch(SUPABASE_URL + '/functions/v1/chat-with-docs', { method: 'POST', headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }, body: JSON.stringify({ messages: history, chatbot_id: CHATBOT_ID }) });
+            loadDiv.remove(); if (!resp.ok || !resp.body) throw new Error('Stream failed');
+            var reader = resp.body.getReader(); var decoder = new TextDecoder(); var buf = ''; var done = false; var content = ''; var aDiv = addMessage('', 'assistant');
+            while (!done) { var chunk = await reader.read(); if (chunk.done) break; buf += decoder.decode(chunk.value, { stream: true }); var ni; while ((ni = buf.indexOf('\n')) !== -1) { var line = buf.slice(0, ni); buf = buf.slice(ni + 1); if (line.endsWith('\r')) line = line.slice(0, -1); if (line.startsWith(':') || !line.trim() || !line.startsWith('data: ')) continue; var json = line.slice(6).trim(); if (json === '[DONE]') { done = true; break; } try { var parsed = JSON.parse(json); var c = (parsed.candidates && parsed.candidates[0] && parsed.candidates[0].content && parsed.candidates[0].content.parts && parsed.candidates[0].content.parts[0] && parsed.candidates[0].content.parts[0].text) || (parsed.choices && parsed.choices[0] && parsed.choices[0].delta && parsed.choices[0].delta.content); if (c) { content += c; updateMessage(aDiv, content); } } catch(e) { buf = line + '\n' + buf; break; } } }
+            history.push({ role: 'assistant', content: content });
+          } catch(e) { loadDiv.remove(); var errMsg = 'Lo siento, no pude conectarme. Intenta de nuevo.'; addMessage(errMsg, 'assistant'); history.push({ role: 'assistant', content: errMsg }); } finally { isLoading = false; sendBtn.disabled = false; }
+        }
+        sendBtn.addEventListener('click', sendMessage);
+        input.addEventListener('keypress', function(e) { if (e.key === 'Enter') sendMessage(); });
+      }
+      init();
+    })();
+    </script>
   </body>
 </html>
