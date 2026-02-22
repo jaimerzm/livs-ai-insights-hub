@@ -8,7 +8,7 @@ import CertificatesSection from '@/components/CertificatesSection';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
-import ChatbotWidget from '@/components/ChatbotWidget';
+
 import { Helmet } from 'react-helmet';
 
 const Index = () => {
@@ -50,7 +50,7 @@ const Index = () => {
         </div>
       </main>
       <Footer />
-      <ChatbotWidget />
+      
     </div>
   );
 };
