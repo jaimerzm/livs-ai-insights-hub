@@ -1,8 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { MessageCircle, X, Send } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
+
+const BOTSUPREME_URL = 'https://iwxerzbncpzknzfbryap.supabase.co';
+const BOTSUPREME_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3eGVyemJuY3B6a256ZmJyeWFwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAyOTQwMDQsImV4cCI6MjA3NTg3MDAwNH0.Jfyd5wYvSK82R_NxvNsMie0Rsqehk9PVXO5FNXrjnp8';
+const CHATBOT_ID = 'cd5b2b33-2d7f-4d2c-a2da-7e3de95e88d4';
 
 type Message = {
   role: 'user' | 'assistant';
@@ -32,16 +35,15 @@ export const ChatWidget = () => {
   }, [messages]);
 
   const streamChat = async (userMessages: Message[]) => {
-    const CHAT_URL = `https://nvivemenmwwbrcdazgie.supabase.co/functions/v1/chat`;
-    
     try {
-      const resp = await fetch(CHAT_URL, {
+      const resp = await fetch(`${BOTSUPREME_URL}/functions/v1/chat-with-docs`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im52aXZlbWVubXd3YnJjZGF6Z2llIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkyNTA4NTcsImV4cCI6MjA3NDgyNjg1N30.TRPA8PXDfDDNRIgXeH4mhJHYRAkACdMhETcyRM6Fx-4`,
+          "apikey": BOTSUPREME_ANON_KEY,
+          "Authorization": `Bearer ${BOTSUPREME_ANON_KEY}`,
         },
-        body: JSON.stringify({ messages: userMessages }),
+        body: JSON.stringify({ messages: userMessages, chatbot_id: CHATBOT_ID }),
       });
 
       if (resp.status === 429) {
@@ -86,7 +88,10 @@ export const ChatWidget = () => {
 
           try {
             const parsed = JSON.parse(jsonStr);
-            const content = parsed.choices?.[0]?.delta?.content as string | undefined;
+            // Support both Gemini format and OpenAI format
+            const content = 
+              (parsed.candidates?.[0]?.content?.parts?.[0]?.text) ||
+              (parsed.choices?.[0]?.delta?.content as string | undefined);
             if (content) {
               assistantContent += content;
               setMessages(prev => {
