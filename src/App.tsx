@@ -13,6 +13,7 @@ import TermsConditions from "./pages/TermsConditions";
 import LegalNotice from "./pages/LegalNotice";
 import NotFound from "./pages/NotFound";
 import IAGenerativaMarketing2025 from "./pages/blog/IAGenerativaMarketing2025";
+import CasitaBeneroso from "./pages/demo/CasitaBeneroso";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/cookies-policy" element={<CookiesPolicy />} />
           <Route path="/terms-conditions" element={<TermsConditions />} />
           <Route path="/legal-notice" element={<LegalNotice />} />
+          <Route path="/demo/casita-beneroso" element={<CasitaBeneroso />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
