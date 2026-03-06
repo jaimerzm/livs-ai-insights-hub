@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { MapPin, Phone, Mail, Star, Wifi, Car, Coffee, TreePine, Mountain, UtensilsCrossed, Calendar, Users, ChevronDown, Menu, X, Heart, Shield, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
