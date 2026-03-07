@@ -193,7 +193,7 @@ const LePetitCan = () => {
         <div style={{ background: pistachio[700] }} className="py-4">
           <div className="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-center gap-6 md:gap-12 text-white text-sm">
             <div className="flex items-center gap-2"><Clock className="h-4 w-4" /> Lun - Sáb: 9:00 - 19:00</div>
-            <div className="flex items-center gap-2"><Phone className="h-4 w-4" /> +34 600 00 00 00</div>
+            <div className="flex items-center gap-2"><Phone className="h-4 w-4" /> +34 698 13 07 77</div>
             <div className="flex items-center gap-2"><MapPin className="h-4 w-4" /> Calella, Barcelona</div>
             <div className="flex items-center gap-2"><Star className="h-4 w-4 fill-current" /> 4.9/5 en Google</div>
           </div>
