@@ -456,13 +456,13 @@ const LePetitCan = () => {
                 <div className="bg-white rounded-2xl p-6 border shadow-sm" style={{ borderColor: pistachio[200] }}>
                   <h3 className="font-bold text-lg mb-4" style={{ color: pistachio[900] }}>Información de contacto</h3>
                   <div className="space-y-4">
-                    <a href="tel:+34600000000" className="flex items-center gap-3 hover:opacity-80">
+                    <a href="tel:+34698130777" className="flex items-center gap-3 hover:opacity-80">
                       <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: pistachio[100] }}>
                         <Phone className="h-5 w-5" style={{ color: pistachio[600] }} />
                       </div>
                       <div>
                         <p className="text-xs" style={{ color: pistachio[500] }}>Teléfono / WhatsApp</p>
-                        <p className="font-medium" style={{ color: pistachio[900] }}>+34 600 00 00 00</p>
+                        <p className="font-medium" style={{ color: pistachio[900] }}>+34 698 13 07 77</p>
                       </div>
                     </a>
                     <a href="mailto:info@lepetitcan.com" className="flex items-center gap-3 hover:opacity-80">
