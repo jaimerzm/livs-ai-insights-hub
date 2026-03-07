@@ -14,6 +14,7 @@ import LegalNotice from "./pages/LegalNotice";
 import NotFound from "./pages/NotFound";
 import IAGenerativaMarketing2025 from "./pages/blog/IAGenerativaMarketing2025";
 import CasitaBeneroso from "./pages/demo/CasitaBeneroso";
+import LePetitCan from "./pages/demo/LePetitCan";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/terms-conditions" element={<TermsConditions />} />
           <Route path="/legal-notice" element={<LegalNotice />} />
           <Route path="/demo/casita-beneroso" element={<CasitaBeneroso />} />
+          <Route path="/demo/le-petit-can" element={<LePetitCan />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
