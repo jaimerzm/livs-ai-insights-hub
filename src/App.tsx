@@ -14,6 +14,7 @@ import LegalNotice from "./pages/LegalNotice";
 import NotFound from "./pages/NotFound";
 import IAGenerativaMarketing2025 from "./pages/blog/IAGenerativaMarketing2025";
 import CasitaBeneroso from "./pages/demo/CasitaBeneroso";
+import LePetitCan from "./pages/demo/LePetitCan";
 
 const queryClient = new QueryClient();
 
