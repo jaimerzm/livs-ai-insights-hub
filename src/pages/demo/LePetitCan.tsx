@@ -179,7 +179,7 @@ const LePetitCan = () => {
                     <button onClick={() => scrollTo('reserva')} className="px-8 py-4 rounded-full font-bold text-white text-lg flex items-center justify-center gap-2 hover:scale-105 transition-transform shadow-lg" style={{ background: pistachio[600] }}>
                       <Calendar className="h-5 w-5" /> Reservar Cita
                     </button>
-                    <a href="tel:+34600000000" className="px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 hover:scale-105 transition-transform border-2 border-white/40 text-white backdrop-blur-sm">
+                    <a href="tel:+34698130777" className="px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 hover:scale-105 transition-transform border-2 border-white/40 text-white backdrop-blur-sm">
                       <Phone className="h-5 w-5" /> Llamar Ahora
                     </a>
                   </div>
