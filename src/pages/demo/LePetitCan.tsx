@@ -554,7 +554,7 @@ const LePetitCan = () => {
         </AnimatePresence>
 
         {/* ─── FLOATING CTA ─── */}
-        <a href="https://wa.me/34600000000" target="_blank" rel="noopener noreferrer"
+        <a href="https://wa.me/34698130777" target="_blank" rel="noopener noreferrer"
           className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
           style={{ background: '#25D366' }}>
           <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
