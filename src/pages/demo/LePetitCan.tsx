@@ -179,7 +179,7 @@ const LePetitCan = () => {
                     <button onClick={() => scrollTo('reserva')} className="px-8 py-4 rounded-full font-bold text-white text-lg flex items-center justify-center gap-2 hover:scale-105 transition-transform shadow-lg" style={{ background: pistachio[600] }}>
                       <Calendar className="h-5 w-5" /> Reservar Cita
                     </button>
-                    <a href="tel:+34600000000" className="px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 hover:scale-105 transition-transform border-2 border-white/40 text-white backdrop-blur-sm">
+                    <a href="tel:+34698130777" className="px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 hover:scale-105 transition-transform border-2 border-white/40 text-white backdrop-blur-sm">
                       <Phone className="h-5 w-5" /> Llamar Ahora
                     </a>
                   </div>
@@ -193,7 +193,7 @@ const LePetitCan = () => {
         <div style={{ background: pistachio[700] }} className="py-4">
           <div className="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-center gap-6 md:gap-12 text-white text-sm">
             <div className="flex items-center gap-2"><Clock className="h-4 w-4" /> Lun - Sáb: 9:00 - 19:00</div>
-            <div className="flex items-center gap-2"><Phone className="h-4 w-4" /> +34 600 00 00 00</div>
+            <div className="flex items-center gap-2"><Phone className="h-4 w-4" /> +34 698 13 07 77</div>
             <div className="flex items-center gap-2"><MapPin className="h-4 w-4" /> Calella, Barcelona</div>
             <div className="flex items-center gap-2"><Star className="h-4 w-4 fill-current" /> 4.9/5 en Google</div>
           </div>
@@ -456,13 +456,13 @@ const LePetitCan = () => {
                 <div className="bg-white rounded-2xl p-6 border shadow-sm" style={{ borderColor: pistachio[200] }}>
                   <h3 className="font-bold text-lg mb-4" style={{ color: pistachio[900] }}>Información de contacto</h3>
                   <div className="space-y-4">
-                    <a href="tel:+34600000000" className="flex items-center gap-3 hover:opacity-80">
+                    <a href="tel:+34698130777" className="flex items-center gap-3 hover:opacity-80">
                       <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: pistachio[100] }}>
                         <Phone className="h-5 w-5" style={{ color: pistachio[600] }} />
                       </div>
                       <div>
                         <p className="text-xs" style={{ color: pistachio[500] }}>Teléfono / WhatsApp</p>
-                        <p className="font-medium" style={{ color: pistachio[900] }}>+34 600 00 00 00</p>
+                        <p className="font-medium" style={{ color: pistachio[900] }}>+34 698 13 07 77</p>
                       </div>
                     </a>
                     <a href="mailto:info@lepetitcan.com" className="flex items-center gap-3 hover:opacity-80">
@@ -554,7 +554,7 @@ const LePetitCan = () => {
         </AnimatePresence>
 
         {/* ─── FLOATING CTA ─── */}
-        <a href="https://wa.me/34600000000" target="_blank" rel="noopener noreferrer"
+        <a href="https://wa.me/34698130777" target="_blank" rel="noopener noreferrer"
           className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
           style={{ background: '#25D366' }}>
           <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
