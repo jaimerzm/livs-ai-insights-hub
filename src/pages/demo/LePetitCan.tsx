@@ -349,10 +349,7 @@ const LePetitCan = () => {
 
   return (
     <>
-      <head>
-        <meta name="robots" content="noindex, nofollow" />
-      </head>
-      
+
       <div className="min-h-screen font-sans" style={{ background: pistachio[50] }}>
         {/* ─── NAVBAR ─── */}
         <nav className="fixed top-0 w-full z-50 backdrop-blur-md border-b" style={{ background: 'rgba(245,250,240,0.95)', borderColor: pistachio[200] }}>
