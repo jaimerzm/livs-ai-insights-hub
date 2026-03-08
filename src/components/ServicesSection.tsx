@@ -24,6 +24,14 @@ const ServicesSection = () => {
       benefits: ["Reducción de consultas repetitivas", "Captura de leads 24/7", "Escalable sin límite"],
       showDemo: true,
       demoType: 'chat'
+    },
+    {
+      icon: <Code className="h-12 w-12 text-livs-purple" />,
+      title: "Creación de Páginas Web",
+      description: "Diseñamos y desarrollamos páginas web completas, optimizadas para convertir visitantes en clientes. Desde webs corporativas hasta e-commerce.",
+      benefits: ["Diseño profesional", "Optimización SEO", "Adaptadas a móvil"],
+      showDemo: false,
+      demoType: 'none'
     }
   ];
 
