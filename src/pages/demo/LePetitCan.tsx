@@ -480,7 +480,7 @@ const LePetitCan = () => {
                       </div>
                       <div>
                         <p className="text-xs" style={{ color: pistachio[500] }}>Dirección</p>
-                        <p className="font-medium" style={{ color: pistachio[900] }}>Calella, Barcelona</p>
+                        <p className="font-medium" style={{ color: pistachio[900] }}>Rúa Francisco Pizarro, 15570 Narón, A Coruña</p>
                       </div>
                     </div>
                   </div>
