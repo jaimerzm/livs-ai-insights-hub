@@ -30,14 +30,9 @@ const ServicesSection = () => {
   // Servicios complementarios
   const complementaryServices = [
     {
-      icon: <Video className="h-8 w-8 text-livs-purple" />,
-      title: "Videos con IA",
-      description: "Contenido de video generado con IA para redes sociales y marketing digital.",
-    },
-    {
       icon: <Code className="h-8 w-8 text-livs-purple" />,
-      title: "Landing Pages Optimizadas",
-      description: "Páginas web diseñadas para convertir visitantes en clientes.",
+      title: "+ Servicios adaptados a tu negocio",
+      description: "Soluciones personalizadas según las necesidades de cada empresa: vídeos con IA, integraciones, automatizaciones y más.",
     }
   ];
 
