@@ -286,7 +286,7 @@ const LePetitCan = () => {
                 <span className="text-sm font-semibold uppercase tracking-wider" style={{ color: pistachio[600] }}>Sobre Nosotros</span>
                 <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6" style={{ color: pistachio[900] }}>Amor por los animales desde el primer día</h2>
                 <p className="text-base mb-4" style={{ color: pistachio[700] }}>
-                  En <strong>Le Petit Can</strong> llevamos más de 10 años cuidando del bienestar y la estética de tus mascotas en Calella. 
+                  En <strong>Le Petit Can</strong> llevamos más de 10 años cuidando del bienestar y la estética de tus mascotas en Narón. 
                   Nuestro equipo está formado por profesionales titulados en peluquería canina con formación continua en las últimas técnicas y tendencias.
                 </p>
                 <p className="text-base mb-6" style={{ color: pistachio[700] }}>
