@@ -529,7 +529,7 @@ const LePetitCan = () => {
               <div className="flex items-center gap-2">
                 <PawPrint className="h-5 w-5" style={{ color: pistachio[400] }} />
                 <span className="font-bold text-white">Le Petit Can</span>
-                <span className="text-sm" style={{ color: pistachio[400] }}>· Peluquería Canina en Calella</span>
+                <span className="text-sm" style={{ color: pistachio[400] }}>· Peluquería Canina en Narón</span>
               </div>
               <p className="text-sm" style={{ color: pistachio[500] }}>© {new Date().getFullYear()} Le Petit Can. Todos los derechos reservados.</p>
             </div>
