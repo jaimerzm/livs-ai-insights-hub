@@ -194,7 +194,7 @@ const ServicesSection = () => {
             <span className="w-12 h-px bg-livs-purple/30"></span>
           </h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 gap-6 max-w-xl mx-auto">
             {complementaryServices.map((service, index) => (
               <Card key={index} className="border border-livs-gray bg-white hover:shadow-md transition-shadow">
                 <CardContent className="p-6">
