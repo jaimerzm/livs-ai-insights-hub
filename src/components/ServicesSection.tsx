@@ -24,20 +24,23 @@ const ServicesSection = () => {
       benefits: ["Reducción de consultas repetitivas", "Captura de leads 24/7", "Escalable sin límite"],
       showDemo: true,
       demoType: 'chat'
+    },
+    {
+      icon: <Code className="h-12 w-12 text-livs-purple" />,
+      title: "Creación de Páginas Web",
+      description: "Diseñamos y desarrollamos páginas web completas, optimizadas para convertir visitantes en clientes. Desde webs corporativas hasta e-commerce.",
+      benefits: ["Diseño profesional", "Optimización SEO", "Adaptadas a móvil"],
+      showDemo: false,
+      demoType: 'none'
     }
   ];
 
   // Servicios complementarios
   const complementaryServices = [
     {
-      icon: <Video className="h-8 w-8 text-livs-purple" />,
-      title: "Videos con IA",
-      description: "Contenido de video generado con IA para redes sociales y marketing digital.",
-    },
-    {
       icon: <Code className="h-8 w-8 text-livs-purple" />,
-      title: "Landing Pages Optimizadas",
-      description: "Páginas web diseñadas para convertir visitantes en clientes.",
+      title: "+ Servicios adaptados a tu negocio",
+      description: "Soluciones personalizadas según las necesidades de cada empresa: vídeos con IA, integraciones, automatizaciones y más.",
     }
   ];
 
@@ -86,7 +89,7 @@ const ServicesSection = () => {
             <span className="w-12 h-px bg-livs-purple/30"></span>
           </h3>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {mainServices.map((service, index) => (
               <Card key={index} className="border-2 border-livs-purple/20 bg-white hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <CardHeader className="pb-4">
@@ -191,7 +194,7 @@ const ServicesSection = () => {
             <span className="w-12 h-px bg-livs-purple/30"></span>
           </h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 gap-6 max-w-xl mx-auto">
             {complementaryServices.map((service, index) => (
               <Card key={index} className="border border-livs-gray bg-white hover:shadow-md transition-shadow">
                 <CardContent className="p-6">
