@@ -89,7 +89,7 @@ const ServicesSection = () => {
             <span className="w-12 h-px bg-livs-purple/30"></span>
           </h3>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {mainServices.map((service, index) => (
               <Card key={index} className="border-2 border-livs-purple/20 bg-white hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <CardHeader className="pb-4">
