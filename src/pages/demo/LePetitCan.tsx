@@ -267,12 +267,24 @@ const LePetitCan = () => {
     script.src = blobUrl;
     document.body.appendChild(script);
 
-    // Add custom positioning style to place chatbot above WhatsApp button
+    // Add custom positioning style to place chatbot ABOVE WhatsApp button
     const posStyle = document.createElement('style');
     posStyle.id = 'lepetitcan-chatbot-pos';
     posStyle.textContent = `
-      #chatbot-widget-052872ec-48ce-476c-8ff8-d29f1dddb9b7 .chatbot-wrapper .chatbot-toggle {
+      #chatbot-widget-052872ec-48ce-476c-8ff8-d29f1dddb9b7 .chatbot-wrapper {
+        position: fixed !important;
         bottom: 90px !important;
+        right: 24px !important;
+        z-index: 9999 !important;
+      }
+      #chatbot-widget-052872ec-48ce-476c-8ff8-d29f1dddb9b7 .chatbot-wrapper .chatbot-toggle {
+        position: relative !important;
+        bottom: auto !important;
+        right: auto !important;
+      }
+      #chatbot-widget-052872ec-48ce-476c-8ff8-d29f1dddb9b7 .chatbot-wrapper .chatbot-window {
+        bottom: 70px !important;
+        right: 0 !important;
       }
     `;
     document.head.appendChild(posStyle);
