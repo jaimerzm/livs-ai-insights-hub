@@ -166,7 +166,7 @@ const LePetitCan = () => {
               <div className="max-w-7xl mx-auto px-4 w-full">
                 <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="max-w-2xl">
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 text-sm font-medium" style={{ background: 'rgba(255,255,255,0.2)', color: '#fff' }}>
-                    <PawPrint className="h-4 w-4" /> Peluquería Canina en Calella
+                    <PawPrint className="h-4 w-4" /> Peluquería Canina en Narón
                   </div>
                   <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
                     Tu peludo merece<br />
@@ -194,7 +194,7 @@ const LePetitCan = () => {
           <div className="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-center gap-6 md:gap-12 text-white text-sm">
             <div className="flex items-center gap-2"><Clock className="h-4 w-4" /> Lun - Sáb: 9:00 - 19:00</div>
             <div className="flex items-center gap-2"><Phone className="h-4 w-4" /> +34 698 13 07 77</div>
-            <div className="flex items-center gap-2"><MapPin className="h-4 w-4" /> Calella, Barcelona</div>
+            <div className="flex items-center gap-2"><MapPin className="h-4 w-4" /> Rúa Francisco Pizarro, Narón, A Coruña</div>
             <div className="flex items-center gap-2"><Star className="h-4 w-4 fill-current" /> 4.9/5 en Google</div>
           </div>
         </div>
@@ -286,7 +286,7 @@ const LePetitCan = () => {
                 <span className="text-sm font-semibold uppercase tracking-wider" style={{ color: pistachio[600] }}>Sobre Nosotros</span>
                 <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6" style={{ color: pistachio[900] }}>Amor por los animales desde el primer día</h2>
                 <p className="text-base mb-4" style={{ color: pistachio[700] }}>
-                  En <strong>Le Petit Can</strong> llevamos más de 10 años cuidando del bienestar y la estética de tus mascotas en Calella. 
+                  En <strong>Le Petit Can</strong> llevamos más de 10 años cuidando del bienestar y la estética de tus mascotas en Narón. 
                   Nuestro equipo está formado por profesionales titulados en peluquería canina con formación continua en las últimas técnicas y tendencias.
                 </p>
                 <p className="text-base mb-6" style={{ color: pistachio[700] }}>
@@ -480,7 +480,7 @@ const LePetitCan = () => {
                       </div>
                       <div>
                         <p className="text-xs" style={{ color: pistachio[500] }}>Dirección</p>
-                        <p className="font-medium" style={{ color: pistachio[900] }}>Calella, Barcelona</p>
+                        <p className="font-medium" style={{ color: pistachio[900] }}>Rúa Francisco Pizarro, 15570 Narón, A Coruña</p>
                       </div>
                     </div>
                   </div>
@@ -514,7 +514,7 @@ const LePetitCan = () => {
               </div>
               <div className="rounded-2xl overflow-hidden shadow-lg h-[400px] lg:h-auto">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.5!2d2.6536!3d41.6131!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12bb5c5f9e8d25f9%3A0x1234!2sCalella%2C+Barcelona!5e0!3m2!1ses!2ses!4v1"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.0!2d-8.1886!3d43.5267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sR%C3%BAa+Francisco+Pizarro%2C+15570+Nar%C3%B3n%2C+A+Coru%C3%B1a!5e0!3m2!1ses!2ses!4v1"
                   width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" title="Ubicación Le Petit Can"
                 />
               </div>
@@ -529,7 +529,7 @@ const LePetitCan = () => {
               <div className="flex items-center gap-2">
                 <PawPrint className="h-5 w-5" style={{ color: pistachio[400] }} />
                 <span className="font-bold text-white">Le Petit Can</span>
-                <span className="text-sm" style={{ color: pistachio[400] }}>· Peluquería Canina en Calella</span>
+                <span className="text-sm" style={{ color: pistachio[400] }}>· Peluquería Canina en Narón</span>
               </div>
               <p className="text-sm" style={{ color: pistachio[500] }}>© {new Date().getFullYear()} Le Petit Can. Todos los derechos reservados.</p>
             </div>
