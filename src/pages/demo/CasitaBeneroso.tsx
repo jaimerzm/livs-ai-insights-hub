@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { MapPin, Phone, Mail, Star, Wifi, Car, Coffee, TreePine, Mountain, UtensilsCrossed, Calendar, Users, ChevronDown, Menu, X, Heart, Shield, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Star, Wifi, Car, Coffee, TreePine, Mountain, UtensilsCrossed, Users, ChevronDown, Menu, X, Heart, Shield, Clock, PawPrint, Ban, Volume2, CalendarCheck, MessageCircle, ExternalLink, Navigation, BedDouble, Snowflake } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 import heroImg from '@/assets/demo/casita-beneroso-hero.jpg';
@@ -11,13 +11,21 @@ import natureImg from '@/assets/demo/casita-nature.jpg';
 import diningImg from '@/assets/demo/casita-dining.jpg';
 import poolImg from '@/assets/demo/casita-pool.jpg';
 
+const PHONE = '+34 675 76 31 92';
+const PHONE_CLEAN = '34675763192';
+const ADDRESS = 'C. Juan María De Castro, 12, 11180 Alcalá de los Gazules, Cádiz';
+const EMAIL = 'info@casitabeneroso.com';
+const WHATSAPP_MSG = encodeURIComponent('Hola, me gustaría consultar disponibilidad en La Casita Beneroso.');
+const MAPS_EMBED = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3220.0!2d-5.7261!3d36.4617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDI3JzQyLjEiTiA1wrA0Myc0MC4wIlc!5e0!3m2!1ses!2ses!4v1700000000000';
+const MAPS_LINK = 'https://maps.app.goo.gl/XN6uNtp1cVBL5j3dA';
+
 const NAV_LINKS = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Habitaciones', href: '#habitaciones' },
   { label: 'Servicios', href: '#servicios' },
   { label: 'Galería', href: '#galeria' },
   { label: 'Sobre Nosotros', href: '#nosotros' },
-  { label: 'Reservar', href: '#reservar' },
+  { label: 'Información', href: '#info' },
   { label: 'Contacto', href: '#contacto' },
 ];
 
@@ -28,7 +36,7 @@ const rooms = [
     description: 'Habitación doble con vigas de madera originales, baño privado y vistas al olivar. Perfecta para parejas que buscan romanticismo y tranquilidad.',
     capacity: '2 personas',
     price: '85€',
-    features: ['Cama King Size', 'Baño privado', 'Vistas al olivar', 'Calefacción'],
+    features: ['Cama King Size', 'Baño privado', 'Vistas al olivar', 'Calefacción', 'WiFi', 'Ropa de cama incluida'],
   },
   {
     name: 'Habitación La Piedra',
@@ -36,7 +44,7 @@ const rooms = [
     description: 'Encantadora habitación con muros de piedra vista, mobiliario rústico de época y ventana panorámica con vistas al valle.',
     capacity: '2 personas',
     price: '75€',
-    features: ['Cama doble', 'Piedra vista', 'Vistas al valle', 'Armario antiguo'],
+    features: ['Cama doble', 'Piedra vista', 'Vistas al valle', 'Armario antiguo', 'WiFi', 'Toallas incluidas'],
   },
   {
     name: 'Suite Familiar La Chimenea',
@@ -44,25 +52,47 @@ const rooms = [
     description: 'Amplia suite con chimenea de leña, zona de estar y capacidad para toda la familia. El refugio perfecto para noches frías.',
     capacity: '4 personas',
     price: '120€',
-    features: ['Chimenea', 'Zona de estar', 'Cama doble + sofá cama', 'Baño completo'],
+    features: ['Chimenea', 'Zona de estar', 'Cama doble + sofá cama', 'Baño completo', 'WiFi', 'Calefacción'],
   },
 ];
 
 const services = [
-  { icon: Coffee, title: 'Desayuno Casero', desc: 'Productos locales y recetas tradicionales cada mañana' },
-  { icon: Wifi, title: 'WiFi Gratuito', desc: 'Conexión en todas las instalaciones' },
+  { icon: Coffee, title: 'Desayuno Casero', desc: 'Productos locales y recetas tradicionales cada mañana, incluido en el precio' },
+  { icon: Wifi, title: 'WiFi Gratuito', desc: 'Conexión de alta velocidad en todas las instalaciones' },
   { icon: Car, title: 'Parking Privado', desc: 'Aparcamiento gratuito dentro de la finca' },
   { icon: TreePine, title: 'Jardín y Huerto', desc: 'Pasea por nuestros jardines y recoge frutas del huerto' },
-  { icon: Mountain, title: 'Rutas de Senderismo', desc: 'Guías y mapas de rutas cercanas disponibles' },
-  { icon: UtensilsCrossed, title: 'Cenas Especiales', desc: 'Bajo petición, cenas con productos de la tierra' },
+  { icon: Mountain, title: 'Rutas de Senderismo', desc: 'Guías y mapas de rutas por el Parque Natural de los Alcornocales' },
+  { icon: UtensilsCrossed, title: 'Cenas Especiales', desc: 'Bajo petición, cenas con productos de la tierra (15€/persona)' },
+  { icon: PawPrint, title: 'Pet Friendly', desc: 'Tus mascotas son bienvenidas (consultar condiciones)' },
+  { icon: BedDouble, title: 'Cuna y Trona', desc: 'Disponibles sin coste adicional para los más pequeños' },
+  { icon: Snowflake, title: 'Aire Acondicionado', desc: 'Climatización en todas las habitaciones' },
 ];
 
 const gallery = [heroImg, room1Img, room2Img, room3Img, natureImg, diningImg, poolImg];
 
 const testimonials = [
-  { name: 'María y Carlos', text: 'Un lugar mágico. Nos sentimos como en casa pero rodeados de naturaleza. Volveremos seguro.', rating: 5 },
-  { name: 'Familia López', text: 'Los niños disfrutaron muchísimo del huerto y los animales. Los desayunos son espectaculares.', rating: 5 },
-  { name: 'Ana García', text: 'Perfecto para desconectar. El silencio, las vistas y la amabilidad de los anfitriones. 10/10.', rating: 5 },
+  { name: 'María y Carlos', text: 'Un lugar mágico. Nos sentimos como en casa pero rodeados de naturaleza. Volveremos seguro.', rating: 5, date: 'Octubre 2024' },
+  { name: 'Familia López', text: 'Los niños disfrutaron muchísimo del huerto y los animales. Los desayunos son espectaculares.', rating: 5, date: 'Agosto 2024' },
+  { name: 'Ana García', text: 'Perfecto para desconectar. El silencio, las vistas y la amabilidad de los anfitriones. 10/10.', rating: 5, date: 'Septiembre 2024' },
+  { name: 'Peter & Sarah', text: 'A hidden gem in Andalusia. The hosts are incredibly warm and the setting is breathtaking.', rating: 5, date: 'July 2024' },
+];
+
+const nearbyAttractions = [
+  { name: 'Parque Natural de los Alcornocales', distance: '0 km (dentro del parque)', type: 'Naturaleza' },
+  { name: 'Alcalá de los Gazules (centro)', distance: '2 min en coche', type: 'Pueblo' },
+  { name: 'Ruta de los Pueblos Blancos', distance: '15 min', type: 'Turismo' },
+  { name: 'Playa de Bolonia (Tarifa)', distance: '45 min', type: 'Playa' },
+  { name: 'Jerez de la Frontera', distance: '50 min', type: 'Ciudad' },
+  { name: 'Cádiz capital', distance: '1h', type: 'Ciudad' },
+  { name: 'Gibraltar', distance: '1h', type: 'Turismo' },
+  { name: 'Ronda', distance: '1h 15 min', type: 'Pueblo' },
+];
+
+const houseRules = [
+  { icon: CalendarCheck, title: 'Check-in / Check-out', desc: 'Check-in: 15:00 - 21:00 · Check-out: antes de las 12:00. Horarios flexibles bajo petición.' },
+  { icon: Ban, title: 'Política de cancelación', desc: 'Cancelación gratuita hasta 7 días antes. Cancelaciones posteriores: 50% del importe. No-show: 100%.' },
+  { icon: PawPrint, title: 'Mascotas', desc: 'Se admiten mascotas pequeñas y medianas (máx. 15kg). Consultar al reservar. Suplemento de 10€/noche.' },
+  { icon: Volume2, title: 'Normas de convivencia', desc: 'Silencio a partir de las 23:00. No se permite fumar en el interior. Zona de fumadores en el jardín.' },
 ];
 
 const CasitaBeneroso = () => {
@@ -88,6 +118,15 @@ const CasitaBeneroso = () => {
     link.rel = 'stylesheet';
     link.href = 'https://botsupreme.lovable.app/chatbot-widget.css';
     document.head.appendChild(link);
+
+    // Position chatbot above WhatsApp button
+    const style = document.createElement('style');
+    style.textContent = `
+      #demo-chatbot-casita .chatbot-wrapper { position: fixed !important; bottom: 90px !important; right: 24px !important; z-index: 9998 !important; }
+      #demo-chatbot-casita .chatbot-toggle { position: relative !important; bottom: auto !important; right: auto !important; }
+      #demo-chatbot-casita .chatbot-window { bottom: 70px !important; right: 0 !important; }
+    `;
+    document.head.appendChild(style);
 
     // Load chatbot script
     const script = document.createElement('script');
@@ -164,25 +203,27 @@ const CasitaBeneroso = () => {
     document.body.appendChild(script);
 
     return () => {
-      // Cleanup: show default chatbot again, remove demo chatbot
       if (defaultChatbot) defaultChatbot.style.display = '';
       const demoContainer = document.getElementById(containerId);
       if (demoContainer) demoContainer.remove();
       link.remove();
       script.remove();
+      style.remove();
     };
   }, []);
-  const [reservaForm, setReservaForm] = useState({
+
+  const [contactForm, setContactForm] = useState({
     nombre: '', email: '', telefono: '', checkin: '', checkout: '', huespedes: '2', habitacion: '', mensaje: ''
   });
 
-  const handleReservaChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    setReservaForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  const handleContactChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setContactForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleReservaSubmit = (e: React.FormEvent) => {
+  const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('¡Gracias! Su solicitud de reserva ha sido recibida. Nos pondremos en contacto en menos de 24 horas.');
+    const text = `Hola, me gustaría consultar disponibilidad:\n- Nombre: ${contactForm.nombre}\n- Entrada: ${contactForm.checkin}\n- Salida: ${contactForm.checkout}\n- Huéspedes: ${contactForm.huespedes}\n- Habitación: ${contactForm.habitacion || 'Sin preferencia'}\n${contactForm.mensaje ? '- Mensaje: ' + contactForm.mensaje : ''}`;
+    window.open(`https://wa.me/${PHONE_CLEAN}?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   const scrollTo = (href: string) => {
@@ -194,12 +235,21 @@ const CasitaBeneroso = () => {
   return (
     <div className="min-h-screen" style={{ fontFamily: "'Georgia', 'Times New Roman', serif" }}>
       <Helmet>
-        <title>La Casita Beneroso | Alojamiento Rural con Encanto</title>
-        <meta name="description" content="Alojamiento rural con encanto en plena naturaleza. Habitaciones acogedoras, desayunos caseros y actividades al aire libre. Reserva tu escapada." />
+        <title>La Casita Beneroso | Alojamiento Rural en Alcalá de los Gazules, Cádiz</title>
+        <meta name="description" content="Alojamiento rural con encanto en Alcalá de los Gazules, Cádiz. Rodeado del Parque Natural de los Alcornocales. Desayuno casero incluido, parking gratuito. Reserva directa sin comisiones." />
         <meta name="robots" content="noindex, nofollow" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LodgingBusiness",
+          "name": "Alojamiento Rural La Casita Beneroso",
+          "address": { "@type": "PostalAddress", "streetAddress": "C. Juan María De Castro, 12", "addressLocality": "Alcalá de los Gazules", "postalCode": "11180", "addressRegion": "Cádiz", "addressCountry": "ES" },
+          "telephone": PHONE,
+          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "28" },
+          "priceRange": "75€ - 120€"
+        })}</script>
       </Helmet>
 
-      {/* Navbar */}
+      {/* Navbar with phone */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
           <button onClick={() => scrollTo('#inicio')} className="text-xl font-bold" style={{ color: '#5B3A29' }}>
@@ -211,10 +261,18 @@ const CasitaBeneroso = () => {
                 {l.label}
               </button>
             ))}
+            <a href={`tel:${PHONE}`} className="flex items-center gap-1.5 text-sm font-semibold px-3 py-1.5 rounded-full" style={{ backgroundColor: '#5B3A29', color: '#FFF' }}>
+              <Phone size={14} /> {PHONE}
+            </a>
           </div>
-          <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} style={{ color: '#5B3A29' }}>
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex items-center gap-3 md:hidden">
+            <a href={`tel:${PHONE}`} className="p-2 rounded-full" style={{ backgroundColor: '#5B3A29', color: '#FFF' }}>
+              <Phone size={18} />
+            </a>
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} style={{ color: '#5B3A29' }}>
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t px-4 py-3 space-y-2">
@@ -223,33 +281,47 @@ const CasitaBeneroso = () => {
                 {l.label}
               </button>
             ))}
+            <a href={`tel:${PHONE}`} className="block w-full text-center py-2.5 rounded-full text-white font-semibold text-sm mt-2" style={{ backgroundColor: '#5B3A29' }}>
+              📞 Llamar ahora: {PHONE}
+            </a>
           </div>
         )}
       </nav>
 
       {/* Hero */}
       <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden">
-        <img src={heroImg} alt="La Casita Beneroso" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={heroImg} alt="La Casita Beneroso - Alojamiento Rural en Alcalá de los Gazules" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
         <div className="absolute inset-0 bg-black/40" />
         <motion.div 
           initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}
           className="relative z-10 text-center text-white px-4 max-w-3xl"
         >
-          <p className="text-lg md:text-xl tracking-[0.3em] uppercase mb-4 opacity-90">Alojamiento Rural con Encanto</p>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6" style={{ fontFamily: "'Georgia', serif" }}>La Casita Beneroso</h1>
-          <p className="text-lg md:text-xl mb-8 opacity-90">Descubre la paz del campo, el calor de la chimenea y los sabores de la tierra en un rincón único</p>
+          <p className="text-lg md:text-xl tracking-[0.3em] uppercase mb-4 opacity-90">Alcalá de los Gazules · Cádiz</p>
+          <h1 className="text-5xl md:text-7xl font-bold mb-4" style={{ fontFamily: "'Georgia', serif" }}>La Casita Beneroso</h1>
+          <p className="text-base md:text-lg mb-2 opacity-90 flex items-center justify-center gap-2">
+            <Star size={18} fill="#D4A853" color="#D4A853" /> <span className="font-semibold">5.0</span> en Google · Parque Natural de los Alcornocales
+          </p>
+          <p className="text-lg md:text-xl mb-8 opacity-90">Desconecta en plena naturaleza. Desayuno casero incluido, trato directo y sin comisiones.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={() => scrollTo('#reservar')} className="px-8 py-3 rounded-full text-white font-semibold transition hover:opacity-90" style={{ backgroundColor: '#5B3A29' }}>
-              Reservar Ahora
-            </button>
+            <a href={`https://wa.me/${PHONE_CLEAN}?text=${WHATSAPP_MSG}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-8 py-3 rounded-full text-white font-semibold transition hover:opacity-90 text-lg" style={{ backgroundColor: '#25D366' }}>
+              <MessageCircle size={22} /> Consultar Disponibilidad
+            </a>
             <button onClick={() => scrollTo('#habitaciones')} className="px-8 py-3 rounded-full border-2 border-white text-white font-semibold hover:bg-white/20 transition">
               Ver Habitaciones
             </button>
           </div>
+          <p className="mt-4 text-sm opacity-75">📞 También puede llamar: {PHONE}</p>
         </motion.div>
         <button onClick={() => scrollTo('#habitaciones')} className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white animate-bounce">
           <ChevronDown size={32} />
         </button>
+      </section>
+
+      {/* Direct Booking Banner */}
+      <section className="py-4 px-4 text-center" style={{ backgroundColor: '#5B3A29' }}>
+        <p className="text-white text-sm md:text-base font-medium">
+          🏷️ <strong>Reserve directo y ahorre</strong> — Sin intermediarios, sin comisiones. Trato personal con el propietario.
+        </p>
       </section>
 
       {/* Intro */}
@@ -259,9 +331,10 @@ const CasitaBeneroso = () => {
             <p className="text-sm tracking-[0.2em] uppercase mb-3" style={{ color: '#8B6F47' }}>Bienvenidos</p>
             <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#5B3A29' }}>Un refugio donde el tiempo se detiene</h2>
             <p className="text-lg leading-relaxed" style={{ color: '#6B5B4E' }}>
-              Enclavada entre colinas verdes y olivares centenarios, La Casita Beneroso es una antigua casa de campo restaurada con 
-              mimo, conservando su esencia rústica y dotándola de todas las comodidades modernas. Aquí, cada amanecer trae consigo el 
-              canto de los pájaros, el aroma del pan recién horneado y la promesa de un día sin prisas.
+              Enclavada en el corazón de Alcalá de los Gazules, rodeada del Parque Natural de los Alcornocales, 
+              La Casita Beneroso es una antigua casa de campo restaurada con mimo, conservando su esencia rústica 
+              y dotándola de todas las comodidades modernas. Aquí, cada amanecer trae consigo el canto de los pájaros, 
+              el aroma del pan recién horneado y la promesa de un día sin prisas.
             </p>
           </motion.div>
         </div>
@@ -273,6 +346,7 @@ const CasitaBeneroso = () => {
           <div className="text-center mb-16">
             <p className="text-sm tracking-[0.2em] uppercase mb-3" style={{ color: '#8B6F47' }}>Alojamiento</p>
             <h2 className="text-3xl md:text-4xl font-bold" style={{ color: '#5B3A29' }}>Nuestras Habitaciones</h2>
+            <p className="mt-3 text-sm" style={{ color: '#6B5B4E' }}>Desayuno casero incluido en todas las habitaciones</p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {rooms.map((room, i) => (
@@ -284,7 +358,7 @@ const CasitaBeneroso = () => {
                 style={{ borderColor: '#E8DDD0' }}
               >
                 <div className="relative h-64 overflow-hidden">
-                  <img src={room.image} alt={room.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                  <img src={room.image} alt={room.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
                   <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-white text-sm font-semibold" style={{ backgroundColor: '#5B3A29' }}>
                     desde {room.price}/noche
                   </div>
@@ -300,9 +374,14 @@ const CasitaBeneroso = () => {
                       <span key={f} className="text-xs px-3 py-1 rounded-full" style={{ backgroundColor: '#FAF6F1', color: '#5B3A29' }}>{f}</span>
                     ))}
                   </div>
-                  <button onClick={() => scrollTo('#reservar')} className="w-full py-2.5 rounded-full text-white font-semibold text-sm transition hover:opacity-90" style={{ backgroundColor: '#5B3A29' }}>
-                    Reservar Esta Habitación
-                  </button>
+                  <a 
+                    href={`https://wa.me/${PHONE_CLEAN}?text=${encodeURIComponent(`Hola, me interesa la habitación "${room.name}" (${room.price}/noche). ¿Está disponible?`)}`}
+                    target="_blank" rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full py-2.5 rounded-full text-white font-semibold text-sm transition hover:opacity-90" 
+                    style={{ backgroundColor: '#25D366' }}
+                  >
+                    <MessageCircle size={16} /> Consultar Disponibilidad
+                  </a>
                 </div>
               </motion.div>
             ))}
@@ -317,18 +396,18 @@ const CasitaBeneroso = () => {
             <p className="text-sm tracking-[0.2em] uppercase mb-3" style={{ color: '#8B6F47' }}>Comodidades</p>
             <h2 className="text-3xl md:text-4xl font-bold" style={{ color: '#5B3A29' }}>Servicios e Instalaciones</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s, i) => (
               <motion.div 
                 key={s.title}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow text-center"
+                transition={{ delay: i * 0.08 }}
+                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow text-center"
               >
-                <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#FAF6F1' }}>
-                  <s.icon size={28} style={{ color: '#5B3A29' }} />
+                <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: '#FAF6F1' }}>
+                  <s.icon size={24} style={{ color: '#5B3A29' }} />
                 </div>
-                <h3 className="text-lg font-bold mb-2" style={{ color: '#5B3A29' }}>{s.title}</h3>
+                <h3 className="text-base font-bold mb-1" style={{ color: '#5B3A29' }}>{s.title}</h3>
                 <p className="text-sm" style={{ color: '#6B5B4E' }}>{s.desc}</p>
               </motion.div>
             ))}
@@ -352,7 +431,7 @@ const CasitaBeneroso = () => {
                 className={`overflow-hidden rounded-xl cursor-pointer ${i === 0 ? 'col-span-2 row-span-2' : ''}`}
                 onClick={() => setSelectedImage(img)}
               >
-                <img src={img} alt={`Galería ${i + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" style={{ minHeight: i === 0 ? '400px' : '200px' }} />
+                <img src={img} alt={`La Casita Beneroso - Foto ${i + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" loading="lazy" style={{ minHeight: i === 0 ? '400px' : '200px' }} />
               </motion.div>
             ))}
           </div>
@@ -371,25 +450,25 @@ const CasitaBeneroso = () => {
       <section id="nosotros" className="py-20 px-4" style={{ backgroundColor: '#FAF6F1' }}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <img src={diningImg} alt="Sobre nosotros" className="rounded-2xl shadow-lg w-full h-[400px] object-cover" />
+            <img src={diningImg} alt="Sobre nosotros - La Casita Beneroso" className="rounded-2xl shadow-lg w-full h-[400px] object-cover" loading="lazy" />
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <p className="text-sm tracking-[0.2em] uppercase mb-3" style={{ color: '#8B6F47' }}>Nuestra Historia</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#5B3A29' }}>Sobre Nosotros</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#5B3A29' }}>Quiénes Somos</h2>
             <p className="mb-4 leading-relaxed" style={{ color: '#6B5B4E' }}>
               La Casita Beneroso nació del sueño de una familia que decidió restaurar la casa de sus abuelos y compartirla 
               con el mundo. Cada piedra, cada viga y cada rincón cuenta una historia de generaciones.
             </p>
             <p className="mb-6 leading-relaxed" style={{ color: '#6B5B4E' }}>
-              Hoy, tras años de cuidadosa restauración, ofrecemos un espacio donde la autenticidad del campo se 
+              Hoy, tras años de cuidadosa restauración, ofrecemos un espacio donde la autenticidad del campo gaditano se 
               combina con el confort que mereces. Cultivamos nuestro propio huerto, elaboramos conservas artesanales 
               y nos esforzamos porque cada huésped se sienta parte de nuestra familia.
             </p>
             <div className="grid grid-cols-3 gap-4">
               {[
                 { icon: Heart, label: 'Con amor', sub: 'Atención personalizada' },
-                { icon: Shield, label: 'Confianza', sub: '+200 reseñas positivas' },
-                { icon: Clock, label: 'Desde 2015', sub: 'Años de experiencia' },
+                { icon: Star, label: '5.0 ★', sub: 'en Google Maps' },
+                { icon: Clock, label: 'Experiencia', sub: 'Años acogiendo viajeros' },
               ].map(item => (
                 <div key={item.label} className="text-center">
                   <item.icon size={24} className="mx-auto mb-2" style={{ color: '#5B3A29' }} />
@@ -406,10 +485,15 @@ const CasitaBeneroso = () => {
       <section className="py-20 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-sm tracking-[0.2em] uppercase mb-3" style={{ color: '#8B6F47' }}>Opiniones</p>
-            <h2 className="text-3xl md:text-4xl font-bold" style={{ color: '#5B3A29' }}>Lo Que Dicen Nuestros Huéspedes</h2>
+            <p className="text-sm tracking-[0.2em] uppercase mb-3" style={{ color: '#8B6F47' }}>Opiniones reales</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-2" style={{ color: '#5B3A29' }}>Lo Que Dicen Nuestros Huéspedes</h2>
+            <div className="flex items-center justify-center gap-2 mt-3">
+              <div className="flex gap-0.5">{Array.from({ length: 5 }).map((_, i) => <Star key={i} size={20} fill="#D4A853" color="#D4A853" />)}</div>
+              <span className="font-bold text-lg" style={{ color: '#5B3A29' }}>5.0</span>
+              <span className="text-sm" style={{ color: '#6B5B4E' }}>en Google</span>
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((t, i) => (
               <motion.div 
                 key={t.name}
@@ -420,104 +504,226 @@ const CasitaBeneroso = () => {
                 <div className="flex gap-1 mb-3">
                   {Array.from({ length: t.rating }).map((_, j) => <Star key={j} size={16} fill="#D4A853" color="#D4A853" />)}
                 </div>
-                <p className="text-sm mb-4 italic" style={{ color: '#6B5B4E' }}>"{t.text}"</p>
-                <p className="text-sm font-bold" style={{ color: '#5B3A29' }}>— {t.name}</p>
+                <p className="text-sm mb-4 italic leading-relaxed" style={{ color: '#6B5B4E' }}>"{t.text}"</p>
+                <div className="flex justify-between items-center">
+                  <p className="text-sm font-bold" style={{ color: '#5B3A29' }}>— {t.name}</p>
+                  <p className="text-xs" style={{ color: '#8B6F47' }}>{t.date}</p>
+                </div>
               </motion.div>
             ))}
+          </div>
+          <div className="text-center mt-8">
+            <a href={MAPS_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium hover:underline" style={{ color: '#5B3A29' }}>
+              Ver todas las reseñas en Google Maps <ExternalLink size={14} />
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Reservation */}
-      <section id="reservar" className="py-20 px-4" style={{ backgroundColor: '#5B3A29' }}>
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-sm tracking-[0.2em] uppercase mb-3" style={{ color: '#D4A853' }}>Reservas</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Reserve Su Estancia</h2>
-            <p className="text-white/80">Complete el formulario y le confirmaremos la disponibilidad en menos de 24 horas</p>
+      {/* Info Section: House Rules + Nearby + How to Get There */}
+      <section id="info" className="py-20 px-4" style={{ backgroundColor: '#FAF6F1' }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-sm tracking-[0.2em] uppercase mb-3" style={{ color: '#8B6F47' }}>Información práctica</p>
+            <h2 className="text-3xl md:text-4xl font-bold" style={{ color: '#5B3A29' }}>Todo Lo Que Necesita Saber</h2>
           </div>
-          <form onSubmit={handleReservaSubmit} className="bg-white rounded-2xl p-8 shadow-xl">
+
+          {/* House Rules */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold mb-6 text-center" style={{ color: '#5B3A29' }}>📋 Normas de la Casa</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {houseRules.map((rule, i) => (
+                <motion.div 
+                  key={rule.title}
+                  initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-white rounded-xl p-6 shadow-sm flex gap-4"
+                >
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#FAF6F1' }}>
+                    <rule.icon size={20} style={{ color: '#5B3A29' }} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold mb-1" style={{ color: '#5B3A29' }}>{rule.title}</h4>
+                    <p className="text-sm" style={{ color: '#6B5B4E' }}>{rule.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Nearby Attractions */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold mb-6 text-center" style={{ color: '#5B3A29' }}>📍 Qué Ver Cerca</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {nearbyAttractions.map((place, i) => (
+                <motion.div 
+                  key={place.name}
+                  initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                  transition={{ delay: i * 0.06 }}
+                  className="bg-white rounded-xl p-5 shadow-sm"
+                >
+                  <span className="text-xs px-2 py-0.5 rounded-full mb-2 inline-block" style={{ backgroundColor: '#FAF6F1', color: '#8B6F47' }}>{place.type}</span>
+                  <h4 className="font-bold text-sm mb-1" style={{ color: '#5B3A29' }}>{place.name}</h4>
+                  <p className="text-xs flex items-center gap-1" style={{ color: '#6B5B4E' }}>
+                    <Navigation size={12} /> {place.distance}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* How to Get There */}
+          <div>
+            <h3 className="text-2xl font-bold mb-6 text-center" style={{ color: '#5B3A29' }}>🚗 Cómo Llegar</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white rounded-xl p-6 shadow-sm text-center">
+                <Car size={28} className="mx-auto mb-3" style={{ color: '#5B3A29' }} />
+                <h4 className="font-bold mb-2" style={{ color: '#5B3A29' }}>En coche</h4>
+                <p className="text-sm" style={{ color: '#6B5B4E' }}>Desde Cádiz: 1h por A-381. Desde Sevilla: 1h 30 min por A-375. Parking gratuito en la finca.</p>
+              </div>
+              <div className="bg-white rounded-xl p-6 shadow-sm text-center">
+                <MapPin size={28} className="mx-auto mb-3" style={{ color: '#5B3A29' }} />
+                <h4 className="font-bold mb-2" style={{ color: '#5B3A29' }}>Dirección</h4>
+                <p className="text-sm mb-2" style={{ color: '#6B5B4E' }}>{ADDRESS}</p>
+                <a href={MAPS_LINK} target="_blank" rel="noopener noreferrer" className="text-xs font-medium inline-flex items-center gap-1 hover:underline" style={{ color: '#5B3A29' }}>
+                  Abrir en Google Maps <ExternalLink size={12} />
+                </a>
+              </div>
+              <div className="bg-white rounded-xl p-6 shadow-sm text-center">
+                <Phone size={28} className="mx-auto mb-3" style={{ color: '#5B3A29' }} />
+                <h4 className="font-bold mb-2" style={{ color: '#5B3A29' }}>¿Se pierde?</h4>
+                <p className="text-sm mb-2" style={{ color: '#6B5B4E' }}>No se preocupe, llámenos y le guiamos hasta la puerta.</p>
+                <a href={`tel:${PHONE}`} className="text-sm font-semibold hover:underline" style={{ color: '#5B3A29' }}>{PHONE}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Google Maps Embed */}
+      <section className="w-full">
+        <iframe 
+          src={MAPS_EMBED}
+          width="100%" 
+          height="350" 
+          style={{ border: 0 }} 
+          allowFullScreen 
+          loading="lazy" 
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Ubicación de La Casita Beneroso en Google Maps"
+        />
+      </section>
+
+      {/* Contact / Reservation */}
+      <section id="contacto" className="py-20 px-4" style={{ backgroundColor: '#5B3A29' }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-sm tracking-[0.2em] uppercase mb-3" style={{ color: '#D4A853' }}>Contacto y Reservas</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Consulte Disponibilidad</h2>
+            <p className="text-white/80 max-w-2xl mx-auto">
+              Contacte directamente con nosotros por WhatsApp, teléfono o el formulario. 
+              <strong> Sin intermediarios, sin comisiones.</strong> Le respondemos en menos de 1 hora.
+            </p>
+          </div>
+
+          {/* Quick contact buttons */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+            <a href={`https://wa.me/${PHONE_CLEAN}?text=${WHATSAPP_MSG}`} target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 py-4 rounded-xl text-white font-semibold text-lg transition hover:opacity-90"
+              style={{ backgroundColor: '#25D366' }}>
+              <MessageCircle size={24} /> WhatsApp
+            </a>
+            <a href={`tel:${PHONE}`} className="flex items-center justify-center gap-3 py-4 rounded-xl text-white font-semibold text-lg border-2 border-white/30 hover:bg-white/10 transition">
+              <Phone size={24} /> {PHONE}
+            </a>
+            <a href={`mailto:${EMAIL}`} className="flex items-center justify-center gap-3 py-4 rounded-xl text-white font-semibold text-lg border-2 border-white/30 hover:bg-white/10 transition">
+              <Mail size={24} /> Email
+            </a>
+          </div>
+
+          {/* Contact form that sends to WhatsApp */}
+          <form onSubmit={handleContactSubmit} className="bg-white rounded-2xl p-8 shadow-xl">
+            <h3 className="text-xl font-bold mb-1 text-center" style={{ color: '#5B3A29' }}>Formulario de consulta</h3>
+            <p className="text-sm text-center mb-6" style={{ color: '#6B5B4E' }}>Al enviar, se abrirá WhatsApp con su consulta lista para enviar</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-medium mb-1" style={{ color: '#5B3A29' }}>Nombre completo *</label>
-                <input name="nombre" required value={reservaForm.nombre} onChange={handleReservaChange} className="w-full px-4 py-2.5 rounded-lg border text-sm" style={{ borderColor: '#E8DDD0' }} />
+                <input name="nombre" required value={contactForm.nombre} onChange={handleContactChange} className="w-full px-4 py-2.5 rounded-lg border text-sm" style={{ borderColor: '#E8DDD0' }} />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1" style={{ color: '#5B3A29' }}>Email *</label>
-                <input name="email" type="email" required value={reservaForm.email} onChange={handleReservaChange} className="w-full px-4 py-2.5 rounded-lg border text-sm" style={{ borderColor: '#E8DDD0' }} />
+                <label className="block text-sm font-medium mb-1" style={{ color: '#5B3A29' }}>Email</label>
+                <input name="email" type="email" value={contactForm.email} onChange={handleContactChange} className="w-full px-4 py-2.5 rounded-lg border text-sm" style={{ borderColor: '#E8DDD0' }} />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1" style={{ color: '#5B3A29' }}>Teléfono</label>
-                <input name="telefono" value={reservaForm.telefono} onChange={handleReservaChange} className="w-full px-4 py-2.5 rounded-lg border text-sm" style={{ borderColor: '#E8DDD0' }} />
+                <input name="telefono" value={contactForm.telefono} onChange={handleContactChange} className="w-full px-4 py-2.5 rounded-lg border text-sm" style={{ borderColor: '#E8DDD0' }} />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1" style={{ color: '#5B3A29' }}>Habitación preferida</label>
-                <select name="habitacion" value={reservaForm.habitacion} onChange={handleReservaChange} className="w-full px-4 py-2.5 rounded-lg border text-sm" style={{ borderColor: '#E8DDD0' }}>
-                  <option value="">Seleccione...</option>
+                <select name="habitacion" value={contactForm.habitacion} onChange={handleContactChange} className="w-full px-4 py-2.5 rounded-lg border text-sm" style={{ borderColor: '#E8DDD0' }}>
+                  <option value="">Sin preferencia</option>
                   {rooms.map(r => <option key={r.name} value={r.name}>{r.name} ({r.price}/noche)</option>)}
                 </select>
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1" style={{ color: '#5B3A29' }}>Fecha de entrada *</label>
-                <input name="checkin" type="date" required value={reservaForm.checkin} onChange={handleReservaChange} className="w-full px-4 py-2.5 rounded-lg border text-sm" style={{ borderColor: '#E8DDD0' }} />
+                <input name="checkin" type="date" required value={contactForm.checkin} onChange={handleContactChange} className="w-full px-4 py-2.5 rounded-lg border text-sm" style={{ borderColor: '#E8DDD0' }} />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1" style={{ color: '#5B3A29' }}>Fecha de salida *</label>
-                <input name="checkout" type="date" required value={reservaForm.checkout} onChange={handleReservaChange} className="w-full px-4 py-2.5 rounded-lg border text-sm" style={{ borderColor: '#E8DDD0' }} />
+                <input name="checkout" type="date" required value={contactForm.checkout} onChange={handleContactChange} className="w-full px-4 py-2.5 rounded-lg border text-sm" style={{ borderColor: '#E8DDD0' }} />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1" style={{ color: '#5B3A29' }}>Número de huéspedes</label>
-                <select name="huespedes" value={reservaForm.huespedes} onChange={handleReservaChange} className="w-full px-4 py-2.5 rounded-lg border text-sm" style={{ borderColor: '#E8DDD0' }}>
+                <select name="huespedes" value={contactForm.huespedes} onChange={handleContactChange} className="w-full px-4 py-2.5 rounded-lg border text-sm" style={{ borderColor: '#E8DDD0' }}>
                   {[1,2,3,4,5,6].map(n => <option key={n} value={n}>{n} {n===1?'persona':'personas'}</option>)}
                 </select>
               </div>
             </div>
             <div className="mt-6">
               <label className="block text-sm font-medium mb-1" style={{ color: '#5B3A29' }}>Comentarios o peticiones especiales</label>
-              <textarea name="mensaje" rows={3} value={reservaForm.mensaje} onChange={handleReservaChange} className="w-full px-4 py-2.5 rounded-lg border text-sm" style={{ borderColor: '#E8DDD0' }} />
+              <textarea name="mensaje" rows={3} value={contactForm.mensaje} onChange={handleContactChange} className="w-full px-4 py-2.5 rounded-lg border text-sm" style={{ borderColor: '#E8DDD0' }} placeholder="Ej: Viajamos con mascota, necesitamos cuna..." />
             </div>
-            <button type="submit" className="mt-6 w-full py-3 rounded-full text-white font-semibold text-lg transition hover:opacity-90" style={{ backgroundColor: '#5B3A29' }}>
-              Solicitar Reserva
+            <button type="submit" className="mt-6 w-full py-3 rounded-full text-white font-semibold text-lg transition hover:opacity-90 flex items-center justify-center gap-2" style={{ backgroundColor: '#25D366' }}>
+              <MessageCircle size={22} /> Enviar Consulta por WhatsApp
             </button>
+            <p className="text-center text-xs mt-3" style={{ color: '#8B6F47' }}>
+              También puede llamar directamente al <a href={`tel:${PHONE}`} className="font-semibold underline" style={{ color: '#5B3A29' }}>{PHONE}</a>
+            </p>
           </form>
         </div>
-      </section>
-
-      {/* Contact */}
-      <section id="contacto" className="py-20 px-4 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-sm tracking-[0.2em] uppercase mb-3" style={{ color: '#8B6F47' }}>Contacto</p>
-            <h2 className="text-3xl md:text-4xl font-bold" style={{ color: '#5B3A29' }}>¿Tiene Alguna Pregunta?</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            {[
-              { icon: MapPin, title: 'Dirección', info: 'Camino de Beneroso s/n, 29100\nMálaga, Andalucía' },
-              { icon: Phone, title: 'Teléfono', info: '+34 612 345 678\nLlamadas y WhatsApp' },
-              { icon: Mail, title: 'Email', info: 'info@casitabeneroso.com\nReservas y consultas' },
-            ].map(c => (
-              <div key={c.title} className="p-8 rounded-2xl" style={{ backgroundColor: '#FAF6F1' }}>
-                <c.icon size={32} className="mx-auto mb-4" style={{ color: '#5B3A29' }} />
-                <h3 className="font-bold mb-2" style={{ color: '#5B3A29' }}>{c.title}</h3>
-                <p className="text-sm whitespace-pre-line" style={{ color: '#6B5B4E' }}>{c.info}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Map placeholder */}
-      <section className="h-64 bg-gray-200 flex items-center justify-center">
-        <p className="text-gray-500 text-sm">📍 Mapa interactivo — Integración con Google Maps disponible</p>
       </section>
 
       {/* Footer */}
       <footer className="py-10 px-4 text-center text-white" style={{ backgroundColor: '#3A2518' }}>
         <p className="text-xl font-bold mb-2">🏡 La Casita Beneroso</p>
-        <p className="text-sm opacity-70 mb-4">Alojamiento Rural con Encanto · Málaga, Andalucía</p>
+        <p className="text-sm opacity-80 mb-1">Alojamiento Rural con Encanto</p>
+        <p className="text-sm opacity-70 mb-1">{ADDRESS}</p>
+        <p className="text-sm opacity-70 mb-4">
+          <a href={`tel:${PHONE}`} className="hover:underline">{PHONE}</a> · <a href={`mailto:${EMAIL}`} className="hover:underline">{EMAIL}</a>
+        </p>
+        <div className="flex justify-center gap-4 mb-6">
+          <a href={`https://wa.me/${PHONE_CLEAN}?text=${WHATSAPP_MSG}`} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full text-sm font-semibold text-white flex items-center gap-2 hover:opacity-90 transition" style={{ backgroundColor: '#25D366' }}>
+            <MessageCircle size={16} /> WhatsApp
+          </a>
+          <a href={MAPS_LINK} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full text-sm font-semibold text-white flex items-center gap-2 border border-white/30 hover:bg-white/10 transition">
+            <MapPin size={16} /> Google Maps
+          </a>
+        </div>
         <p className="text-xs opacity-50">© {new Date().getFullYear()} La Casita Beneroso. Todos los derechos reservados.</p>
-        <p className="text-xs opacity-40 mt-2">Demo creada por <span className="font-semibold">LIVS</span> — Soluciones Web con IA</p>
       </footer>
+
+      {/* Floating WhatsApp Button */}
+      <a 
+        href={`https://wa.me/${PHONE_CLEAN}?text=${WHATSAPP_MSG}`} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-[9999] w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+        style={{ backgroundColor: '#25D366' }}
+        aria-label="Contactar por WhatsApp"
+      >
+        <MessageCircle size={28} color="white" />
+      </a>
     </div>
   );
 };
