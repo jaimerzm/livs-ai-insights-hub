@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Phone, BrainCircuit, Code, Video, GraduationCap, Users, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Phone, BrainCircuit, Code, Video, GraduationCap, Users, ArrowRight, CheckCircle2, MessageCircle, CalendarCheck } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
@@ -37,6 +37,16 @@ const ServicesSection = () => {
 
   // Servicios complementarios
   const complementaryServices = [
+    {
+      icon: <CalendarCheck className="h-8 w-8 text-livs-purple" />,
+      title: "Sistema de Reservas Online",
+      description: "Implementamos sistemas de reservas integrados en tu web para que tus clientes reserven citas, mesas o servicios 24/7 sin intermediarios ni comisiones.",
+    },
+    {
+      icon: <MessageCircle className="h-8 w-8 text-livs-purple" />,
+      title: "Chatbot conectado a WhatsApp",
+      description: "Conectamos el chatbot de tu negocio directamente a WhatsApp para que atienda a tus clientes en el canal que ya usan, con respuestas automáticas e inteligentes.",
+    },
     {
       icon: <Code className="h-8 w-8 text-livs-purple" />,
       title: "+ Servicios adaptados a tu negocio",
@@ -194,7 +204,7 @@ const ServicesSection = () => {
             <span className="w-12 h-px bg-livs-purple/30"></span>
           </h3>
           
-          <div className="grid grid-cols-1 gap-6 max-w-xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {complementaryServices.map((service, index) => (
               <Card key={index} className="border border-livs-gray bg-white hover:shadow-md transition-shadow">
                 <CardContent className="p-6">
