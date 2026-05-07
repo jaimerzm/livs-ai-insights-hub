@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { motion } from 'framer-motion';
+import whatsappIcon from '@/assets/whatsapp-icon.png';
 
 const ServicesSection = () => {
   // Servicios principales - Automatización
@@ -43,7 +44,7 @@ const ServicesSection = () => {
       description: "Implementamos sistemas de reservas integrados en tu web para que tus clientes reserven citas, mesas o servicios 24/7 sin intermediarios ni comisiones.",
     },
     {
-      icon: <MessageCircle className="h-8 w-8 text-livs-purple" />,
+      icon: <img src={whatsappIcon} alt="WhatsApp" className="h-8 w-8 object-contain" />,
       title: "Chatbot conectado a WhatsApp",
       description: "Conectamos el chatbot de tu negocio directamente a WhatsApp para que atienda a tus clientes en el canal que ya usan, con respuestas automáticas e inteligentes.",
     },
